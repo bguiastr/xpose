@@ -11,6 +11,11 @@ sum_out <- function(sum_fun, prob = 1) {
   as.character(sum_fun[prob, c('label', 'value')])
 }
 
+# Handle differences across R versions
+eta_shk_string <- ifelse(getRversion() >= "4.0.0", 
+                         yes = "9.33 [1], 28.72 [2], 23.65 [3]",
+                         no  = "9.33 [1], 28.71 [2], 23.65 [3]")
+
 # Tests start here --------------------------------------------------------
 
 test_that('summary is properly created with the appropriate information', {
@@ -52,7 +57,7 @@ test_that('summary is properly created with the appropriate information', {
                                                         code = 'METH=0', comment = ''), software), 1), c('method', 'fo'))
   expect_equal(sum_out(sum_method(model, software), 2), c('method', 'sim'))
   expect_equal(sum_out(sum_shk(model, software, 'eps', rounding)), c('epsshk', '14.86 [1]'))
-  expect_equal(sum_out(sum_shk(model, software, 'eta', rounding)), c('etashk', '9.33 [1], 28.71 [2], 23.65 [3]'))
+  expect_equal(sum_out(sum_shk(model, software, 'eta', rounding)), c('etashk', eta_shk_string))
 })
 
 test_that('summary default summary is returned for missing information', {

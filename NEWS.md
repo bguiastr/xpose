@@ -1,3 +1,6 @@
+# xpose 0.4.6
+* Updated tests for compatibility with R 4.0.0
+
 # xpose 0.4.5
 ## General
 * The `gg_theme` argument in `xpose_data`, `update_themes` or plots now accepts a function returning a complete ggplot2 theme. In addition theme `gg_theme` can now accept theme elements in `update_themes` and plots. (#157)
