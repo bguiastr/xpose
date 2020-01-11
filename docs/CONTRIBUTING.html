@@ -78,7 +78,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.6</span>
       </span>
     </div>
 
@@ -174,11 +174,11 @@
 <a href="#submitting-issues" class="anchor"></a>Submitting issues</h2>
 <p>Before posting a new issue, please check that it has not already been posted.</p>
 <ul>
-<li>For <strong>feature requests</strong> make sure to include sufficient information, such as a proposed workflow, plots images, links to posters or publications describing a method, etc.</li>
+<li><p>For <strong>feature requests</strong> make sure to include sufficient information, such as a proposed workflow, plots images, links to posters or publications describing a method, etc.</p></li>
 <li>
 <p>For <strong>reporting a bug</strong>, the most important thing is to include a minimal reproducible example so that we can quickly verify your problem, and figure out how to fix it. To make your example reproducible:</p>
 <ul>
-<li>Attach files such as the NONMEM output files or an xpdb saved as <em>.Rdata</em> (i.e. <code><a href="https://rdrr.io/r/base/save.html">save(xpdb, "xpdb_error.Rdata")</a></code>). Note, you can use the arguments <code>ignore</code> and/or <code>extra_files</code> of <code><a href="reference/xpose_data.html">xpose_data()</a></code> to reduce the size of the xpdb whenever needed.</li>
+<li>Attach files such as the NONMEM output files or an xpdb saved as <em>.Rdata</em> (i.e. <code><a href="https://rdrr.io/r/base/save.html">save(xpdb, "xpdb_error.Rdata")</a></code>). Note, you can use the arguments <code>ignore</code> and/or <code>extra_files</code> of <code><a href="reference/xpose_data.html">xpose_data()</a></code> to reduce the size of the xpdb whenever needed.</li>
 <li>Include the R code that created the error. Ensure that your code is clear, well commented and as small as necessary to reproduce the error.</li>
 <li>Include the error message.</li>
 <li>Include information on your R session using <code><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo()</a></code>.</li>
@@ -193,8 +193,7 @@
 <p><em>Note 1: before getting started with a pull request, we strongly encourage you follow the procedure described above for <strong>feature requests</strong> and/or <strong>reporting a bug</strong> to ensure that your project is compatible with the our xpose road-map.</em></p>
 <p><em>Note 2: if you are unfamiliar with the development of R packages, please take some time to read the <a href="http://r-pkgs.had.co.nz">R packages</a> book by Hadley Wickham.</em></p>
 <ol>
-<li>
-<a href="https://github.com/UUPharmacometrics/xpose/fork">Fork</a> the xpose repository.</li>
+<li><p><a href="https://github.com/UUPharmacometrics/xpose/fork">Fork</a> the xpose repository.</p></li>
 <li>
 <p>Make the changes to the code on your fork.</p>
 <ul>
@@ -205,11 +204,10 @@
 <li>New plots should be created using the generic <code><a href="reference/xplot_scatter.html">xplot_scatter()</a></code>, <code><a href="reference/xplot_distrib.html">xplot_distrib()</a></code> or <code><a href="reference/xplot_qq.html">xplot_qq()</a></code>. Check for example the code of <em>R/plot_gof.R</em> to see how it should be done.</li>
 <li>General utility functions should be added under <em>R/utils.R</em> and plot utility functions under <em>R/xplot_helpers.R</em>.</li>
 <li>Use functions from the tidyverse (e.g. dplyr, tidyr, stringr, etc.) whenever possible.</li>
-<li>Add a brief description of your contribution to <em>NEWS.md</em> using bullets. Make sure to list it under the most recent xpose version and to add your name as (<code>@&lt;your_github_username&gt;</code>). e.g. <code>* Added support for multiple pages plots (@guiastrennec)</code>. In addition, if your pull request addresses one or several issues, please reference them using the # sign e.g. <code>* Added support for multiple pages plots (@guiastrennec, #3)</code>
-</li>
+<li>Add a brief description of your contribution to <em>NEWS.md</em> using bullets. Make sure to list it under the most recent xpose version and to add your name as (<code>@&lt;your_github_username&gt;</code>). e.g. `* Added support for multiple pages plots (@guiastrennec)<code>. In addition, if your pull request addresses one or several issues, please reference them using the # sign e.g.</code>* Added support for multiple pages plots (@guiastrennec, #3)`</li>
 </ul>
 </li>
-<li>Run <code><a href="https://rdrr.io/pkg/devtools/man/check.html">devtools::check()</a></code> on your fork and ensure the absence of any errors, warnings and notes.</li>
+<li><p>Run <code><a href="https://rdrr.io/pkg/devtools/man/check.html">devtools::check()</a></code> on your fork and ensure the absence of any errors, warnings and notes.</p></li>
 <li>
 <p>Create a pull request to the <strong>dev branch</strong> of the <strong>UUPharmacometrics/xpose</strong> repository.</p>
 <ul>

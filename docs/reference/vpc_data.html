@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.6</span>
       </span>
     </div>
 
@@ -173,9 +173,17 @@
     <p>Generate visual predictive checks (VPC) data</p>
     </div>
 
-    <pre class="usage"><span class='fu'>vpc_data</span>(<span class='no'>xpdb</span>, <span class='no'>opt</span>, <span class='no'>stratify</span>, <span class='kw'>vpc_type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"continuous"</span>, <span class='st'>"categorical"</span>,
-  <span class='st'>"censored"</span>, <span class='st'>"time-to-event"</span>), <span class='kw'>psn_folder</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>psn_bins</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>obs_problem</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>sim_problem</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>quiet</span>)</pre>
+    <pre class="usage"><span class='fu'>vpc_data</span>(
+  <span class='no'>xpdb</span>,
+  <span class='no'>opt</span>,
+  <span class='no'>stratify</span>,
+  <span class='kw'>vpc_type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"continuous"</span>, <span class='st'>"categorical"</span>, <span class='st'>"censored"</span>, <span class='st'>"time-to-event"</span>),
+  <span class='kw'>psn_folder</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>psn_bins</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>obs_problem</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>sim_problem</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='no'>quiet</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

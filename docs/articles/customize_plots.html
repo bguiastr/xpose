@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.6</span>
       </span>
     </div>
 
@@ -121,13 +121,13 @@
 
       
 
-      </header><div class="row">
+      </header><script src="customize_plots_files/jquery-1.11.3/jquery.min.js"></script><script src="customize_plots_files/elevate-section-attrs-2.0/elevate-section-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Customize plots</h1>
                         <h4 class="author">Benjamin Guiastrennec</h4>
             
-            <h4 class="date">04 October, 2019</h4>
+            <h4 class="date">11 January, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/UUPharmacometrics/xpose/blob/master/vignettes/customize_plots.Rmd"><code>vignettes/customize_plots.Rmd</code></a></small>
       <div class="hidden name"><code>customize_plots.Rmd</code></div>
@@ -162,38 +162,38 @@
 <div id="visual-guide" class="section level3">
 <h3 class="hasAnchor">
 <a href="#visual-guide" class="anchor"></a>Visual guide</h3>
-<p>The option <code>guide</code> can enable (<code>TRUE</code>) or disable (<code>FALSE</code>) the visual guide on the graphs such as the line of identity on the <code><a href="../reference/dv_vs_pred.html">dv_vs_ipred()</a></code> type plot or horizontal lines on residual plots (e.g. <code><a href="../reference/res_vs_idv.html">res_vs_idv()</a></code>).</p>
+<p>The option <code>guide</code> can enable (<code>TRUE</code>) or disable (<code>FALSE</code>) the visual guide on the graphs such as the line of identity on the <code><a href="../reference/dv_vs_pred.html">dv_vs_ipred()</a></code> type plot or horizontal lines on residual plots (e.g. <code><a href="../reference/res_vs_idv.html">res_vs_idv()</a></code>).</p>
 </div>
 <div id="labels" class="section level3">
 <h3 class="hasAnchor">
 <a href="#labels" class="anchor"></a>Labels</h3>
-<p>All xpose plots have by default an informative title, subtitle and caption. For example all plots using individual model predictions (IPRED) will display the epsilons’ shrinkage. These titles can easily be edited as templates using <span class="citation">@keywords</span> which will be replaced by their actual value stored in the summary level of the <code>xpdb</code> object when rendering the plots. Keywords are defined by a word preceded by a <code>@</code> e.g. <code>'@ofv'</code>. A list of all available keyword can be accessed via <code><a href="https://rdrr.io/r/utils/help.html">help('template_titles')</a></code>. The title, subtitle or caption can be disabled by setting them to <code>NULL</code>. Suffix can be automatically added to title, subtitle and caption of all plots. The suffixes can be defined in the <code>xp_theme</code>.</p>
+<p>All xpose plots have by default an informative title, subtitle and caption. For example all plots using individual model predictions (IPRED) will display the epsilons’ shrinkage. These titles can easily be edited as templates using <span class="citation">@keywords</span> which will be replaced by their actual value stored in the summary level of the <code>xpdb</code> object when rendering the plots. Keywords are defined by a word preceded by a <code>@</code> e.g. <code>'@ofv'</code>. A list of all available keyword can be accessed via <code><a href="https://rdrr.io/r/utils/help.html">help('template_titles')</a></code>. The title, subtitle or caption can be disabled by setting them to <code>NULL</code>. Suffix can be automatically added to title, subtitle and caption of all plots. The suffixes can be defined in the <code>xp_theme</code>.</p>
 <div id="from-the-plot-functions" class="section level4">
 <h4 class="hasAnchor">
 <a href="#from-the-plot-functions" class="anchor"></a>From the plot functions</h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Using template titles</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb,</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">            <span class="dt">title    =</span> <span class="st">'@y vs. @x (@run, obj: @ofv)'</span>,</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">            <span class="dt">subtitle =</span> <span class="st">'Based on: @nind subjects and @nobs records'</span>,</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">            <span class="dt">caption  =</span> <span class="st">'Dir: @dir'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Using template titles</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb,</span>
+<span id="cb1-3"><a href="#cb1-3"></a>            <span class="dt">title    =</span> <span class="st">'@y vs. @x (@run, obj: @ofv)'</span>,</span>
+<span id="cb1-4"><a href="#cb1-4"></a>            <span class="dt">subtitle =</span> <span class="st">'Based on: @nind subjects and @nobs records'</span>,</span>
+<span id="cb1-5"><a href="#cb1-5"></a>            <span class="dt">caption  =</span> <span class="st">'Dir: @dir'</span>)</span></code></pre></div>
 <p><img src="customize_plots_files/figure-html/demo%20titles-1.png" width="50%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># Disabling all titles</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">title =</span> <span class="ot">NULL</span>, <span class="dt">subtitle =</span> <span class="ot">NULL</span>, <span class="dt">caption =</span> <span class="ot">NULL</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Disabling all titles</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">title =</span> <span class="ot">NULL</span>, <span class="dt">subtitle =</span> <span class="ot">NULL</span>, <span class="dt">caption =</span> <span class="ot">NULL</span>)</span></code></pre></div>
 <p><img src="customize_plots_files/figure-html/demo%20titles-2.png" width="50%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Edit title suffix from the xp_theme for a specific plot</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">title =</span> <span class="st">'A title'</span>, <span class="dt">xp_theme =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">title_suffix =</span> <span class="st">' | a suffix for @run'</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Edit title suffix from the xp_theme for a specific plot</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">title =</span> <span class="st">'A title'</span>, <span class="dt">xp_theme =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">title_suffix =</span> <span class="st">' | a suffix for @run'</span>))</span></code></pre></div>
 <p><img src="customize_plots_files/figure-html/demo%20titles-3.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
 <div id="using-the-labs-function" class="section level4">
 <h4 class="hasAnchor">
 <a href="#using-the-labs-function" class="anchor"></a>Using the <code>labs</code> function</h4>
 <p>Labels can also modified later on by using the <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggplot2::labs()</a></code> function in combination with the ggplot2 <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> operator.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title    =</span> <span class="st">'@descr'</span>,</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">       <span class="dt">subtitle =</span> <span class="ot">NULL</span>,</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">       <span class="dt">caption  =</span> <span class="st">'Based on @nobs observations'</span>,</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">       <span class="dt">x        =</span> <span class="st">'Individual model predictions (@x)'</span>,</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">       <span class="dt">y        =</span> <span class="st">'Observations (@y) for @nind subjects'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb) <span class="op">+</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title    =</span> <span class="st">'@descr'</span>,</span>
+<span id="cb4-3"><a href="#cb4-3"></a>       <span class="dt">subtitle =</span> <span class="ot">NULL</span>,</span>
+<span id="cb4-4"><a href="#cb4-4"></a>       <span class="dt">caption  =</span> <span class="st">'Based on @nobs observations'</span>,</span>
+<span id="cb4-5"><a href="#cb4-5"></a>       <span class="dt">x        =</span> <span class="st">'Individual model predictions (@x)'</span>,</span>
+<span id="cb4-6"><a href="#cb4-6"></a>       <span class="dt">y        =</span> <span class="st">'Observations (@y) for @nind subjects'</span>)</span></code></pre></div>
 <p><img src="customize_plots_files/figure-html/demo%20xpose_labs-1.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
 </div>
@@ -202,18 +202,18 @@
 <a href="#modify-aesthetics" class="anchor"></a>Modify aesthetics</h3>
 <p>By default the aesthetics are read from the <code>xp_theme</code> level in the xpdb object but these can be modified in any plot function. xpose makes use of the <code>ggplot2</code> functions mapping for any layer (e.g. points, lines, etc.) however to direct the mapping to a specific layer, a prefix appealing to the targeted layer should be used. The format is defined as <code>layer_aesthetic = value</code>. Hence to change the color of points in ggplot2 the argument <code>color = 'green'</code> could be used in <code>geom_point()</code>, while in xpose the same could be achieved with <code>point_color = 'green'</code>.</p>
 <p>In basic goodness-of-fit plots, the layers have been named as: <code>point_xxx</code>, <code>line_xxx</code>, <code>smooth_xxx</code>, <code>guide_xxx</code>, <code>xscale_xxx</code>, <code>yscale_xxx</code> where <code>xxx</code> can be any option available in the <code>ggplot2</code> layers: <code>geom_point</code>, <code>geom_line</code>, <code>geom_smooth</code>, <code>geom_abline</code>, <code>scale_x_continuous</code>, etc.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, </a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">            <span class="co"># Change points aesthetics</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">            <span class="dt">point_color =</span> <span class="st">'blue'</span>, <span class="dt">point_alpha =</span> <span class="fl">0.5</span>, </a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">            <span class="dt">point_stroke =</span> <span class="dv">0</span>, <span class="dt">point_size =</span> <span class="fl">1.5</span>, </a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">            <span class="co"># Change lines aesthetics </span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">            <span class="dt">line_alpha =</span> <span class="fl">0.5</span>, <span class="dt">line_size =</span> <span class="fl">0.5</span>, </a>
-<a class="sourceLine" id="cb5-7" data-line-number="7">            <span class="dt">line_color =</span> <span class="st">'orange'</span>, <span class="dt">line_linetype =</span> <span class="st">'solid'</span>, </a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">            <span class="co"># Change smooth aesthetics</span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">            <span class="dt">smooth_method =</span> <span class="st">'lm'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, </span>
+<span id="cb5-2"><a href="#cb5-2"></a>            <span class="co"># Change points aesthetics</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>            <span class="dt">point_color =</span> <span class="st">'blue'</span>, <span class="dt">point_alpha =</span> <span class="fl">0.5</span>, </span>
+<span id="cb5-4"><a href="#cb5-4"></a>            <span class="dt">point_stroke =</span> <span class="dv">0</span>, <span class="dt">point_size =</span> <span class="fl">1.5</span>, </span>
+<span id="cb5-5"><a href="#cb5-5"></a>            <span class="co"># Change lines aesthetics </span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>            <span class="dt">line_alpha =</span> <span class="fl">0.5</span>, <span class="dt">line_size =</span> <span class="fl">0.5</span>, </span>
+<span id="cb5-7"><a href="#cb5-7"></a>            <span class="dt">line_color =</span> <span class="st">'orange'</span>, <span class="dt">line_linetype =</span> <span class="st">'solid'</span>, </span>
+<span id="cb5-8"><a href="#cb5-8"></a>            <span class="co"># Change smooth aesthetics</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>            <span class="dt">smooth_method =</span> <span class="st">'lm'</span>)</span></code></pre></div>
 <p><img src="customize_plots_files/figure-html/demo%20aesthetics-1.png" width="50%" style="display: block; margin: auto;"></p>
 <p>Aesthetics can also be defined mapped to a variable using the ggplot2 <code>aes()</code> function.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">type =</span> <span class="st">'p'</span>, <span class="kw">aes</span>(<span class="dt">point_color =</span> SEX))</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">type =</span> <span class="st">'p'</span>, <span class="kw">aes</span>(<span class="dt">point_color =</span> SEX))</span></code></pre></div>
 <p><img src="customize_plots_files/figure-html/demo%20mapping-1.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
 <div id="grouping-variable" class="section level3">
@@ -229,13 +229,13 @@
 <li>If <code>facets</code> is a string e.g <code>facets = "SEX"</code>, <code><a href="https://ggforce.data-imaginist.com/reference/facet_wrap_paginate.html">ggforce::facet_wrap_paginate</a></code> will be used</li>
 <li>If <code>facets</code> is a formula e.g <code>facets = SEX~MED1</code>, <code><a href="https://ggforce.data-imaginist.com/reference/facet_grid_paginate.html">ggforce::facet_grid_paginate</a></code> will be used</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># Example with a string</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">page =</span> <span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Example with a string</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">page =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="customize_plots_files/figure-html/demo%20panels-1.png" width="75%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># Example with a formula</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">facets =</span> SEX<span class="op">~</span>MED1, <span class="dt">margins =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Example with a formula</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">facets =</span> SEX<span class="op">~</span>MED1, <span class="dt">margins =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p><img src="customize_plots_files/figure-html/demo%20panels-2.png" width="75%" style="display: block; margin: auto;"></p>
-<p>All xpose plot functions accept arguments for <code>facet_wrap_pagninate</code> and <code>facet_grid_paginate</code> (e.g. <code>ncol = 2</code>, <code>labeller = 'label_both'</code>, etc.). With the default xpose theme scales are set to <code>'free'</code> from one panel to another (<code>scales = 'free'</code>), this behavior can be changed with <code>scales = 'fixed'</code>, <code>'free_y'</code> or <code>'free_x'</code>.</p>
+<p>All xpose plot functions accept arguments for <code>facet_wrap_pagninate</code> and <code>facet_grid_paginate</code> (e.g. <code>ncol = 2</code>, <code>labeller = 'label_both'</code>, etc.). With the default xpose theme scales are set to <code>'free'</code> from one panel to another (<code>scales = 'free'</code>), this behavior can be changed with <code>scales = 'fixed'</code>, <code>'free_y'</code> or <code>'free_x'</code>.</p>
 <p>For more information on the available faceting options read the help of <a href="https://www.rdocumentation.org/packages/ggforce/versions/0.1.1/topics/facet_wrap_paginate"><code>facet_wrap_paginate</code></a> and <a href="https://www.rdocumentation.org/packages/ggforce/versions/0.1.1/topics/facet_grid_paginate"><code>facet_grid_paginate</code></a> from the package ggforce.</p>
 </div>
 <div id="additional-layers" class="section level3">
@@ -243,32 +243,32 @@
 <a href="#additional-layers" class="anchor"></a>Additional layers</h3>
 <p><code>xpose</code> offers the opportunity to add any additional layers from <code>ggplot2</code>. Hence, a <code><a href="https://ggplot2.tidyverse.org/reference/geom_rug.html">ggplot2::geom_rug()</a></code> layer could be added to the <code><a href="../reference/dv_vs_pred.html">dv_vs_ipred()</a></code> plot along with some annotations (<code><a href="https://ggplot2.tidyverse.org/reference/annotate.html">ggplot2::annotate()</a></code>). Note: the additional layers do not inherit from the xpose aesthetic mapping (i.e. colors or other options need to be defined in each layer as shown below).</p>
 <p>Layers can also be used to modify the aesthetics scales for example <code><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">ggplot2::scale_color_manual()</a></code>, or remove a legend <code><a href="https://ggplot2.tidyverse.org/reference/scale_identity.html">ggplot2::scale_fill_identity()</a></code>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_rug</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>, <span class="dt">color =</span> <span class="st">'grey50'</span>,</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">           <span class="dt">sides =</span> <span class="st">'lb'</span>, <span class="dt">size =</span> <span class="fl">0.4</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="st">  </span><span class="kw">annotate</span>(<span class="dt">geom =</span> <span class="st">'text'</span>,</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5">           <span class="dt">fontface =</span> <span class="st">'bold'</span>,</a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">           <span class="dt">color =</span> <span class="st">'darkred'</span>,</a>
-<a class="sourceLine" id="cb9-7" data-line-number="7">           <span class="dt">size  =</span> <span class="dv">3</span>,</a>
-<a class="sourceLine" id="cb9-8" data-line-number="8">           <span class="dt">label =</span> <span class="st">'Toxic concentrations'</span>, <span class="dt">x =</span> <span class="fl">1.35</span>, <span class="dt">y =</span> <span class="fl">1.75</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="st">  </span><span class="kw">annotate</span>(<span class="dt">geom =</span> <span class="st">'rect'</span>,</a>
-<a class="sourceLine" id="cb9-10" data-line-number="10">           <span class="dt">alpha =</span> <span class="fl">0.2</span>, <span class="dt">fill =</span> <span class="st">'red'</span>,</a>
-<a class="sourceLine" id="cb9-11" data-line-number="11">           <span class="dt">xmin =</span> <span class="dv">1</span>, <span class="dt">xmax =</span> <span class="ot">Inf</span>,</a>
-<a class="sourceLine" id="cb9-12" data-line-number="12">           <span class="dt">ymin =</span> <span class="dv">1</span>, <span class="dt">ymax =</span> <span class="ot">Inf</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb) <span class="op">+</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="st">  </span><span class="kw">geom_rug</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>, <span class="dt">color =</span> <span class="st">'grey50'</span>,</span>
+<span id="cb9-3"><a href="#cb9-3"></a>           <span class="dt">sides =</span> <span class="st">'lb'</span>, <span class="dt">size =</span> <span class="fl">0.4</span>) <span class="op">+</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="dt">geom =</span> <span class="st">'text'</span>,</span>
+<span id="cb9-5"><a href="#cb9-5"></a>           <span class="dt">fontface =</span> <span class="st">'bold'</span>,</span>
+<span id="cb9-6"><a href="#cb9-6"></a>           <span class="dt">color =</span> <span class="st">'darkred'</span>,</span>
+<span id="cb9-7"><a href="#cb9-7"></a>           <span class="dt">size  =</span> <span class="dv">3</span>,</span>
+<span id="cb9-8"><a href="#cb9-8"></a>           <span class="dt">label =</span> <span class="st">'Toxic concentrations'</span>, <span class="dt">x =</span> <span class="fl">1.35</span>, <span class="dt">y =</span> <span class="fl">1.75</span>) <span class="op">+</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="dt">geom =</span> <span class="st">'rect'</span>,</span>
+<span id="cb9-10"><a href="#cb9-10"></a>           <span class="dt">alpha =</span> <span class="fl">0.2</span>, <span class="dt">fill =</span> <span class="st">'red'</span>,</span>
+<span id="cb9-11"><a href="#cb9-11"></a>           <span class="dt">xmin =</span> <span class="dv">1</span>, <span class="dt">xmax =</span> <span class="ot">Inf</span>,</span>
+<span id="cb9-12"><a href="#cb9-12"></a>           <span class="dt">ymin =</span> <span class="dv">1</span>, <span class="dt">ymax =</span> <span class="ot">Inf</span>)</span></code></pre></div>
 <p><img src="customize_plots_files/figure-html/demo%20layers-1.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
 <div id="scales-options" class="section level3">
 <h3 class="hasAnchor">
 <a href="#scales-options" class="anchor"></a>Scales options</h3>
 <p>The argument <code>log</code> allows to log-transform the axes. Accepted values are <code>x</code>, <code>y</code> or <code>xy</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">log =</span> <span class="st">'xy'</span>, <span class="dt">subtitle =</span> <span class="st">'Plot on log scale'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">log =</span> <span class="st">'xy'</span>, <span class="dt">subtitle =</span> <span class="st">'Plot on log scale'</span>)</span></code></pre></div>
 <p><img src="customize_plots_files/figure-html/log-scales%20demo-1.png" width="50%" style="display: block; margin: auto;"></p>
 <p>Additional arguments can be provided to the scales via the mapping by using the naming convention <code>xscale_xxx</code> or <code>yscale_xxx</code> where <code>xxx</code> is the name of a <code>ggplot2</code> scale argument such as <code>name</code>, <code>breaks</code>, <code>labels</code>, <code>expand</code>.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, </a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">            <span class="dt">xscale_breaks =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.3</span>, <span class="fl">0.8</span>, <span class="fl">1.3</span>),</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">            <span class="dt">xscale_labels =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'Low'</span>, <span class="st">'Med'</span>, <span class="st">'High'</span>),</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">            <span class="dt">xscale_expand =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.2</span>, <span class="dv">0</span>),</a>
-<a class="sourceLine" id="cb11-5" data-line-number="5">            <span class="dt">xscale_name =</span> <span class="st">'Individual model predictions'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, </span>
+<span id="cb11-2"><a href="#cb11-2"></a>            <span class="dt">xscale_breaks =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.3</span>, <span class="fl">0.8</span>, <span class="fl">1.3</span>),</span>
+<span id="cb11-3"><a href="#cb11-3"></a>            <span class="dt">xscale_labels =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'Low'</span>, <span class="st">'Med'</span>, <span class="st">'High'</span>),</span>
+<span id="cb11-4"><a href="#cb11-4"></a>            <span class="dt">xscale_expand =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.2</span>, <span class="dv">0</span>),</span>
+<span id="cb11-5"><a href="#cb11-5"></a>            <span class="dt">xscale_name =</span> <span class="st">'Individual model predictions'</span>)</span></code></pre></div>
 <p><img src="customize_plots_files/figure-html/scales-options%20demo-1.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
 <div id="themes" class="section level3">
@@ -281,16 +281,16 @@
 <li>An <code>xpose</code> (<code>xp_theme</code>) theme controlling the aspect of the layers such as points or lines</li>
 </ul>
 <p>Themes can be attached to an <code>xpdb</code> when importing the data with <code><a href="../reference/xpose_data.html">xpose_data()</a></code> or using the function <code><a href="../reference/update_themes.html">update_themes()</a></code> on an xpdb object.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># While creating the xpdb</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">xpdb &lt;-<span class="st"> </span><span class="kw"><a href="../reference/xpose_data.html">xpose_data</a></span>(<span class="dt">runno =</span> <span class="st">'001'</span>, </a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">                   <span class="dt">gg_theme =</span> <span class="kw">theme_minimal</span>(), </a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">                   <span class="dt">xp_theme =</span> <span class="kw"><a href="../reference/xp_themes.html">theme_xp_xpose4</a></span>())</a>
-<a class="sourceLine" id="cb12-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="co"># Update a pre-existing xpdb</span></a>
-<a class="sourceLine" id="cb12-7" data-line-number="7">xpdb &lt;-<span class="st"> </span><span class="kw"><a href="../reference/update_themes.html">update_themes</a></span>(<span class="dt">xpdb     =</span> xpdb,</a>
-<a class="sourceLine" id="cb12-8" data-line-number="8">                      <span class="dt">gg_theme =</span> <span class="kw"><a href="../reference/gg_themes.html">theme_bw2</a></span>(),</a>
-<a class="sourceLine" id="cb12-9" data-line-number="9">                      <span class="dt">xp_theme =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">point_color =</span> <span class="st">'dodgerblue4'</span>,</a>
-<a class="sourceLine" id="cb12-10" data-line-number="10">                                      <span class="dt">line_color  =</span> <span class="st">'dodgerblue4'</span>)) </a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># While creating the xpdb</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>xpdb &lt;-<span class="st"> </span><span class="kw"><a href="../reference/xpose_data.html">xpose_data</a></span>(<span class="dt">runno =</span> <span class="st">'001'</span>, </span>
+<span id="cb12-3"><a href="#cb12-3"></a>                   <span class="dt">gg_theme =</span> <span class="kw">theme_minimal</span>(), </span>
+<span id="cb12-4"><a href="#cb12-4"></a>                   <span class="dt">xp_theme =</span> <span class="kw"><a href="../reference/xp_themes.html">theme_xp_xpose4</a></span>())</span>
+<span id="cb12-5"><a href="#cb12-5"></a></span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="co"># Update a pre-existing xpdb</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a>xpdb &lt;-<span class="st"> </span><span class="kw"><a href="../reference/update_themes.html">update_themes</a></span>(<span class="dt">xpdb     =</span> xpdb,</span>
+<span id="cb12-8"><a href="#cb12-8"></a>                      <span class="dt">gg_theme =</span> <span class="kw"><a href="../reference/gg_themes.html">theme_bw2</a></span>(),</span>
+<span id="cb12-9"><a href="#cb12-9"></a>                      <span class="dt">xp_theme =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">point_color =</span> <span class="st">'dodgerblue4'</span>,</span>
+<span id="cb12-10"><a href="#cb12-10"></a>                                      <span class="dt">line_color  =</span> <span class="st">'dodgerblue4'</span>)) </span></code></pre></div>
 <div id="examples-of-gg_theme" class="section level4">
 <h4 class="hasAnchor">
 <a href="#examples-of-gg_theme" class="anchor"></a>Examples of <code>gg_theme</code>:</h4>

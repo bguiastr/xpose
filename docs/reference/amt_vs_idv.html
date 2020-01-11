@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.6</span>
       </span>
     </div>
 
@@ -173,10 +173,22 @@
     <p>Plot of the change in compartment amounts over the independent variable</p>
     </div>
 
-    <pre class="usage"><span class='fu'>amt_vs_idv</span>(<span class='no'>xpdb</span>, <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='st'>"ID"</span>, <span class='kw'>drop_fixed</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"l"</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Compartments amount vs. @x | @run"</span>,
-  <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>"Ofv: @ofv"</span>, <span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"@dir"</span>, <span class='kw'>tag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>log</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>facets</span>, <span class='no'>.problem</span>, <span class='no'>quiet</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>amt_vs_idv</span>(
+  <span class='no'>xpdb</span>,
+  <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>group</span> <span class='kw'>=</span> <span class='st'>"ID"</span>,
+  <span class='kw'>drop_fixed</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"l"</span>,
+  <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Compartments amount vs. @x | @run"</span>,
+  <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>"Ofv: @ofv"</span>,
+  <span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"@dir"</span>,
+  <span class='kw'>tag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>log</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='no'>facets</span>,
+  <span class='no'>.problem</span>,
+  <span class='no'>quiet</span>,
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

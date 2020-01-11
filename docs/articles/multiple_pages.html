@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.6</span>
       </span>
     </div>
 
@@ -121,13 +121,13 @@
 
       
 
-      </header><div class="row">
+      </header><script src="multiple_pages_files/jquery-1.11.3/jquery.min.js"></script><script src="multiple_pages_files/elevate-section-attrs-2.0/elevate-section-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Plots with multiple pages</h1>
                         <h4 class="author">Benjamin Guiastrennec</h4>
             
-            <h4 class="date">04 October, 2019</h4>
+            <h4 class="date">11 January, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/UUPharmacometrics/xpose/blob/master/vignettes/multiple_pages.Rmd"><code>vignettes/multiple_pages.Rmd</code></a></small>
       <div class="hidden name"><code>multiple_pages.Rmd</code></div>
@@ -146,13 +146,13 @@
 <li>If <code>facets</code> is a formula e.g <code>facets = SEX~MED1</code>, facets will be created using <code>ggforce::</code><a href="https://www.rdocumentation.org/packages/ggforce/versions/0.1.1/topics/facet_grid_paginate"><code>facet_grid_paginate</code></a>
 </li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Example with a string</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Example with a string</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>))</span></code></pre></div>
 <p><img src="multiple_pages_files/figure-html/demo%20panels-1.png" width="75%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># Example with a formula</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">facets =</span> SEX<span class="op">~</span>MED1, <span class="dt">margins =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Example with a formula</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">facets =</span> SEX<span class="op">~</span>MED1, <span class="dt">margins =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p><img src="multiple_pages_files/figure-html/demo%20panels-2.png" width="75%" style="display: block; margin: auto;"></p>
-<p>All xpose plot functions accept arguments for <code>facet_wrap_pagninate</code> and <code>facet_grid_paginate</code> (e.g. <code>ncol = 2</code>, <code>labeller = 'label_both'</code>, etc.). With the default xpose theme scales are set to <code>'free'</code> from one panel to another (<code>scales = 'free'</code>), this behavior can be changed with <code>scales = 'fixed'</code>, <code>'free_y'</code> or <code>'free_x'</code>.</p>
+<p>All xpose plot functions accept arguments for <code>facet_wrap_pagninate</code> and <code>facet_grid_paginate</code> (e.g. <code>ncol = 2</code>, <code>labeller = 'label_both'</code>, etc.). With the default xpose theme scales are set to <code>'free'</code> from one panel to another (<code>scales = 'free'</code>), this behavior can be changed with <code>scales = 'fixed'</code>, <code>'free_y'</code> or <code>'free_x'</code>.</p>
 </div>
 <div id="faceting-over-multiple-pages" class="section level1">
 <h1 class="hasAnchor">
@@ -161,32 +161,32 @@
 <h2 class="hasAnchor">
 <a href="#setting-the-layout" class="anchor"></a>Setting the layout</h2>
 <p>When the arguments <code>ncol</code> and <code>nrow</code> are set and under the condition that they are more panels to be drawn that can fit on a single page given the selected layout, the multiple page functionality will automatically be enabled.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="multiple_pages_files/figure-html/unnamed-chunk-2-1.png" width="75%" style="display: block; margin: auto;"><img src="multiple_pages_files/figure-html/unnamed-chunk-2-2.png" width="75%" style="display: block; margin: auto;"></p>
 </div>
 <div id="selecting-pages" class="section level2">
 <h2 class="hasAnchor">
 <a href="#selecting-pages" class="anchor"></a>Selecting pages</h2>
 <p>By default all pages will be shown but this can be time consuming. To select only specific pages to be drawn, use the argument <code>page</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">page =</span> <span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">page =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="multiple_pages_files/figure-html/unnamed-chunk-3-1.png" width="75%" style="display: block; margin: auto;"></p>
 <p>It is also possible to change the page(s) to be drawn from an already existing <code>xpose_plot</code> object via the <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> function.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># Create an xpose_plot, by default page = 1</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">p1 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co"># Change the page to be drawn</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(p1, <span class="dt">page =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Create an xpose_plot, by default page = 1</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>p1 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># Change the page to be drawn</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(p1, <span class="dt">page =</span> <span class="dv">2</span>)</span></code></pre></div>
 </div>
 <div id="numbering-pages" class="section level2">
 <h2 class="hasAnchor">
 <a href="#numbering-pages" class="anchor"></a>Numbering pages</h2>
 <p>To number pages the keywords <code>@page</code> and <code>@lastpage</code> can be used to respectively indicate the current page and the total number of pages.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">page =</span> <span class="dv">1</span>, <span class="dt">caption =</span> <span class="st">'Page @page of @lastpage'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">page =</span> <span class="dv">1</span>, <span class="dt">caption =</span> <span class="st">'Page @page of @lastpage'</span>)</span></code></pre></div>
 <p><img src="multiple_pages_files/figure-html/unnamed-chunk-5-1.png" width="75%" style="display: block; margin: auto;"></p>
 <p>To systematically number all generated plots a caption suffix can be defined in the <code>xp_theme</code>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">xpdb_numbered &lt;-<span class="st"> </span><span class="kw"><a href="../reference/update_themes.html">update_themes</a></span>(xpdb, <span class="dt">xp_theme =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">caption_suffix =</span> <span class="st">', page @page of @lastpage'</span>))</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb_numbered, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">page =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>xpdb_numbered &lt;-<span class="st"> </span><span class="kw"><a href="../reference/update_themes.html">update_themes</a></span>(xpdb, <span class="dt">xp_theme =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">caption_suffix =</span> <span class="st">', page @page of @lastpage'</span>))</span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb_numbered, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">page =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="multiple_pages_files/figure-html/unnamed-chunk-6-1.png" width="75%" style="display: block; margin: auto;"></p>
 </div>
 </div>
@@ -194,11 +194,11 @@
 <h1 class="hasAnchor">
 <a href="#saving-multiple-pages-plots" class="anchor"></a>Saving multiple pages plots</h1>
 <p>Multiple pages graphs can simply be saved by using the <code><a href="../reference/xpose_save.html">xpose_save()</a></code> function.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb_numbered, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw"><a href="../reference/xpose_save.html">xpose_save</a></span>(<span class="dt">file =</span> <span class="st">'dv_vs_ipred_multiple.pdf'</span>)</a></code></pre></div>
-<p>The <code>pdf</code> format can conveniently store multiple pages within a single document. However other graphical devices (e.g. <code>'png'</code>, <code>'jpg'</code>) can also be used, simply ensure to have a page counter (i.e. <code>'%03d'</code>) added the file name.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb_numbered, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw"><a href="../reference/xpose_save.html">xpose_save</a></span>(<span class="dt">file =</span> <span class="st">'@run_@plotfun_%03d.png'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb_numbered, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="kw"><a href="../reference/xpose_save.html">xpose_save</a></span>(<span class="dt">file =</span> <span class="st">'dv_vs_ipred_multiple.pdf'</span>)</span></code></pre></div>
+<p>The <code>pdf</code> format can conveniently store multiple pages within a single document. However other graphical devices (e.g. <code>'png'</code>, <code>'jpg'</code>) can also be used, simply ensure to have a page counter (i.e. <code>'%03d'</code>) added the file name.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb_numbered, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="kw"><a href="../reference/xpose_save.html">xpose_save</a></span>(<span class="dt">file =</span> <span class="st">'@run_@plotfun_%03d.png'</span>)</span></code></pre></div>
 </div>
   </div>
 
@@ -210,7 +210,8 @@
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#bases-of-plot-faceting">Bases of plot faceting</a></li>
       <li>
-<a href="#faceting-over-multiple-pages">Faceting over multiple pages</a><ul class="nav nav-pills nav-stacked">
+<a href="#faceting-over-multiple-pages">Faceting over multiple pages</a>
+      <ul class="nav nav-pills nav-stacked">
 <li><a href="#setting-the-layout">Setting the layout</a></li>
       <li><a href="#selecting-pages">Selecting pages</a></li>
       <li><a href="#numbering-pages">Numbering pages</a></li>

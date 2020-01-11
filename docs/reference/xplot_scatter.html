@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.6</span>
       </span>
     </div>
 
@@ -173,10 +173,25 @@
     <p>Manually generate scatter plots from an xpdb object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>xplot_scatter</span>(<span class='no'>xpdb</span>, <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='st'>"ID"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"pls"</span>,
-  <span class='kw'>guide</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>xscale</span> <span class='kw'>=</span> <span class='st'>"continuous"</span>, <span class='kw'>yscale</span> <span class='kw'>=</span> <span class='st'>"continuous"</span>,
-  <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>caption</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>tag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>plot_name</span> <span class='kw'>=</span> <span class='st'>"scatter_plot"</span>, <span class='no'>gg_theme</span>, <span class='no'>xp_theme</span>, <span class='no'>opt</span>, <span class='no'>quiet</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>xplot_scatter</span>(
+  <span class='no'>xpdb</span>,
+  <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>group</span> <span class='kw'>=</span> <span class='st'>"ID"</span>,
+  <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"pls"</span>,
+  <span class='kw'>guide</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>xscale</span> <span class='kw'>=</span> <span class='st'>"continuous"</span>,
+  <span class='kw'>yscale</span> <span class='kw'>=</span> <span class='st'>"continuous"</span>,
+  <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>caption</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>tag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>plot_name</span> <span class='kw'>=</span> <span class='st'>"scatter_plot"</span>,
+  <span class='no'>gg_theme</span>,
+  <span class='no'>xp_theme</span>,
+  <span class='no'>opt</span>,
+  <span class='no'>quiet</span>,
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

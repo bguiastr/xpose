@@ -82,7 +82,7 @@ the independent variable for every individual — ind_plots" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.6</span>
       </span>
     </div>
 
@@ -178,13 +178,24 @@ the independent variable for every individual</h1>
 (PRED) plotted against the independent variable for every individual</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ind_plots</span>(<span class='no'>xpdb</span>, <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='st'>"variable"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"lp"</span>,
+    <pre class="usage"><span class='fu'>ind_plots</span>(
+  <span class='no'>xpdb</span>,
+  <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>group</span> <span class='kw'>=</span> <span class='st'>"variable"</span>,
+  <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"lp"</span>,
   <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Individual plots | @run"</span>,
   <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>"Ofv: @ofv, Eps shrink: @epsshk"</span>,
-  <span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"@dir | Page @page of @lastpage"</span>, <span class='kw'>tag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>log</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>facets</span>, <span class='no'>.problem</span>, <span class='no'>quiet</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"grey60"</span>, <span class='st'>"deepskyblue4"</span>,
-  <span class='st'>"deepskyblue3"</span>), <span class='kw'>point_alpha</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.8</span>, <span class='fl'>0</span>, <span class='fl'>0</span>),
-  <span class='kw'>line_linetype</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"blank"</span>, <span class='st'>"solid"</span>, <span class='st'>"55"</span>), <span class='no'>...</span>)</pre>
+  <span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"@dir | Page @page of @lastpage"</span>,
+  <span class='kw'>tag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>log</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='no'>facets</span>,
+  <span class='no'>.problem</span>,
+  <span class='no'>quiet</span>,
+  <span class='kw'>color</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"grey60"</span>, <span class='st'>"deepskyblue4"</span>, <span class='st'>"deepskyblue3"</span>),
+  <span class='kw'>point_alpha</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.8</span>, <span class='fl'>0</span>, <span class='fl'>0</span>),
+  <span class='kw'>line_linetype</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"blank"</span>, <span class='st'>"solid"</span>, <span class='st'>"55"</span>),
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

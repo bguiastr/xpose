@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.6</span>
       </span>
     </div>
 
@@ -173,9 +173,14 @@
     <p>Quickly import NONMEM output files into R.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>read_nm_files</span>(<span class='kw'>runno</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='st'>"run"</span>, <span class='kw'>ext</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>".ext"</span>, <span class='st'>".cor"</span>,
-  <span class='st'>".cov"</span>, <span class='st'>".phi"</span>, <span class='st'>".grd"</span>, <span class='st'>".shk"</span>), <span class='kw'>file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>dir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>read_nm_files</span>(
+  <span class='kw'>runno</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='st'>"run"</span>,
+  <span class='kw'>ext</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>".ext"</span>, <span class='st'>".cor"</span>, <span class='st'>".cov"</span>, <span class='st'>".phi"</span>, <span class='st'>".grd"</span>, <span class='st'>".shk"</span>),
+  <span class='kw'>file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>dir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

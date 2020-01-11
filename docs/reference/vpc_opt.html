@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.6</span>
       </span>
     </div>
 
@@ -173,11 +173,23 @@
     <p>Provide a list of options to <code>vpc_data</code> function.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>vpc_opt</span>(<span class='kw'>bins</span> <span class='kw'>=</span> <span class='st'>"jenks"</span>, <span class='kw'>n_bins</span> <span class='kw'>=</span> <span class='st'>"auto"</span>, <span class='kw'>bin_mid</span> <span class='kw'>=</span> <span class='st'>"mean"</span>,
-  <span class='kw'>pred_corr</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>pred_corr_lower_bnd</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>pi</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.025</span>, <span class='fl'>0.975</span>),
-  <span class='kw'>ci</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.025</span>, <span class='fl'>0.975</span>), <span class='kw'>lloq</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>uloq</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>rtte</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>rtte_calc_diff</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>events</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>kmmc</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>reverse_prob</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>as_percentage</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>vpc_opt</span>(
+  <span class='kw'>bins</span> <span class='kw'>=</span> <span class='st'>"jenks"</span>,
+  <span class='kw'>n_bins</span> <span class='kw'>=</span> <span class='st'>"auto"</span>,
+  <span class='kw'>bin_mid</span> <span class='kw'>=</span> <span class='st'>"mean"</span>,
+  <span class='kw'>pred_corr</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>pred_corr_lower_bnd</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>pi</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.025</span>, <span class='fl'>0.975</span>),
+  <span class='kw'>ci</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.025</span>, <span class='fl'>0.975</span>),
+  <span class='kw'>lloq</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>uloq</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>rtte</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>rtte_calc_diff</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>events</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>kmmc</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>reverse_prob</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>as_percentage</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

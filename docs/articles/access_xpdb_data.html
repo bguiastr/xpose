@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.6</span>
       </span>
     </div>
 
@@ -121,13 +121,13 @@
 
       
 
-      </header><div class="row">
+      </header><script src="access_xpdb_data_files/jquery-1.11.3/jquery.min.js"></script><script src="access_xpdb_data_files/elevate-section-attrs-2.0/elevate-section-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Access the xpdb data</h1>
                         <h4 class="author">Benjamin Guiastrennec</h4>
             
-            <h4 class="date">04 October, 2019</h4>
+            <h4 class="date">11 January, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/UUPharmacometrics/xpose/blob/master/vignettes/access_xpdb_data.Rmd"><code>vignettes/access_xpdb_data.Rmd</code></a></small>
       <div class="hidden name"><code>access_xpdb_data.Rmd</code></div>
@@ -141,7 +141,7 @@
 <h3 class="hasAnchor">
 <a href="#glimpse-at-the-xpdb" class="anchor"></a>Glimpse at the xpdb</h3>
 <p>The files attached to an xpdb object can be displayed to the console simply by writing the xpdb name to the console or by using the <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> function. Any of these files can be accessed from the xpdb using one of the functions listed below.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">xpdb <span class="co"># or print(xpdb)</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>xpdb <span class="co"># or print(xpdb)</span></span></code></pre></div>
 <pre><code>run001.lst overview: 
  - Software: nonmem 7.3.0 
  - Attached files (memory usage 1.3 Mb): 
@@ -158,21 +158,21 @@
 <a href="#access-the-model-code" class="anchor"></a>Access the model code</h3>
 <p>The <code><a href="../reference/get_code.html">get_code()</a></code> function can be used to access the parsed model code from the xpdb. This code was used to create the summary and find table names. The parsed code can be used to get additional information about the run. If the argument <code>.problem</code> is specified a subset of the code can be returned based on <code>$PROBLEM</code>.</p>
 <p><em>Note that general code warnings and PsN outputs appended are listed as problem 0.</em></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">code &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_code.html">get_code</a></span>(xpdb)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">code</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>code &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_code.html">get_code</a></span>(xpdb)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>code</span></code></pre></div>
 <pre><code># A tibble: 764 x 5
    problem level subroutine code                                           comment                  
  *   &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;                                          &lt;chr&gt;                    
- 1       0     0 oth        Mon Oct 16 13:34:28 CEST 2017                  ""                       
- 2       0     0 oth        ""                                             ; 1. Based on: 000       
+ 1       0     0 oth        "Mon Oct 16 13:34:28 CEST 2017"                ""                       
+ 2       0     0 oth        ""                                             "; 1. Based on: 000"     
  3       0     0 oth        ""                                             "; 2. Description: "     
- 4       0     0 oth        ""                                             ; NONMEM PK example for …
- 5       1     1 pro        Parameter estimation                           ""                       
- 6       1     2 inp        ID DOSE DV SCR AGE SEX CLASS WT ACE MED1 MED2… ""                       
+ 4       0     0 oth        ""                                             "; NONMEM PK example for…
+ 5       1     1 pro        "Parameter estimation"                         ""                       
+ 6       1     2 inp        "ID DOSE DV SCR AGE SEX CLASS WT ACE MED1 MED… ""                       
  7       1     2 inp        " CLCR AMT SS II EVID"                         ""                       
- 8       1     3 dat        ../../mx19_2.csv IGNORE=@                      ""                       
- 9       1     4 abb        DERIV2=NO                                      ""                       
-10       1     5 sub        ADVAN2 TRANS1                                  ""                       
+ 8       1     3 dat        "../../mx19_2.csv IGNORE=@"                    ""                       
+ 9       1     4 abb        "DERIV2=NO"                                    ""                       
+10       1     5 sub        "ADVAN2 TRANS1"                                ""                       
 # … with 754 more rows</code></pre>
 </div>
 <div id="access-the-output-data" class="section level3">
@@ -180,8 +180,8 @@
 <a href="#access-the-output-data" class="anchor"></a>Access the output data</h3>
 <p>The <code><a href="../reference/get_data.html">get_data()</a></code> function can be used to access the imported table files. Tables can be accessed by <code>table</code> name or by <code>.problem</code>. In the latter a single dataset containing all aggregated tables is returned. If more than one <code>table</code> name or <code>.problem</code> number is provided a named list is returned.</p>
 <p><em>Note when providing a table name it is not guaranteed that the table will be identical to its file (i.e. the order of the columns may have been changed and tables with <code>FIRSTONLY</code> will no longer be deduplicated).</em></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">data &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_data.html">get_data</a></span>(xpdb, <span class="dt">table =</span> <span class="st">'cotab001'</span>)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">data</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>data &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_data.html">get_data</a></span>(xpdb, <span class="dt">table =</span> <span class="st">'cotab001'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>data</span></code></pre></div>
 <pre><code># A tibble: 550 x 4
    ID     CLCR   AGE    WT
    &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -201,8 +201,8 @@
 <h3 class="hasAnchor">
 <a href="#access-the-run-files" class="anchor"></a>Access the run files</h3>
 <p>The <code><a href="../reference/get_file.html">get_file()</a></code> function can be used to access the imported output files. Files can be accessed by <code>file</code> name, by <code>.problem</code>, <code>.subprob</code> and/or <code>.method</code>. If more than one <code>file</code> name, <code>.problem</code>, <code>.subprob</code>, or <code>.method</code> is provided a named list is returned.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">file &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_file.html">get_file</a></span>(xpdb, <span class="dt">file =</span> <span class="st">'run001.ext'</span>)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">file</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>file &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_file.html">get_file</a></span>(xpdb, <span class="dt">file =</span> <span class="st">'run001.ext'</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a>file</span></code></pre></div>
 <pre><code># A tibble: 28 x 16
    ITERATION THETA1 THETA2 THETA3 THETA4 THETA5  THETA6  THETA7 `SIGMA(1,1)` `OMEGA(1,1)`
        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
@@ -223,25 +223,25 @@
 <h3 class="hasAnchor">
 <a href="#access-the-parameter-estimates" class="anchor"></a>Access the parameter estimates</h3>
 <p>The <code><a href="../reference/get_prm.html">get_prm()</a></code> function can be used to access the parameter estimates. To get a nice parameter table printed to the console use the function <code><a href="../reference/prm_table.html">prm_table()</a></code> instead. The arguments <code>.problem</code>, <code>.subprob</code> and <code>.method</code> can be used to select the parameter estimates to output.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># Raw output for editing</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">prm &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_prm.html">get_prm</a></span>(xpdb, <span class="dt">digits =</span> <span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">prm</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Raw output for editing</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>prm &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_prm.html">get_prm</a></span>(xpdb, <span class="dt">digits =</span> <span class="dv">4</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a>prm</span></code></pre></div>
 <pre><code># A tibble: 11 x 10
-   type  name       label         value       se     rse fixed diagonal     m     n
- * &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;         &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;lgl&gt; &lt;lgl&gt;    &lt;dbl&gt; &lt;dbl&gt;
- 1 the   THETA1     TVCL       26.3      0.892    0.0339 FALSE NA           1    NA
- 2 the   THETA2     TVV         1.35     0.0438   0.0325 FALSE NA           2    NA
- 3 the   THETA3     TVKA        4.20     0.809    0.192  FALSE NA           3    NA
- 4 the   THETA4     LAG         0.208    0.0157   0.0755 FALSE NA           4    NA
- 5 the   THETA5     Prop. Err   0.205    0.0224   0.110  FALSE NA           5    NA
- 6 the   THETA6     Add. Err    0.0106   0.00366  0.347  FALSE NA           6    NA
- 7 the   THETA7     CRCL on CL  0.00717  0.00170  0.237  FALSE NA           7    NA
- 8 ome   OMEGA(1,1) IIV CL      0.270    0.0233   0.0862 FALSE TRUE         1     1
- 9 ome   OMEGA(2,2) IIV V       0.195    0.0320   0.164  FALSE TRUE         2     2
-10 ome   OMEGA(3,3) IIV KA      1.38     0.202    0.146  FALSE TRUE         3     3
-11 sig   SIGMA(1,1) ""          1       NA       NA      TRUE  TRUE         1     1</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># Nicely formated table</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw"><a href="../reference/prm_table.html">prm_table</a></span>(xpdb, <span class="dt">digits =</span> <span class="dv">4</span>)</a></code></pre></div>
+   type  name       label           value       se     rse fixed diagonal     m     n
+ * &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;lgl&gt; &lt;lgl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+ 1 the   THETA1     "TVCL"       26.3      0.892    0.0339 FALSE NA           1    NA
+ 2 the   THETA2     "TVV"         1.35     0.0438   0.0325 FALSE NA           2    NA
+ 3 the   THETA3     "TVKA"        4.20     0.809    0.192  FALSE NA           3    NA
+ 4 the   THETA4     "LAG"         0.208    0.0157   0.0755 FALSE NA           4    NA
+ 5 the   THETA5     "Prop. Err"   0.205    0.0224   0.110  FALSE NA           5    NA
+ 6 the   THETA6     "Add. Err"    0.0106   0.00366  0.347  FALSE NA           6    NA
+ 7 the   THETA7     "CRCL on CL"  0.00717  0.00170  0.237  FALSE NA           7    NA
+ 8 ome   OMEGA(1,1) "IIV CL"      0.270    0.0233   0.0862 FALSE TRUE         1     1
+ 9 ome   OMEGA(2,2) "IIV V"       0.195    0.0320   0.164  FALSE TRUE         2     2
+10 ome   OMEGA(3,3) "IIV KA"      1.38     0.202    0.146  FALSE TRUE         3     3
+11 sig   SIGMA(1,1) ""            1       NA       NA      TRUE  TRUE         1     1</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Nicely formated table</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="kw"><a href="../reference/prm_table.html">prm_table</a></span>(xpdb, <span class="dt">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>
 Reporting transformed parameters:
 For the OMEGA and SIGMA matrices, values are reported as standard deviations for the diagonal elements and as correlations for the off-diagonal elements. The relative standard errors (RSE) for OMEGA and SIGMA are reported on the approximate standard deviation scale (SE/variance estimate)/2. Use `transform = FALSE` to report untransformed parameters.
@@ -265,8 +265,8 @@ Estimates for $prob no.1, subprob no.0, method foce
 <a href="#access-the-run-summary" class="anchor"></a>Access the run summary</h3>
 <p>The <code><a href="../reference/get_summary.html">get_summary()</a></code> function can be used to access the generated run summary from which the <code>template_titles</code>. If the argument <code>.problem</code> is specified a subset of the summary can be returned based on <code>$PROBLEM</code>.</p>
 <p><em>Note that general summary information are listed as problem 0.</em></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">run_sum &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_summary.html">get_summary</a></span>(xpdb, <span class="dt">.problem =</span> <span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">run_sum</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>run_sum &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_summary.html">get_summary</a></span>(xpdb, <span class="dt">.problem =</span> <span class="dv">0</span>)</span>
+<span id="cb13-2"><a href="#cb13-2"></a>run_sum</span></code></pre></div>
 <pre><code># A tibble: 12 x 5
    problem subprob descr               label       value                        
      &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;               &lt;chr&gt;       &lt;chr&gt;                        
