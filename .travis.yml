@@ -9,11 +9,11 @@ apt_packages:
 
 r_packages:
   - covr
-  
+ 
 matrix:
   include:
   - r: devel
   - r: release
-    after_success:
-    - Rscript -e 'covr::codecov()'
+    after_success: Rscript -e 'covr::codecov()'
   - r: oldrel
+  
