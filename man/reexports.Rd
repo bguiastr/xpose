@@ -23,9 +23,9 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{dplyr}{\code{\link[dplyr]{filter}}, \code{\link[dplyr]{slice}}, \code{\link[dplyr]{distinct}}, \code{\link[dplyr]{mutate}}, \code{\link[dplyr]{select}}, \code{\link[dplyr]{rename}}, \code{\link[dplyr]{group_by}}, \code{\link[dplyr]{ungroup}}, \code{\link[dplyr]{summarize}}, \code{\link[dplyr]{summarise}}}
+  \item{dplyr}{\code{\link[dplyr]{distinct}}, \code{\link[dplyr]{filter}}, \code{\link[dplyr]{group_by}}, \code{\link[dplyr]{mutate}}, \code{\link[dplyr]{rename}}, \code{\link[dplyr]{select}}, \code{\link[dplyr]{slice}}, \code{\link[dplyr]{summarise}}, \code{\link[dplyr]{summarize}}, \code{\link[dplyr]{ungroup}}}
 
-  \item{ggforce}{\code{\link[ggforce]{facet_wrap_paginate}}, \code{\link[ggforce]{facet_grid_paginate}}}
+  \item{ggforce}{\code{\link[ggforce]{facet_grid_paginate}}, \code{\link[ggforce]{facet_wrap_paginate}}}
 
   \item{purrr}{\code{\link[purrr]{\%>\%}}}
 }}

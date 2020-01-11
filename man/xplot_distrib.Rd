@@ -4,10 +4,24 @@
 \alias{xplot_distrib}
 \title{Default xpose distribution plot function}
 \usage{
-xplot_distrib(xpdb, mapping = NULL, type = "hr", guide = FALSE,
-  xscale = "continuous", yscale = "continuous", title = NULL,
-  subtitle = NULL, caption = NULL, tag = NULL,
-  plot_name = "density_plot", gg_theme, xp_theme, opt, quiet, ...)
+xplot_distrib(
+  xpdb,
+  mapping = NULL,
+  type = "hr",
+  guide = FALSE,
+  xscale = "continuous",
+  yscale = "continuous",
+  title = NULL,
+  subtitle = NULL,
+  caption = NULL,
+  tag = NULL,
+  plot_name = "density_plot",
+  gg_theme,
+  xp_theme,
+  opt,
+  quiet,
+  ...
+)
 }
 \arguments{
 \item{xpdb}{An \code{xpose_data} object generated with \code{\link{xpose_data}}.}

@@ -4,12 +4,26 @@
 \alias{vpc}
 \title{Visual predictive checks}
 \usage{
-vpc(xpdb, vpc_type = NULL, mapping = NULL, smooth = TRUE,
-  type = "alpr", title = "Visual predictive checks | @run",
+vpc(
+  xpdb,
+  vpc_type = NULL,
+  mapping = NULL,
+  smooth = TRUE,
+  type = "alpr",
+  title = "Visual predictive checks | @run",
   subtitle = "Number of simulations: @vpcnsim, confidence interval: @vpcci\%",
-  caption = "@vpcdir", tag = NULL, log = NULL, guide = TRUE,
-  gg_theme, xp_theme, facets, quiet, area_fill = c("steelblue3",
-  "grey60", "steelblue3"), line_linetype = c("93", "solid", "93"), ...)
+  caption = "@vpcdir",
+  tag = NULL,
+  log = NULL,
+  guide = TRUE,
+  gg_theme,
+  xp_theme,
+  facets,
+  quiet,
+  area_fill = c("steelblue3", "grey60", "steelblue3"),
+  line_linetype = c("93", "solid", "93"),
+  ...
+)
 }
 \arguments{
 \item{xpdb}{An xpose database object.}

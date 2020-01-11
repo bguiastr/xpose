@@ -4,8 +4,15 @@
 \alias{read_args}
 \title{Define data import arguments}
 \usage{
-read_args(x, quiet, col_types = readr::cols(.default = "d"), na = "NA",
-  comment = "TABLE", skip = 1, ...)
+read_args(
+  x,
+  quiet,
+  col_types = readr::cols(.default = "d"),
+  na = "NA",
+  comment = "TABLE",
+  skip = 1,
+  ...
+)
 }
 \arguments{
 \item{x}{A list containing a the 3 first records of a 

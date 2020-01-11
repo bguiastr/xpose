@@ -8,26 +8,73 @@
 \alias{cov_qq}
 \title{QQ plots of ETA and residuals}
 \usage{
-prm_qq(xpdb, mapping = NULL, drop_fixed = TRUE, type = "p",
+prm_qq(
+  xpdb,
+  mapping = NULL,
+  drop_fixed = TRUE,
+  type = "p",
   title = "QQ plot of parameters | @run",
-  subtitle = "Based on @nind individuals", caption = "@dir",
-  tag = NULL, log = NULL, guide = TRUE, facets, .problem, quiet, ...)
+  subtitle = "Based on @nind individuals",
+  caption = "@dir",
+  tag = NULL,
+  log = NULL,
+  guide = TRUE,
+  facets,
+  .problem,
+  quiet,
+  ...
+)
 
-eta_qq(xpdb, mapping = NULL, drop_fixed = TRUE, type = "p",
+eta_qq(
+  xpdb,
+  mapping = NULL,
+  drop_fixed = TRUE,
+  type = "p",
   title = "QQ plot of etas | @run",
   subtitle = "Based on @nind individuals, Eta shrink: @etashk",
-  caption = "@dir", tag = NULL, log = NULL, guide = TRUE, facets,
-  .problem, quiet, ...)
+  caption = "@dir",
+  tag = NULL,
+  log = NULL,
+  guide = TRUE,
+  facets,
+  .problem,
+  quiet,
+  ...
+)
 
-res_qq(xpdb, mapping = NULL, res = "CWRES", type = "p",
+res_qq(
+  xpdb,
+  mapping = NULL,
+  res = "CWRES",
+  type = "p",
   title = "QQ plot of @sample | @run",
-  subtitle = "Based on @nobs observations", caption = "@dir",
-  tag = NULL, log = NULL, guide = TRUE, facets, .problem, quiet, ...)
+  subtitle = "Based on @nobs observations",
+  caption = "@dir",
+  tag = NULL,
+  log = NULL,
+  guide = TRUE,
+  facets,
+  .problem,
+  quiet,
+  ...
+)
 
-cov_qq(xpdb, mapping = NULL, drop_fixed = TRUE, type = "p",
+cov_qq(
+  xpdb,
+  mapping = NULL,
+  drop_fixed = TRUE,
+  type = "p",
   title = "QQ plot of continuous covariates | @run",
-  subtitle = "Based on @nind individuals", caption = "@dir",
-  tag = NULL, log = NULL, guide = TRUE, facets, .problem, quiet, ...)
+  subtitle = "Based on @nind individuals",
+  caption = "@dir",
+  tag = NULL,
+  log = NULL,
+  guide = TRUE,
+  facets,
+  .problem,
+  quiet,
+  ...
+)
 }
 \arguments{
 \item{xpdb}{An xpose database object.}

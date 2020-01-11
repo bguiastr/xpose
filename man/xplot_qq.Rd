@@ -4,10 +4,24 @@
 \alias{xplot_qq}
 \title{Default xpose QQ plot function}
 \usage{
-xplot_qq(xpdb, mapping = NULL, type = "p", guide = FALSE,
-  xscale = "continuous", yscale = "continuous", title = NULL,
-  subtitle = NULL, caption = NULL, tag = NULL,
-  plot_name = "qq_plot", gg_theme, xp_theme, opt, quiet, ...)
+xplot_qq(
+  xpdb,
+  mapping = NULL,
+  type = "p",
+  guide = FALSE,
+  xscale = "continuous",
+  yscale = "continuous",
+  title = NULL,
+  subtitle = NULL,
+  caption = NULL,
+  tag = NULL,
+  plot_name = "qq_plot",
+  gg_theme,
+  xp_theme,
+  opt,
+  quiet,
+  ...
+)
 }
 \arguments{
 \item{xpdb}{An \code{xpose_data} object generated with \code{\link{xpose_data}}.}

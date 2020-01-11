@@ -7,25 +7,70 @@
 \alias{dv_preds_vs_idv}
 \title{Observations and model predictions plotted against the independent variable}
 \usage{
-dv_vs_idv(xpdb, mapping = NULL, group = "ID", type = "pls",
-  title = "@y vs. @x | @run", subtitle = "Ofv: @ofv",
-  caption = "@dir", tag = NULL, log = NULL, facets, .problem, quiet,
-  ...)
-
-ipred_vs_idv(xpdb, mapping = NULL, group = "ID", type = "pls",
-  facets, title = "@y vs. @x | @run",
-  subtitle = "Ofv: @ofv, Eps shrink: @epsshk", caption = "@dir",
-  tag = NULL, log = NULL, .problem, quiet, ...)
-
-pred_vs_idv(xpdb, mapping = NULL, group = "ID", type = "pls", facets,
-  title = "@y vs. @x | @run", subtitle = "Ofv: @ofv",
-  caption = "@dir", tag = NULL, log = NULL, .problem, quiet, ...)
-
-dv_preds_vs_idv(xpdb, mapping = NULL, group = "ID", type = "pls",
+dv_vs_idv(
+  xpdb,
+  mapping = NULL,
+  group = "ID",
+  type = "pls",
+  title = "@y vs. @x | @run",
+  subtitle = "Ofv: @ofv",
+  caption = "@dir",
+  tag = NULL,
+  log = NULL,
   facets,
-  title = "Observations, Individual predictions and Population predictions vs. @x | @run",
-  subtitle = "Ofv: @ofv, Eps shrink: @epsshk", caption = "@dir",
-  tag = NULL, log = NULL, .problem, quiet, ...)
+  .problem,
+  quiet,
+  ...
+)
+
+ipred_vs_idv(
+  xpdb,
+  mapping = NULL,
+  group = "ID",
+  type = "pls",
+  facets,
+  title = "@y vs. @x | @run",
+  subtitle = "Ofv: @ofv, Eps shrink: @epsshk",
+  caption = "@dir",
+  tag = NULL,
+  log = NULL,
+  .problem,
+  quiet,
+  ...
+)
+
+pred_vs_idv(
+  xpdb,
+  mapping = NULL,
+  group = "ID",
+  type = "pls",
+  facets,
+  title = "@y vs. @x | @run",
+  subtitle = "Ofv: @ofv",
+  caption = "@dir",
+  tag = NULL,
+  log = NULL,
+  .problem,
+  quiet,
+  ...
+)
+
+dv_preds_vs_idv(
+  xpdb,
+  mapping = NULL,
+  group = "ID",
+  type = "pls",
+  facets,
+ 
+    title = "Observations, Individual predictions and Population predictions vs. @x | @run",
+  subtitle = "Ofv: @ofv, Eps shrink: @epsshk",
+  caption = "@dir",
+  tag = NULL,
+  log = NULL,
+  .problem,
+  quiet,
+  ...
+)
 }
 \arguments{
 \item{xpdb}{An xpose database object.}

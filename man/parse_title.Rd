@@ -4,8 +4,15 @@
 \alias{parse_title}
 \title{Parse keywords in string based on values contained in an xpdb}
 \usage{
-parse_title(string, xpdb, problem, quiet, extra_key = NULL,
-  extra_value = NULL, ignore_key = NULL)
+parse_title(
+  string,
+  xpdb,
+  problem,
+  quiet,
+  extra_key = NULL,
+  extra_value = NULL,
+  ignore_key = NULL
+)
 }
 \arguments{
 \item{string}{A string containing keywords (e.g. `@nobs`) to be parsed 

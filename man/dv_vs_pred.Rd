@@ -5,15 +5,39 @@
 \alias{dv_vs_ipred}
 \title{Observations plotted against model predictions}
 \usage{
-dv_vs_ipred(xpdb, mapping = NULL, group = "ID", type = "pls",
+dv_vs_ipred(
+  xpdb,
+  mapping = NULL,
+  group = "ID",
+  type = "pls",
   title = "@y vs. @x | @run",
-  subtitle = "Ofv: @ofv, Eps shrink: @epsshk", caption = "@dir",
-  tag = NULL, log = NULL, guide = TRUE, facets, .problem, quiet, ...)
+  subtitle = "Ofv: @ofv, Eps shrink: @epsshk",
+  caption = "@dir",
+  tag = NULL,
+  log = NULL,
+  guide = TRUE,
+  facets,
+  .problem,
+  quiet,
+  ...
+)
 
-dv_vs_pred(xpdb, mapping = NULL, group = "ID", type = "pls",
-  title = "@y vs. @x | @run", subtitle = "Ofv: @ofv",
-  caption = "@dir", tag = NULL, log = NULL, guide = TRUE, facets,
-  .problem, quiet, ...)
+dv_vs_pred(
+  xpdb,
+  mapping = NULL,
+  group = "ID",
+  type = "pls",
+  title = "@y vs. @x | @run",
+  subtitle = "Ofv: @ofv",
+  caption = "@dir",
+  tag = NULL,
+  log = NULL,
+  guide = TRUE,
+  facets,
+  .problem,
+  quiet,
+  ...
+)
 }
 \arguments{
 \item{xpdb}{An xpose database object.}

@@ -4,8 +4,7 @@
 \alias{get_summary}
 \title{Access model summary data}
 \usage{
-get_summary(xpdb, .problem = NULL, .subprob = NULL,
-  only_last = FALSE)
+get_summary(xpdb, .problem = NULL, .subprob = NULL, only_last = FALSE)
 }
 \arguments{
 \item{xpdb}{An \code{xpose_data} object from which the summary data will be extracted.}

@@ -4,10 +4,22 @@
 \alias{amt_vs_idv}
 \title{Compartment kinetics}
 \usage{
-amt_vs_idv(xpdb, mapping = NULL, group = "ID", drop_fixed = TRUE,
-  type = "l", title = "Compartments amount vs. @x | @run",
-  subtitle = "Ofv: @ofv", caption = "@dir", tag = NULL, log = NULL,
-  facets, .problem, quiet, ...)
+amt_vs_idv(
+  xpdb,
+  mapping = NULL,
+  group = "ID",
+  drop_fixed = TRUE,
+  type = "l",
+  title = "Compartments amount vs. @x | @run",
+  subtitle = "Ofv: @ofv",
+  caption = "@dir",
+  tag = NULL,
+  log = NULL,
+  facets,
+  .problem,
+  quiet,
+  ...
+)
 }
 \arguments{
 \item{xpdb}{An xpose database object.}

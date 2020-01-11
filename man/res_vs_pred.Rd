@@ -5,15 +5,41 @@
 \alias{absval_res_vs_pred}
 \title{Residuals plotted against population predictions}
 \usage{
-res_vs_pred(xpdb, mapping = NULL, res = "CWRES", group = "ID",
-  type = "pls", title = "@y vs. @x | @run", subtitle = "Ofv: @ofv",
-  caption = "@dir", tag = NULL, log = NULL, guide = TRUE, facets,
-  .problem, quiet, ...)
+res_vs_pred(
+  xpdb,
+  mapping = NULL,
+  res = "CWRES",
+  group = "ID",
+  type = "pls",
+  title = "@y vs. @x | @run",
+  subtitle = "Ofv: @ofv",
+  caption = "@dir",
+  tag = NULL,
+  log = NULL,
+  guide = TRUE,
+  facets,
+  .problem,
+  quiet,
+  ...
+)
 
-absval_res_vs_pred(xpdb, mapping = NULL, res = "CWRES", group = "ID",
-  type = "pls", title = "@y vs. @x | @run", subtitle = "Ofv: @ofv",
-  caption = "@dir", tag = NULL, log = NULL, guide = FALSE, facets,
-  .problem, quiet, ...)
+absval_res_vs_pred(
+  xpdb,
+  mapping = NULL,
+  res = "CWRES",
+  group = "ID",
+  type = "pls",
+  title = "@y vs. @x | @run",
+  subtitle = "Ofv: @ofv",
+  caption = "@dir",
+  tag = NULL,
+  log = NULL,
+  guide = FALSE,
+  facets,
+  .problem,
+  quiet,
+  ...
+)
 }
 \arguments{
 \item{xpdb}{An xpose database object.}

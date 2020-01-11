@@ -4,8 +4,16 @@
 \alias{get_prm}
 \title{Access model parameters}
 \usage{
-get_prm(xpdb, .problem = NULL, .subprob = NULL, .method = NULL,
-  digits = 4, transform = TRUE, show_all = FALSE, quiet)
+get_prm(
+  xpdb,
+  .problem = NULL,
+  .subprob = NULL,
+  .method = NULL,
+  digits = 4,
+  transform = TRUE,
+  show_all = FALSE,
+  quiet
+)
 }
 \arguments{
 \item{xpdb}{An \code{xpose_data} object from which the model output file data will be extracted.}

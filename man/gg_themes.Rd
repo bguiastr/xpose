@@ -6,11 +6,9 @@
 \alias{theme_readable}
 \title{An additional set of themes for ggplot2}
 \usage{
-theme_bw2(base_size = 11, base_family = "",
-  legend_position = "right")
+theme_bw2(base_size = 11, base_family = "", legend_position = "right")
 
-theme_readable(base_size = 11, base_family = "",
-  legend_position = "right")
+theme_readable(base_size = 11, base_family = "", legend_position = "right")
 }
 \arguments{
 \item{base_size}{Base font size.}

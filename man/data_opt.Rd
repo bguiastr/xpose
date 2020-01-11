@@ -4,9 +4,18 @@
 \alias{data_opt}
 \title{Create options for data import}
 \usage{
-data_opt(.problem = NULL, .subprob = NULL, .method = NULL,
-  .source = "data", simtab = FALSE, filter = NULL, tidy = FALSE,
-  index_col = NULL, value_col = NULL, post_processing = NULL)
+data_opt(
+  .problem = NULL,
+  .subprob = NULL,
+  .method = NULL,
+  .source = "data",
+  simtab = FALSE,
+  filter = NULL,
+  tidy = FALSE,
+  index_col = NULL,
+  value_col = NULL,
+  post_processing = NULL
+)
 }
 \arguments{
 \item{.problem}{The problem to be used, by default returns the last one.}

@@ -4,8 +4,13 @@
 \alias{read_nm_model}
 \title{NONMEM model file parser}
 \usage{
-read_nm_model(runno = NULL, prefix = "run", ext = ".lst",
-  file = NULL, dir = NULL)
+read_nm_model(
+  runno = NULL,
+  prefix = "run",
+  ext = ".lst",
+  file = NULL,
+  dir = NULL
+)
 }
 \arguments{
 \item{runno}{Run number to be used to generate model file name. Used in

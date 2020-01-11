@@ -4,9 +4,17 @@
 \alias{xpose_save}
 \title{Save xpose plot}
 \usage{
-xpose_save(plot = last_plot(), file = NULL, dir = NULL,
-  device = NULL, width = 7, height = 6, units = c("in", "cm",
-  "mm"), dpi = 200, ...)
+xpose_save(
+  plot = last_plot(),
+  file = NULL,
+  dir = NULL,
+  device = NULL,
+  width = 7,
+  height = 6,
+  units = c("in", "cm", "mm"),
+  dpi = 200,
+  ...
+)
 }
 \arguments{
 \item{plot}{A xpose plot object.}

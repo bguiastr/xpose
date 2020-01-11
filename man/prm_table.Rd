@@ -4,8 +4,15 @@
 \alias{prm_table}
 \title{Display a parameter estimates to the console}
 \usage{
-prm_table(xpdb, .problem = NULL, .subprob = NULL, .method = NULL,
-  digits = 4, transform = TRUE, show_all = FALSE)
+prm_table(
+  xpdb,
+  .problem = NULL,
+  .subprob = NULL,
+  .method = NULL,
+  digits = 4,
+  transform = TRUE,
+  show_all = FALSE
+)
 }
 \arguments{
 \item{xpdb}{An \code{xpose_data} object from which the model output file data will be extracted.}

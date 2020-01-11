@@ -4,10 +4,20 @@
 \alias{fetch_data}
 \title{Fetch data}
 \usage{
-fetch_data(xpdb, .problem = NULL, .subprob = NULL, .method = NULL,
-  .source = "data", simtab = FALSE, filter = NULL, tidy = FALSE,
-  index_col = NULL, value_col = NULL, post_processing = NULL,
-  quiet = FALSE)
+fetch_data(
+  xpdb,
+  .problem = NULL,
+  .subprob = NULL,
+  .method = NULL,
+  .source = "data",
+  simtab = FALSE,
+  filter = NULL,
+  tidy = FALSE,
+  index_col = NULL,
+  value_col = NULL,
+  post_processing = NULL,
+  quiet = FALSE
+)
 }
 \arguments{
 \item{xpdb}{An xpose database object.}

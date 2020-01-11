@@ -4,8 +4,15 @@
 \alias{get_file}
 \title{Access model output file data}
 \usage{
-get_file(xpdb, file = NULL, ext = NULL, .problem = NULL,
-  .subprob = NULL, .method = NULL, quiet)
+get_file(
+  xpdb,
+  file = NULL,
+  ext = NULL,
+  .problem = NULL,
+  .subprob = NULL,
+  .method = NULL,
+  quiet
+)
 }
 \arguments{
 \item{xpdb}{An \code{xpose_data} object from which the model output file data will be extracted.}

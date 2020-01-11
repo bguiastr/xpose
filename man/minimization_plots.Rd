@@ -6,17 +6,43 @@
 \alias{grd_vs_iteration}
 \title{Parameter value or gradient vs. iterations}
 \usage{
-prm_vs_iteration(xpdb, mapping = NULL, group = "variable",
-  type = "l", title = "Parameter @y vs. @x | @run",
+prm_vs_iteration(
+  xpdb,
+  mapping = NULL,
+  group = "variable",
+  type = "l",
+  title = "Parameter @y vs. @x | @run",
   subtitle = "Method: @method, minimization time: @runtime\\nTermination message: @term",
-  caption = "@dir", tag = NULL, log = NULL, guide = FALSE, facets,
-  .problem, .subprob, .method, quiet, ...)
+  caption = "@dir",
+  tag = NULL,
+  log = NULL,
+  guide = FALSE,
+  facets,
+  .problem,
+  .subprob,
+  .method,
+  quiet,
+  ...
+)
 
-grd_vs_iteration(xpdb, mapping = NULL, group = "variable",
-  type = "l", title = "Gradient @y vs. @x | @run",
+grd_vs_iteration(
+  xpdb,
+  mapping = NULL,
+  group = "variable",
+  type = "l",
+  title = "Gradient @y vs. @x | @run",
   subtitle = "Method: @method, minimization time: @runtime\\nTermination message: @term",
-  caption = "@dir", tag = NULL, log = NULL, guide = FALSE, facets,
-  .problem, .subprob, .method, quiet, ...)
+  caption = "@dir",
+  tag = NULL,
+  log = NULL,
+  guide = FALSE,
+  facets,
+  .problem,
+  .subprob,
+  .method,
+  quiet,
+  ...
+)
 }
 \arguments{
 \item{xpdb}{An xpose database object.}
