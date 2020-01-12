@@ -1,5 +1,6 @@
 # xpose 0.4.6
 * Updated tests for compatibility with R 4.0.0
+* Shortened title of `dv_preds_vs_idv`
 
 # xpose 0.4.5
 ## General
