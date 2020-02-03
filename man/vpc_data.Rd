@@ -44,8 +44,6 @@ be used for observations. By default returns the last estimation problem.}
 be used for simulations. By default returns the last simulation problem.}
 
 \item{quiet}{Logical, if \code{FALSE} messages are printed to the console.}
-
-\item{...}{any additional aesthetics.}
 }
 \description{
 Generate visual predictive checks (VPC) data

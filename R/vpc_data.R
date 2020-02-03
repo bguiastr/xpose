@@ -21,7 +21,6 @@
 #' @param sim_problem Alternative to the option `psn_folder`. The $problem number to 
 #' be used for simulations. By default returns the last simulation problem.
 #' @param quiet Logical, if \code{FALSE} messages are printed to the console.
-#' @param ... any additional aesthetics.
 #' 
 #' @seealso \code{\link{vpc}} \code{\link{vpc_opt}}
 #' @examples
