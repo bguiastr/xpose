@@ -57,6 +57,8 @@ test_that('summary is properly created with the appropriate information', {
                                                         code = 'METH=0', comment = ''), software), 1), c('method', 'fo'))
   expect_equal(sum_out(sum_method(model, software), 2), c('method', 'sim'))
   expect_equal(sum_out(sum_shk(model, software, 'eps', rounding)), c('epsshk', '14.86 [1]'))
+  
+  skip_on_cran() # Let's wait and see how R 4.0.0 rounding behaves once it's released
   expect_equal(sum_out(sum_shk(model, software, 'eta', rounding)), c('etashk', eta_shk_string))
 })
 
