@@ -1,3 +1,6 @@
+# xpose 0.4.8
+* Compatibility fix for ggplot 3.3.0 and tibble 3.0.0
+
 # xpose 0.4.7
 * Fixed error in documentation check fail in R 4.0.0
 
