@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.8</span>
       </span>
     </div>
 
@@ -209,13 +209,13 @@ ggplot2 theme, or a change to the current <code>gg_theme</code>.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Before default theme</span>
-<span class='fu'><a href='dv_vs_pred.html'>dv_vs_ipred</a></span>(<span class='no'>xpdb_ex_pk</span>, <span class='kw'>facets</span> <span class='kw'>=</span> <span class='st'>'SEX'</span>)</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='img'><img src='update_themes-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='dv_vs_pred.html'>dv_vs_ipred</a></span>(<span class='no'>xpdb_ex_pk</span>, <span class='kw'>facets</span> <span class='kw'>=</span> <span class='st'>'SEX'</span>)</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='img'><img src='update_themes-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Updating the gg_theme and xp_theme</span>
 <span class='no'>xpdb_ex_pk</span> <span class='kw'>%&gt;%</span>
   <span class='fu'>update_themes</span>(<span class='kw'>gg_theme</span> <span class='kw'>=</span> <span class='fu'>theme</span>(<span class='kw'>legend.position</span> <span class='kw'>=</span> <span class='st'>'top'</span>),
                 <span class='kw'>xp_theme</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>point_color</span> <span class='kw'>=</span> <span class='st'>'blue'</span>,
                                 <span class='kw'>line_color</span>  <span class='kw'>=</span> <span class='st'>'blue'</span>)) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='dv_vs_pred.html'>dv_vs_ipred</a></span>(<span class='kw'>facets</span> <span class='kw'>=</span> <span class='st'>'SEX'</span>)</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='img'><img src='update_themes-2.png' alt='' width='700' height='433' /></div><div class='input'>
+  <span class='fu'><a href='dv_vs_pred.html'>dv_vs_ipred</a></span>(<span class='kw'>facets</span> <span class='kw'>=</span> <span class='st'>'SEX'</span>)</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='img'><img src='update_themes-2.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
