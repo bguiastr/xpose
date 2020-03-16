@@ -42,7 +42,7 @@ test_that('fetch_data can get simple data', {
 test_that('fetch_data can tidy data', {
   imported_tidy_data <- fetch_data(xpdb_ex_pk, .problem = 1, .source = 'data', 
                                    simtab = FALSE, filter = function(x) {
-                                     x[x[, 'EVID'] == 0, c('ID', 'TIME', 'IPRED', 'PRED', 'DV')]},
+                                     x[as.vector(x[, 'EVID'] == 0), c('ID', 'TIME', 'IPRED', 'PRED', 'DV')]},
                                    tidy = TRUE, value_col = c('IPRED','PRED', 'DV'))
   
   # Check output
