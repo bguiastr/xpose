@@ -62,7 +62,7 @@ only_obs <- function(xpdb, .problem, quiet) {
     string <- c('Filtering data by ', mdv_var, ' == 0')
     body(fun) <- bquote({
       msg(.(string), .(quiet))
-      x[x[, .(mdv_var)] == 0, ]
+      x[as.vector(x[, .(mdv_var)] == 0), ]
     })
   } else {
     string <- c('No `evid` or `mdv` variable available to filter the data.')

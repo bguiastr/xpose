@@ -108,7 +108,7 @@ are listed under \code{\link{template_titles}}.
 }
 
 \examples{
-amt_vs_idv(xpdb_ex_pk)
+amt_vs_idv(xpdb_ex_pk, nrow = 2, ncol = 1)
 
 }
 \seealso{

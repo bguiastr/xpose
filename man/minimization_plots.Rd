@@ -12,7 +12,8 @@ prm_vs_iteration(
   group = "variable",
   type = "l",
   title = "Parameter @y vs. @x | @run",
-  subtitle = "Method: @method, minimization time: @runtime\\nTermination message: @term",
+ 
+    subtitle = "Method: @method, minimization time: @runtime\\nTermination message: @term",
   caption = "@dir",
   tag = NULL,
   log = NULL,
@@ -31,7 +32,8 @@ grd_vs_iteration(
   group = "variable",
   type = "l",
   title = "Gradient @y vs. @x | @run",
-  subtitle = "Method: @method, minimization time: @runtime\\nTermination message: @term",
+ 
+    subtitle = "Method: @method, minimization time: @runtime\\nTermination message: @term",
   caption = "@dir",
   tag = NULL,
   log = NULL,

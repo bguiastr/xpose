@@ -96,8 +96,13 @@ parse_nm_files <- function(dat, quiet) {
   if (length(unlist(dat$raw)) == 0) {
     tab_rows <- NULL 
   } else {
-    x <- dplyr::tibble(raw = unlist(dat$raw), problem = NA, 
-                       subprob = NA, method = NA, header = FALSE)
+    x <- dplyr::tibble(
+      raw = unlist(dat$raw), 
+      problem = NA_character_, 
+      subprob = NA_character_, 
+      method  = NA_character_, 
+      header  = FALSE
+      )
     tab_rows <- which(stringr::str_detect(x$raw, '^\\s*TABLE NO'))
   }
   

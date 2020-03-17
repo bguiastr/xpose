@@ -78,7 +78,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.8</span>
       </span>
     </div>
 
@@ -198,7 +198,7 @@
 <p>Make the changes to the code on your fork.</p>
 <ul>
 <li>Use the tidyverse <a href="https://style.tidyverse.org/">coding style</a>.</li>
-<li>Any new function should have <a href="http://r-pkgs.had.co.nz/man.html">Roxygen</a> documentation. Internal functions should contain <code>#' @keywords internal</code>. Add examples to new functions. Make sure to update the documentation with <code><a href="https://rdrr.io/pkg/devtools/man/document.html">devtools::document()</a></code> before submitting the pull request.</li>
+<li>Any new function should have <a href="http://r-pkgs.had.co.nz/man.html">Roxygen</a> documentation. Internal functions should contain <code>#' @keywords internal</code>. Add examples to new functions. Make sure to update the documentation with <code><a href="https://devtools.r-lib.org//reference/document.html">devtools::document()</a></code> before submitting the pull request.</li>
 <li>
 <a href="http://r-pkgs.had.co.nz/tests.html">Tests</a> should be added under <em>tests/testthat/</em> to ensure for proper code coverage.</li>
 <li>New plots should be created using the generic <code><a href="reference/xplot_scatter.html">xplot_scatter()</a></code>, <code><a href="reference/xplot_distrib.html">xplot_distrib()</a></code> or <code><a href="reference/xplot_qq.html">xplot_qq()</a></code>. Check for example the code of <em>R/plot_gof.R</em> to see how it should be done.</li>
@@ -207,7 +207,7 @@
 <li>Add a brief description of your contribution to <em>NEWS.md</em> using bullets. Make sure to list it under the most recent xpose version and to add your name as (<code>@&lt;your_github_username&gt;</code>). e.g. `* Added support for multiple pages plots (@guiastrennec)<code>. In addition, if your pull request addresses one or several issues, please reference them using the # sign e.g.</code>* Added support for multiple pages plots (@guiastrennec, #3)`</li>
 </ul>
 </li>
-<li><p>Run <code><a href="https://rdrr.io/pkg/devtools/man/check.html">devtools::check()</a></code> on your fork and ensure the absence of any errors, warnings and notes.</p></li>
+<li><p>Run <code><a href="https://devtools.r-lib.org//reference/check.html">devtools::check()</a></code> on your fork and ensure the absence of any errors, warnings and notes.</p></li>
 <li>
 <p>Create a pull request to the <strong>dev branch</strong> of the <strong>UUPharmacometrics/xpose</strong> repository.</p>
 <ul>

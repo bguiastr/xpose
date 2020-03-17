@@ -80,7 +80,7 @@ select() keeps only the listed variables; rename() keeps all variables." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.8</span>
       </span>
     </div>
 
@@ -221,12 +221,12 @@ file extension e.g. 'phi'.</p></td>
  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span>(<span class='kw'>lnDV</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>(<span class='no'>DV</span>),
         <span class='kw'>sim_count</span> <span class='kw'>=</span> <span class='fu'><a href='irep.html'>irep</a></span>(<span class='no'>ID</span>),
         <span class='kw'>.problem</span> <span class='kw'>=</span> <span class='fl'>1</span>) <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='pred_vs_idv.html'>dv_vs_idv</a></span>(<span class='fu'>aes</span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>lnDV</span>))</div><div class='output co'>#&gt; <span class='message'>irep: 1 simulations found.</span></div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='img'><img src='modify_xpdb-1.png' alt='' width='700' height='433' /></div><div class='input'>
+ <span class='fu'><a href='pred_vs_idv.html'>dv_vs_idv</a></span>(<span class='fu'>aes</span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>lnDV</span>))</div><div class='output co'>#&gt; <span class='message'>irep: 1 simulations found.</span></div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='img'><img src='modify_xpdb-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Rename/select columns</span>
 <span class='no'>xpdb_ex_pk</span> <span class='kw'>%&gt;%</span>
  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span>(<span class='no'>ID</span>:<span class='no'>TAD</span>, <span class='no'>DV</span>, <span class='no'>EVID</span>) <span class='kw'>%&gt;%</span>
  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>rename</a></span>(<span class='kw'>TSLD</span> <span class='kw'>=</span> <span class='no'>TAD</span>) <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='pred_vs_idv.html'>dv_vs_idv</a></span>(<span class='fu'>aes</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>TSLD</span>))</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='img'><img src='modify_xpdb-2.png' alt='' width='700' height='433' /></div></pre>
+ <span class='fu'><a href='pred_vs_idv.html'>dv_vs_idv</a></span>(<span class='fu'>aes</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>TSLD</span>))</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='img'><img src='modify_xpdb-2.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

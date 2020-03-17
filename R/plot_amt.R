@@ -11,7 +11,7 @@
 #' @inheritSection xplot_scatter Template titles
 #' @seealso \code{\link{xplot_scatter}}
 #' @examples
-#' amt_vs_idv(xpdb_ex_pk)
+#' amt_vs_idv(xpdb_ex_pk, nrow = 2, ncol = 1)
 #' 
 #' @export
 amt_vs_idv <- function(xpdb,

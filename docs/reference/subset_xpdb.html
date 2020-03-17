@@ -81,7 +81,7 @@ Use slice() to select row/cases by their position" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.8</span>
       </span>
     </div>
 
@@ -221,15 +221,15 @@ file extension e.g. 'phi'.</p></td>
     <pre class="examples"><div class='input'><span class='co'># Subset by condition</span>
 <span class='no'>xpdb_ex_pk</span> <span class='kw'>%&gt;%</span>
  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>DV</span> <span class='kw'>&lt;</span> <span class='fl'>1</span>, <span class='kw'>.problem</span> <span class='kw'>=</span> <span class='fl'>1</span>) <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='dv_vs_pred.html'>dv_vs_ipred</a></span>()</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='img'><img src='subset_xpdb-1.png' alt='' width='700' height='433' /></div><div class='input'>
+ <span class='fu'><a href='dv_vs_pred.html'>dv_vs_ipred</a></span>()</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='img'><img src='subset_xpdb-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Subset by positions</span>
 <span class='no'>xpdb_ex_pk</span> <span class='kw'>%&gt;%</span>
  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice</a></span>(<span class='fl'>1</span>:<span class='fl'>100</span>, <span class='kw'>.problem</span> <span class='kw'>=</span> <span class='fl'>1</span>) <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='dv_vs_pred.html'>dv_vs_ipred</a></span>()</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='img'><img src='subset_xpdb-2.png' alt='' width='700' height='433' /></div><div class='input'>
+ <span class='fu'><a href='dv_vs_pred.html'>dv_vs_ipred</a></span>()</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='img'><img src='subset_xpdb-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Deduplicate rows</span>
 <span class='no'>xpdb_ex_pk</span> <span class='kw'>%&gt;%</span>
  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/distinct.html'>distinct</a></span>(<span class='no'>TIME</span>, <span class='kw'>.problem</span> <span class='kw'>=</span> <span class='fl'>1</span>) <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='dv_vs_pred.html'>dv_vs_ipred</a></span>()</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='img'><img src='subset_xpdb-3.png' alt='' width='700' height='433' /></div></pre>
+ <span class='fu'><a href='dv_vs_pred.html'>dv_vs_ipred</a></span>()</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='img'><img src='subset_xpdb-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
