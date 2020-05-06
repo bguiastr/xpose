@@ -153,7 +153,8 @@ vpc_data <- function(xpdb,
         tidyr::gather(key = 'tmp', value = 'value', dplyr::matches('\\.(low|med|up)')) %>% 
         tidyr::separate(col = !!rlang::sym('tmp'), 
                         into = c('Simulations', 'ci'), sep = '\\.') %>% 
-        tidyr::spread(key = 'ci', value = 'value')
+        tidyr::spread(key = 'ci', value = 'value') %>%
+        dplyr::ungroup()
       
       if (vpc_type == 'continuous') {
         x <- dplyr::mutate(.data = x, 
@@ -161,7 +162,8 @@ vpc_data <- function(xpdb,
                                                 labels = c(stringr::str_c(min(opt$pi)*100, 'th percentile'), 
                                                            'Median', stringr::str_c(max(opt$pi)*100, 'th percentile'))))
       } else {
-        x <- dplyr::mutate(.data = x, Simulations = factor(x$Simulations, levels = 'q50', labels = 'Median'))
+        x <- dplyr::mutate(.data = x, 
+                           Simulations = factor(x$Simulations, levels = 'q50', labels = 'Median'))
       }
       if ('strat2' %in% colnames(x)) {
         x$strat1 <- stringr::str_replace(x$strat1, stringr::str_c(vpc_dat$stratify[1], '='), '')
@@ -176,12 +178,14 @@ vpc_data <- function(xpdb,
     purrr::map_at('aggr_obs', function(x) {
       if (vpc_type == 'continuous') {
         x <- x %>% 
+          dplyr::ungroup() %>%
           tidyr::gather(key = 'Observations', value = 'value', dplyr::one_of('obs5', 'obs50', 'obs95')) %>% 
           dplyr::mutate(Observations = factor(.$Observations, levels = c('obs5', 'obs50', 'obs95'),
                                               labels = c(stringr::str_c(min(opt$pi)*100, 'th percentile'), 
                                                          'Median', stringr::str_c(max(opt$pi)*100, 'th percentile'))))
       } else {
         x <- x %>% 
+          dplyr::ungroup() %>%
           tidyr::gather(key = 'Observations', value = 'value', dplyr::one_of('obs50')) %>% 
           dplyr::mutate(Observations = factor(.$Observations, levels = 'obs50', labels = 'Median'))
       }
