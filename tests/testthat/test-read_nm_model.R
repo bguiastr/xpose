@@ -28,9 +28,14 @@ test_that('properly parses a model given via the runno and dir arguments', {
 test_that('properly handles missing code in output file', {
   expect_warning(recover_model <- read_nm_model(runno = '002', ext = '.lst', dir = 'data'), 
                  regexp = 'No model code found in `.lst` NONMEM output file importing `.mod` instead.')
+  
+  # Fix file attribute to be comparable
+  attr(recover_model, "file") <- "run001.lst"
+  
   expect_equal(recover_model, ctrl_mod[-c(1, which(ctrl_mod$level > 30)), ])
 })
 
 test_that('problem record is present even if no text has been supplied',{
   expect_true('pro' %in% read_nm_model(file = 'sim.lst', dir = 'data')[['subroutine']])
 })
+
