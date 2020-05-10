@@ -96,7 +96,7 @@ xpdb_ex_pk %>%
 ```
 
 ### Creating the VPC using a PsN folder
-The `vpc_data()` contains an argument `psn_foler` which can be used to point to a [PsN](https://uupharmacometrics.github.io/PsN/) generated VPC folder. As in most xpose function `template_titles` keywords can be used to automatize the process e.g. `psn_folder = '@dir/@run_vpc'` where `@dir` and `@run` will be automatically translated to initial (i.e. when the xpdb was generated) run directory and run number `'analysis/models/pk/run001_vpc'`. 
+The `vpc_data()` contains an argument `psn_folder` which can be used to point to a [PsN](https://uupharmacometrics.github.io/PsN/) generated VPC folder. As in most xpose function `template_titles` keywords can be used to automatize the process e.g. `psn_folder = '@dir/@run_vpc'` where `@dir` and `@run` will be automatically translated to initial (i.e. when the xpdb was generated) run directory and run number `'analysis/models/pk/run001_vpc'`. 
 
 In this case, the data will be read from the `/m1` sub-folder (or `m1.zip` if compressed). Note that [PsN](https://uupharmacometrics.github.io/PsN/) drops unused columns to reduce the simtab file size. Thus, in order to allow for more flexibility in R, it is recommended to use multiple stratifying variables (`-stratify_on=VAR1,VAR2`) and the prediction corrected (`-predcorr` adds the PRED column to the output) options in [PsN](https://uupharmacometrics.github.io/PsN/) to avoid having to rerun [PsN](https://uupharmacometrics.github.io/PsN/) to add these variables later on.
 In addition, `-dv`, `-idv`, `-lloq`, `-uloq`, `-predcorr` and `-stratify_on` [PsN](https://uupharmacometrics.github.io/PsN/) options are automatically applied to xpose VPC.
