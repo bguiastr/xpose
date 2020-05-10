@@ -150,6 +150,8 @@ vpc_data <- function(xpdb,
                                    'ylab', 'labeller')) %>%
     purrr::map_at('vpc_dat', function(x) {
       x <- x %>% 
+        dplyr::ungroup() %>% 
+        dplyr::mutate_all(.funs = unname) %>% # remove warning in gather
         tidyr::gather(key = 'tmp', value = 'value', dplyr::matches('\\.(low|med|up)')) %>% 
         tidyr::separate(col = !!rlang::sym('tmp'), 
                         into = c('Simulations', 'ci'), sep = '\\.') %>% 
@@ -179,6 +181,7 @@ vpc_data <- function(xpdb,
       if (vpc_type == 'continuous') {
         x <- x %>% 
           dplyr::ungroup() %>%
+          dplyr::mutate_all(.funs = unname) %>% # remove warning in gather
           tidyr::gather(key = 'Observations', value = 'value', dplyr::one_of('obs5', 'obs50', 'obs95')) %>% 
           dplyr::mutate(Observations = factor(.$Observations, levels = c('obs5', 'obs50', 'obs95'),
                                               labels = c(stringr::str_c(min(opt$pi)*100, 'th percentile'), 
