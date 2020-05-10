@@ -4,7 +4,7 @@ context('Check VPCs')
 # ctrl_special <- xpdb_ex_pk %>%
 #   vpc_data(opt = vpc_opt(n_bins = 3, lloq = 0.1)) %>%
 #   vpc_data(vpc_type = 'cens', opt = vpc_opt(n_bins = 3, lloq = 0.4))
-#  save(ctrl_special, file = 'data/ctrl_special.RData', 
+#  save(ctrl_special, file = 'data/ctrl_special.RData',
 #       compress = 'xz', version = 2)
 load(file = 'data/ctrl_special.RData')
 
