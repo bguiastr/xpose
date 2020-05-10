@@ -12,7 +12,8 @@ ctrl_tab_2 <- xpdb_ex_pk %>%
   group_by(ID, SEX, .problem = 1) %>% 
   summarize(CMAX = max(DV), .problem = 1) %>% 
   ungroup(.problem = 1) %>% 
-  get_data(.problem = 1)
+  get_data(.problem = 1) %>% 
+  ungroup()
 
 test_xpdb_1 <- vpc_data(xpdb_ex_pk, opt = vpc_opt(n_bins = 2), quiet = TRUE)
 ctrl_xpdb_1 <- test_xpdb_1
@@ -32,14 +33,15 @@ test_that('xpdb_edits checks error properly', {
 })
 
 test_that('xpdb_edits works properly', {
-  expect_equal(filter.xpose_data(.data = xpdb_ex_pk, ID == 110, TIME > 10, .problem = 1) %>% get_data(.problem = 1), 
+  expect_equal(filter.xpose_data(.data = xpdb_ex_pk, ID == 110, TIME > 10, .problem = 1) %>% 
+                 get_data(.problem = 1), 
                xpdb_ex_pk %>% get_data(.problem = 1) %>% filter(.$ID == 110, .$TIME > 10))
   expect_equal(filter.xpose_data(.data = xpdb_ex_pk, ID == 110, .problem = 1, .source = 'phi') %>% 
                  slice.xpose_data(1:3, .source = 'phi') %>% 
                  mutate.xpose_data(TEST = 'Ok', .source = 'phi') %>% 
                  get_file(ext = 'phi', quiet = TRUE), 
-               xpdb_ex_pk %>% get_file(ext = 'phi', quiet = TRUE) %>% filter(.$ID == 110) 
-               %>% slice(1:3) %>% mutate(TEST = 'Ok'))
+               xpdb_ex_pk %>% get_file(ext = 'phi', quiet = TRUE) %>% filter(.$ID == 110) %>% 
+                 slice(1:3) %>% mutate(TEST = 'Ok'))
   expect_equal(ctrl_tab_1, xpdb_ex_pk %>% 
                  get_data(.problem = 1) %>% 
                  mutate(DV = log(DV)) %>% 
@@ -49,8 +51,7 @@ test_that('xpdb_edits works properly', {
   expect_equal(ctrl_tab_2, xpdb_ex_pk %>% 
                  get_data(.problem = 1) %>% 
                  group_by(ID, SEX) %>% 
-                 summarize(CMAX = max(DV)) %>% 
-                 ungroup())
+                 summarize(CMAX = max(DV), .groups = "drop"))
   expect_warning(test_xpdb_2 <- filter.xpose_data(.data = test_xpdb_1, bin == 2, .source = 'special', 
                                                   .where = c('fake1', 'fake2', 'vpc_dat'))$special$data[[1]],
                  regexp = 'elements fake1, fake2 not found in vpc continuous')
@@ -81,3 +82,4 @@ test_that('n() works', {
   expect_equal(xpdb_ex_pk %>% mutate(N = 1:n(), .source = 'ext') %>% get_file(ext = 'ext', quiet = TRUE),
                xpdb_ex_pk %>% get_file(ext = 'ext', quiet = TRUE) %>% mutate(N = 1:n()))
 })
+
