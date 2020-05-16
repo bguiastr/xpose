@@ -12,21 +12,21 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="Introduction">
-<meta property="og:description" content="">
+<meta property="og:description" content="xpose">
 <meta property="og:image" content="/logo.png">
-<meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.9</span>
       </span>
     </div>
 
@@ -124,10 +124,10 @@
       </header><script src="introduction_files/header-attrs-2.1/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Introduction</h1>
+      <h1 data-toc-skip>Introduction</h1>
                         <h4 class="author">Benjamin Guiastrennec</h4>
             
-            <h4 class="date">17 March, 2020</h4>
+            <h4 class="date">17 May, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/UUPharmacometrics/xpose/blob/master/vignettes/introduction.Rmd"><code>vignettes/introduction.Rmd</code></a></small>
       <div class="hidden name"><code>introduction.Rmd</code></div>
@@ -140,19 +140,19 @@
 <h3 class="hasAnchor">
 <a href="#load-xpose" class="anchor"></a>Load xpose</h3>
 <p>The first step is to load xpose in R with the following command:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(xpose)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">xpose</span>)</pre></body></html></div>
 </div>
 <div id="import-model-output" class="section level3">
 <h3 class="hasAnchor">
 <a href="#import-model-output" class="anchor"></a>Import model output</h3>
 <p>The function <code><a href="../reference/xpose_data.html">xpose_data()</a></code> collects all model output files and table and organizes them into an R object commonly called <code>xpdb</code> which stands for “xpose database”.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>xpdb &lt;-<span class="st"> </span><span class="kw"><a href="../reference/xpose_data.html">xpose_data</a></span>(<span class="dt">runno =</span> <span class="st">'001'</span>, <span class="dt">dir =</span> <span class="st">'analysis/model/pk/'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">xpdb</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/xpose_data.html">xpose_data</a></span>(<span class="kw">runno</span> <span class="kw">=</span> <span class="st">'001'</span>, <span class="kw">dir</span> <span class="kw">=</span> <span class="st">'analysis/model/pk/'</span>)</pre></body></html></div>
 </div>
 <div id="glimpse-at-the-xpdb" class="section level3">
 <h3 class="hasAnchor">
 <a href="#glimpse-at-the-xpdb" class="anchor"></a>Glimpse at the xpdb</h3>
 <p>The files attached to an xpdb object can be displayed to the console simply by writing its name to the console or by using the <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> function.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>xpdb <span class="co"># or print(xpdb)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">xpdb</span> <span class="co"># or print(xpdb)</span></pre></body></html></div>
 <pre><code>run001.lst overview: 
  - Software: nonmem 7.3.0 
  - Attached files (memory usage 1.3 Mb): 
@@ -162,18 +162,18 @@
    + special: &lt;none&gt; 
  - gg_theme: theme_readable 
  - xp_theme: theme_xp_default 
- - Options: dir = analysis/models/pk/, quiet = FALSE, manual_import = NULL</code></pre>
+ - Options: dir = data, quiet = FALSE, manual_import = NULL</code></pre>
 </div>
 <div id="model-summary" class="section level3">
 <h3 class="hasAnchor">
 <a href="#model-summary" class="anchor"></a>Model summary</h3>
 <p>A summary of a model run can be displayed to the console by using the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function on an xpdb object.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(xpdb)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">xpdb</span>)</pre></body></html></div>
 <pre><code>
 Summary for problem no. 0 [Global information] 
  - Software                      @software   : nonmem
  - Software version              @version    : 7.3.0
- - Run directory                 @dir        : analysis/models/pk/
+ - Run directory                 @dir        : data
  - Run file                      @file       : run001.lst
  - Run number                    @run        : run001
  - Reference model               @ref        : 000
@@ -211,7 +211,7 @@ Summary for problem no. 2 [Model simulations]
 <h3 class="hasAnchor">
 <a href="#parameter-estimates" class="anchor"></a>Parameter estimates</h3>
 <p>A table of parameter estimates can be displayed to the console by using the <code><a href="../reference/prm_table.html">prm_table()</a></code> function on an xpdb object.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw"><a href="../reference/prm_table.html">prm_table</a></span>(xpdb)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="fu"><a href="../reference/prm_table.html">prm_table</a></span>(<span class="no">xpdb</span>)</pre></body></html></div>
 <pre><code>
 Reporting transformed parameters:
 For the OMEGA and SIGMA matrices, values are reported as standard deviations for the diagonal elements and as correlations for the off-diagonal elements. The relative standard errors (RSE) for OMEGA and SIGMA are reported on the approximate standard deviation scale (SE/variance estimate)/2. Use `transform = FALSE` to report untransformed parameters.
@@ -234,7 +234,7 @@ Estimates for $prob no.1, subprob no.0, method foce
 <h3 class="hasAnchor">
 <a href="#listing-variables" class="anchor"></a>Listing variables</h3>
 <p>A list of available variables for plotting can be displayed to the console by using the <code><a href="../reference/list_vars.html">list_vars()</a></code> function on an xpdb object.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw"><a href="../reference/list_vars.html">list_vars</a></span>(xpdb)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="fu"><a href="../reference/list_vars.html">list_vars</a></span>(<span class="no">xpdb</span>)</pre></body></html></div>
 <pre><code>
 List of available variables for problem no. 1 
  - Subject identifier (id)               : ID
@@ -265,52 +265,52 @@ List of available variables for problem no. 2
 <h3 class="hasAnchor">
 <a href="#pipes" class="anchor"></a>Pipes</h3>
 <p><code>xpose</code> makes use of the pipe operator <code><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></code> from the package <a href="https://dplyr.tidyverse.org">dplyr</a>. Pipes can be used to generate clear workflow.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw"><a href="../reference/xpose_data.html">xpose_data</a></span>(<span class="dt">runno =</span> <span class="st">'001'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="st">  </span><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="st">  </span><span class="kw"><a href="../reference/xpose_save.html">xpose_save</a></span>(<span class="dt">file =</span> <span class="st">'run001_dv_vs_ipred.pdf'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="fu"><a href="../reference/xpose_data.html">xpose_data</a></span>(<span class="kw">runno</span> <span class="kw">=</span> <span class="st">'001'</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>() <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="../reference/xpose_save.html">xpose_save</a></span>(<span class="kw">file</span> <span class="kw">=</span> <span class="st">'run001_dv_vs_ipred.pdf'</span>)</pre></body></html></div>
 </div>
 <div id="editing-the-xpdb" class="section level3">
 <h3 class="hasAnchor">
 <a href="#editing-the-xpdb" class="anchor"></a>Editing the xpdb</h3>
 <p>Multiples edits can be made to the xpdb object. For instance the type (visible using the <code><a href="../reference/list_vars.html">list_vars()</a></code> function described above) of a variable can be changed. Hence the independent variable (idv) could be changed from <code>TIME</code> (default in NONMEM) to <code>TAD</code>. All plots using <code>idv</code> will then automatically use <code>TAD</code>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># With the TIME default</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>xpdb <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="st">  </span><span class="kw"><a href="../reference/pred_vs_idv.html">dv_vs_idv</a></span>()</span></code></pre></div>
+<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="co"># With the TIME default</span>
+<span class="no">xpdb</span> <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="../reference/pred_vs_idv.html">dv_vs_idv</a></span>()</pre></body></html></div>
 <p><img src="introduction_files/figure-html/change%20idv-1.png" width="50%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># After IDV reassignment</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>xpdb <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="st">  </span><span class="kw"><a href="../reference/set_vars.html">set_var_types</a></span>(<span class="dt">idv =</span> <span class="st">'TAD'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="st">  </span><span class="kw"><a href="../reference/pred_vs_idv.html">dv_vs_idv</a></span>()</span></code></pre></div>
+<div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="co"># After IDV reassignment</span>
+<span class="no">xpdb</span> <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="../reference/set_vars.html">set_var_types</a></span>(<span class="kw">idv</span> <span class="kw">=</span> <span class="st">'TAD'</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="../reference/pred_vs_idv.html">dv_vs_idv</a></span>()</pre></body></html></div>
 <p><img src="introduction_files/figure-html/change%20idv-2.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
 <div id="generating-plots" class="section level3">
 <h3 class="hasAnchor">
 <a href="#generating-plots" class="anchor"></a>Generating plots</h3>
 <p>Plotting functions are used as follows:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># DV vs. IPRED plot</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="co"># DV vs. IPRED plot</span>
+<span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(<span class="no">xpdb</span>)</pre></body></html></div>
 <p><img src="introduction_files/figure-html/demo%20basic%20gof-1.png" width="50%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># CWRES vs. PRED plot</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="kw"><a href="../reference/res_vs_pred.html">res_vs_pred</a></span>(xpdb, <span class="dt">res =</span> <span class="st">'CWRES'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="co"># CWRES vs. PRED plot</span>
+<span class="fu"><a href="../reference/res_vs_pred.html">res_vs_pred</a></span>(<span class="no">xpdb</span>, <span class="kw">res</span> <span class="kw">=</span> <span class="st">'CWRES'</span>)</pre></body></html></div>
 <p><img src="introduction_files/figure-html/demo%20basic%20gof-2.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
 <div id="saving-plots" class="section level3">
 <h3 class="hasAnchor">
 <a href="#saving-plots" class="anchor"></a>Saving plots</h3>
 <p>The <code>xpose_save</code> function was designed to facilitate the export of xpose plots. The file extension is guessed from the file name and must match one of .pdf (default), .jpeg, .png, .bmp or .tiff. If no extension is provided as part of the file name a .pdf will be generated. Finally, if the <code>plot</code> argument is left empty <code>xpose_save</code> will automatically save the last plot that was created or modified.</p>
-<p>The <code><a href="../reference/xpose_save.html">xpose_save()</a></code> function is compatible with templates titles and keywords such as <code>@run</code> for the run number and <code>@plotfun</code> for the name of the plotting function can be used to automatically name files. Learn more about the template titles keywords using <code><a href="https://rdrr.io/r/utils/help.html">help('template_titles')</a></code>.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Save the last generated plot</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb)</span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="kw"><a href="../reference/xpose_save.html">xpose_save</a></span>(<span class="dt">file =</span> <span class="st">'run001_dv_vs_ipred.pdf'</span>)</span>
-<span id="cb16-4"><a href="#cb16-4"></a></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="co"># Template titles can also be used in filename and the directory</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a>xpdb <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb16-7"><a href="#cb16-7"></a><span class="st"> </span><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb16-8"><a href="#cb16-8"></a><span class="st"> </span><span class="kw"><a href="../reference/xpose_save.html">xpose_save</a></span>(<span class="dt">file =</span> <span class="st">'@run_@plotfun_[@ofv].jpeg'</span>, <span class="dt">dir =</span> <span class="st">'@dir'</span>)</span></code></pre></div>
+<p>The <code><a href="../reference/xpose_save.html">xpose_save()</a></code> function is compatible with templates titles and keywords such as <code>@run</code> for the run number and <code>@plotfun</code> for the name of the plotting function can be used to automatically name files. Learn more about the template titles keywords using <code><a href="../reference/template_titles.html">help('template_titles')</a></code>.</p>
+<div class="sourceCode" id="cb16"><html><body><pre class="r"><span class="co"># Save the last generated plot</span>
+<span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(<span class="no">xpdb</span>)
+<span class="fu"><a href="../reference/xpose_save.html">xpose_save</a></span>(<span class="kw">file</span> <span class="kw">=</span> <span class="st">'run001_dv_vs_ipred.pdf'</span>)
+
+<span class="co"># Template titles can also be used in filename and the directory</span>
+<span class="no">xpdb</span> <span class="kw">%&gt;%</span>
+ <span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>() <span class="kw">%&gt;%</span>
+ <span class="fu"><a href="../reference/xpose_save.html">xpose_save</a></span>(<span class="kw">file</span> <span class="kw">=</span> <span class="st">'@run_@plotfun_[@ofv].jpeg'</span>, <span class="kw">dir</span> <span class="kw">=</span> <span class="st">'@dir'</span>)</pre></body></html></div>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
       </div>
 
@@ -323,7 +323,7 @@ List of available variables for problem no. 2
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

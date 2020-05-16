@@ -12,21 +12,21 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="Customize plots">
-<meta property="og:description" content="">
+<meta property="og:description" content="xpose">
 <meta property="og:image" content="/logo.png">
-<meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.9</span>
       </span>
     </div>
 
@@ -124,10 +124,10 @@
       </header><script src="customize_plots_files/header-attrs-2.1/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Customize plots</h1>
+      <h1 data-toc-skip>Customize plots</h1>
                         <h4 class="author">Benjamin Guiastrennec</h4>
             
-            <h4 class="date">17 March, 2020</h4>
+            <h4 class="date">17 May, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/UUPharmacometrics/xpose/blob/master/vignettes/customize_plots.Rmd"><code>vignettes/customize_plots.Rmd</code></a></small>
       <div class="hidden name"><code>customize_plots.Rmd</code></div>
@@ -167,33 +167,33 @@
 <div id="labels" class="section level3">
 <h3 class="hasAnchor">
 <a href="#labels" class="anchor"></a>Labels</h3>
-<p>All xpose plots have by default an informative title, subtitle and caption. For example all plots using individual model predictions (IPRED) will display the epsilons’ shrinkage. These titles can easily be edited as templates using <span class="citation">@keywords</span> which will be replaced by their actual value stored in the summary level of the <code>xpdb</code> object when rendering the plots. Keywords are defined by a word preceded by a <code>@</code> e.g. <code>'@ofv'</code>. A list of all available keyword can be accessed via <code><a href="https://rdrr.io/r/utils/help.html">help('template_titles')</a></code>. The title, subtitle or caption can be disabled by setting them to <code>NULL</code>. Suffix can be automatically added to title, subtitle and caption of all plots. The suffixes can be defined in the <code>xp_theme</code>.</p>
+<p>All xpose plots have by default an informative title, subtitle and caption. For example all plots using individual model predictions (IPRED) will display the epsilons’ shrinkage. These titles can easily be edited as templates using <span class="citation">@keywords</span> which will be replaced by their actual value stored in the summary level of the <code>xpdb</code> object when rendering the plots. Keywords are defined by a word preceded by a <code>@</code> e.g. <code>'@ofv'</code>. A list of all available keyword can be accessed via <code><a href="../reference/template_titles.html">help('template_titles')</a></code>. The title, subtitle or caption can be disabled by setting them to <code>NULL</code>. Suffix can be automatically added to title, subtitle and caption of all plots. The suffixes can be defined in the <code>xp_theme</code>.</p>
 <div id="from-the-plot-functions" class="section level4">
 <h4 class="hasAnchor">
 <a href="#from-the-plot-functions" class="anchor"></a>From the plot functions</h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Using template titles</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb,</span>
-<span id="cb1-3"><a href="#cb1-3"></a>            <span class="dt">title    =</span> <span class="st">'@y vs. @x (@run, obj: @ofv)'</span>,</span>
-<span id="cb1-4"><a href="#cb1-4"></a>            <span class="dt">subtitle =</span> <span class="st">'Based on: @nind subjects and @nobs records'</span>,</span>
-<span id="cb1-5"><a href="#cb1-5"></a>            <span class="dt">caption  =</span> <span class="st">'Dir: @dir'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="co"># Using template titles</span>
+<span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(<span class="no">xpdb</span>,
+            <span class="kw">title</span>    <span class="kw">=</span> <span class="st">'@y vs. @x (@run, obj: @ofv)'</span>,
+            <span class="kw">subtitle</span> <span class="kw">=</span> <span class="st">'Based on: @nind subjects and @nobs records'</span>,
+            <span class="kw">caption</span>  <span class="kw">=</span> <span class="st">'Dir: @dir'</span>)</pre></body></html></div>
 <p><img src="customize_plots_files/figure-html/demo%20titles-1.png" width="50%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Disabling all titles</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">title =</span> <span class="ot">NULL</span>, <span class="dt">subtitle =</span> <span class="ot">NULL</span>, <span class="dt">caption =</span> <span class="ot">NULL</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="co"># Disabling all titles</span>
+<span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(<span class="no">xpdb</span>, <span class="kw">title</span> <span class="kw">=</span> <span class="kw">NULL</span>, <span class="kw">subtitle</span> <span class="kw">=</span> <span class="kw">NULL</span>, <span class="kw">caption</span> <span class="kw">=</span> <span class="kw">NULL</span>)</pre></body></html></div>
 <p><img src="customize_plots_files/figure-html/demo%20titles-2.png" width="50%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Edit title suffix from the xp_theme for a specific plot</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">title =</span> <span class="st">'A title'</span>, <span class="dt">xp_theme =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">title_suffix =</span> <span class="st">' | a suffix for @run'</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="co"># Edit title suffix from the xp_theme for a specific plot</span>
+<span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(<span class="no">xpdb</span>, <span class="kw">title</span> <span class="kw">=</span> <span class="st">'A title'</span>, <span class="kw">xp_theme</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">title_suffix</span> <span class="kw">=</span> <span class="st">' | a suffix for @run'</span>))</pre></body></html></div>
 <p><img src="customize_plots_files/figure-html/demo%20titles-3.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
 <div id="using-the-labs-function" class="section level4">
 <h4 class="hasAnchor">
 <a href="#using-the-labs-function" class="anchor"></a>Using the <code>labs</code> function</h4>
 <p>Labels can also modified later on by using the <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggplot2::labs()</a></code> function in combination with the ggplot2 <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> operator.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb) <span class="op">+</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title    =</span> <span class="st">'@descr'</span>,</span>
-<span id="cb4-3"><a href="#cb4-3"></a>       <span class="dt">subtitle =</span> <span class="ot">NULL</span>,</span>
-<span id="cb4-4"><a href="#cb4-4"></a>       <span class="dt">caption  =</span> <span class="st">'Based on @nobs observations'</span>,</span>
-<span id="cb4-5"><a href="#cb4-5"></a>       <span class="dt">x        =</span> <span class="st">'Individual model predictions (@x)'</span>,</span>
-<span id="cb4-6"><a href="#cb4-6"></a>       <span class="dt">y        =</span> <span class="st">'Observations (@y) for @nind subjects'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(<span class="no">xpdb</span>) +
+  <span class="fu">labs</span>(<span class="kw">title</span>    <span class="kw">=</span> <span class="st">'@descr'</span>,
+       <span class="kw">subtitle</span> <span class="kw">=</span> <span class="kw">NULL</span>,
+       <span class="kw">caption</span>  <span class="kw">=</span> <span class="st">'Based on @nobs observations'</span>,
+       <span class="kw">x</span>        <span class="kw">=</span> <span class="st">'Individual model predictions (@x)'</span>,
+       <span class="kw">y</span>        <span class="kw">=</span> <span class="st">'Observations (@y) for @nind subjects'</span>)</pre></body></html></div>
 <p><img src="customize_plots_files/figure-html/demo%20xpose_labs-1.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
 </div>
@@ -202,18 +202,18 @@
 <a href="#modify-aesthetics" class="anchor"></a>Modify aesthetics</h3>
 <p>By default the aesthetics are read from the <code>xp_theme</code> level in the xpdb object but these can be modified in any plot function. xpose makes use of the <code>ggplot2</code> functions mapping for any layer (e.g. points, lines, etc.) however to direct the mapping to a specific layer, a prefix appealing to the targeted layer should be used. The format is defined as <code>layer_aesthetic = value</code>. Hence to change the color of points in ggplot2 the argument <code>color = 'green'</code> could be used in <code>geom_point()</code>, while in xpose the same could be achieved with <code>point_color = 'green'</code>.</p>
 <p>In basic goodness-of-fit plots, the layers have been named as: <code>point_xxx</code>, <code>line_xxx</code>, <code>smooth_xxx</code>, <code>guide_xxx</code>, <code>xscale_xxx</code>, <code>yscale_xxx</code> where <code>xxx</code> can be any option available in the <code>ggplot2</code> layers: <code>geom_point</code>, <code>geom_line</code>, <code>geom_smooth</code>, <code>geom_abline</code>, <code>scale_x_continuous</code>, etc.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, </span>
-<span id="cb5-2"><a href="#cb5-2"></a>            <span class="co"># Change points aesthetics</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>            <span class="dt">point_color =</span> <span class="st">'blue'</span>, <span class="dt">point_alpha =</span> <span class="fl">0.5</span>, </span>
-<span id="cb5-4"><a href="#cb5-4"></a>            <span class="dt">point_stroke =</span> <span class="dv">0</span>, <span class="dt">point_size =</span> <span class="fl">1.5</span>, </span>
-<span id="cb5-5"><a href="#cb5-5"></a>            <span class="co"># Change lines aesthetics </span></span>
-<span id="cb5-6"><a href="#cb5-6"></a>            <span class="dt">line_alpha =</span> <span class="fl">0.5</span>, <span class="dt">line_size =</span> <span class="fl">0.5</span>, </span>
-<span id="cb5-7"><a href="#cb5-7"></a>            <span class="dt">line_color =</span> <span class="st">'orange'</span>, <span class="dt">line_linetype =</span> <span class="st">'solid'</span>, </span>
-<span id="cb5-8"><a href="#cb5-8"></a>            <span class="co"># Change smooth aesthetics</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a>            <span class="dt">smooth_method =</span> <span class="st">'lm'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(<span class="no">xpdb</span>,
+            <span class="co"># Change points aesthetics</span>
+            <span class="kw">point_color</span> <span class="kw">=</span> <span class="st">'blue'</span>, <span class="kw">point_alpha</span> <span class="kw">=</span> <span class="fl">0.5</span>,
+            <span class="kw">point_stroke</span> <span class="kw">=</span> <span class="fl">0</span>, <span class="kw">point_size</span> <span class="kw">=</span> <span class="fl">1.5</span>,
+            <span class="co"># Change lines aesthetics </span>
+            <span class="kw">line_alpha</span> <span class="kw">=</span> <span class="fl">0.5</span>, <span class="kw">line_size</span> <span class="kw">=</span> <span class="fl">0.5</span>,
+            <span class="kw">line_color</span> <span class="kw">=</span> <span class="st">'orange'</span>, <span class="kw">line_linetype</span> <span class="kw">=</span> <span class="st">'solid'</span>,
+            <span class="co"># Change smooth aesthetics</span>
+            <span class="kw">smooth_method</span> <span class="kw">=</span> <span class="st">'lm'</span>)</pre></body></html></div>
 <p><img src="customize_plots_files/figure-html/demo%20aesthetics-1.png" width="50%" style="display: block; margin: auto;"></p>
 <p>Aesthetics can also be defined mapped to a variable using the ggplot2 <code>aes()</code> function.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">type =</span> <span class="st">'p'</span>, <span class="kw">aes</span>(<span class="dt">point_color =</span> SEX))</span></code></pre></div>
+<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(<span class="no">xpdb</span>, <span class="kw">type</span> <span class="kw">=</span> <span class="st">'p'</span>, <span class="fu">aes</span>(<span class="kw">point_color</span> <span class="kw">=</span> <span class="no">SEX</span>))</pre></body></html></div>
 <p><img src="customize_plots_files/figure-html/demo%20mapping-1.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
 <div id="grouping-variable" class="section level3">
@@ -229,11 +229,11 @@
 <li>If <code>facets</code> is a string e.g <code>facets = "SEX"</code>, <code><a href="https://ggforce.data-imaginist.com/reference/facet_wrap_paginate.html">ggforce::facet_wrap_paginate</a></code> will be used</li>
 <li>If <code>facets</code> is a formula e.g <code>facets = SEX~MED1</code>, <code><a href="https://ggforce.data-imaginist.com/reference/facet_grid_paginate.html">ggforce::facet_grid_paginate</a></code> will be used</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Example with a string</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">facets =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>), <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">page =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="co"># Example with a string</span>
+<span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(<span class="no">xpdb</span>, <span class="kw">facets</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'SEX'</span>, <span class="st">'MED1'</span>), <span class="kw">ncol</span> <span class="kw">=</span> <span class="fl">2</span>, <span class="kw">nrow</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">page</span> <span class="kw">=</span> <span class="fl">1</span>)</pre></body></html></div>
 <p><img src="customize_plots_files/figure-html/demo%20panels-1.png" width="75%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Example with a formula</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">facets =</span> SEX<span class="op">~</span>MED1, <span class="dt">margins =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="co"># Example with a formula</span>
+<span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(<span class="no">xpdb</span>, <span class="kw">facets</span> <span class="kw">=</span> <span class="no">SEX</span>~<span class="no">MED1</span>, <span class="kw">margins</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></body></html></div>
 <p><img src="customize_plots_files/figure-html/demo%20panels-2.png" width="75%" style="display: block; margin: auto;"></p>
 <p>All xpose plot functions accept arguments for <code>facet_wrap_pagninate</code> and <code>facet_grid_paginate</code> (e.g. <code>ncol = 2</code>, <code>labeller = 'label_both'</code>, etc.). With the default xpose theme scales are set to <code>'free'</code> from one panel to another (<code>scales = 'free'</code>), this behavior can be changed with <code>scales = 'fixed'</code>, <code>'free_y'</code> or <code>'free_x'</code>.</p>
 <p>For more information on the available faceting options read the help of <a href="https://www.rdocumentation.org/packages/ggforce/versions/0.1.1/topics/facet_wrap_paginate"><code>facet_wrap_paginate</code></a> and <a href="https://www.rdocumentation.org/packages/ggforce/versions/0.1.1/topics/facet_grid_paginate"><code>facet_grid_paginate</code></a> from the package ggforce.</p>
@@ -243,32 +243,32 @@
 <a href="#additional-layers" class="anchor"></a>Additional layers</h3>
 <p><code>xpose</code> offers the opportunity to add any additional layers from <code>ggplot2</code>. Hence, a <code><a href="https://ggplot2.tidyverse.org/reference/geom_rug.html">ggplot2::geom_rug()</a></code> layer could be added to the <code><a href="../reference/dv_vs_pred.html">dv_vs_ipred()</a></code> plot along with some annotations (<code><a href="https://ggplot2.tidyverse.org/reference/annotate.html">ggplot2::annotate()</a></code>). Note: the additional layers do not inherit from the xpose aesthetic mapping (i.e. colors or other options need to be defined in each layer as shown below).</p>
 <p>Layers can also be used to modify the aesthetics scales for example <code><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">ggplot2::scale_color_manual()</a></code>, or remove a legend <code><a href="https://ggplot2.tidyverse.org/reference/scale_identity.html">ggplot2::scale_fill_identity()</a></code>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb) <span class="op">+</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="st">  </span><span class="kw">geom_rug</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>, <span class="dt">color =</span> <span class="st">'grey50'</span>,</span>
-<span id="cb9-3"><a href="#cb9-3"></a>           <span class="dt">sides =</span> <span class="st">'lb'</span>, <span class="dt">size =</span> <span class="fl">0.4</span>) <span class="op">+</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="dt">geom =</span> <span class="st">'text'</span>,</span>
-<span id="cb9-5"><a href="#cb9-5"></a>           <span class="dt">fontface =</span> <span class="st">'bold'</span>,</span>
-<span id="cb9-6"><a href="#cb9-6"></a>           <span class="dt">color =</span> <span class="st">'darkred'</span>,</span>
-<span id="cb9-7"><a href="#cb9-7"></a>           <span class="dt">size  =</span> <span class="dv">3</span>,</span>
-<span id="cb9-8"><a href="#cb9-8"></a>           <span class="dt">label =</span> <span class="st">'Toxic concentrations'</span>, <span class="dt">x =</span> <span class="fl">1.35</span>, <span class="dt">y =</span> <span class="fl">1.75</span>) <span class="op">+</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="st">  </span><span class="kw">annotate</span>(<span class="dt">geom =</span> <span class="st">'rect'</span>,</span>
-<span id="cb9-10"><a href="#cb9-10"></a>           <span class="dt">alpha =</span> <span class="fl">0.2</span>, <span class="dt">fill =</span> <span class="st">'red'</span>,</span>
-<span id="cb9-11"><a href="#cb9-11"></a>           <span class="dt">xmin =</span> <span class="dv">1</span>, <span class="dt">xmax =</span> <span class="ot">Inf</span>,</span>
-<span id="cb9-12"><a href="#cb9-12"></a>           <span class="dt">ymin =</span> <span class="dv">1</span>, <span class="dt">ymax =</span> <span class="ot">Inf</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(<span class="no">xpdb</span>) +
+  <span class="fu">geom_rug</span>(<span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">0.2</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="st">'grey50'</span>,
+           <span class="kw">sides</span> <span class="kw">=</span> <span class="st">'lb'</span>, <span class="kw">size</span> <span class="kw">=</span> <span class="fl">0.4</span>) +
+  <span class="fu">annotate</span>(<span class="kw">geom</span> <span class="kw">=</span> <span class="st">'text'</span>,
+           <span class="kw">fontface</span> <span class="kw">=</span> <span class="st">'bold'</span>,
+           <span class="kw">color</span> <span class="kw">=</span> <span class="st">'darkred'</span>,
+           <span class="kw">size</span>  <span class="kw">=</span> <span class="fl">3</span>,
+           <span class="kw">label</span> <span class="kw">=</span> <span class="st">'Toxic concentrations'</span>, <span class="kw">x</span> <span class="kw">=</span> <span class="fl">1.35</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="fl">1.75</span>) +
+  <span class="fu">annotate</span>(<span class="kw">geom</span> <span class="kw">=</span> <span class="st">'rect'</span>,
+           <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">0.2</span>, <span class="kw">fill</span> <span class="kw">=</span> <span class="st">'red'</span>,
+           <span class="kw">xmin</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">xmax</span> <span class="kw">=</span> <span class="fl">Inf</span>,
+           <span class="kw">ymin</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">ymax</span> <span class="kw">=</span> <span class="fl">Inf</span>)</pre></body></html></div>
 <p><img src="customize_plots_files/figure-html/demo%20layers-1.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
 <div id="scales-options" class="section level3">
 <h3 class="hasAnchor">
 <a href="#scales-options" class="anchor"></a>Scales options</h3>
 <p>The argument <code>log</code> allows to log-transform the axes. Accepted values are <code>x</code>, <code>y</code> or <code>xy</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, <span class="dt">log =</span> <span class="st">'xy'</span>, <span class="dt">subtitle =</span> <span class="st">'Plot on log scale'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(<span class="no">xpdb</span>, <span class="kw">log</span> <span class="kw">=</span> <span class="st">'xy'</span>, <span class="kw">subtitle</span> <span class="kw">=</span> <span class="st">'Plot on log scale'</span>)</pre></body></html></div>
 <p><img src="customize_plots_files/figure-html/log-scales%20demo-1.png" width="50%" style="display: block; margin: auto;"></p>
 <p>Additional arguments can be provided to the scales via the mapping by using the naming convention <code>xscale_xxx</code> or <code>yscale_xxx</code> where <code>xxx</code> is the name of a <code>ggplot2</code> scale argument such as <code>name</code>, <code>breaks</code>, <code>labels</code>, <code>expand</code>.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(xpdb, </span>
-<span id="cb11-2"><a href="#cb11-2"></a>            <span class="dt">xscale_breaks =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.3</span>, <span class="fl">0.8</span>, <span class="fl">1.3</span>),</span>
-<span id="cb11-3"><a href="#cb11-3"></a>            <span class="dt">xscale_labels =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'Low'</span>, <span class="st">'Med'</span>, <span class="st">'High'</span>),</span>
-<span id="cb11-4"><a href="#cb11-4"></a>            <span class="dt">xscale_expand =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.2</span>, <span class="dv">0</span>),</span>
-<span id="cb11-5"><a href="#cb11-5"></a>            <span class="dt">xscale_name =</span> <span class="st">'Individual model predictions'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span>(<span class="no">xpdb</span>,
+            <span class="kw">xscale_breaks</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.3</span>, <span class="fl">0.8</span>, <span class="fl">1.3</span>),
+            <span class="kw">xscale_labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'Low'</span>, <span class="st">'Med'</span>, <span class="st">'High'</span>),
+            <span class="kw">xscale_expand</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.2</span>, <span class="fl">0</span>),
+            <span class="kw">xscale_name</span> <span class="kw">=</span> <span class="st">'Individual model predictions'</span>)</pre></body></html></div>
 <p><img src="customize_plots_files/figure-html/scales-options%20demo-1.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
 <div id="themes" class="section level3">
@@ -281,16 +281,16 @@
 <li>An <code>xpose</code> (<code>xp_theme</code>) theme controlling the aspect of the layers such as points or lines</li>
 </ul>
 <p>Themes can be attached to an <code>xpdb</code> when importing the data with <code><a href="../reference/xpose_data.html">xpose_data()</a></code> or using the function <code><a href="../reference/update_themes.html">update_themes()</a></code> on an xpdb object.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># While creating the xpdb</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>xpdb &lt;-<span class="st"> </span><span class="kw"><a href="../reference/xpose_data.html">xpose_data</a></span>(<span class="dt">runno =</span> <span class="st">'001'</span>, </span>
-<span id="cb12-3"><a href="#cb12-3"></a>                   <span class="dt">gg_theme =</span> <span class="kw">theme_minimal</span>(), </span>
-<span id="cb12-4"><a href="#cb12-4"></a>                   <span class="dt">xp_theme =</span> <span class="kw"><a href="../reference/xp_themes.html">theme_xp_xpose4</a></span>())</span>
-<span id="cb12-5"><a href="#cb12-5"></a></span>
-<span id="cb12-6"><a href="#cb12-6"></a><span class="co"># Update a pre-existing xpdb</span></span>
-<span id="cb12-7"><a href="#cb12-7"></a>xpdb &lt;-<span class="st"> </span><span class="kw"><a href="../reference/update_themes.html">update_themes</a></span>(<span class="dt">xpdb     =</span> xpdb,</span>
-<span id="cb12-8"><a href="#cb12-8"></a>                      <span class="dt">gg_theme =</span> <span class="kw"><a href="../reference/gg_themes.html">theme_bw2</a></span>(),</span>
-<span id="cb12-9"><a href="#cb12-9"></a>                      <span class="dt">xp_theme =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">point_color =</span> <span class="st">'dodgerblue4'</span>,</span>
-<span id="cb12-10"><a href="#cb12-10"></a>                                      <span class="dt">line_color  =</span> <span class="st">'dodgerblue4'</span>)) </span></code></pre></div>
+<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="co"># While creating the xpdb</span>
+<span class="no">xpdb</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/xpose_data.html">xpose_data</a></span>(<span class="kw">runno</span> <span class="kw">=</span> <span class="st">'001'</span>,
+                   <span class="kw">gg_theme</span> <span class="kw">=</span> <span class="fu">theme_minimal</span>(),
+                   <span class="kw">xp_theme</span> <span class="kw">=</span> <span class="fu"><a href="../reference/xp_themes.html">theme_xp_xpose4</a></span>())
+
+<span class="co"># Update a pre-existing xpdb</span>
+<span class="no">xpdb</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/update_themes.html">update_themes</a></span>(<span class="kw">xpdb</span>     <span class="kw">=</span> <span class="no">xpdb</span>,
+                      <span class="kw">gg_theme</span> <span class="kw">=</span> <span class="fu"><a href="../reference/gg_themes.html">theme_bw2</a></span>(),
+                      <span class="kw">xp_theme</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">point_color</span> <span class="kw">=</span> <span class="st">'dodgerblue4'</span>,
+                                      <span class="kw">line_color</span>  <span class="kw">=</span> <span class="st">'dodgerblue4'</span>))</pre></body></html></div>
 <div id="examples-of-gg_theme" class="section level4">
 <h4 class="hasAnchor">
 <a href="#examples-of-gg_theme" class="anchor"></a>Examples of <code>gg_theme</code>:</h4>
@@ -305,7 +305,7 @@
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
       </div>
 
@@ -318,7 +318,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -46,7 +50,6 @@
 
 <meta property="og:title" content="Changelog" />
 <meta property="og:image" content="/logo.png" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -64,7 +67,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -78,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.9</span>
       </span>
     </div>
 
@@ -163,20 +166,20 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
+      <h1 data-toc-skip>Changelog <small></small></h1>
       <small>Source: <a href='https://github.com/UUPharmacometrics/xpose/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
     <div id="xpose-048" class="section level1">
-<h1 class="page-header">
-<a href="#xpose-048" class="anchor"></a>xpose 0.4.8<small> Unreleased </small>
+<h1 class="page-header" data-toc-text="0.4.8">
+<a href="#xpose-048" class="anchor"></a>xpose 0.4.8<small> 2020-03-17 </small>
 </h1>
 <ul>
 <li>Compatibility fix for ggplot 3.3.0 and tibble 3.0.0</li>
 </ul>
 </div>
     <div id="xpose-047" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.4.7">
 <a href="#xpose-047" class="anchor"></a>xpose 0.4.7<small> 2020-02-04 </small>
 </h1>
 <ul>
@@ -184,7 +187,7 @@
 </ul>
 </div>
     <div id="xpose-046" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.4.6">
 <a href="#xpose-046" class="anchor"></a>xpose 0.4.6<small> 2020-01-12 </small>
 </h1>
 <ul>
@@ -194,7 +197,7 @@
 </ul>
 </div>
     <div id="xpose-045" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.4.5">
 <a href="#xpose-045" class="anchor"></a>xpose 0.4.5<small> 2019-10-07 </small>
 </h1>
 <div id="general" class="section level2">
@@ -208,7 +211,7 @@
 </div>
 </div>
     <div id="xpose-044" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.4.4">
 <a href="#xpose-044" class="anchor"></a>xpose 0.4.4<small> 2019-03-21 </small>
 </h1>
 <div id="general-1" class="section level3">
@@ -223,7 +226,7 @@
 </div>
 </div>
     <div id="xpose-043" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.4.3">
 <a href="#xpose-043" class="anchor"></a>xpose 0.4.3<small> 2018-07-28 </small>
 </h1>
 <div id="general-2" class="section level3">
@@ -238,7 +241,7 @@
 </div>
 </div>
     <div id="xpose-042" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.4.2">
 <a href="#xpose-042" class="anchor"></a>xpose 0.4.2<small> 2018-01-30 </small>
 </h1>
 <div id="general-3" class="section level3">
@@ -252,7 +255,7 @@
 </div>
 </div>
     <div id="xpose-041" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.4.1">
 <a href="#xpose-041" class="anchor"></a>xpose 0.4.1<small> 2018-01-09 </small>
 </h1>
 <div id="general-4" class="section level3">
@@ -274,7 +277,7 @@
 </div>
 </div>
     <div id="xpose-040" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.4.0">
 <a href="#xpose-040" class="anchor"></a>xpose 0.4.0<small> 2017-11-17 </small>
 </h1>
 <div id="general-5" class="section level3">
@@ -292,7 +295,7 @@
 <h3 class="hasAnchor">
 <a href="#data-importedit" class="anchor"></a>Data import/edit</h3>
 <ul>
-<li>Added compatibility with <code><a href="https://dplyr.tidyverse.org/reference/n.html">dplyr::n()</a></code> when editing xpdb <a href='https://github.com/UUPharmacometrics/xpose/issues/51'>#51</a></li>
+<li>Added compatibility with <code><a href="https://dplyr.tidyverse.org/reference/context.html">dplyr::n()</a></code> when editing xpdb <a href='https://github.com/UUPharmacometrics/xpose/issues/51'>#51</a></li>
 <li>Added <code><a href="../reference/get_special.html">get_special()</a></code> to access special data</li>
 <li>Improved <code><a href="../reference/get_prm.html">get_prm()</a></code> labeller parsing with OMEGA and SIGMA BLOCKS</li>
 <li>
@@ -322,7 +325,7 @@
 </div>
 </div>
     <div id="xpose-030" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.3.0">
 <a href="#xpose-030" class="anchor"></a>xpose 0.3.0<small> Unreleased </small>
 </h1>
 <div id="general-6" class="section level3">
@@ -345,7 +348,7 @@
 <li>Improved <code>dir</code> and <code>file</code> arguments usage</li>
 <li>Improved error robustness of <code><a href="../reference/xpose_data.html">xpose_data()</a></code>
 </li>
-<li>Added new dplyr verbs for xpdb editing: <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/select.html">rename()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup()</a></code>
+<li>Added new dplyr verbs for xpdb editing: <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup()</a></code>
 </li>
 <li>dplyr verbs can now also be used to edit vpc data</li>
 <li>Added <code><a href="../reference/irep.html">irep()</a></code> function to add simulation counter to any dataset</li>
@@ -369,7 +372,7 @@
 </div>
 </div>
     <div id="xpose-020" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.2.0">
 <a href="#xpose-020" class="anchor"></a>xpose 0.2.0<small> Unreleased </small>
 </h1>
 <div id="general-7" class="section level3">
@@ -447,7 +450,7 @@
 </div>
 </div>
     <div id="ggxpose-010" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.1.0">
 <a href="#ggxpose-010" class="anchor"></a>ggxpose 0.1.0<small> Unreleased </small>
 </h1>
 <div id="first-commit" class="section level3">
@@ -473,24 +476,10 @@
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#xpose-048">0.4.8</a></li>
-        <li><a href="#xpose-047">0.4.7</a></li>
-        <li><a href="#xpose-046">0.4.6</a></li>
-        <li><a href="#xpose-045">0.4.5</a></li>
-        <li><a href="#xpose-044">0.4.4</a></li>
-        <li><a href="#xpose-043">0.4.3</a></li>
-        <li><a href="#xpose-042">0.4.2</a></li>
-        <li><a href="#xpose-041">0.4.1</a></li>
-        <li><a href="#xpose-040">0.4.0</a></li>
-        <li><a href="#xpose-030">0.3.0</a></li>
-        <li><a href="#xpose-020">0.2.0</a></li>
-        <li><a href="#ggxpose-010">0.1.0</a></li>
-      </ul>
-    </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 
 </div>
@@ -502,7 +491,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

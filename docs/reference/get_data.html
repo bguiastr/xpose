@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -47,7 +51,6 @@
 <meta property="og:title" content="Access model output table data — get_data" />
 <meta property="og:description" content="Access model output table data from an xpdb object." />
 <meta property="og:image" content="/logo.png" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -65,7 +68,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -79,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.9</span>
       </span>
     </div>
 
@@ -209,62 +212,57 @@ tables/problems or a named list for multiple tables/problems.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># By table name</span>
 <span class='no'>sdtab</span> <span class='kw'>&lt;-</span> <span class='fu'>get_data</span>(<span class='no'>xpdb_ex_pk</span>, <span class='st'>'sdtab001'</span>)
-<span class='no'>sdtab</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 550 x 18</span><span>
+<span class='no'>sdtab</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 550 x 18</span><span>
 #&gt;    ID     DOSE   AMT    SS    II  TIME   TAD IPRED   CWRES CPRED   IWRES  EVID
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span> 110     200   100     0     0   0     0   0      0      0      0          1
-#&gt; </span><span style='color: #555555;'> 2</span><span> 110     200     0     0     0   1     1   0.214 -</span><span style='color: #BB0000;'>2.83</span><span>   0.584  2.40       0
-#&gt; </span><span style='color: #555555;'> 3</span><span> 110     200     0     0     0   1.5   1.5 0.296 -</span><span style='color: #BB0000;'>1.62</span><span>   0.737  1.03       0
-#&gt; </span><span style='color: #555555;'> 4</span><span> 110     200     0     0     0   2     2   0.349  1.10   0.790 -</span><span style='color: #BB0000;'>1.71</span><span>       0
-#&gt; </span><span style='color: #555555;'> 5</span><span> 110     200     0     0     0   4     4   0.392  0.585  0.588 -</span><span style='color: #BB0000;'>0.861</span><span>      0
-#&gt; </span><span style='color: #555555;'> 6</span><span> 110     200     0     0     0   6     6   0.329 -</span><span style='color: #BB0000;'>0.026</span><span style='color: #BB0000;text-decoration: underline;'>2</span><span> 0.304  0.045</span><span style='text-decoration: underline;'>7</span><span>     0
-#&gt; </span><span style='color: #555555;'> 7</span><span> 110     200     0     0     0   8     8   0.249  0.094</span><span style='text-decoration: underline;'>0</span><span> 0.127  0.013</span><span style='text-decoration: underline;'>2</span><span>     0
-#&gt; </span><span style='color: #555555;'> 8</span><span> 112     200   100     0     0   0     0   0      0      0      0          1
-#&gt; </span><span style='color: #555555;'> 9</span><span> 112     200     0     0     0   0.5   0.5 0.556  0.034</span><span style='text-decoration: underline;'>1</span><span> 0.627 -</span><span style='color: #BB0000;'>0.275</span><span>      0
-#&gt; </span><span style='color: #555555;'>10</span><span> 112     200     0     0     0   1     1   0.712 -</span><span style='color: #BB0000;'>0.417</span><span>  0.788  0.163      0
-#&gt; </span><span style='color: #555555;'># … with 540 more rows, and 6 more variables: A1 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, A2 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, DV </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,
-#&gt; #   PRED </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, RES </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, WRES </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'>
+#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;fct&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 110     200   100     0     0   0     0   0      0      0      0          1
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 110     200     0     0     0   1     1   0.214 -</span><span style='color: #BB0000;'>2.83</span><span>   0.584  2.40       0
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 110     200     0     0     0   1.5   1.5 0.296 -</span><span style='color: #BB0000;'>1.62</span><span>   0.737  1.03       0
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 110     200     0     0     0   2     2   0.349  1.10   0.790 -</span><span style='color: #BB0000;'>1.71</span><span>       0
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 110     200     0     0     0   4     4   0.392  0.585  0.588 -</span><span style='color: #BB0000;'>0.861</span><span>      0
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 110     200     0     0     0   6     6   0.329 -</span><span style='color: #BB0000;'>0.026</span><span style='color: #BB0000;text-decoration: underline;'>2</span><span> 0.304  0.045</span><span style='text-decoration: underline;'>7</span><span>     0
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 110     200     0     0     0   8     8   0.249  0.094</span><span style='text-decoration: underline;'>0</span><span> 0.127  0.013</span><span style='text-decoration: underline;'>2</span><span>     0
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 112     200   100     0     0   0     0   0      0      0      0          1
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 112     200     0     0     0   0.5   0.5 0.556  0.034</span><span style='text-decoration: underline;'>1</span><span> 0.627 -</span><span style='color: #BB0000;'>0.275</span><span>      0
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 112     200     0     0     0   1     1   0.712 -</span><span style='color: #BB0000;'>0.417</span><span>  0.788  0.163      0
+#&gt; </span><span style='color: #949494;'># … with 540 more rows, and 6 more variables: A1 </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, A2 </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, DV </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #949494;'>#   PRED </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, RES </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, WRES </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'>
 <span class='co'># By problem</span>
 <span class='no'>tables</span> <span class='kw'>&lt;-</span> <span class='fu'>get_data</span>(<span class='no'>xpdb_ex_pk</span>, <span class='kw'>.problem</span> <span class='kw'>=</span> <span class='fl'>1</span>)
-<span class='no'>tables</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 550 x 31</span><span>
+<span class='no'>tables</span></div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 550 x 31</span><span>
 #&gt;    ID    SEX   MED1  MED2   DOSE   AMT    SS    II  TIME   TAD IPRED   CWRES
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span> 110   1     0     1       200   100     0     0   0     0   0      0     
-#&gt; </span><span style='color: #555555;'> 2</span><span> 110   1     0     1       200     0     0     0   1     1   0.214 -</span><span style='color: #BB0000;'>2.83</span><span>  
-#&gt; </span><span style='color: #555555;'> 3</span><span> 110   1     0     1       200     0     0     0   1.5   1.5 0.296 -</span><span style='color: #BB0000;'>1.62</span><span>  
-#&gt; </span><span style='color: #555555;'> 4</span><span> 110   1     0     1       200     0     0     0   2     2   0.349  1.10  
-#&gt; </span><span style='color: #555555;'> 5</span><span> 110   1     0     1       200     0     0     0   4     4   0.392  0.585 
-#&gt; </span><span style='color: #555555;'> 6</span><span> 110   1     0     1       200     0     0     0   6     6   0.329 -</span><span style='color: #BB0000;'>0.026</span><span style='color: #BB0000;text-decoration: underline;'>2</span><span>
-#&gt; </span><span style='color: #555555;'> 7</span><span> 110   1     0     1       200     0     0     0   8     8   0.249  0.094</span><span style='text-decoration: underline;'>0</span><span>
-#&gt; </span><span style='color: #555555;'> 8</span><span> 112   1     1     1       200   100     0     0   0     0   0      0     
-#&gt; </span><span style='color: #555555;'> 9</span><span> 112   1     1     1       200     0     0     0   0.5   0.5 0.556  0.034</span><span style='text-decoration: underline;'>1</span><span>
-#&gt; </span><span style='color: #555555;'>10</span><span> 112   1     1     1       200     0     0     0   1     1   0.712 -</span><span style='color: #BB0000;'>0.417</span><span> 
-#&gt; </span><span style='color: #555555;'># … with 540 more rows, and 19 more variables: CPRED </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, IWRES </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,
-#&gt; #   EVID </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, A1 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, A2 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, DV </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, PRED </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, RES </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,
-#&gt; #   WRES </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, CLCR </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, AGE </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, WT </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, KA </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, CL </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, V </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,
-#&gt; #   ALAG1 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, ETA1 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, ETA2 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, ETA3 </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'>
+#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;fct&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;fct&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;fct&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;fct&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 110   1     0     1       200   100     0     0   0     0   0      0     
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 110   1     0     1       200     0     0     0   1     1   0.214 -</span><span style='color: #BB0000;'>2.83</span><span>  
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 110   1     0     1       200     0     0     0   1.5   1.5 0.296 -</span><span style='color: #BB0000;'>1.62</span><span>  
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 110   1     0     1       200     0     0     0   2     2   0.349  1.10  
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 110   1     0     1       200     0     0     0   4     4   0.392  0.585 
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 110   1     0     1       200     0     0     0   6     6   0.329 -</span><span style='color: #BB0000;'>0.026</span><span style='color: #BB0000;text-decoration: underline;'>2</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 110   1     0     1       200     0     0     0   8     8   0.249  0.094</span><span style='text-decoration: underline;'>0</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 112   1     1     1       200   100     0     0   0     0   0      0     
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 112   1     1     1       200     0     0     0   0.5   0.5 0.556  0.034</span><span style='text-decoration: underline;'>1</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 112   1     1     1       200     0     0     0   1     1   0.712 -</span><span style='color: #BB0000;'>0.417</span><span> 
+#&gt; </span><span style='color: #949494;'># … with 540 more rows, and 19 more variables: CPRED </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, IWRES </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #949494;'>#   EVID </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, A1 </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, A2 </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, DV </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, PRED </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, RES </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #949494;'>#   WRES </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, CLCR </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, AGE </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, WT </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, KA </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, CL </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, V </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #949494;'>#   ALAG1 </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, ETA1 </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, ETA2 </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, ETA3 </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'>
 <span class='co'># Tip to list available tables in the xpdb</span>
 <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>xpdb_ex_pk</span>)</div><div class='output co'>#&gt; run001.lst overview: 
 #&gt;  - Software: nonmem 7.3.0 
-#&gt;  - Attached files (memory usage 1.3 Mb): 
+#&gt;  - Attached files (memory usage 1.4 Mb): 
 #&gt;    + obs tabs: $prob no.1: catab001.csv, cotab001, patab001, sdtab001 
 #&gt;    + sim tabs: $prob no.2: simtab001.zip 
 #&gt;    + output files: run001.cor, run001.cov, run001.ext, run001.grd, run001.phi, run001.shk 
 #&gt;    + special: &lt;none&gt; 
 #&gt;  - gg_theme: theme_readable 
 #&gt;  - xp_theme: theme_xp_default 
-#&gt;  - Options: dir = analysis/models/pk/, quiet = FALSE, manual_import = NULL</div><div class='input'>
+#&gt;  - Options: dir = data, quiet = FALSE, manual_import = NULL</div><div class='input'>
 </div></span></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -275,7 +273,7 @@ tables/problems or a named list for multiple tables/problems.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

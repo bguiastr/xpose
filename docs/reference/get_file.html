@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -47,7 +51,6 @@
 <meta property="og:title" content="Access model output file data — get_file" />
 <meta property="og:description" content="Access model output file data from an xpdb object." />
 <meta property="og:image" content="/logo.png" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -65,7 +68,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -79,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.9</span>
       </span>
     </div>
 
@@ -226,80 +229,75 @@ last one for each file.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Single file (returns a tibble)</span>
-<span class='no'>ext_file</span> <span class='kw'>&lt;-</span> <span class='fu'>get_file</span>(<span class='no'>xpdb_ex_pk</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>'run001.ext'</span>)</div><div class='output co'>#&gt; <span class='message'>Returning data from run001.ext, $prob no.1, subprob no.0, method foce</span></div><div class='input'><span class='no'>ext_file</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 28 x 16</span><span>
+<span class='no'>ext_file</span> <span class='kw'>&lt;-</span> <span class='fu'>get_file</span>(<span class='no'>xpdb_ex_pk</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>'run001.ext'</span>)</div><div class='output co'>#&gt; <span class='message'>Returning data from run001.ext, $prob no.1, subprob no.0, method foce</span></div><div class='input'><span class='no'>ext_file</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 28 x 16</span><span>
 #&gt;    ITERATION THETA1 THETA2 THETA3 THETA4 THETA5  THETA6  THETA7 `SIGMA(1,1)`
-#&gt;        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span>         0   25.4   1.47   7.45  0.214  0.200 0.009</span><span style='text-decoration: underline;'>83</span><span> 0.006</span><span style='text-decoration: underline;'>01</span><span>            1
-#&gt; </span><span style='color: #555555;'> 2</span><span>         1   26.3   1.26   7.35  0.219  0.217 0.009</span><span style='text-decoration: underline;'>89</span><span> 0.006</span><span style='text-decoration: underline;'>02</span><span>            1
-#&gt; </span><span style='color: #555555;'> 3</span><span>         2   25.6   1.47   7.29  0.216  0.212 0.009</span><span style='text-decoration: underline;'>87</span><span> 0.006</span><span style='text-decoration: underline;'>03</span><span>            1
-#&gt; </span><span style='color: #555555;'> 4</span><span>         3   26.8   1.49   5.76  0.213  0.213 0.009</span><span style='text-decoration: underline;'>79</span><span> 0.006</span><span style='text-decoration: underline;'>28</span><span>            1
-#&gt; </span><span style='color: #555555;'> 5</span><span>         4   26.7   1.49   5.69  0.213  0.212 0.009</span><span style='text-decoration: underline;'>79</span><span> 0.006</span><span style='text-decoration: underline;'>29</span><span>            1
-#&gt; </span><span style='color: #555555;'> 6</span><span>         5   26.7   1.49   5.66  0.213  0.212 0.009</span><span style='text-decoration: underline;'>79</span><span> 0.006</span><span style='text-decoration: underline;'>30</span><span>            1
-#&gt; </span><span style='color: #555555;'> 7</span><span>         6   26.6   1.49   5.03  0.210  0.217 0.010</span><span style='text-decoration: underline;'>0</span><span>  0.006</span><span style='text-decoration: underline;'>52</span><span>            1
-#&gt; </span><span style='color: #555555;'> 8</span><span>         7   26.6   1.49   4.93  0.205  0.217 0.010</span><span style='text-decoration: underline;'>0</span><span>  0.006</span><span style='text-decoration: underline;'>58</span><span>            1
-#&gt; </span><span style='color: #555555;'> 9</span><span>         8   26.6   1.48   4.62  0.211  0.217 0.009</span><span style='text-decoration: underline;'>51</span><span> 0.007</span><span style='text-decoration: underline;'>35</span><span>            1
-#&gt; </span><span style='color: #555555;'>10</span><span>         9   26.6   1.46   4.41  0.209  0.217 0.009</span><span style='text-decoration: underline;'>03</span><span> 0.008</span><span style='text-decoration: underline;'>74</span><span>            1
-#&gt; </span><span style='color: #555555;'># … with 18 more rows, and 7 more variables: `OMEGA(1,1)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,
-#&gt; #   `OMEGA(2,1)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `OMEGA(2,2)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `OMEGA(3,1)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,
-#&gt; #   `OMEGA(3,2)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `OMEGA(3,3)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, OBJ </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'>
+#&gt;        </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span>         0   25.4   1.47   7.45  0.214  0.200 0.009</span><span style='text-decoration: underline;'>83</span><span> 0.006</span><span style='text-decoration: underline;'>01</span><span>            1
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span>         1   26.3   1.26   7.35  0.219  0.217 0.009</span><span style='text-decoration: underline;'>89</span><span> 0.006</span><span style='text-decoration: underline;'>02</span><span>            1
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span>         2   25.6   1.47   7.29  0.216  0.212 0.009</span><span style='text-decoration: underline;'>87</span><span> 0.006</span><span style='text-decoration: underline;'>03</span><span>            1
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span>         3   26.8   1.49   5.76  0.213  0.213 0.009</span><span style='text-decoration: underline;'>79</span><span> 0.006</span><span style='text-decoration: underline;'>28</span><span>            1
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span>         4   26.7   1.49   5.69  0.213  0.212 0.009</span><span style='text-decoration: underline;'>79</span><span> 0.006</span><span style='text-decoration: underline;'>29</span><span>            1
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span>         5   26.7   1.49   5.66  0.213  0.212 0.009</span><span style='text-decoration: underline;'>79</span><span> 0.006</span><span style='text-decoration: underline;'>30</span><span>            1
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span>         6   26.6   1.49   5.03  0.210  0.217 0.010</span><span style='text-decoration: underline;'>0</span><span>  0.006</span><span style='text-decoration: underline;'>52</span><span>            1
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span>         7   26.6   1.49   4.93  0.205  0.217 0.010</span><span style='text-decoration: underline;'>0</span><span>  0.006</span><span style='text-decoration: underline;'>58</span><span>            1
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span>         8   26.6   1.48   4.62  0.211  0.217 0.009</span><span style='text-decoration: underline;'>51</span><span> 0.007</span><span style='text-decoration: underline;'>35</span><span>            1
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span>         9   26.6   1.46   4.41  0.209  0.217 0.009</span><span style='text-decoration: underline;'>03</span><span> 0.008</span><span style='text-decoration: underline;'>74</span><span>            1
+#&gt; </span><span style='color: #949494;'># … with 18 more rows, and 7 more variables: `OMEGA(1,1)` </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #949494;'>#   `OMEGA(2,1)` </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, `OMEGA(2,2)` </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, `OMEGA(3,1)` </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #949494;'>#   `OMEGA(3,2)` </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, `OMEGA(3,3)` </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, OBJ </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span></div><div class='input'>
 <span class='co'># Multiple files (returns a list)</span>
 <span class='no'>files</span> <span class='kw'>&lt;-</span> <span class='fu'>get_file</span>(<span class='no'>xpdb_ex_pk</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'run001.ext'</span>, <span class='st'>'run001.phi'</span>))</div><div class='output co'>#&gt; <span class='message'>Returning data from run001.ext, run001.phi</span></div><div class='input'><span class='no'>files</span></div><div class='output co'>#&gt; $run001.ext_prob_1_subprob_0_foce
-#&gt; </span><span style='color: #555555;'># A tibble: 28 x 16</span><span>
+#&gt; </span><span style='color: #949494;'># A tibble: 28 x 16</span><span>
 #&gt;    ITERATION THETA1 THETA2 THETA3 THETA4 THETA5  THETA6  THETA7 `SIGMA(1,1)`
-#&gt;        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span>         0   25.4   1.47   7.45  0.214  0.200 0.009</span><span style='text-decoration: underline;'>83</span><span> 0.006</span><span style='text-decoration: underline;'>01</span><span>            1
-#&gt; </span><span style='color: #555555;'> 2</span><span>         1   26.3   1.26   7.35  0.219  0.217 0.009</span><span style='text-decoration: underline;'>89</span><span> 0.006</span><span style='text-decoration: underline;'>02</span><span>            1
-#&gt; </span><span style='color: #555555;'> 3</span><span>         2   25.6   1.47   7.29  0.216  0.212 0.009</span><span style='text-decoration: underline;'>87</span><span> 0.006</span><span style='text-decoration: underline;'>03</span><span>            1
-#&gt; </span><span style='color: #555555;'> 4</span><span>         3   26.8   1.49   5.76  0.213  0.213 0.009</span><span style='text-decoration: underline;'>79</span><span> 0.006</span><span style='text-decoration: underline;'>28</span><span>            1
-#&gt; </span><span style='color: #555555;'> 5</span><span>         4   26.7   1.49   5.69  0.213  0.212 0.009</span><span style='text-decoration: underline;'>79</span><span> 0.006</span><span style='text-decoration: underline;'>29</span><span>            1
-#&gt; </span><span style='color: #555555;'> 6</span><span>         5   26.7   1.49   5.66  0.213  0.212 0.009</span><span style='text-decoration: underline;'>79</span><span> 0.006</span><span style='text-decoration: underline;'>30</span><span>            1
-#&gt; </span><span style='color: #555555;'> 7</span><span>         6   26.6   1.49   5.03  0.210  0.217 0.010</span><span style='text-decoration: underline;'>0</span><span>  0.006</span><span style='text-decoration: underline;'>52</span><span>            1
-#&gt; </span><span style='color: #555555;'> 8</span><span>         7   26.6   1.49   4.93  0.205  0.217 0.010</span><span style='text-decoration: underline;'>0</span><span>  0.006</span><span style='text-decoration: underline;'>58</span><span>            1
-#&gt; </span><span style='color: #555555;'> 9</span><span>         8   26.6   1.48   4.62  0.211  0.217 0.009</span><span style='text-decoration: underline;'>51</span><span> 0.007</span><span style='text-decoration: underline;'>35</span><span>            1
-#&gt; </span><span style='color: #555555;'>10</span><span>         9   26.6   1.46   4.41  0.209  0.217 0.009</span><span style='text-decoration: underline;'>03</span><span> 0.008</span><span style='text-decoration: underline;'>74</span><span>            1
-#&gt; </span><span style='color: #555555;'># … with 18 more rows, and 7 more variables: `OMEGA(1,1)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,
-#&gt; #   `OMEGA(2,1)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `OMEGA(2,2)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `OMEGA(3,1)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,
-#&gt; #   `OMEGA(3,2)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `OMEGA(3,3)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, OBJ </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt;        </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span>         0   25.4   1.47   7.45  0.214  0.200 0.009</span><span style='text-decoration: underline;'>83</span><span> 0.006</span><span style='text-decoration: underline;'>01</span><span>            1
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span>         1   26.3   1.26   7.35  0.219  0.217 0.009</span><span style='text-decoration: underline;'>89</span><span> 0.006</span><span style='text-decoration: underline;'>02</span><span>            1
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span>         2   25.6   1.47   7.29  0.216  0.212 0.009</span><span style='text-decoration: underline;'>87</span><span> 0.006</span><span style='text-decoration: underline;'>03</span><span>            1
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span>         3   26.8   1.49   5.76  0.213  0.213 0.009</span><span style='text-decoration: underline;'>79</span><span> 0.006</span><span style='text-decoration: underline;'>28</span><span>            1
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span>         4   26.7   1.49   5.69  0.213  0.212 0.009</span><span style='text-decoration: underline;'>79</span><span> 0.006</span><span style='text-decoration: underline;'>29</span><span>            1
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span>         5   26.7   1.49   5.66  0.213  0.212 0.009</span><span style='text-decoration: underline;'>79</span><span> 0.006</span><span style='text-decoration: underline;'>30</span><span>            1
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span>         6   26.6   1.49   5.03  0.210  0.217 0.010</span><span style='text-decoration: underline;'>0</span><span>  0.006</span><span style='text-decoration: underline;'>52</span><span>            1
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span>         7   26.6   1.49   4.93  0.205  0.217 0.010</span><span style='text-decoration: underline;'>0</span><span>  0.006</span><span style='text-decoration: underline;'>58</span><span>            1
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span>         8   26.6   1.48   4.62  0.211  0.217 0.009</span><span style='text-decoration: underline;'>51</span><span> 0.007</span><span style='text-decoration: underline;'>35</span><span>            1
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span>         9   26.6   1.46   4.41  0.209  0.217 0.009</span><span style='text-decoration: underline;'>03</span><span> 0.008</span><span style='text-decoration: underline;'>74</span><span>            1
+#&gt; </span><span style='color: #949494;'># … with 18 more rows, and 7 more variables: `OMEGA(1,1)` </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #949494;'>#   `OMEGA(2,1)` </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, `OMEGA(2,2)` </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, `OMEGA(3,1)` </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #949494;'>#   `OMEGA(3,2)` </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, `OMEGA(3,3)` </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, OBJ </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; 
 #&gt; $run001.phi_prob_1_subprob_0_foce
-#&gt; </span><span style='color: #555555;'># A tibble: 74 x 12</span><span>
+#&gt; </span><span style='color: #949494;'># A tibble: 74 x 12</span><span>
 #&gt;    SUBJECT_NO    ID `ETA(1)` `ETA(2)` `ETA(3)` `ETC(1,1)` `ETC(2,1)` `ETC(2,2)`
-#&gt;         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span>          1   110  -</span><span style='color: #BB0000;'>0.037</span><span style='color: #BB0000;text-decoration: underline;'>0</span><span> -</span><span style='color: #BB0000;'>0.005</span><span style='color: #BB0000;text-decoration: underline;'>96</span><span>  -</span><span style='color: #BB0000;'>2.14</span><span>      0.025</span><span style='text-decoration: underline;'>8</span><span>  -</span><span style='color: #BB0000;'>0.009</span><span style='color: #BB0000;text-decoration: underline;'>61</span><span>       0.033</span><span style='text-decoration: underline;'>9</span><span>
-#&gt; </span><span style='color: #555555;'> 2</span><span>          2   112  -</span><span style='color: #BB0000;'>0.049</span><span style='color: #BB0000;text-decoration: underline;'>5</span><span>  0.122    -</span><span style='color: #BB0000;'>0.023</span><span style='color: #BB0000;text-decoration: underline;'>5</span><span>    0.014</span><span style='text-decoration: underline;'>0</span><span>  -</span><span style='color: #BB0000;'>0.002</span><span style='color: #BB0000;text-decoration: underline;'>19</span><span>       0.013</span><span style='text-decoration: underline;'>8</span><span>
-#&gt; </span><span style='color: #555555;'> 3</span><span>          3   113   0.332   0.025</span><span style='text-decoration: underline;'>9</span><span>   -</span><span style='color: #BB0000;'>1.15</span><span>      0.009</span><span style='text-decoration: underline;'>95</span><span>  0.000</span><span style='text-decoration: underline;'>300</span><span>      0.025</span><span style='text-decoration: underline;'>7</span><span>
-#&gt; </span><span style='color: #555555;'> 4</span><span>          4   121   0.304   0.249     1.89      0.007</span><span style='text-decoration: underline;'>41</span><span>  0.003</span><span style='text-decoration: underline;'>62</span><span>       0.013</span><span style='text-decoration: underline;'>7</span><span>
-#&gt; </span><span style='color: #555555;'> 5</span><span>          5   123   0.027</span><span style='text-decoration: underline;'>1</span><span> -</span><span style='color: #BB0000;'>0.080</span><span style='color: #BB0000;text-decoration: underline;'>1</span><span>    1.09      0.007</span><span style='text-decoration: underline;'>94</span><span>  0.002</span><span style='text-decoration: underline;'>67</span><span>       0.013</span><span style='text-decoration: underline;'>5</span><span>
-#&gt; </span><span style='color: #555555;'> 6</span><span>          6   124   0.332   0.111    -</span><span style='color: #BB0000;'>1.54</span><span>      0.011</span><span style='text-decoration: underline;'>0</span><span>  -</span><span style='color: #BB0000;'>0.002</span><span style='color: #BB0000;text-decoration: underline;'>19</span><span>       0.030</span><span style='text-decoration: underline;'>7</span><span>
-#&gt; </span><span style='color: #555555;'> 7</span><span>          7   126   0.190  -</span><span style='color: #BB0000;'>0.031</span><span style='color: #BB0000;text-decoration: underline;'>5</span><span>    2.20      0.007</span><span style='text-decoration: underline;'>85</span><span>  0.003</span><span style='text-decoration: underline;'>00</span><span>       0.013</span><span style='text-decoration: underline;'>6</span><span>
-#&gt; </span><span style='color: #555555;'> 8</span><span>          8   127   0.190  -</span><span style='color: #BB0000;'>0.075</span><span style='color: #BB0000;text-decoration: underline;'>0</span><span>    0.415     0.011</span><span style='text-decoration: underline;'>2</span><span>   0.004</span><span style='text-decoration: underline;'>69</span><span>       0.015</span><span style='text-decoration: underline;'>3</span><span>
-#&gt; </span><span style='color: #555555;'> 9</span><span>          9   128  -</span><span style='color: #BB0000;'>0.013</span><span style='color: #BB0000;text-decoration: underline;'>8</span><span> -</span><span style='color: #BB0000;'>0.001</span><span style='color: #BB0000;text-decoration: underline;'>30</span><span>  -</span><span style='color: #BB0000;'>1.27</span><span>      0.012</span><span style='text-decoration: underline;'>0</span><span>   0.000</span><span style='text-decoration: underline;'>033</span><span>3     0.028</span><span style='text-decoration: underline;'>7</span><span>
-#&gt; </span><span style='color: #555555;'>10</span><span>         10   210  -</span><span style='color: #BB0000;'>0.307</span><span>  -</span><span style='color: #BB0000;'>0.108</span><span>    -</span><span style='color: #BB0000;'>0.016</span><span style='color: #BB0000;text-decoration: underline;'>8</span><span>    0.009</span><span style='text-decoration: underline;'>88</span><span>  0.001</span><span style='text-decoration: underline;'>12</span><span>       0.016</span><span style='text-decoration: underline;'>3</span><span>
-#&gt; </span><span style='color: #555555;'># … with 64 more rows, and 4 more variables: `ETC(3,1)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,
-#&gt; #   `ETC(3,2)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, `ETC(3,3)` </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, OBJ </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt;         </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span>          1   110  -</span><span style='color: #BB0000;'>0.037</span><span style='color: #BB0000;text-decoration: underline;'>0</span><span> -</span><span style='color: #BB0000;'>0.005</span><span style='color: #BB0000;text-decoration: underline;'>96</span><span>  -</span><span style='color: #BB0000;'>2.14</span><span>      0.025</span><span style='text-decoration: underline;'>8</span><span>  -</span><span style='color: #BB0000;'>0.009</span><span style='color: #BB0000;text-decoration: underline;'>61</span><span>       0.033</span><span style='text-decoration: underline;'>9</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span>          2   112  -</span><span style='color: #BB0000;'>0.049</span><span style='color: #BB0000;text-decoration: underline;'>5</span><span>  0.122    -</span><span style='color: #BB0000;'>0.023</span><span style='color: #BB0000;text-decoration: underline;'>5</span><span>    0.014</span><span style='text-decoration: underline;'>0</span><span>  -</span><span style='color: #BB0000;'>0.002</span><span style='color: #BB0000;text-decoration: underline;'>19</span><span>       0.013</span><span style='text-decoration: underline;'>8</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span>          3   113   0.332   0.025</span><span style='text-decoration: underline;'>9</span><span>   -</span><span style='color: #BB0000;'>1.15</span><span>      0.009</span><span style='text-decoration: underline;'>95</span><span>  0.000</span><span style='text-decoration: underline;'>300</span><span>      0.025</span><span style='text-decoration: underline;'>7</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span>          4   121   0.304   0.249     1.89      0.007</span><span style='text-decoration: underline;'>41</span><span>  0.003</span><span style='text-decoration: underline;'>62</span><span>       0.013</span><span style='text-decoration: underline;'>7</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span>          5   123   0.027</span><span style='text-decoration: underline;'>1</span><span> -</span><span style='color: #BB0000;'>0.080</span><span style='color: #BB0000;text-decoration: underline;'>1</span><span>    1.09      0.007</span><span style='text-decoration: underline;'>94</span><span>  0.002</span><span style='text-decoration: underline;'>67</span><span>       0.013</span><span style='text-decoration: underline;'>5</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span>          6   124   0.332   0.111    -</span><span style='color: #BB0000;'>1.54</span><span>      0.011</span><span style='text-decoration: underline;'>0</span><span>  -</span><span style='color: #BB0000;'>0.002</span><span style='color: #BB0000;text-decoration: underline;'>19</span><span>       0.030</span><span style='text-decoration: underline;'>7</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span>          7   126   0.190  -</span><span style='color: #BB0000;'>0.031</span><span style='color: #BB0000;text-decoration: underline;'>5</span><span>    2.20      0.007</span><span style='text-decoration: underline;'>85</span><span>  0.003</span><span style='text-decoration: underline;'>00</span><span>       0.013</span><span style='text-decoration: underline;'>6</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span>          8   127   0.190  -</span><span style='color: #BB0000;'>0.075</span><span style='color: #BB0000;text-decoration: underline;'>0</span><span>    0.415     0.011</span><span style='text-decoration: underline;'>2</span><span>   0.004</span><span style='text-decoration: underline;'>69</span><span>       0.015</span><span style='text-decoration: underline;'>3</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span>          9   128  -</span><span style='color: #BB0000;'>0.013</span><span style='color: #BB0000;text-decoration: underline;'>8</span><span> -</span><span style='color: #BB0000;'>0.001</span><span style='color: #BB0000;text-decoration: underline;'>30</span><span>  -</span><span style='color: #BB0000;'>1.27</span><span>      0.012</span><span style='text-decoration: underline;'>0</span><span>   0.000</span><span style='text-decoration: underline;'>033</span><span>3     0.028</span><span style='text-decoration: underline;'>7</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span>         10   210  -</span><span style='color: #BB0000;'>0.307</span><span>  -</span><span style='color: #BB0000;'>0.108</span><span>    -</span><span style='color: #BB0000;'>0.016</span><span style='color: #BB0000;text-decoration: underline;'>8</span><span>    0.009</span><span style='text-decoration: underline;'>88</span><span>  0.001</span><span style='text-decoration: underline;'>12</span><span>       0.016</span><span style='text-decoration: underline;'>3</span><span>
+#&gt; </span><span style='color: #949494;'># … with 64 more rows, and 4 more variables: `ETC(3,1)` </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>,</span><span>
+#&gt; </span><span style='color: #949494;'>#   `ETC(3,2)` </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, `ETC(3,3)` </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #949494;'>, OBJ </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </div><div class='input'>
 <span class='co'># Tip to list available files in the xpdb</span>
 <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>xpdb_ex_pk</span>)</div><div class='output co'>#&gt; run001.lst overview: 
 #&gt;  - Software: nonmem 7.3.0 
-#&gt;  - Attached files (memory usage 1.3 Mb): 
+#&gt;  - Attached files (memory usage 1.4 Mb): 
 #&gt;    + obs tabs: $prob no.1: catab001.csv, cotab001, patab001, sdtab001 
 #&gt;    + sim tabs: $prob no.2: simtab001.zip 
 #&gt;    + output files: run001.cor, run001.cov, run001.ext, run001.grd, run001.phi, run001.shk 
 #&gt;    + special: &lt;none&gt; 
 #&gt;  - gg_theme: theme_readable 
 #&gt;  - xp_theme: theme_xp_default 
-#&gt;  - Options: dir = analysis/models/pk/, quiet = FALSE, manual_import = NULL</div><div class='input'>
+#&gt;  - Options: dir = data, quiet = FALSE, manual_import = NULL</div><div class='input'>
 </div></span></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -310,7 +308,7 @@ last one for each file.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

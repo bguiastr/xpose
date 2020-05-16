@@ -1,5 +1,5 @@
-pandoc: 2.9.1
-pkgdown: 1.4.1
+pandoc: 2.9.2.1
+pkgdown: 1.5.1
 pkgdown_sha: ~
 articles:
   about: about.html
@@ -12,4 +12,5 @@ articles:
   multiple_pages: multiple_pages.html
   plot_list: plot_list.html
   vpc: vpc.html
+last_built: 2020-05-16T22:53Z
 
