@@ -1,3 +1,6 @@
+# xpose 0.4.9
+* Compatibility fix for dplyr 1.0.0 and vpc 1.2.0
+
 # xpose 0.4.8
 * Compatibility fix for ggplot 3.3.0 and tibble 3.0.0
 
