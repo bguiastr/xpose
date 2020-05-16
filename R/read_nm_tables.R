@@ -347,13 +347,19 @@ combine_tables <- function(x) {
               ' due to missing required `ID` column.'), call. = FALSE)
     return(dplyr::tibble(data = list(), index = list()))
   }
-
+  
+  # Prepare the combined data
+  # Note: here the data may contain duplicated columns so 
+  #       we de-duplicate them in base R to avoid errors 
+  #       with the tidyverse.
+  tmp_df <- do.call("cbind", unname(x$data))
+  tmp_df <- tmp_df[, which(!duplicated(names(tmp_df))) ] %>% 
+    tibble::as_tibble() %>% 
+    tidyr::drop_na(dplyr::one_of('ID')) %>%
+    list()
+  
   # Combine tables
-  dplyr::tibble(data = do.call("cbind", unname(x$data)) %>%
-                  dplyr::select(which(!duplicated(names(.)))) %>% 
-                  tibble::as_tibble() %>% 
-                  tidyr::drop_na(dplyr::one_of('ID')) %>%
-                  list(),
+  dplyr::tibble(data  = tmp_df,
                 index = list(dplyr::bind_rows(x$index)))
 }
 
