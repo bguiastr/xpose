@@ -10,7 +10,7 @@ load(file = 'data/ctrl_special.RData')
 
 # ctrl_psn_vpc_dat <- psn_vpc_parser(xpdb = xpdb_ex_pk, psn_folder = 'data/psn_vpc/',
 #                                    psn_bins = TRUE, opt = vpc_opt(), quiet = TRUE)
-# save(ctrl_psn_vpc_dat, file = 'data/ctrl_psn_vpc.RData', 
+# save(ctrl_psn_vpc_dat, file = 'data/ctrl_psn_vpc.RData',
 #      compress = 'xz', version = 2)
 load(file = 'data/ctrl_psn_vpc.RData')
 
@@ -90,5 +90,5 @@ test_that('vpc plot are properly generated', {
   expect_equal(p_cont$xpose$problem, 3)
   expect_equal(p_cens$xpose$problem, 4)
   expect_equal(p_cont$xpose$summary$value[p_cont$xpose$summary$label %in% c('vpcdir', 'vpcnsim', 'vpcci', 'vpcpi')], 
-              c('analysis/models/pk/', '20', '95', '95'))
+              c('data', '20', '95', '95'))
 })

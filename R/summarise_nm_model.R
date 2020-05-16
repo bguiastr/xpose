@@ -239,7 +239,7 @@ sum_nobs <- function(model, software) {
     x %>% 
       dplyr::mutate(subprob = 0,
                     label = 'nobs',
-                    value = stringr::str_match(.$code, '\\d+')) %>% 
+                    value = stringr::str_match(.$code, '\\d+')[, 1]) %>% 
       dplyr::select(dplyr::one_of('problem', 'subprob', 'label', 'value'))
   }
 }
@@ -256,7 +256,7 @@ sum_nind <- function(model, software) {
     x %>% 
       dplyr::mutate(subprob = 0,
                     label = 'nind',
-                    value = stringr::str_match(.$code, '\\d+')) %>% 
+                    value = stringr::str_match(.$code, '\\d+')[, 1]) %>% 
       dplyr::select(dplyr::one_of('problem', 'subprob', 'label', 'value'))
   }
 }
