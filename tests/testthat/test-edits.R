@@ -51,7 +51,8 @@ test_that('xpdb_edits works properly', {
   expect_equal(ctrl_tab_2, xpdb_ex_pk %>% 
                  get_data(.problem = 1) %>% 
                  group_by(ID, SEX) %>% 
-                 summarize(CMAX = max(DV), .groups = "drop"))
+                 summarize(CMAX = max(DV)) %>% 
+                 ungroup())
   expect_warning(test_xpdb_2 <- filter.xpose_data(.data = test_xpdb_1, bin == 2, .source = 'special', 
                                                   .where = c('fake1', 'fake2', 'vpc_dat'))$special$data[[1]],
                  regexp = 'elements fake1, fake2 not found in vpc continuous')
