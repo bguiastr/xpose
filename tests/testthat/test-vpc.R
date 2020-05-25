@@ -10,14 +10,9 @@ load(file = 'data/ctrl_special.RData')
 
 # ctrl_psn_vpc_dat <- psn_vpc_parser(xpdb = xpdb_ex_pk, psn_folder = 'data/psn_vpc/',
 #                                    psn_bins = TRUE, opt = vpc_opt(), quiet = TRUE)
-# save(ctrl_psn_vpc_dat, file = 'data/ctrl_psn_vpc.RData', 
+# save(ctrl_psn_vpc_dat, file = 'data/ctrl_psn_vpc.RData',
 #      compress = 'xz', version = 2)
 load(file = 'data/ctrl_psn_vpc.RData')
-
-
-xpdb_vpc_test <- xpdb_ex_pk %>%
-  vpc_data(opt = vpc_opt(n_bins = 3, lloq = 0.1), quiet = TRUE) %>%
-  vpc_data(vpc_type = 'cens', opt = vpc_opt(n_bins = 3, lloq = 0.4), quiet = TRUE)
 
 test_psn_vpc <- vpc_data(xpdb_ex_pk, psn_folder = 'data/psn_vpc/', quiet = TRUE)
 
@@ -40,6 +35,14 @@ test_that('vpc_data properly check input', {
 })
 
 test_that('vpc_data works properly with xpdb tables', {
+  
+  skip_if(condition = utils::packageVersion("dplyr") > "0.8.5" & utils::packageVersion("vpc") < "1.2.1", 
+          message   = "Incompatible package versions...")
+  
+  xpdb_vpc_test <- xpdb_ex_pk %>%
+    vpc_data(opt = vpc_opt(n_bins = 3, lloq = 0.1), quiet = TRUE) %>%
+    vpc_data(vpc_type = 'cens', opt = vpc_opt(n_bins = 3, lloq = 0.4), quiet = TRUE)
+  
   expect_true(is.xpdb(xpdb_vpc_test))
   expect_identical(xpdb_vpc_test$special, ctrl_special$special)
 })
@@ -69,6 +72,10 @@ test_that('vpc plot properly check input', {
 })
 
 test_that('vpc plot are properly generated', {
+  
+  skip_if(condition = utils::packageVersion("dplyr") > "0.8.5" & utils::packageVersion("vpc") < "1.2.1", 
+          message   = "Incompatible package versions...")
+  
   p_cont  <- vpc(ctrl_special, vpc_type = 'continuous', type = 'alrpt', quiet = FALSE)
   p_cont2 <- vpc(ctrl_special, vpc_type = 'continuous', facets = ~group)
   p_cens  <- vpc(ctrl_special, vpc_type = 'censored', smooth = FALSE, facets = 'group', 
@@ -90,5 +97,5 @@ test_that('vpc plot are properly generated', {
   expect_equal(p_cont$xpose$problem, 3)
   expect_equal(p_cens$xpose$problem, 4)
   expect_equal(p_cont$xpose$summary$value[p_cont$xpose$summary$label %in% c('vpcdir', 'vpcnsim', 'vpcci', 'vpcpi')], 
-              c('analysis/models/pk/', '20', '95', '95'))
+              c('data', '20', '95', '95'))
 })

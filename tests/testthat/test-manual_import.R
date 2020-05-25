@@ -27,3 +27,4 @@ test_that('list_nm_tables_manual function works properly', {
   test <- dplyr::arrange_at(.tbl = test, .vars = 'table')
   expect_identical(test, ctrl_data)
 })
+

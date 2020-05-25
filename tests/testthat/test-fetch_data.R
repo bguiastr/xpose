@@ -34,9 +34,9 @@ test_that('fetch_data can get simple data', {
   expect_equal(attr(imported_data, 'problem'), 1)
   expect_equal(attr(imported_data, 'simtab'), FALSE)
   expect_equal(attr(imported_data, 'source'), 'data')
-  
+
   # Check output
-  expect_equal(imported_data, xpdb_ex_pk$data$data[[1]][xpdb_ex_pk$data$data[[1]]$EVID == 0, ])
+  expect_equivalent(imported_data, xpdb_ex_pk$data$data[[1]][xpdb_ex_pk$data$data[[1]]$EVID == 0, ])
 })
 
 test_that('fetch_data can tidy data', {
@@ -46,7 +46,7 @@ test_that('fetch_data can tidy data', {
                                    tidy = TRUE, value_col = c('IPRED','PRED', 'DV'))
   
   # Check output
-  expect_equal(imported_tidy_data, 
+  expect_equivalent(imported_tidy_data, 
                xpdb_ex_pk$data$data[[1]][xpdb_ex_pk$data$data[[1]]$EVID == 0, 
                                          c('ID', 'TIME', 'IPRED', 'PRED', 'DV')] %>% 
                  tidyr::gather(value = 'value', key = 'variable', 
@@ -55,6 +55,7 @@ test_that('fetch_data can tidy data', {
 })
 
 test_that('fetch_data can get file data', {
-  expect_equal(fetch_data(xpdb_ex_pk, .problem = 1, .source = 'ext', quiet = TRUE), 
-               xpdb_ex_pk$files[xpdb_ex_pk$files$name == 'run001.ext',]$data[[1]])
+  fetched_data <- fetch_data(xpdb_ex_pk, .problem = 1, .source = 'ext', quiet = TRUE)
+  
+  expect_equivalent(fetched_data, xpdb_ex_pk$files[xpdb_ex_pk$files$name == 'run001.ext',]$data[[1]])
 })

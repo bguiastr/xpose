@@ -17,7 +17,7 @@ ctrl_file <- get_data(xpdb_ex_pk, table = 'patab001') %>%
 
 firstonly_test <- as.nm.table.list(dplyr::tibble(problem   = 1, 
                                                  file      = file_path('data', c('sdtab001', 'patab001')),
-                                                 firstonly = c(TRUE, FALSE),
+                                                 firstonly = c(FALSE, TRUE),
                                                  simtab    = FALSE))
 
 minus_sign_test <- c('TABLE NO.  1',
@@ -73,7 +73,7 @@ test_that('tables with firstonly are properly handled', {
   skip_on_cran() # Skip to avoid issue with no long double
   
   expect_equal(tmp_table$data[[1]], 
-               xpdb_ex_pk$data$data[[1]][, unlist(xpdb_ex_pk$data$index[[1]][xpdb_ex_pk$data$index[[1]]$table %in% c('sdtab001', 'patab001'),]$col) ])
+               xpdb_ex_pk$data$data[[1]][, unique(unlist(xpdb_ex_pk$data$index[[1]][xpdb_ex_pk$data$index[[1]]$table %in% c('sdtab001', 'patab001'),]$col)) ])
 })
 
 test_that('properly assign skip and header arguments', {

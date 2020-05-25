@@ -88,14 +88,14 @@ xpdb_ex_pk %>%
 ```
 
 ### Censored vpc
-```{r}
+```{r, eval = FALSE}
 xpdb_ex_pk %>% 
  vpc_data(vpc_type = 'censored', opt = vpc_opt(lloq = 1, n_bins = 7)) %>% 
  vpc()
 ```
 
 ### Categorical vpc
-```{r, eval=FALSE}
+```{r, eval = FALSE}
 xpdb_ex_pk %>% 
  vpc_data(vpc_type = 'categorical') %>% 
  vpc()

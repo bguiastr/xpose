@@ -1,10 +1,5 @@
 context('Check xpdb_access functions')
 
-# Define files to be tested -----------------------------------------------
-xpdb_vpc <- xpdb_ex_pk %>% 
-  vpc_data(quiet = TRUE) %>% 
-  vpc_data(vpc_type = 'censored', opt = vpc_opt(lloq = 0.4), quiet = TRUE)
-
 # Tests for get_code ------------------------------------------------------
 
 test_that('get_code checks input properly', {
@@ -191,6 +186,14 @@ test_that('get_prm works properly', {
 
 # Tests for get_special ---------------------------------------------------
 test_that('get_special checks input properly', {
+  
+  skip_if(condition = utils::packageVersion("dplyr") > "0.8.5" & utils::packageVersion("vpc") < "1.2.1", 
+          message   = "Incompatible package versions...")
+  
+  xpdb_vpc <- xpdb_ex_pk %>% 
+    vpc_data(quiet = TRUE) %>% 
+    vpc_data(vpc_type = 'censored', opt = vpc_opt(lloq = 0.4), quiet = TRUE)
+  
   # Error with missing xpdb
   expect_error(get_special(), regexp = '"xpdb" is missing')
   
@@ -199,6 +202,14 @@ test_that('get_special checks input properly', {
 })
 
 test_that('get_data works properly', {
+  
+  skip_if(condition = utils::packageVersion("dplyr") > "0.8.5" & utils::packageVersion("vpc") < "1.2.1", 
+          message   = "Incompatible package versions...")
+  
+  xpdb_vpc <- xpdb_ex_pk %>% 
+    vpc_data(quiet = TRUE) %>% 
+    vpc_data(vpc_type = 'censored', opt = vpc_opt(lloq = 0.4), quiet = TRUE)
+  
   # Default return works properly
   expect_message(tmp_get_special_1 <- get_special(xpdb_vpc), regexp = 'Returning vpc censored data from \\$prob no\\.4')
   expect_equal(tmp_get_special_1, xpdb_vpc$special$data[[2]])

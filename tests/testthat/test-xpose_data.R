@@ -33,9 +33,6 @@ test_that('properly creates the xpdb when using the file argument', {
   skip_on_cran() # Skip to avoid issue with no long double
   
   # Correct path and quiet option for identical comparison with xpdb_ex_pk
-  xpdb_1$summary$value[xpdb_1$summary$label == 'dir'] <- 'analysis/models/pk/' 
-  xpdb_1$options$dir <- 'analysis/models/pk/'
-  attr(xpdb_1$code, 'dir') <- 'analysis/models/pk/'
   xpdb_1$options$quiet <- FALSE
   xpdb_1$xp_theme$labeller <- xpdb_ex_pk$xp_theme$labeller
   xpdb_1$xp_theme <- as.xpose.theme(xpdb_1$xp_theme)
@@ -51,10 +48,6 @@ test_that('properly creates the xpdb when using the runno argument', {
   skip_on_cran() # Skip to avoid issue with no long double
   
   # Correct path and quiet option for identical comparison with xpdb_ex_pk
-  xpdb_2$summary$value[xpdb_2$summary$label == 'dir'] <- 'analysis/models/pk/'
-  xpdb_2$options$dir <- 'analysis/models/pk/'
-  attr(xpdb_2$code, 'dir') <- 'analysis/models/pk/'
-  attr(xpdb_2$gg_theme, 'theme') <- 'theme_readable'
   xpdb_2$options$quiet <- FALSE
   xpdb_2$xp_theme$labeller <- xpdb_ex_pk$xp_theme$labeller
   xpdb_2$xp_theme <- as.xpose.theme(xpdb_2$xp_theme)
