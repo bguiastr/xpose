@@ -127,7 +127,7 @@
       <h1 data-toc-skip>Access the xpdb data</h1>
                         <h4 class="author">Benjamin Guiastrennec</h4>
             
-            <h4 class="date">17 May, 2020</h4>
+            <h4 class="date">25 May, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/UUPharmacometrics/xpose/blob/master/vignettes/access_xpdb_data.Rmd"><code>vignettes/access_xpdb_data.Rmd</code></a></small>
       <div class="hidden name"><code>access_xpdb_data.Rmd</code></div>
@@ -144,7 +144,7 @@
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="no">xpdb</span> <span class="co"># or print(xpdb)</span></pre></body></html></div>
 <pre><code>run001.lst overview: 
  - Software: nonmem 7.3.0 
- - Attached files (memory usage 1.3 Mb): 
+ - Attached files (memory usage 1.4 Mb): 
    + obs tabs: $prob no.1: catab001.csv, cotab001, patab001, sdtab001 
    + sim tabs: $prob no.2: simtab001.zip 
    + output files: run001.cor, run001.cov, run001.ext, run001.grd, run001.phi, run001.shk 
@@ -268,7 +268,7 @@ Estimates for $prob no.1, subprob no.0, method foce
 <div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="no">run_sum</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/get_summary.html">get_summary</a></span>(<span class="no">xpdb</span>, <span class="kw">.problem</span> <span class="kw">=</span> <span class="fl">0</span>)
 <span class="no">run_sum</span></pre></body></html></div>
 <pre><code># A tibble: 12 x 5
-   problem subprob descr               label       value[,1]                    
+   problem subprob descr               label       value                        
      &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;               &lt;chr&gt;       &lt;chr&gt;                        
  1       0       0 Run description     descr       NONMEM PK example for xpose  
  2       0       0 Run directory       dir         data                         

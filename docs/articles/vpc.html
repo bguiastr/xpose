@@ -127,7 +127,7 @@
       <h1 data-toc-skip>Visual Predictive Checks (VPC)</h1>
                         <h4 class="author">Benjamin Guiastrennec</h4>
             
-            <h4 class="date">17 May, 2020</h4>
+            <h4 class="date">25 May, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/UUPharmacometrics/xpose/blob/master/vignettes/vpc.Rmd"><code>vignettes/vpc.Rmd</code></a></small>
       <div class="hidden name"><code>vpc.Rmd</code></div>
@@ -185,10 +185,8 @@
  <span class="fu"><a href="../reference/vpc_data.html">vpc_data</a></span>(<span class="kw">vpc_type</span> <span class="kw">=</span> <span class="st">'continuous'</span>, <span class="kw">opt</span> <span class="kw">=</span> <span class="fu"><a href="../reference/vpc_opt.html">vpc_opt</a></span>(<span class="kw">n_bins</span> <span class="kw">=</span> <span class="fl">6</span>, <span class="kw">lloq</span> <span class="kw">=</span> <span class="fl">0.1</span>)) <span class="kw">%&gt;%</span>
  <span class="fu"><a href="../reference/vpc_data.html">vpc_data</a></span>(<span class="kw">vpc_type</span> <span class="kw">=</span> <span class="st">'censored'</span>, <span class="kw">opt</span> <span class="kw">=</span> <span class="fu"><a href="../reference/vpc_opt.html">vpc_opt</a></span>(<span class="kw">n_bins</span> <span class="kw">=</span> <span class="fl">6</span>, <span class="kw">lloq</span> <span class="kw">=</span> <span class="fl">0.1</span>))
 
-<span class="fu"><a href="../reference/vpc.html">vpc</a></span>(<span class="no">xpdb_w_multi_vpc</span>, <span class="kw">vpc_type</span> <span class="kw">=</span> <span class="st">'continuous'</span>)</pre></body></html></div>
-<p><img src="vpc_files/figure-html/unnamed-chunk-4-1.png" width="75%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="../reference/vpc.html">vpc</a></span>(<span class="no">xpdb_w_multi_vpc</span>, <span class="kw">vpc_type</span> <span class="kw">=</span> <span class="st">'censored'</span>)</pre></body></html></div>
-<p><img src="vpc_files/figure-html/unnamed-chunk-4-2.png" width="75%" style="display: block; margin: auto;"></p>
+<span class="fu"><a href="../reference/vpc.html">vpc</a></span>(<span class="no">xpdb_w_multi_vpc</span>, <span class="kw">vpc_type</span> <span class="kw">=</span> <span class="st">'continuous'</span>)
+<span class="fu"><a href="../reference/vpc.html">vpc</a></span>(<span class="no">xpdb_w_multi_vpc</span>, <span class="kw">vpc_type</span> <span class="kw">=</span> <span class="st">'censored'</span>)</pre></body></html></div>
 </div>
 <div id="common-options" class="section level3">
 <h3 class="hasAnchor">
@@ -202,11 +200,10 @@
 <li>The <code>stratify</code> options defines up to two stratifying variable to be used when computing the VPC data. The <code>stratify</code> variables can either be provided as a character vector (<code>stratify = c('SEX', 'MED1')</code>) or a formula (<code>stratify = SEX~MED1</code>) . The former will result in the use of <code><a href="https://ggforce.data-imaginist.com/reference/facet_wrap_paginate.html">ggforce::facet_wrap_paginate()</a></code> and the latter of <code><a href="https://ggforce.data-imaginist.com/reference/facet_grid_paginate.html">ggforce::facet_grid_paginate()</a></code> when creating the plot. With “categorical” VPC the “group” variable will also be added by default.</li>
 <li>More advanced options (i.e. binning, pi, ci, predcorr, lloq, etc.) are accessible via the <code>opt</code> argument. The <code>opt</code> argument expects the output from the <code><a href="../reference/vpc_opt.html">vpc_opt()</a></code> functions argument.</li>
 </ul>
-<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">xpdb_ex_pk</span> <span class="kw">%&gt;%</span>
+<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">xpdb_ex_pk</span> <span class="kw">%&gt;%</span>
  <span class="fu"><a href="../reference/vpc_data.html">vpc_data</a></span>(<span class="kw">vpc_type</span> <span class="kw">=</span> <span class="st">'censored'</span>, <span class="kw">stratify</span> <span class="kw">=</span> <span class="st">'SEX'</span>,
           <span class="kw">opt</span> <span class="kw">=</span> <span class="fu"><a href="../reference/vpc_opt.html">vpc_opt</a></span>(<span class="kw">bins</span> <span class="kw">=</span> <span class="st">'jenks'</span>, <span class="kw">n_bins</span> <span class="kw">=</span> <span class="fl">7</span>, <span class="kw">lloq</span> <span class="kw">=</span> <span class="fl">0.5</span>)) <span class="kw">%&gt;%</span>
  <span class="fu"><a href="../reference/vpc.html">vpc</a></span>()</pre></body></html></div>
-<p><img src="vpc_files/figure-html/unnamed-chunk-5-1.png" width="75%" style="display: block; margin: auto;"></p>
 </div>
 <div id="options-in-vpc" class="section level4">
 <h4 class="hasAnchor">
@@ -223,11 +220,11 @@
 <h3 class="hasAnchor">
 <a href="#creating-vpc-using-the-xpdb-data" class="anchor"></a>Creating VPC using the xpdb data</h3>
 <p>To create VPC using the xpdb data, at least one simulation and one estimation problem need to present. Hence in the case of NONMEM the run used to generate the xpdb should contain several<code>$PROBLEM</code>. In <code><a href="../reference/vpc_data.html">vpc_data()</a></code> the problem number can be specified for the observation (<code>obs_problem</code>) and the simulation (<code>sim_problem</code>). By default xpose picks the last one of each to generate the VPC.</p>
-<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="co"># View the xpdb content and data problems</span>
+<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="co"># View the xpdb content and data problems</span>
 <span class="no">xpdb_ex_pk</span></pre></body></html></div>
 <pre><code>run001.lst overview: 
  - Software: nonmem 7.3.0 
- - Attached files (memory usage 1.3 Mb): 
+ - Attached files (memory usage 1.4 Mb): 
    + obs tabs: $prob no.1: catab001.csv, cotab001, patab001, sdtab001 
    + sim tabs: $prob no.2: simtab001.zip 
    + output files: run001.cor, run001.cov, run001.ext, run001.grd, run001.phi, run001.shk 
@@ -235,7 +232,7 @@
  - gg_theme: theme_readable 
  - xp_theme: theme_xp_default 
  - Options: dir = data, quiet = FALSE, manual_import = NULL</code></pre>
-<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="co"># Generate the vpc</span>
+<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="co"># Generate the vpc</span>
 <span class="no">xpdb_ex_pk</span> <span class="kw">%&gt;%</span>
  <span class="fu"><a href="../reference/vpc_data.html">vpc_data</a></span>(<span class="kw">vpc_type</span> <span class="kw">=</span> <span class="st">'continuous'</span>, <span class="kw">obs_problem</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">sim_problem</span> <span class="kw">=</span> <span class="fl">2</span>) <span class="kw">%&gt;%</span>
  <span class="fu"><a href="../reference/vpc.html">vpc</a></span>()</pre></body></html></div>
@@ -247,7 +244,7 @@
 <p>The <code><a href="../reference/vpc_data.html">vpc_data()</a></code> contains an argument <code>psn_folder</code> which can be used to point to a <a href="https://uupharmacometrics.github.io/PsN/">PsN</a> generated VPC folder. As in most xpose function <code>template_titles</code> keywords can be used to automatize the process e.g. <code>psn_folder = '@dir/@run_vpc'</code> where <code>@dir</code> and <code>@run</code> will be automatically translated to initial (i.e. when the xpdb was generated) run directory and run number <code>'analysis/models/pk/run001_vpc'</code>.</p>
 <p>In this case, the data will be read from the <code>/m1</code> sub-folder (or <code>m1.zip</code> if compressed). Note that <a href="https://uupharmacometrics.github.io/PsN/">PsN</a> drops unused columns to reduce the simtab file size. Thus, in order to allow for more flexibility in R, it is recommended to use multiple stratifying variables (<code>-stratify_on=VAR1,VAR2</code>) and the prediction corrected (<code>-predcorr</code> adds the PRED column to the output) options in <a href="https://uupharmacometrics.github.io/PsN/">PsN</a> to avoid having to rerun <a href="https://uupharmacometrics.github.io/PsN/">PsN</a> to add these variables later on. In addition, <code>-dv</code>, <code>-idv</code>, <code>-lloq</code>, <code>-uloq</code>, <code>-predcorr</code> and <code>-stratify_on</code> <a href="https://uupharmacometrics.github.io/PsN/">PsN</a> options are automatically applied to xpose VPC.</p>
 <p>The PsN generated binning can also applied to xpose VPC with the <code><a href="../reference/vpc_data.html">vpc_data()</a></code> option <code>psn_bins = TRUE</code> (disabled by default). However <a href="https://uupharmacometrics.github.io/PsN/">PsN</a> and the vpc package work slightly differently so the results may not be optimal and the output should be evaluated carefully.</p>
-<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="no">xpdb_ex_pk</span> <span class="kw">%&gt;%</span>
+<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="no">xpdb_ex_pk</span> <span class="kw">%&gt;%</span>
  <span class="fu"><a href="../reference/vpc_data.html">vpc_data</a></span>(<span class="kw">psn_folder</span> <span class="kw">=</span> <span class="st">'@dir/run001_vpc'</span>, <span class="kw">psn_bins</span> <span class="kw">=</span> <span class="fl">TRUE</span>) <span class="kw">%&gt;%</span>
  <span class="fu"><a href="../reference/vpc.html">vpc</a></span>()</pre></body></html></div>
 </div>

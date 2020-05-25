@@ -127,7 +127,7 @@
       <h1 data-toc-skip>The xpose plots</h1>
                         <h4 class="author">Benjamin Guiastrennec</h4>
             
-            <h4 class="date">17 May, 2020</h4>
+            <h4 class="date">25 May, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/UUPharmacometrics/xpose/blob/master/vignettes/plot_list.Rmd"><code>vignettes/plot_list.Rmd</code></a></small>
       <div class="hidden name"><code>plot_list.Rmd</code></div>
@@ -241,13 +241,11 @@
 <div class="sourceCode" id="cb24"><html><body><pre class="r"><span class="no">xpdb_ex_pk</span> <span class="kw">%&gt;%</span>
  <span class="fu"><a href="../reference/vpc_data.html">vpc_data</a></span>(<span class="kw">vpc_type</span> <span class="kw">=</span> <span class="st">'censored'</span>, <span class="kw">opt</span> <span class="kw">=</span> <span class="fu"><a href="../reference/vpc_opt.html">vpc_opt</a></span>(<span class="kw">lloq</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">n_bins</span> <span class="kw">=</span> <span class="fl">7</span>)) <span class="kw">%&gt;%</span>
  <span class="fu"><a href="../reference/vpc.html">vpc</a></span>()</pre></body></html></div>
-<pre><code>Warning: Points (type = 'p') can only be added with continuous VPC.</code></pre>
-<p><img src="plot_list_files/figure-html/unnamed-chunk-11-1.png" width="75%" style="display: block; margin: auto;"></p>
 </div>
 <div id="categorical-vpc" class="section level3">
 <h3 class="hasAnchor">
 <a href="#categorical-vpc" class="anchor"></a>Categorical vpc</h3>
-<div class="sourceCode" id="cb26"><html><body><pre class="r"><span class="no">xpdb_ex_pk</span> <span class="kw">%&gt;%</span>
+<div class="sourceCode" id="cb25"><html><body><pre class="r"><span class="no">xpdb_ex_pk</span> <span class="kw">%&gt;%</span>
  <span class="fu"><a href="../reference/vpc_data.html">vpc_data</a></span>(<span class="kw">vpc_type</span> <span class="kw">=</span> <span class="st">'categorical'</span>) <span class="kw">%&gt;%</span>
  <span class="fu"><a href="../reference/vpc.html">vpc</a></span>()</pre></body></html></div>
 </div>
