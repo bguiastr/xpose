@@ -55,7 +55,7 @@ vpc(xpdb_w_vpc) # Plot the vpc from the stored data
 ```
 
 Multiple VPC data can be stored in an xpdb, but only one of each `vpc_type`.
-```{r, warning = FALSE}
+```{r, eval = FALSE, warning = FALSE}
 xpdb_w_multi_vpc <- xpdb_ex_pk %>% 
  vpc_data(vpc_type = 'continuous', opt = vpc_opt(n_bins = 6, lloq = 0.1)) %>% 
  vpc_data(vpc_type = 'censored', opt = vpc_opt(n_bins = 6, lloq = 0.1))
@@ -70,7 +70,7 @@ vpc(xpdb_w_multi_vpc, vpc_type = 'censored')
 * The `stratify` options defines up to two stratifying variable to be used when computing the VPC data. The `stratify` variables can either be provided as a character vector (`stratify = c('SEX', 'MED1')`) or a formula (`stratify = SEX~MED1`) . The former will result in the use of `ggforce::facet_wrap_paginate()` and the latter of `ggforce::facet_grid_paginate()` when creating the plot. With "categorical" VPC the "group" variable will also be added by default.
 * More advanced options (i.e. binning, pi, ci, predcorr, lloq, etc.) are accessible via the `opt` argument. The `opt` argument expects the output from the `vpc_opt()` functions argument.
 
-```{r, warning = FALSE}
+```{r, eval = FALSE, warning = FALSE}
 xpdb_ex_pk %>% 
  vpc_data(vpc_type = 'censored', stratify = 'SEX',
           opt = vpc_opt(bins = 'jenks', n_bins = 7, lloq = 0.5)) %>% 
