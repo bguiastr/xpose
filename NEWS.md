@@ -1,3 +1,6 @@
+# xpose 0.4.10
+* Compatibility fix for vpc 1.3.0
+
 # xpose 0.4.9
 * Compatibility fix for dplyr 1.0.0 and vpc 1.2.0
 

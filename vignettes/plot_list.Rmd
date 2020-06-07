@@ -4,7 +4,7 @@ author: "Benjamin Guiastrennec"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Plot list}
+  %\VignetteIndexEntry{The xpose plots}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

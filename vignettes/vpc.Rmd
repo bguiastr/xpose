@@ -4,7 +4,7 @@ author: "Benjamin Guiastrennec"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{VPC}
+  %\VignetteIndexEntry{Visual Predictive Checks (VPC)}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
