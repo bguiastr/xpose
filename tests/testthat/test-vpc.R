@@ -44,7 +44,7 @@ test_that('vpc_data works properly with xpdb tables', {
     vpc_data(vpc_type = 'cens', opt = vpc_opt(n_bins = 3, lloq = 0.4), quiet = TRUE)
   
   expect_true(is.xpdb(xpdb_vpc_test))
-  expect_identical(xpdb_vpc_test$special, ctrl_special$special)
+  expect_equivalent(xpdb_vpc_test$special, ctrl_special$special)
 })
 
 test_that('vpc_data works properly with psn_folder', {

@@ -1,3 +1,6 @@
+# xpose 0.4.11
+* Improve `noLD` in tests
+
 # xpose 0.4.10
 * Compatibility fix for vpc 1.2.1
 
