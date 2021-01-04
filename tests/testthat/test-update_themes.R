@@ -18,9 +18,13 @@ test_that('returns identical xpdb if missing themes', {
 })
 
 test_that('full gg_themes are properly added', {
-  expect_equivalent(update_themes(xpdb = xpdb_ex_pk, 
-                                 gg_theme = theme_bw2())$gg_theme, 
-                   theme_bw2())
+  expect_equal(ignore_attr = FALSE,
+               update_themes(xpdb = xpdb_ex_pk, 
+                             gg_theme = theme_bw2())$gg_theme, 
+               theme_bw2(),
+               check.attributes = FALSE,
+               check.environment = FALSE
+  )
 })
 
 test_that('message returned on bad gg_theme input', {
@@ -30,15 +34,19 @@ test_that('message returned on bad gg_theme input', {
 })
 
 test_that('full xp_themes are properly added', {
-  expect_equivalent(update_themes(xpdb = xpdb_ex_pk,
-                                 xp_theme = theme_xp_xpose4())$xp_theme,
-                   theme_xp_xpose4())
+  expect_equal(update_themes(xpdb = xpdb_ex_pk,
+                             xp_theme = theme_xp_xpose4())$xp_theme,
+               theme_xp_xpose4(),
+               check.attributes = FALSE,
+               check.environment = FALSE)
 })
 
 test_that('parial xp_themes are properly added', {
-  expect_equivalent(update_themes(xpdb = xpdb_ex_pk, 
-                                  xp_theme = c(point_color = 'green'))$xp_theme,
-                    theme_xp_custom)
+  expect_equal(update_themes(xpdb = xpdb_ex_pk, 
+                             xp_theme = c(point_color = 'green'))$xp_theme,
+               theme_xp_custom,
+               check.attributes = FALSE,
+               check.environment = FALSE)
 })
 
 test_that('message on unnamed xp_theme input', {

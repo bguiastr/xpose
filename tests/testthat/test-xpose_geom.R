@@ -16,12 +16,14 @@ test_that('update_args works properly', {
 
 test_that('xp_map works properly', {
   expect_equal(xp_map(arg = list(color = 'red'), mapping = aes_string(x = 'IPRED'), ggfun = 'geom_point'),
-               geom_point(mapping = aes_string(x = 'IPRED') , color = 'red'))
+               geom_point(mapping = aes_string(x = 'IPRED') , color = 'red'),
+               check.environment = FALSE)
 })
 
 test_that('xp_geoms works properly', {
  expect_equal(xp_geoms(mapping = aes_string(point_color = 'IPRED'), xpdb_ex_pk$xp_theme, name = 'point', 
                        ggfun = 'geom_point', point_size = 3),
               geom_point(mapping = aes_string(color = 'IPRED') , alpha = 0.7, fill = NA, 
-                         shape = 19, size = 3, stroke = 0))
+                         shape = 19, size = 3, stroke = 0),
+              check.environment = FALSE)
 })
