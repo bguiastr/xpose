@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
       </span>
     </div>
 
@@ -144,13 +144,13 @@
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fa fa-download"></span>
+    <span class="fas fa-download"></span>
      
   </a>
 </li>
@@ -176,11 +176,11 @@
     <p>Function designed to change the type, label or unit associated with variables.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>set_var_types</span>(<span class='no'>xpdb</span>, <span class='kw'>.problem</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>, <span class='kw'>auto_factor</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>quiet</span>)
+    <pre class="usage"><span class='fu'>set_var_types</span><span class='op'>(</span><span class='va'>xpdb</span>, .problem <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span>, auto_factor <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>quiet</span><span class='op'>)</span>
 
-<span class='fu'>set_var_labels</span>(<span class='no'>xpdb</span>, <span class='kw'>.problem</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>, <span class='no'>quiet</span>)
+<span class='fu'>set_var_labels</span><span class='op'>(</span><span class='va'>xpdb</span>, .problem <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span>, <span class='va'>quiet</span><span class='op'>)</span>
 
-<span class='fu'>set_var_units</span>(<span class='no'>xpdb</span>, <span class='kw'>.problem</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>, <span class='no'>quiet</span>)</pre>
+<span class='fu'>set_var_units</span><span class='op'>(</span><span class='va'>xpdb</span>, .problem <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span>, <span class='va'>quiet</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -242,13 +242,15 @@ factor.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Change variable type</span>
-<span class='no'>xpdb_2</span> <span class='kw'>&lt;-</span> <span class='fu'>set_var_types</span>(<span class='no'>xpdb_ex_pk</span>, <span class='kw'>.problem</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>idv</span> <span class='kw'>=</span> <span class='st'>'TAD'</span>)
+<span class='va'>xpdb_2</span> <span class='op'>&lt;-</span> <span class='fu'>set_var_types</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, .problem <span class='op'>=</span> <span class='fl'>1</span>, idv <span class='op'>=</span> <span class='st'>'TAD'</span><span class='op'>)</span>
 
 <span class='co'># Change labels</span>
-<span class='no'>xpdb_2</span> <span class='kw'>&lt;-</span> <span class='fu'>set_var_labels</span>(<span class='no'>xpdb_2</span>, <span class='kw'>.problem</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>ALAG1</span> <span class='kw'>=</span> <span class='st'>'Lag time'</span>, <span class='kw'>CL</span> <span class='kw'>=</span> <span class='st'>'Clearance'</span>, <span class='kw'>V</span> <span class='kw'>=</span> <span class='st'>'Volume'</span>)
+<span class='va'>xpdb_2</span> <span class='op'>&lt;-</span> <span class='fu'>set_var_labels</span><span class='op'>(</span><span class='va'>xpdb_2</span>, .problem <span class='op'>=</span> <span class='fl'>1</span>, ALAG1 <span class='op'>=</span> <span class='st'>'Lag time'</span>, CL <span class='op'>=</span> <span class='st'>'Clearance'</span>, V <span class='op'>=</span> <span class='st'>'Volume'</span><span class='op'>)</span>
 
 <span class='co'># Change units</span>
-<span class='no'>xpdb_2</span> <span class='kw'>&lt;-</span> <span class='fu'>set_var_units</span>(<span class='no'>xpdb_2</span>, <span class='kw'>.problem</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>ALAG1</span> <span class='kw'>=</span> <span class='st'>'h'</span>, <span class='kw'>CL</span> <span class='kw'>=</span> <span class='st'>'L/h'</span>, <span class='kw'>V</span> <span class='kw'>=</span> <span class='st'>'L'</span>)</div></pre>
+<span class='va'>xpdb_2</span> <span class='op'>&lt;-</span> <span class='fu'>set_var_units</span><span class='op'>(</span><span class='va'>xpdb_2</span>, .problem <span class='op'>=</span> <span class='fl'>1</span>, ALAG1 <span class='op'>=</span> <span class='st'>'h'</span>, CL <span class='op'>=</span> <span class='st'>'L/h'</span>, V <span class='op'>=</span> <span class='st'>'L'</span><span class='op'>)</span>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -264,7 +266,7 @@ factor.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

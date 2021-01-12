@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
       </span>
     </div>
 
@@ -144,13 +144,13 @@
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fa fa-download"></span>
+    <span class="fas fa-download"></span>
      
   </a>
 </li>
@@ -176,25 +176,25 @@
     <p>Manually generate scatter plots from an xpdb object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>xplot_scatter</span>(
-  <span class='no'>xpdb</span>,
-  <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>group</span> <span class='kw'>=</span> <span class='st'>"ID"</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"pls"</span>,
-  <span class='kw'>guide</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>xscale</span> <span class='kw'>=</span> <span class='st'>"continuous"</span>,
-  <span class='kw'>yscale</span> <span class='kw'>=</span> <span class='st'>"continuous"</span>,
-  <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>caption</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>tag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>plot_name</span> <span class='kw'>=</span> <span class='st'>"scatter_plot"</span>,
-  <span class='no'>gg_theme</span>,
-  <span class='no'>xp_theme</span>,
-  <span class='no'>opt</span>,
-  <span class='no'>quiet</span>,
-  <span class='no'>...</span>
-)</pre>
+    <pre class="usage"><span class='fu'>xplot_scatter</span><span class='op'>(</span>
+  <span class='va'>xpdb</span>,
+  mapping <span class='op'>=</span> <span class='cn'>NULL</span>,
+  group <span class='op'>=</span> <span class='st'>"ID"</span>,
+  type <span class='op'>=</span> <span class='st'>"pls"</span>,
+  guide <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  xscale <span class='op'>=</span> <span class='st'>"continuous"</span>,
+  yscale <span class='op'>=</span> <span class='st'>"continuous"</span>,
+  title <span class='op'>=</span> <span class='cn'>NULL</span>,
+  subtitle <span class='op'>=</span> <span class='cn'>NULL</span>,
+  caption <span class='op'>=</span> <span class='cn'>NULL</span>,
+  tag <span class='op'>=</span> <span class='cn'>NULL</span>,
+  plot_name <span class='op'>=</span> <span class='st'>"scatter_plot"</span>,
+  <span class='va'>gg_theme</span>,
+  <span class='va'>xp_theme</span>,
+  <span class='va'>opt</span>,
+  <span class='va'>quiet</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -328,7 +328,8 @@ are listed under <code><a href='template_titles.html'>template_titles</a></code>
     <div class='dont-index'><p><code><a href='xplot_distrib.html'>xplot_distrib</a></code> <code><a href='xplot_qq.html'>xplot_qq</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>xplot_scatter</span>(<span class='no'>xpdb_ex_pk</span>, <span class='fu'>aes</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>IPRED</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>DV</span>))</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='img'><img src='xplot_scatter-1.png' alt='' width='700' height='433' /></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>xplot_scatter</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>IPRED</span>, y <span class='op'>=</span> <span class='va'>DV</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='img'><img src='xplot_scatter-1.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -345,7 +346,7 @@ are listed under <code><a href='template_titles.html'>template_titles</a></code>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

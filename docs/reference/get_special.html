@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
       </span>
     </div>
 
@@ -144,13 +144,13 @@
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fa fa-download"></span>
+    <span class="fas fa-download"></span>
      
   </a>
 </li>
@@ -176,7 +176,7 @@
     <p>Access special model data from an xpdb object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_special</span>(<span class='no'>xpdb</span>, <span class='kw'>.problem</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>quiet</span>)</pre>
+    <pre class="usage"><span class='fu'>get_special</span><span class='op'>(</span><span class='va'>xpdb</span>, .problem <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>quiet</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -203,21 +203,22 @@
     <div class='dont-index'><p><code><a href='list_xpdb.html'>list_special</a></code>, <code><a href='xpose_data.html'>xpose_data</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>special</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='get_summary.html'>get_summary</a></span>(<span class='no'>xpdb_ex_pk</span>)
-<span class='no'>special</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 48 x 5</span><span>
+    <pre class="examples"><div class='input'><span class='va'>special</span> <span class='op'>&lt;-</span> <span class='fu'><a href='get_summary.html'>get_summary</a></span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span><span class='op'>)</span>
+<span class='va'>special</span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 48 x 5</span><span>
 #&gt;    problem subprob descr               label       value                        
-#&gt;      </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>               </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                        
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span>       0       0 Run description     descr       NONMEM PK example for xpose  
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span>       0       0 Run directory       dir         data                         
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span>       0       0 Run errors          errors      na                           
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span>       0       0 ESAMPLE seed number esampleseed na                           
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span>       0       0 Run file            file        run001.lst                   
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span>       0       0 Number of ESAMPLE   nesample    na                           
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span>       0       0 Reference model     ref         000                          
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span>       0       0 Run number          run         run001                       
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span>       0       0 Software            software    nonmem                       
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span>       0       0 Run start time      timestart   Mon Oct 16 13:34:28 CEST 2017
-#&gt; </span><span style='color: #949494;'># … with 38 more rows</span><span></div><div class='input'>
+#&gt;      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>               </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                        
+#&gt; </span><span style='color: #555555;'> 1</span><span>       0       0 Run description     descr       NONMEM PK example for xpose  
+#&gt; </span><span style='color: #555555;'> 2</span><span>       0       0 Run directory       dir         data                         
+#&gt; </span><span style='color: #555555;'> 3</span><span>       0       0 Run errors          errors      na                           
+#&gt; </span><span style='color: #555555;'> 4</span><span>       0       0 ESAMPLE seed number esampleseed na                           
+#&gt; </span><span style='color: #555555;'> 5</span><span>       0       0 Run file            file        run001.lst                   
+#&gt; </span><span style='color: #555555;'> 6</span><span>       0       0 Number of ESAMPLE   nesample    na                           
+#&gt; </span><span style='color: #555555;'> 7</span><span>       0       0 Reference model     ref         000                          
+#&gt; </span><span style='color: #555555;'> 8</span><span>       0       0 Run number          run         run001                       
+#&gt; </span><span style='color: #555555;'> 9</span><span>       0       0 Software            software    nonmem                       
+#&gt; </span><span style='color: #555555;'>10</span><span>       0       0 Run start time      timestart   Mon Oct 16 13:34:28 CEST 2017
+#&gt; </span><span style='color: #555555;'># … with 38 more rows</span><span></div><div class='input'>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -234,7 +235,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

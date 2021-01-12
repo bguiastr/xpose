@@ -83,7 +83,7 @@ select() keeps only the listed variables; rename() keeps all variables." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
       </span>
     </div>
 
@@ -145,13 +145,13 @@ select() keeps only the listed variables; rename() keeps all variables." />
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fa fa-download"></span>
+    <span class="fas fa-download"></span>
      
   </a>
 </li>
@@ -179,13 +179,13 @@ select() keeps only the listed variables; rename() keeps all variables." />
     </div>
 
     <pre class="usage"><span class='co'># S3 method for xpose_data</span>
-<span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span>(<span class='no'>.data</span>, <span class='no'>...</span>, <span class='no'>.problem</span>, <span class='no'>.source</span>, <span class='no'>.where</span>)
+<span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, <span class='va'>.problem</span>, <span class='va'>.source</span>, <span class='va'>.where</span><span class='op'>)</span>
 
 <span class='co'># S3 method for xpose_data</span>
-<span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span>(<span class='no'>.data</span>, <span class='no'>...</span>, <span class='no'>.problem</span>, <span class='no'>.source</span>, <span class='no'>.where</span>)
+<span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, <span class='va'>.problem</span>, <span class='va'>.source</span>, <span class='va'>.where</span><span class='op'>)</span>
 
 <span class='co'># S3 method for xpose_data</span>
-<span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span>(<span class='no'>.data</span>, <span class='no'>...</span>, <span class='no'>.problem</span>, <span class='no'>.source</span>, <span class='no'>.where</span>)</pre>
+<span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, <span class='va'>.problem</span>, <span class='va'>.source</span>, <span class='va'>.where</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -220,16 +220,18 @@ file extension e.g. 'phi'.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Mutate columns</span>
-<span class='no'>xpdb_ex_pk</span> <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span>(<span class='kw'>lnDV</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>(<span class='no'>DV</span>),
-        <span class='kw'>sim_count</span> <span class='kw'>=</span> <span class='fu'><a href='irep.html'>irep</a></span>(<span class='no'>ID</span>),
-        <span class='kw'>.problem</span> <span class='kw'>=</span> <span class='fl'>1</span>) <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='pred_vs_idv.html'>dv_vs_idv</a></span>(<span class='fu'>aes</span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>lnDV</span>))</div><div class='output co'>#&gt; <span class='message'>irep: 1 simulations found.</span></div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='img'><img src='modify_xpdb-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='va'>xpdb_ex_pk</span> <span class='op'>%&gt;%</span> 
+ <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>lnDV <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>DV</span><span class='op'>)</span>, 
+        sim_count <span class='op'>=</span> <span class='fu'><a href='irep.html'>irep</a></span><span class='op'>(</span><span class='va'>ID</span><span class='op'>)</span>, 
+        .problem <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+ <span class='fu'><a href='pred_vs_idv.html'>dv_vs_idv</a></span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>lnDV</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>irep: 1 simulations found.</span></div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='img'><img src='modify_xpdb-1.png' alt='' width='700' height='433' /></div><div class='input'> 
 <span class='co'># Rename/select columns</span>
-<span class='no'>xpdb_ex_pk</span> <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span>(<span class='no'>ID</span>:<span class='no'>TAD</span>, <span class='no'>DV</span>, <span class='no'>EVID</span>) <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span>(<span class='kw'>TSLD</span> <span class='kw'>=</span> <span class='no'>TAD</span>) <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='pred_vs_idv.html'>dv_vs_idv</a></span>(<span class='fu'>aes</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>TSLD</span>))</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='img'><img src='modify_xpdb-2.png' alt='' width='700' height='433' /></div></pre>
+<span class='va'>xpdb_ex_pk</span> <span class='op'>%&gt;%</span> 
+ <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>ID</span><span class='op'>:</span><span class='va'>TAD</span>, <span class='va'>DV</span>, <span class='va'>EVID</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+ <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>TSLD <span class='op'>=</span> <span class='va'>TAD</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+ <span class='fu'><a href='pred_vs_idv.html'>dv_vs_idv</a></span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>TSLD</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='img'><img src='modify_xpdb-2.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -245,7 +247,7 @@ file extension e.g. 'phi'.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

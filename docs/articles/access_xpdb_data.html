@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
       </span>
     </div>
 
@@ -101,13 +101,13 @@
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fa fa-download"></span>
+    <span class="fas fa-download"></span>
      
   </a>
 </li>
@@ -121,13 +121,13 @@
 
       
 
-      </header><script src="access_xpdb_data_files/header-attrs-2.3/header-attrs.js"></script><script src="access_xpdb_data_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="access_xpdb_data_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Access the xpdb data</h1>
                         <h4 class="author">Benjamin Guiastrennec</h4>
             
-            <h4 class="date">21 July, 2020</h4>
+            <h4 class="date">12 January, 2021</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/UUPharmacometrics/xpose/blob/master/vignettes/access_xpdb_data.Rmd"><code>vignettes/access_xpdb_data.Rmd</code></a></small>
       <div class="hidden name"><code>access_xpdb_data.Rmd</code></div>
@@ -141,7 +141,8 @@
 <h3 class="hasAnchor">
 <a href="#glimpse-at-the-xpdb" class="anchor"></a>Glimpse at the xpdb</h3>
 <p>The files attached to an xpdb object can be displayed to the console simply by writing the xpdb name to the console or by using the <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> function. Any of these files can be accessed from the xpdb using one of the functions listed below.</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="no">xpdb</span> <span class="co"># or print(xpdb)</span></pre></body></html></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">xpdb</span> <span class="co"># or print(xpdb)</span></code></pre></div>
 <pre><code>run001.lst overview: 
  - Software: nonmem 7.3.0 
  - Attached files (memory usage 1.4 Mb): 
@@ -158,8 +159,9 @@
 <a href="#access-the-model-code" class="anchor"></a>Access the model code</h3>
 <p>The <code><a href="../reference/get_code.html">get_code()</a></code> function can be used to access the parsed model code from the xpdb. This code was used to create the summary and find table names. The parsed code can be used to get additional information about the run. If the argument <code>.problem</code> is specified a subset of the code can be returned based on <code>$PROBLEM</code>.</p>
 <p><em>Note that general code warnings and PsN outputs appended are listed as problem 0.</em></p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">code</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/get_code.html">get_code</a></span>(<span class="no">xpdb</span>)
-<span class="no">code</span></pre></body></html></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">code</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_code.html">get_code</a></span><span class="op">(</span><span class="va">xpdb</span><span class="op">)</span>
+<span class="va">code</span></code></pre></div>
 <pre><code># A tibble: 764 x 5
    problem level subroutine code                                           comment                  
  *   &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;                                          &lt;chr&gt;                    
@@ -180,8 +182,9 @@
 <a href="#access-the-output-data" class="anchor"></a>Access the output data</h3>
 <p>The <code><a href="../reference/get_data.html">get_data()</a></code> function can be used to access the imported table files. Tables can be accessed by <code>table</code> name or by <code>.problem</code>. In the latter a single dataset containing all aggregated tables is returned. If more than one <code>table</code> name or <code>.problem</code> number is provided a named list is returned.</p>
 <p><em>Note when providing a table name it is not guaranteed that the table will be identical to its file (i.e. the order of the columns may have been changed and tables with <code>FIRSTONLY</code> will no longer be deduplicated).</em></p>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">data</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/get_data.html">get_data</a></span>(<span class="no">xpdb</span>, <span class="kw">table</span> <span class="kw">=</span> <span class="st">'cotab001'</span>)
-<span class="no">data</span></pre></body></html></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_data.html">get_data</a></span><span class="op">(</span><span class="va">xpdb</span>, table <span class="op">=</span> <span class="st">'cotab001'</span><span class="op">)</span>
+<span class="va">data</span></code></pre></div>
 <pre><code># A tibble: 550 x 4
    ID     CLCR   AGE    WT
    &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -201,8 +204,9 @@
 <h3 class="hasAnchor">
 <a href="#access-the-run-files" class="anchor"></a>Access the run files</h3>
 <p>The <code><a href="../reference/get_file.html">get_file()</a></code> function can be used to access the imported output files. Files can be accessed by <code>file</code> name, by <code>.problem</code>, <code>.subprob</code> and/or <code>.method</code>. If more than one <code>file</code> name, <code>.problem</code>, <code>.subprob</code>, or <code>.method</code> is provided a named list is returned.</p>
-<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">file</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/get_file.html">get_file</a></span>(<span class="no">xpdb</span>, <span class="kw">file</span> <span class="kw">=</span> <span class="st">'run001.ext'</span>)
-<span class="no">file</span></pre></body></html></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_file.html">get_file</a></span><span class="op">(</span><span class="va">xpdb</span>, file <span class="op">=</span> <span class="st">'run001.ext'</span><span class="op">)</span>
+<span class="va">file</span></code></pre></div>
 <pre><code># A tibble: 28 x 16
    ITERATION THETA1 THETA2 THETA3 THETA4 THETA5  THETA6  THETA7 `SIGMA(1,1)` `OMEGA(1,1)`
        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
@@ -223,9 +227,10 @@
 <h3 class="hasAnchor">
 <a href="#access-the-parameter-estimates" class="anchor"></a>Access the parameter estimates</h3>
 <p>The <code><a href="../reference/get_prm.html">get_prm()</a></code> function can be used to access the parameter estimates. To get a nice parameter table printed to the console use the function <code><a href="../reference/prm_table.html">prm_table()</a></code> instead. The arguments <code>.problem</code>, <code>.subprob</code> and <code>.method</code> can be used to select the parameter estimates to output.</p>
-<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="co"># Raw output for editing</span>
-<span class="no">prm</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/get_prm.html">get_prm</a></span>(<span class="no">xpdb</span>, <span class="kw">digits</span> <span class="kw">=</span> <span class="fl">4</span>)
-<span class="no">prm</span></pre></body></html></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Raw output for editing</span>
+<span class="va">prm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_prm.html">get_prm</a></span><span class="op">(</span><span class="va">xpdb</span>, digits <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
+<span class="va">prm</span></code></pre></div>
 <pre><code># A tibble: 11 x 10
    type  name       label           value       se     rse fixed diagonal     m     n
  * &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;lgl&gt; &lt;lgl&gt;    &lt;dbl&gt; &lt;dbl&gt;
@@ -240,8 +245,9 @@
  9 ome   OMEGA(2,2) "IIV V"       0.195    0.0320   0.164  FALSE TRUE         2     2
 10 ome   OMEGA(3,3) "IIV KA"      1.38     0.202    0.146  FALSE TRUE         3     3
 11 sig   SIGMA(1,1) ""            1       NA       NA      TRUE  TRUE         1     1</code></pre>
-<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="co"># Nicely formated table</span>
-<span class="fu"><a href="../reference/prm_table.html">prm_table</a></span>(<span class="no">xpdb</span>, <span class="kw">digits</span> <span class="kw">=</span> <span class="fl">4</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Nicely formated table</span>
+<span class="fu"><a href="../reference/prm_table.html">prm_table</a></span><span class="op">(</span><span class="va">xpdb</span>, digits <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></code></pre></div>
 <pre><code>
 Reporting transformed parameters:
 For the OMEGA and SIGMA matrices, values are reported as standard deviations for the diagonal elements and as correlations for the off-diagonal elements. The relative standard errors (RSE) for OMEGA and SIGMA are reported on the approximate standard deviation scale (SE/variance estimate)/2. Use `transform = FALSE` to report untransformed parameters.
@@ -265,8 +271,9 @@ Estimates for $prob no.1, subprob no.0, method foce
 <a href="#access-the-run-summary" class="anchor"></a>Access the run summary</h3>
 <p>The <code><a href="../reference/get_summary.html">get_summary()</a></code> function can be used to access the generated run summary from which the <code>template_titles</code>. If the argument <code>.problem</code> is specified a subset of the summary can be returned based on <code>$PROBLEM</code>.</p>
 <p><em>Note that general summary information are listed as problem 0.</em></p>
-<div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="no">run_sum</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/get_summary.html">get_summary</a></span>(<span class="no">xpdb</span>, <span class="kw">.problem</span> <span class="kw">=</span> <span class="fl">0</span>)
-<span class="no">run_sum</span></pre></body></html></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">run_sum</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_summary.html">get_summary</a></span><span class="op">(</span><span class="va">xpdb</span>, .problem <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
+<span class="va">run_sum</span></code></pre></div>
 <pre><code># A tibble: 12 x 5
    problem subprob descr               label       value                        
      &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;               &lt;chr&gt;       &lt;chr&gt;                        
@@ -298,7 +305,7 @@ Estimates for $prob no.1, subprob no.0, method foce
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

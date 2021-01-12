@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
       </span>
     </div>
 
@@ -144,13 +144,13 @@
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fa fa-download"></span>
+    <span class="fas fa-download"></span>
      
   </a>
 </li>
@@ -176,16 +176,16 @@
     <p>Access model parameter estimates from an xpdb object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_prm</span>(
-  <span class='no'>xpdb</span>,
-  <span class='kw'>.problem</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>.subprob</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>.method</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>4</span>,
-  <span class='kw'>transform</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>show_all</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='no'>quiet</span>
-)</pre>
+    <pre class="usage"><span class='fu'>get_prm</span><span class='op'>(</span>
+  <span class='va'>xpdb</span>,
+  .problem <span class='op'>=</span> <span class='cn'>NULL</span>,
+  .subprob <span class='op'>=</span> <span class='cn'>NULL</span>,
+  .method <span class='op'>=</span> <span class='cn'>NULL</span>,
+  digits <span class='op'>=</span> <span class='fl'>4</span>,
+  transform <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  show_all <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  <span class='va'>quiet</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -234,9 +234,11 @@ off diagonal elements be transformed to correlations.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Store the parameter table</span>
-<span class='no'>prm</span> <span class='kw'>&lt;-</span> <span class='fu'>get_prm</span>(<span class='no'>xpdb_ex_pk</span>, <span class='kw'>.problem</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; <span class='message'>Returning parameter estimates from $prob no.1, subprob no.0, method foce</span></div><div class='input'>
+<span class='va'>prm</span> <span class='op'>&lt;-</span> <span class='fu'>get_prm</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, .problem <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Returning parameter estimates from $prob no.1, subprob no.0, method foce</span></div><div class='input'>
 <span class='co'># Display parameters to the console</span>
-<span class='fu'><a href='prm_table.html'>prm_table</a></span>(<span class='no'>xpdb_ex_pk</span>, <span class='kw'>.problem</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; 
+<span class='fu'><a href='prm_table.html'>prm_table</a></span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, .problem <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Reporting transformed parameters:
 #&gt; For the OMEGA and SIGMA matrices, values are reported as standard deviations for the diagonal elements and as correlations for the off-diagonal elements. The relative standard errors (RSE) for OMEGA and SIGMA are reported on the approximate standard deviation scale (SE/variance estimate)/2. Use `transform = FALSE` to report untransformed parameters.
 #&gt; 
@@ -269,7 +271,7 @@ off diagonal elements be transformed to correlations.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
       </span>
     </div>
 
@@ -144,13 +144,13 @@
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fa fa-download"></span>
+    <span class="fas fa-download"></span>
      
   </a>
 </li>
@@ -176,21 +176,21 @@
     <p>Gather model outputs into a R database</p>
     </div>
 
-    <pre class="usage"><span class='fu'>xpose_data</span>(
-  <span class='kw'>runno</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='st'>"run"</span>,
-  <span class='kw'>ext</span> <span class='kw'>=</span> <span class='st'>".lst"</span>,
-  <span class='kw'>file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>dir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>gg_theme</span> <span class='kw'>=</span> <span class='no'>theme_readable</span>,
-  <span class='kw'>xp_theme</span> <span class='kw'>=</span> <span class='fu'><a href='xp_themes.html'>theme_xp_default</a></span>(),
-  <span class='kw'>simtab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>manual_import</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>ignore</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>extra_files</span>,
-  <span class='no'>quiet</span>,
-  <span class='no'>...</span>
-)</pre>
+    <pre class="usage"><span class='fu'>xpose_data</span><span class='op'>(</span>
+  runno <span class='op'>=</span> <span class='cn'>NULL</span>,
+  prefix <span class='op'>=</span> <span class='st'>"run"</span>,
+  ext <span class='op'>=</span> <span class='st'>".lst"</span>,
+  file <span class='op'>=</span> <span class='cn'>NULL</span>,
+  dir <span class='op'>=</span> <span class='cn'>NULL</span>,
+  gg_theme <span class='op'>=</span> <span class='va'>theme_readable</span>,
+  xp_theme <span class='op'>=</span> <span class='fu'><a href='xp_themes.html'>theme_xp_default</a></span><span class='op'>(</span><span class='op'>)</span>,
+  simtab <span class='op'>=</span> <span class='cn'>NULL</span>,
+  manual_import <span class='op'>=</span> <span class='cn'>NULL</span>,
+  ignore <span class='op'>=</span> <span class='cn'>NULL</span>,
+  <span class='va'>extra_files</span>,
+  <span class='va'>quiet</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -290,23 +290,25 @@ imported. Default is '.ext', '.cov', '.cor', '.phi', ".grd" for NONMEM.</p></td>
   `&lt;tablenames&gt;` due to missing required `ID` column.</code></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'># Using the `file` argument to point to the model file:</span>
-<span class='no'>xpdb</span> <span class='kw'>&lt;-</span> <span class='fu'>xpose_data</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>'run001.lst'</span>, <span class='kw'>dir</span> <span class='kw'>=</span> <span class='st'>'models'</span>)
+<span class='va'>xpdb</span> <span class='op'>&lt;-</span> <span class='fu'>xpose_data</span><span class='op'>(</span>file <span class='op'>=</span> <span class='st'>'run001.lst'</span>, dir <span class='op'>=</span> <span class='st'>'models'</span><span class='op'>)</span>
 
 <span class='co'># Using the `runno` argument to point to the model file:</span>
-<span class='no'>xpdb</span> <span class='kw'>&lt;-</span> <span class='fu'>xpose_data</span>(<span class='kw'>runno</span> <span class='kw'>=</span> <span class='st'>'001'</span>, <span class='kw'>ext</span> <span class='kw'>=</span> <span class='st'>'.lst'</span>, <span class='kw'>dir</span> <span class='kw'>=</span> <span class='st'>'models'</span>)
+<span class='va'>xpdb</span> <span class='op'>&lt;-</span> <span class='fu'>xpose_data</span><span class='op'>(</span>runno <span class='op'>=</span> <span class='st'>'001'</span>, ext <span class='op'>=</span> <span class='st'>'.lst'</span>, dir <span class='op'>=</span> <span class='st'>'models'</span><span class='op'>)</span>
 
 <span class='co'># Using the `extra_files` argument to import specific output files only:</span>
-<span class='no'>xpdb</span> <span class='kw'>&lt;-</span> <span class='fu'>xpose_data</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>'run001.lst'</span>, <span class='kw'>dir</span> <span class='kw'>=</span> <span class='st'>'models'</span>, <span class='kw'>extra_files</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'.ext'</span>, <span class='st'>'.phi'</span>))
+<span class='va'>xpdb</span> <span class='op'>&lt;-</span> <span class='fu'>xpose_data</span><span class='op'>(</span>file <span class='op'>=</span> <span class='st'>'run001.lst'</span>, dir <span class='op'>=</span> <span class='st'>'models'</span>, extra_files <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'.ext'</span>, <span class='st'>'.phi'</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'># Using `ignore` to disable import of tables and output files:</span>
-<span class='no'>xpdb</span> <span class='kw'>&lt;-</span> <span class='fu'>xpose_data</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>'run001.lst'</span>, <span class='kw'>dir</span> <span class='kw'>=</span> <span class='st'>'models'</span>, <span class='kw'>ignore</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'data'</span>, <span class='st'>'files'</span>))
+<span class='va'>xpdb</span> <span class='op'>&lt;-</span> <span class='fu'>xpose_data</span><span class='op'>(</span>file <span class='op'>=</span> <span class='st'>'run001.lst'</span>, dir <span class='op'>=</span> <span class='st'>'models'</span>, ignore <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'data'</span>, <span class='st'>'files'</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'># Using `simtab` to disable import of simulation tables</span>
-<span class='no'>xpdb</span> <span class='kw'>&lt;-</span> <span class='fu'>xpose_data</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>'run001.lst'</span>, <span class='kw'>dir</span> <span class='kw'>=</span> <span class='st'>'models'</span>, <span class='kw'>simtab</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='va'>xpdb</span> <span class='op'>&lt;-</span> <span class='fu'>xpose_data</span><span class='op'>(</span>file <span class='op'>=</span> <span class='st'>'run001.lst'</span>, dir <span class='op'>=</span> <span class='st'>'models'</span>, simtab <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
-}</div></pre>
+<span class='op'>}</span>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -322,7 +324,7 @@ imported. Default is '.ext', '.cov', '.cor', '.phi', ".grd" for NONMEM.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

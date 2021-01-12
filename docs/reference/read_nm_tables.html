@@ -83,7 +83,7 @@ detects the optimal settings to import the tables from nonmem." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
       </span>
     </div>
 
@@ -145,13 +145,13 @@ detects the optimal settings to import the tables from nonmem." />
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fa fa-download"></span>
+    <span class="fas fa-download"></span>
      
   </a>
 </li>
@@ -178,16 +178,16 @@ detects the optimal settings to import the tables from nonmem." />
 detects the optimal settings to import the tables from nonmem.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>read_nm_tables</span>(
-  <span class='kw'>file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>dir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>combined</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>rm_duplicates</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>simtab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>ziptab</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
-)</pre>
+    <pre class="usage"><span class='fu'>read_nm_tables</span><span class='op'>(</span>
+  file <span class='op'>=</span> <span class='cn'>NULL</span>,
+  dir <span class='op'>=</span> <span class='cn'>NULL</span>,
+  combined <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  rm_duplicates <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  quiet <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  simtab <span class='op'>=</span> <span class='cn'>NULL</span>,
+  ziptab <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -242,27 +242,28 @@ If <code>combined = TRUE</code> <code>read_nm_tables</code> xpose is more strict
 <code>Dropped `&lt;tablenames&gt;` due to missing required `ID` column.</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'># Import tables manually and return them as a list of individual tables</span>
-<span class='no'>nm_tables</span> <span class='kw'>&lt;-</span> <span class='fu'>read_nm_tables</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'sdtab001'</span>, <span class='st'>'patab001'</span>),
-                            <span class='kw'>dir</span> <span class='kw'>=</span> <span class='st'>'models'</span>, <span class='kw'>combined</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='va'>nm_tables</span> <span class='op'>&lt;-</span> <span class='fu'>read_nm_tables</span><span class='op'>(</span>file <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'sdtab001'</span>, <span class='st'>'patab001'</span><span class='op'>)</span>, 
+                            dir <span class='op'>=</span> <span class='st'>'models'</span>, combined <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
 <span class='co'># Import tables manually and return them as a single merged table</span>
-<span class='no'>nm_tables</span> <span class='kw'>&lt;-</span> <span class='fu'>read_nm_tables</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'sdtab001'</span>, <span class='st'>'patab001'</span>),
-                            <span class='kw'>dir</span> <span class='kw'>=</span> <span class='st'>'models'</span>, <span class='kw'>combined</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='va'>nm_tables</span> <span class='op'>&lt;-</span> <span class='fu'>read_nm_tables</span><span class='op'>(</span>file <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'sdtab001'</span>, <span class='st'>'patab001'</span><span class='op'>)</span>, 
+                            dir <span class='op'>=</span> <span class='st'>'models'</span>, combined <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
 <span class='co'># Import tables automatically (used internally by xpose_data())</span>
-<span class='no'>nm_tables</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='read_nm_model.html'>read_nm_model</a></span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>'run001.lst'</span>, <span class='kw'>dir</span> <span class='kw'>=</span> <span class='st'>'models'</span>) <span class='kw'>%&gt;%</span>
-              <span class='fu'><a href='list_nm_tables.html'>list_nm_tables</a></span>() <span class='kw'>%&gt;%</span>
-              <span class='fu'>read_nm_tables</span>()
+<span class='va'>nm_tables</span> <span class='op'>&lt;-</span> <span class='fu'><a href='read_nm_model.html'>read_nm_model</a></span><span class='op'>(</span>file <span class='op'>=</span> <span class='st'>'run001.lst'</span>, dir <span class='op'>=</span> <span class='st'>'models'</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+              <span class='fu'><a href='list_nm_tables.html'>list_nm_tables</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+              <span class='fu'>read_nm_tables</span><span class='op'>(</span><span class='op'>)</span>
 
 <span class='co'># Passing arguments to readr via `...` </span>
 <span class='co'># (e.g. import columns as character and only first 10 rows)</span>
-<span class='no'>nm_tables</span> <span class='kw'>&lt;-</span> <span class='fu'>read_nm_tables</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>'sdtab001'</span>, <span class='kw'>dir</span> <span class='kw'>=</span> <span class='st'>'models'</span>,
-                            <span class='kw'>col_type</span> <span class='kw'>=</span> <span class='kw pkg'>readr</span><span class='kw ns'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/cols.html'>cols</a></span>(<span class='kw'>.default</span> <span class='kw'>=</span> <span class='st'>'c'</span>),
-                            <span class='kw'>n_max</span> <span class='kw'>=</span> <span class='fl'>10</span>)
+<span class='va'>nm_tables</span> <span class='op'>&lt;-</span> <span class='fu'>read_nm_tables</span><span class='op'>(</span>file <span class='op'>=</span> <span class='st'>'sdtab001'</span>, dir <span class='op'>=</span> <span class='st'>'models'</span>, 
+                            col_type <span class='op'>=</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/cols.html'>cols</a></span><span class='op'>(</span>.default <span class='op'>=</span> <span class='st'>'c'</span><span class='op'>)</span>, 
+                            n_max <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
 
-}</div></pre>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -278,7 +279,7 @@ If <code>combined = TRUE</code> <code>read_nm_tables</code> xpose is more strict
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.11</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
       </span>
     </div>
 
@@ -144,13 +144,13 @@
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fa fa-download"></span>
+    <span class="fas fa-download"></span>
      
   </a>
 </li>
@@ -176,73 +176,73 @@
     <p>QQ plots of the ETA and model residuals.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>prm_qq</span>(
-  <span class='no'>xpdb</span>,
-  <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>drop_fixed</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"p"</span>,
-  <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"QQ plot of parameters | @run"</span>,
-  <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>"Based on @nind individuals"</span>,
-  <span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"@dir"</span>,
-  <span class='kw'>tag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>log</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>guide</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>facets</span>,
-  <span class='no'>.problem</span>,
-  <span class='no'>quiet</span>,
-  <span class='no'>...</span>
-)
+    <pre class="usage"><span class='fu'>prm_qq</span><span class='op'>(</span>
+  <span class='va'>xpdb</span>,
+  mapping <span class='op'>=</span> <span class='cn'>NULL</span>,
+  drop_fixed <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  type <span class='op'>=</span> <span class='st'>"p"</span>,
+  title <span class='op'>=</span> <span class='st'>"QQ plot of parameters | @run"</span>,
+  subtitle <span class='op'>=</span> <span class='st'>"Based on @nind individuals"</span>,
+  caption <span class='op'>=</span> <span class='st'>"@dir"</span>,
+  tag <span class='op'>=</span> <span class='cn'>NULL</span>,
+  log <span class='op'>=</span> <span class='cn'>NULL</span>,
+  guide <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>facets</span>,
+  <span class='va'>.problem</span>,
+  <span class='va'>quiet</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>eta_qq</span>(
-  <span class='no'>xpdb</span>,
-  <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>drop_fixed</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"p"</span>,
-  <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"QQ plot of etas | @run"</span>,
-  <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>"Based on @nind individuals, Eta shrink: @etashk"</span>,
-  <span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"@dir"</span>,
-  <span class='kw'>tag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>log</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>guide</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>facets</span>,
-  <span class='no'>.problem</span>,
-  <span class='no'>quiet</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>eta_qq</span><span class='op'>(</span>
+  <span class='va'>xpdb</span>,
+  mapping <span class='op'>=</span> <span class='cn'>NULL</span>,
+  drop_fixed <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  type <span class='op'>=</span> <span class='st'>"p"</span>,
+  title <span class='op'>=</span> <span class='st'>"QQ plot of etas | @run"</span>,
+  subtitle <span class='op'>=</span> <span class='st'>"Based on @nind individuals, Eta shrink: @etashk"</span>,
+  caption <span class='op'>=</span> <span class='st'>"@dir"</span>,
+  tag <span class='op'>=</span> <span class='cn'>NULL</span>,
+  log <span class='op'>=</span> <span class='cn'>NULL</span>,
+  guide <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>facets</span>,
+  <span class='va'>.problem</span>,
+  <span class='va'>quiet</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>res_qq</span>(
-  <span class='no'>xpdb</span>,
-  <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>res</span> <span class='kw'>=</span> <span class='st'>"CWRES"</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"p"</span>,
-  <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"QQ plot of @sample | @run"</span>,
-  <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>"Based on @nobs observations"</span>,
-  <span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"@dir"</span>,
-  <span class='kw'>tag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>log</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>guide</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>facets</span>,
-  <span class='no'>.problem</span>,
-  <span class='no'>quiet</span>,
-  <span class='no'>...</span>
-)
+<span class='fu'>res_qq</span><span class='op'>(</span>
+  <span class='va'>xpdb</span>,
+  mapping <span class='op'>=</span> <span class='cn'>NULL</span>,
+  res <span class='op'>=</span> <span class='st'>"CWRES"</span>,
+  type <span class='op'>=</span> <span class='st'>"p"</span>,
+  title <span class='op'>=</span> <span class='st'>"QQ plot of @sample | @run"</span>,
+  subtitle <span class='op'>=</span> <span class='st'>"Based on @nobs observations"</span>,
+  caption <span class='op'>=</span> <span class='st'>"@dir"</span>,
+  tag <span class='op'>=</span> <span class='cn'>NULL</span>,
+  log <span class='op'>=</span> <span class='cn'>NULL</span>,
+  guide <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>facets</span>,
+  <span class='va'>.problem</span>,
+  <span class='va'>quiet</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>cov_qq</span>(
-  <span class='no'>xpdb</span>,
-  <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>drop_fixed</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"p"</span>,
-  <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"QQ plot of continuous covariates | @run"</span>,
-  <span class='kw'>subtitle</span> <span class='kw'>=</span> <span class='st'>"Based on @nind individuals"</span>,
-  <span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"@dir"</span>,
-  <span class='kw'>tag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>log</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>guide</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>facets</span>,
-  <span class='no'>.problem</span>,
-  <span class='no'>quiet</span>,
-  <span class='no'>...</span>
-)</pre>
+<span class='fu'>cov_qq</span><span class='op'>(</span>
+  <span class='va'>xpdb</span>,
+  mapping <span class='op'>=</span> <span class='cn'>NULL</span>,
+  drop_fixed <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  type <span class='op'>=</span> <span class='st'>"p"</span>,
+  title <span class='op'>=</span> <span class='st'>"QQ plot of continuous covariates | @run"</span>,
+  subtitle <span class='op'>=</span> <span class='st'>"Based on @nind individuals"</span>,
+  caption <span class='op'>=</span> <span class='st'>"@dir"</span>,
+  tag <span class='op'>=</span> <span class='cn'>NULL</span>,
+  log <span class='op'>=</span> <span class='cn'>NULL</span>,
+  guide <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>facets</span>,
+  <span class='va'>.problem</span>,
+  <span class='va'>quiet</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -363,13 +363,17 @@ are listed under <code><a href='template_titles.html'>template_titles</a></code>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># QQ plot of parameters</span>
-<span class='fu'>prm_qq</span>(<span class='no'>xpdb_ex_pk</span>)</div><div class='output co'>#&gt; <span class='message'>Dropped fixed variables ALAG1.</span></div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Removing duplicated rows based on: ID</span></div><div class='output co'>#&gt; <span class='message'>Tidying data by ID, SEX, MED1, MED2, DOSE ... and 23 more variables</span></div><div class='img'><img src='qq_plot-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>prm_qq</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Dropped fixed variables ALAG1.</span></div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Removing duplicated rows based on: ID</span></div><div class='output co'>#&gt; <span class='message'>Tidying data by ID, SEX, MED1, MED2, DOSE ... and 23 more variables</span></div><div class='img'><img src='qq_plot-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># QQ plot of eta</span>
-<span class='fu'>eta_qq</span>(<span class='no'>xpdb_ex_pk</span>)</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Removing duplicated rows based on: ID</span></div><div class='output co'>#&gt; <span class='message'>Tidying data by ID, SEX, MED1, MED2, DOSE ... and 23 more variables</span></div><div class='img'><img src='qq_plot-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>eta_qq</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Removing duplicated rows based on: ID</span></div><div class='output co'>#&gt; <span class='message'>Tidying data by ID, SEX, MED1, MED2, DOSE ... and 23 more variables</span></div><div class='img'><img src='qq_plot-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># QQ plot of residuals</span>
-<span class='fu'>res_qq</span>(<span class='no'>xpdb_ex_pk</span>, <span class='kw'>res</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'IWRES'</span>, <span class='st'>'CWRES'</span>))</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='output co'>#&gt; <span class='message'>Tidying data by ID, SEX, MED1, MED2, DOSE ... and 24 more variables</span></div><div class='img'><img src='qq_plot-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>res_qq</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, res <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'IWRES'</span>, <span class='st'>'CWRES'</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='output co'>#&gt; <span class='message'>Tidying data by ID, SEX, MED1, MED2, DOSE ... and 24 more variables</span></div><div class='img'><img src='qq_plot-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># QQ plot of continuous covariates</span>
-<span class='fu'>cov_qq</span>(<span class='no'>xpdb_ex_pk</span>)</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Removing duplicated rows based on: ID</span></div><div class='output co'>#&gt; <span class='message'>Tidying data by ID, SEX, MED1, MED2, DOSE ... and 23 more variables</span></div><div class='img'><img src='qq_plot-4.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>cov_qq</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Removing duplicated rows based on: ID</span></div><div class='output co'>#&gt; <span class='message'>Tidying data by ID, SEX, MED1, MED2, DOSE ... and 23 more variables</span></div><div class='img'><img src='qq_plot-4.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -386,7 +390,7 @@ are listed under <code><a href='template_titles.html'>template_titles</a></code>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
