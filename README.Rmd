@@ -14,9 +14,6 @@ xpdb <- as.xpdb(xpdb)
 
 knitr::opts_chunk$set(fig.path   = 'man/figures/', 
                       fig.dpi    = 96,
-                      fig.height = 4, 
-                      fig.width  = 4, 
-                      out.width  = '50%', 
                       fig.align  = 'center')
 ```
 
@@ -68,29 +65,29 @@ summary(xpdb, problem = 1)
 
 ### Generate diagnostics
 #### Standard goodness-of-fit plots
-```{r readme_example_figure_1}
+```{r readme_example_figure_1, fig.width = 5, fig.height = 5.1, out.width = '50%', message=FALSE}
 dv_vs_ipred(xpdb)
 ```
 
 #### Individual plots
-```{r readme_example_figure_2, fig.width = 6, out.width = '75%'}
+```{r readme_example_figure_2, fig.width = 7, out.width = '75%'}
 ind_plots(xpdb, page = 1)
 ```
 
 #### Visual predictive checks
-```{r readme_example_figure_3, fig.width = 6, out.width = '75%', warning = FALSE}
+```{r readme_example_figure_3, fig.width = 7, out.width = '75%', warning = FALSE}
 xpdb %>% 
   vpc_data(stratify = 'SEX', opt = vpc_opt(n_bins = 7, lloq = 0.1)) %>% 
   vpc()
 ```
 
 #### Distribution plots
-```{r readme_example_figure_4, fig.width = 6, out.width = '75%'}
+```{r readme_example_figure_4, fig.width = 7, out.width = '75%'}
 eta_distrib(xpdb, labeller = 'label_value')
 ```
 
 #### Minimization diagnostics
-```{r readme_example_figure_5, fig.width = 6, out.width = '75%'}
+```{r readme_example_figure_5, fig.width = 7, out.width = '75%'}
 prm_vs_iteration(xpdb, labeller = 'label_value')
 ```
 

@@ -53,14 +53,14 @@ xpdb
 
     run001.lst overview: 
      - Software: nonmem 7.3.0 
-     - Attached files (memory usage 1.3 Mb): 
+     - Attached files (memory usage 1.4 Mb): 
        + obs tabs: $prob no.1: catab001.csv, cotab001, patab001, sdtab001 
        + sim tabs: $prob no.2: simtab001.zip 
        + output files: run001.cor, run001.cov, run001.ext, run001.grd, run001.phi, run001.shk 
        + special: <none> 
      - gg_theme: theme_readable 
      - xp_theme: theme_xp_default 
-     - Options: dir = analysis/models/pk/, quiet = TRUE, manual_import = NULL
+     - Options: dir = data, quiet = TRUE, manual_import = NULL
 
 #### Model summary
 
@@ -73,7 +73,7 @@ summary(xpdb, problem = 1)
 Summary for problem no. 0 [Global information] 
  - Software                      @software   : nonmem
  - Software version              @version    : 7.3.0
- - Run directory                 @dir        : analysis/models/pk/
+ - Run directory                 @dir        : data
  - Run file                      @file       : run001.lst
  - Run number                    @run        : run001
  - Reference model               @ref        : 000
