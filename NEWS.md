@@ -1,3 +1,6 @@
+# xpose 0.4.12
+* Compatibility fix for R 4.1.x
+
 # xpose 0.4.11
 * Improve `noLD` in tests
 

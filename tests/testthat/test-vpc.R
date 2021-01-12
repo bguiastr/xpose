@@ -99,3 +99,4 @@ test_that('vpc plot are properly generated', {
   expect_equal(p_cont$xpose$summary$value[p_cont$xpose$summary$label %in% c('vpcdir', 'vpcnsim', 'vpcci', 'vpcpi')], 
               c('data', '20', '95', '95'))
 })
+
