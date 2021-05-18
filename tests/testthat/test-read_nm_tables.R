@@ -100,6 +100,6 @@ test_that('properly pick up column signs', {
   
   # Positive control with readr (reproducible bug example)
   expect_false(min(readr::read_fwf(file = files, skip = 2,
-                                   col_positions = fwf_empty(files, skip = 2, n = 1, col_names = c('ID', 'TIME', 'DV')))$DV) == -5)
+                                   col_positions = readr::fwf_empty(files, skip = 2, n = 1, col_names = c('ID', 'TIME', 'DV')))$DV) == -5)
   })
 
