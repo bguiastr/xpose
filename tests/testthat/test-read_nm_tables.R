@@ -94,12 +94,12 @@ test_that('properly pick up column signs', {
   on.exit(unlink(files))
   writeLines(text = minus_sign_test, con = files)
   
-  # Positive control with readr (reproducible bug example)
-  expect_false(min(readr::read_table(file = files, skip = 2, guess_max = 1,
-                                     col_names = c('ID', 'TIME', 'DV'))$DV) == -5)
-  
   # Text on xpose
   expect_true(min(read_nm_tables(file = files, quiet = TRUE, 
                                  guess_max = 1, skip = 2)$DV) == -5)
+  
+  # Positive control with readr (reproducible bug example)
+  expect_false(min(readr::read_fwf(file = files, skip = 2,
+                                   col_positions = readr::fwf_empty(files, skip = 2, n = 1, col_names = c('ID', 'TIME', 'DV')))$DV) == -5)
   })
 
