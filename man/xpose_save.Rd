@@ -9,44 +9,57 @@ xpose_save(
   file = NULL,
   dir = NULL,
   device = NULL,
+  scale = 1,
   width = 7,
   height = 6,
-  units = c("in", "cm", "mm"),
+  units = c("in", "cm", "mm", "px"),
   dpi = 200,
+  limitsize = TRUE,
+  bg = NULL,
   ...
 )
 }
 \arguments{
 \item{plot}{A xpose plot object.}
 
-\item{file}{A name with file extension (if device is \code{NULL}) to be given to the 
-output file. Template variables such as \code{@run} (run number) and \code{@plotfun} 
-(plot function) can be used to automatically name files e.g. 
-\code{file = '@run_@plotfun.pdf'}.}
+\item{file}{A name with file extension (if device is \code{NULL}) to be given
+to the output file. Template variables such as \code{@run} (run number) and
+\code{@plotfun} (plot function) can be used to automatically name files
+e.g. \code{file = '@run_@plotfun.pdf'}.}
 
-\item{dir}{Directory under which the xpose plots will be saved. Template variables 
-such as \code{@dir} can be used to generate template names.}
+\item{dir}{Directory under which the xpose plots will be saved. Template
+variables such as \code{@dir} can be used to generate template names.}
 
 \item{device}{Graphical device to use. Can be either be a device function
-(e.g. \code{\link{png}}), or one of 'eps', 'ps', 'tex' (pictex),
-'pdf' (default), 'jpeg', 'tiff', 'png', 'bmp', 'svg' or 'wmf' (windows only).}
+(e.g. \code{\link{png}}), or one of 'eps', 'ps', 'tex' (pictex), 'pdf',
+'jpeg', 'tiff', 'png', 'bmp', 'svg' or 'wmf' (windows only).}
 
-\item{width, height}{Plot size in \code{units}.}
+\item{scale}{Multiplicative scaling factor.}
 
-\item{units}{Units of the plot size ('in', 'cm', or 'mm').}
+\item{width, height, units}{Plot size in in \code{units} ("in", "cm", "mm", or
+"px"). If not supplied, uses the size of current graphics device.}
 
-\item{dpi}{Plot resolution. Applies only to raster output types.}
+\item{dpi}{Plot resolution. Also accepts a string input: "retina" (320),
+"print" (300), or "screen" (72). Applies only to raster output types.}
 
-\item{...}{Additional arguments passed on to \link[ggplot2]{ggsave} or graphics \code{device}.}
+\item{limitsize}{When \code{TRUE} (the default), \code{xpose_save()} will not
+save images larger than 50x50 inches, to prevent the common error of
+specifying dimensions in pixels.}
+
+\item{bg}{Background color. If \code{NULL}, uses the \code{plot.background}
+fill value from the plot theme.}
+
+\item{...}{Other arguments passed on to the graphics device function, as
+specified by \code{device}.}
 }
 \description{
-Inspired by the \link[ggplot2]{ggsave}, this function 
-facilitates the export of xpose plots.
+Built as a wrapper around \link[ggplot2]{ggsave}, this function
+  facilitates the export of xpose plots.
 }
 \examples{
 \dontrun{
-xpdb_ex_pk \%>\% 
- dv_vs_ipred() \%>\% 
+xpdb_ex_pk \%>\%
+ dv_vs_ipred() \%>\%
  xpose_save(file = file.path(tempdir(), "dv_vs_ipred_example.pdf"))
 }
 }
