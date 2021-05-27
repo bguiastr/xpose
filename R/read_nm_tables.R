@@ -12,7 +12,7 @@
 #' @param simtab If \code{TRUE} only reads in simulation tables, if \code{FALSE} only reads estimation tables. 
 #' Default \code{NULL} reads all tables.
 #' @param ziptab If \code{TRUE} search for the tables that have been compressed and renamed ´<file>.zip'.
-#' @param ... Additional arguments to be passed to the \code{\link[readr]{read_table2}} or \code{\link[readr]{read_csv}} functions.
+#' @param ... Additional arguments to be passed to the \code{\link[readr]{read_table}} or \code{\link[readr]{read_csv}} functions.
 #' 
 #' @section Table format requirement:
 #' When using \code{read_nm_tables} with the \code{combined} argument set to \code{FALSE} an \code{ID} column 
@@ -265,7 +265,7 @@ read_nm_tables <- function(file          = NULL,
 read_funs <- function(fun) {
   c(csv   = readr::read_csv,
     csv2  = readr::read_csv2,
-    table = readr::read_table2)[fun]
+    table = readr::read_table)[fun]
 }
 
 

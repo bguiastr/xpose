@@ -24,9 +24,9 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Andrew C. Hooker \email{andrew.hooker@farmbio.uu.se} [copyright holder]
-  \item Sebastian Ueckert \email{sebastian.ueckert@farmbio.uu.se} [copyright holder]
-  \item Mats O. Karlsson \email{mats.karlsson@farmbio.uu.se} [copyright holder]
+  \item Andrew C. Hooker \email{andrew.hooker@farmaci.uu.se} [copyright holder]
+  \item Sebastian Ueckert \email{sebastian.ueckert@farmaci.uu.se} [copyright holder]
+  \item Mats O. Karlsson \email{mats.karlsson@farmaci.uu.se} [copyright holder]
 }
 
 Other contributors:

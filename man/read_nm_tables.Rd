@@ -32,7 +32,7 @@ Default \code{NULL} reads all tables.}
 
 \item{ziptab}{If \code{TRUE} search for the tables that have been compressed and renamed ´<file>.zip'.}
 
-\item{...}{Additional arguments to be passed to the \code{\link[readr]{read_table2}} or \code{\link[readr]{read_csv}} functions.}
+\item{...}{Additional arguments to be passed to the \code{\link[readr]{read_table}} or \code{\link[readr]{read_csv}} functions.}
 }
 \description{
 Quickly import NONMEM output tables into R. This function automatically 
