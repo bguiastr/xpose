@@ -1,3 +1,7 @@
+# xpose 0.4.13
+* Compatibility fix with ggplot2 3.3.4
+* Compatibility fix with readr 2.0.0 (@jimhester, #194)
+
 # xpose 0.4.12
 * Compatibility fix for R 4.1.x
 
