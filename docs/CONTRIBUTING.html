@@ -54,6 +54,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -65,9 +67,15 @@
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-title-body">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -81,7 +89,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.13</span>
       </span>
     </div>
 
@@ -143,13 +151,13 @@
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fas fa-download"></span>
+    <span class="fa fa-download"></span>
      
   </a>
 </li>
@@ -174,36 +182,36 @@
 <p>We are happy that you are willing to help us out with the development of xpose. Before get started please take some time to read the following guidelines.</p>
 <div id="submitting-issues" class="section level2">
 <h2 class="hasAnchor">
-<a href="#submitting-issues" class="anchor"></a>Submitting issues</h2>
+<a href="#submitting-issues" class="anchor" aria-hidden="true"></a>Submitting issues</h2>
 <p>Before posting a new issue, please check that it has not already been posted.</p>
 <ul>
 <li><p>For <strong>feature requests</strong> make sure to include sufficient information, such as a proposed workflow, plots images, links to posters or publications describing a method, etc.</p></li>
 <li>
 <p>For <strong>reporting a bug</strong>, the most important thing is to include a minimal reproducible example so that we can quickly verify your problem, and figure out how to fix it. To make your example reproducible:</p>
 <ul>
-<li>Attach files such as the NONMEM output files or an xpdb saved as <em>.Rdata</em> (i.e. <code><a href="https://rdrr.io/r/base/save.html">save(xpdb, "xpdb_error.Rdata")</a></code>). Note, you can use the arguments <code>ignore</code> and/or <code>extra_files</code> of <code><a href="reference/xpose_data.html">xpose_data()</a></code> to reduce the size of the xpdb whenever needed.</li>
+<li>Attach files such as the NONMEM output files or an xpdb saved as <em>.Rdata</em> (i.e. <code>save(xpdb, "xpdb_error.Rdata")</code>). Note, you can use the arguments <code>ignore</code> and/or <code>extra_files</code> of <code><a href="reference/xpose_data.html">xpose_data()</a></code> to reduce the size of the xpdb whenever needed.</li>
 <li>Include the R code that created the error. Ensure that your code is clear, well commented and as small as necessary to reproduce the error.</li>
 <li>Include the error message.</li>
-<li>Include information on your R session using <code><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo()</a></code>.</li>
+<li>Include information on your R session using <code><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo()</a></code>.</li>
 </ul>
 </li>
 </ul>
 </div>
 <div id="submitting-pull-requests" class="section level2">
 <h2 class="hasAnchor">
-<a href="#submitting-pull-requests" class="anchor"></a>Submitting pull requests</h2>
+<a href="#submitting-pull-requests" class="anchor" aria-hidden="true"></a>Submitting pull requests</h2>
 <p>To contribute code to xpose please carefully follow the steps listed below.</p>
 <p><em>Note 1: before getting started with a pull request, we strongly encourage you follow the procedure described above for <strong>feature requests</strong> and/or <strong>reporting a bug</strong> to ensure that your project is compatible with the our xpose road-map.</em></p>
-<p><em>Note 2: if you are unfamiliar with the development of R packages, please take some time to read the <a href="http://r-pkgs.had.co.nz">R packages</a> book by Hadley Wickham.</em></p>
-<ol>
-<li><p><a href="https://github.com/UUPharmacometrics/xpose/fork">Fork</a> the xpose repository.</p></li>
+<p><em>Note 2: if you are unfamiliar with the development of R packages, please take some time to read the <a href="http://r-pkgs.had.co.nz" class="external-link">R packages</a> book by Hadley Wickham.</em></p>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://github.com/UUPharmacometrics/xpose/fork" class="external-link">Fork</a> the xpose repository.</p></li>
 <li>
 <p>Make the changes to the code on your fork.</p>
 <ul>
-<li>Use the tidyverse <a href="https://style.tidyverse.org/">coding style</a>.</li>
-<li>Any new function should have <a href="http://r-pkgs.had.co.nz/man.html">Roxygen</a> documentation. Internal functions should contain <code>#' @keywords internal</code>. Add examples to new functions. Make sure to update the documentation with <code><a href="https://devtools.r-lib.org//reference/document.html">devtools::document()</a></code> before submitting the pull request.</li>
+<li>Use the tidyverse <a href="https://style.tidyverse.org/" class="external-link">coding style</a>.</li>
+<li>Any new function should have <a href="http://r-pkgs.had.co.nz/man.html" class="external-link">Roxygen</a> documentation. Internal functions should contain <code>#' @keywords internal</code>. Add examples to new functions. Make sure to update the documentation with <code><a href="https://devtools.r-lib.org//reference/document.html" class="external-link">devtools::document()</a></code> before submitting the pull request.</li>
 <li>
-<a href="http://r-pkgs.had.co.nz/tests.html">Tests</a> should be added under <em>tests/testthat/</em> to ensure for proper code coverage.</li>
+<a href="http://r-pkgs.had.co.nz/tests.html" class="external-link">Tests</a> should be added under <em>tests/testthat/</em> to ensure for proper code coverage.</li>
 <li>New plots should be created using the generic <code><a href="reference/xplot_scatter.html">xplot_scatter()</a></code>, <code><a href="reference/xplot_distrib.html">xplot_distrib()</a></code> or <code><a href="reference/xplot_qq.html">xplot_qq()</a></code>. Check for example the code of <em>R/plot_gof.R</em> to see how it should be done.</li>
 <li>General utility functions should be added under <em>R/utils.R</em> and plot utility functions under <em>R/xplot_helpers.R</em>.</li>
 <li>Use functions from the tidyverse (e.g. dplyr, tidyr, stringr, etc.) whenever possible.</li>
@@ -211,7 +219,7 @@
 </li>
 </ul>
 </li>
-<li><p>Run <code><a href="https://devtools.r-lib.org//reference/check.html">devtools::check()</a></code> on your fork and ensure the absence of any errors, warnings and notes.</p></li>
+<li><p>Run <code><a href="https://devtools.r-lib.org//reference/check.html" class="external-link">devtools::check()</a></code> on your fork and ensure the absence of any errors, warnings and notes.</p></li>
 <li>
 <p>Create a pull request to the <strong>dev branch</strong> of the <strong>UUPharmacometrics/xpose</strong> repository.</p>
 <ul>
@@ -239,11 +247,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://github.com/guiastrennec'>Benjamin Guiastrennec</a>, <a href='https://github.com/andrewhooker'>Andrew C. Hooker</a>, <a href='https://github.com/sebastianueckert'>Sebastian Ueckert</a>, <a href='https://katalog.uu.se/profile/?id=XX3384'>Mats O. Karlsson</a>.</p>
+  <p><p>Developed by <a href="https://github.com/guiastrennec" class="external-link">Benjamin Guiastrennec</a>, <a href="https://github.com/andrewhooker" class="external-link">Andrew C. Hooker</a>, <a href="https://github.com/sebastianueckert" class="external-link">Sebastian Ueckert</a>, <a href="https://katalog.uu.se/profile/?id=XX3384" class="external-link">Mats O. Karlsson</a>.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -251,6 +259,8 @@
 
   
 
+
+  
 
   </body>
 </html>

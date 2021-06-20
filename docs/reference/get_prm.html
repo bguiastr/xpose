@@ -55,6 +55,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -66,9 +68,15 @@
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -82,7 +90,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.13</span>
       </span>
     </div>
 
@@ -144,13 +152,13 @@
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fas fa-download"></span>
+    <span class="fa fa-download"></span>
      
   </a>
 </li>
@@ -176,7 +184,7 @@
     <p>Access model parameter estimates from an xpdb object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_prm</span><span class='op'>(</span>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>get_prm</span><span class='op'>(</span>
   <span class='va'>xpdb</span>,
   .problem <span class='op'>=</span> <span class='cn'>NULL</span>,
   .subprob <span class='op'>=</span> <span class='cn'>NULL</span>,
@@ -185,7 +193,7 @@
   transform <span class='op'>=</span> <span class='cn'>TRUE</span>,
   show_all <span class='op'>=</span> <span class='cn'>FALSE</span>,
   <span class='va'>quiet</span>
-<span class='op'>)</span></pre>
+<span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -233,29 +241,31 @@ off diagonal elements be transformed to correlations.</p></td>
     <div class='dont-index'><p><code><a href='prm_table.html'>prm_table</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Store the parameter table</span>
-<span class='va'>prm</span> <span class='op'>&lt;-</span> <span class='fu'>get_prm</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, .problem <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Returning parameter estimates from $prob no.1, subprob no.0, method foce</span></div><div class='input'>
-<span class='co'># Display parameters to the console</span>
-<span class='fu'><a href='prm_table.html'>prm_table</a></span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, .problem <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; 
-#&gt; Reporting transformed parameters:
-#&gt; For the OMEGA and SIGMA matrices, values are reported as standard deviations for the diagonal elements and as correlations for the off-diagonal elements. The relative standard errors (RSE) for OMEGA and SIGMA are reported on the approximate standard deviation scale (SE/variance estimate)/2. Use `transform = FALSE` to report untransformed parameters.
-#&gt; 
-#&gt; Estimates for $prob no.1, subprob no.0, method foce
-#&gt;  Parameter  Label      Value        RSE
-#&gt;  THETA1     TVCL       26.29        0.03391
-#&gt;  THETA2     TVV        1.348        0.0325
-#&gt;  THETA3     TVKA       4.204        0.1925
-#&gt;  THETA4     LAG        0.208        0.07554
-#&gt;  THETA5     Prop. Err  0.2046       0.1097
-#&gt;  THETA6     Add. Err   0.01055      0.3466
-#&gt;  THETA7     CRCL on CL 0.007172     0.2366
-#&gt;  OMEGA(1,1) IIV CL     0.2701       0.08616
-#&gt;  OMEGA(2,2) IIV V      0.195        0.1643
-#&gt;  OMEGA(3,3) IIV KA     1.381        0.1463
-#&gt;  SIGMA(1,1)            1        fix  - </div><div class='input'>
-</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'># Store the parameter table</span></span>
+<span class='r-in'><span class='va'>prm</span> <span class='op'>&lt;-</span> <span class='fu'>get_prm</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, .problem <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Returning parameter estimates from $prob no.1, subprob no.0, method foce</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Display parameters to the console</span></span>
+<span class='r-in'><span class='fu'><a href='prm_table.html'>prm_table</a></span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, .problem <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Reporting transformed parameters:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> For the OMEGA and SIGMA matrices, values are reported as standard deviations for the diagonal elements and as correlations for the off-diagonal elements. The relative standard errors (RSE) for OMEGA and SIGMA are reported on the approximate standard deviation scale (SE/variance estimate)/2. Use `transform = FALSE` to report untransformed parameters.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Estimates for $prob no.1, subprob no.0, method foce</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  Parameter  Label      Value        RSE</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  THETA1     TVCL       26.29        0.03391</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  THETA2     TVV        1.348        0.0325</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  THETA3     TVKA       4.204        0.1925</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  THETA4     LAG        0.208        0.07554</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  THETA5     Prop. Err  0.2046       0.1097</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  THETA6     Add. Err   0.01055      0.3466</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  THETA7     CRCL on CL 0.007172     0.2366</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  OMEGA(1,1) IIV CL     0.2701       0.08616</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  OMEGA(2,2) IIV V      0.195        0.1643</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  OMEGA(3,3) IIV KA     1.381        0.1463</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  SIGMA(1,1)            1        fix  - </span>
+<span class='r-in'></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -267,11 +277,11 @@ off diagonal elements be transformed to correlations.</p></td>
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://github.com/guiastrennec'>Benjamin Guiastrennec</a>, <a href='https://github.com/andrewhooker'>Andrew C. Hooker</a>, <a href='https://github.com/sebastianueckert'>Sebastian Ueckert</a>, <a href='https://katalog.uu.se/profile/?id=XX3384'>Mats O. Karlsson</a>.</p>
+  <p><p>Developed by <a href="https://github.com/guiastrennec" class="external-link">Benjamin Guiastrennec</a>, <a href="https://github.com/andrewhooker" class="external-link">Andrew C. Hooker</a>, <a href="https://github.com/sebastianueckert" class="external-link">Sebastian Ueckert</a>, <a href="https://katalog.uu.se/profile/?id=XX3384" class="external-link">Mats O. Karlsson</a>.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -279,6 +289,8 @@ off diagonal elements be transformed to correlations.</p></td>
 
   
 
+
+  
 
   </body>
 </html>

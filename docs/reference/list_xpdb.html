@@ -55,6 +55,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -66,9 +68,15 @@
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -82,7 +90,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.13</span>
       </span>
     </div>
 
@@ -144,13 +152,13 @@
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fas fa-download"></span>
+    <span class="fa fa-download"></span>
      
   </a>
 </li>
@@ -176,11 +184,11 @@
     <p>Function providing a detailed listing of all available datasets in an xpdb object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>list_data</span><span class='op'>(</span><span class='va'>xpdb</span><span class='op'>)</span>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>list_data</span><span class='op'>(</span><span class='va'>xpdb</span><span class='op'>)</span>
 
 <span class='fu'>list_files</span><span class='op'>(</span><span class='va'>xpdb</span><span class='op'>)</span>
 
-<span class='fu'>list_special</span><span class='op'>(</span><span class='va'>xpdb</span><span class='op'>)</span></pre>
+<span class='fu'>list_special</span><span class='op'>(</span><span class='va'>xpdb</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -196,33 +204,36 @@
     <div class='dont-index'><p><code><a href='get_data.html'>get_data</a></code>, <code><a href='get_file.html'>get_file</a></code>, <code><a href='get_special.html'>get_special</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># List output tables data</span>
-<span class='fu'>list_data</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Data:
-#&gt;   problem simtab data                   modified
-#&gt;     <span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>                 </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>   
-#&gt; </span><span style='color: #555555;'>1</span><span>       1 FALSE  </span><span style='color: #555555;'>&lt;tibble [550 × 31]&gt;</span><span>    FALSE   
-#&gt; </span><span style='color: #555555;'>2</span><span>       2 TRUE   </span><span style='color: #555555;'>&lt;tibble [11,000 × 12]&gt;</span><span> FALSE   </div><div class='input'>
-<span class='co'># List output files data</span>
-<span class='fu'>list_files</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Files:
-#&gt;   name       extension problem subprob method data               modified
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>             </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>   
-#&gt; </span><span style='color: #555555;'>1</span><span> run001.cor cor             1       0 foce   </span><span style='color: #555555;'>&lt;tibble [14 × 15]&gt;</span><span> FALSE   
-#&gt; </span><span style='color: #555555;'>2</span><span> run001.cov cov             1       0 foce   </span><span style='color: #555555;'>&lt;tibble [14 × 15]&gt;</span><span> FALSE   
-#&gt; </span><span style='color: #555555;'>3</span><span> run001.ext ext             1       0 foce   </span><span style='color: #555555;'>&lt;tibble [28 × 16]&gt;</span><span> FALSE   
-#&gt; </span><span style='color: #555555;'>4</span><span> run001.grd grd             1       0 foce   </span><span style='color: #555555;'>&lt;tibble [21 × 11]&gt;</span><span> FALSE   
-#&gt; </span><span style='color: #555555;'>5</span><span> run001.phi phi             1       0 foce   </span><span style='color: #555555;'>&lt;tibble [74 × 12]&gt;</span><span> FALSE   
-#&gt; </span><span style='color: #555555;'>6</span><span> run001.shk shk             1       0 foce   </span><span style='color: #555555;'>&lt;tibble [7 × 5]&gt;</span><span>   FALSE   </div><div class='input'>
-<span class='co'># List special data</span>
-<span class='va'>xpdb_ex_pk</span> <span class='op'>%&gt;%</span> 
-<span class='fu'><a href='vpc_data.html'>vpc_data</a></span><span class='op'>(</span>quiet <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-<span class='fu'>list_special</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Specials:
-#&gt;   problem method type       data              modified
-#&gt;     </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>   
-#&gt; </span><span style='color: #555555;'>1</span><span>       3 vpc    continuous </span><span style='color: #555555;'>&lt;named list [20]&gt;</span><span> FALSE   </div><div class='input'>
-</div></span></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'># List output tables data</span></span>
+<span class='r-in'><span class='fu'>list_data</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Data:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   problem simtab data                   modified</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>                 <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span>       1 FALSE  <span style='color: #949494;'>&lt;tibble [550 × 31]&gt;</span>    FALSE   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span>       2 TRUE   <span style='color: #949494;'>&lt;tibble [11,000 × 12]&gt;</span> FALSE   </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># List output files data</span></span>
+<span class='r-in'><span class='fu'>list_files</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Files:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   name       extension problem subprob method data               modified</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> run001.cor cor             1       0 foce   <span style='color: #949494;'>&lt;tibble [14 × 15]&gt;</span> FALSE   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> run001.cov cov             1       0 foce   <span style='color: #949494;'>&lt;tibble [14 × 15]&gt;</span> FALSE   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> run001.ext ext             1       0 foce   <span style='color: #949494;'>&lt;tibble [28 × 16]&gt;</span> FALSE   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>4</span> run001.grd grd             1       0 foce   <span style='color: #949494;'>&lt;tibble [21 × 11]&gt;</span> FALSE   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>5</span> run001.phi phi             1       0 foce   <span style='color: #949494;'>&lt;tibble [74 × 12]&gt;</span> FALSE   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>6</span> run001.shk shk             1       0 foce   <span style='color: #949494;'>&lt;tibble [7 × 5]&gt;</span>   FALSE   </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># List special data</span></span>
+<span class='r-in'><span class='va'>xpdb_ex_pk</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span class='r-in'><span class='fu'><a href='vpc_data.html'>vpc_data</a></span><span class='op'>(</span>quiet <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span class='r-in'><span class='fu'>list_special</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Specials:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   problem method type       data              modified</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span>       3 vpc    continuous <span style='color: #949494;'>&lt;named list [20]&gt;</span> FALSE   </span>
+<span class='r-in'></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -234,11 +245,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://github.com/guiastrennec'>Benjamin Guiastrennec</a>, <a href='https://github.com/andrewhooker'>Andrew C. Hooker</a>, <a href='https://github.com/sebastianueckert'>Sebastian Ueckert</a>, <a href='https://katalog.uu.se/profile/?id=XX3384'>Mats O. Karlsson</a>.</p>
+  <p><p>Developed by <a href="https://github.com/guiastrennec" class="external-link">Benjamin Guiastrennec</a>, <a href="https://github.com/andrewhooker" class="external-link">Andrew C. Hooker</a>, <a href="https://github.com/sebastianueckert" class="external-link">Sebastian Ueckert</a>, <a href="https://katalog.uu.se/profile/?id=XX3384" class="external-link">Mats O. Karlsson</a>.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -246,6 +257,8 @@
 
   
 
+
+  
 
   </body>
 </html>

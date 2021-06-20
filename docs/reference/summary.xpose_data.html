@@ -56,6 +56,8 @@ to the console." />
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -67,9 +69,15 @@ to the console." />
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -83,7 +91,7 @@ to the console." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.13</span>
       </span>
     </div>
 
@@ -145,13 +153,13 @@ to the console." />
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fas fa-download"></span>
+    <span class="fa fa-download"></span>
      
   </a>
 </li>
@@ -178,8 +186,8 @@ to the console." />
 to the console.</p>
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for xpose_data</span>
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>object</span>, .problem <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='co'># S3 method for xpose_data</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>object</span>, .problem <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -200,45 +208,46 @@ to the console.</p>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; 
-#&gt; Summary for problem no. 0 [Global information] 
-#&gt;  - Software                      @software   : nonmem
-#&gt;  - Software version              @version    : 7.3.0
-#&gt;  - Run directory                 @dir        : data
-#&gt;  - Run file                      @file       : run001.lst
-#&gt;  - Run number                    @run        : run001
-#&gt;  - Reference model               @ref        : 000
-#&gt;  - Run description               @descr      : NONMEM PK example for xpose
-#&gt;  - Run start time                @timestart  : Mon Oct 16 13:34:28 CEST 2017
-#&gt;  - Run stop time                 @timestop   : Mon Oct 16 13:34:35 CEST 2017
-#&gt; 
-#&gt; Summary for problem no. 1 [Parameter estimation] 
-#&gt;  - Input data                    @data       : ../../mx19_2.csv
-#&gt;  - Number of individuals         @nind       : 74
-#&gt;  - Number of observations        @nobs       : 476
-#&gt;  - ADVAN                         @subroutine : 2
-#&gt;  - Estimation method             @method     : foce-i
-#&gt;  - Termination message           @term       : MINIMIZATION SUCCESSFUL
-#&gt;  - Estimation runtime            @runtime    : 00:00:02
-#&gt;  - Objective function value      @ofv        : -1403.905
-#&gt;  - Number of significant digits  @nsig       : 3.3
-#&gt;  - Covariance step runtime       @covtime    : 00:00:03
-#&gt;  - Condition number              @condn      : 21.5
-#&gt;  - Eta shrinkage                 @etashk     : 9.3 [1], 28.7 [2], 23.7 [3]
-#&gt;  - Epsilon shrinkage             @epsshk     : 14.9 [1]
-#&gt;  - Run warnings                  @warnings   : (WARNING 2) NM-TRAN INFERS THAT THE DATA ARE POPULATION.
-#&gt; 
-#&gt; Summary for problem no. 2 [Model simulations] 
-#&gt;  - Input data                    @data       : ../../mx19_2.csv
-#&gt;  - Number of individuals         @nind       : 74
-#&gt;  - Number of observations        @nobs       : 476
-#&gt;  - Estimation method             @method     : sim
-#&gt;  - Number of simulations         @nsim       : 20
-#&gt;  - Simulation seed               @simseed    : 221287
-#&gt;  - Run warnings                  @warnings   : (WARNING 2) NM-TRAN INFERS THAT THE DATA ARE POPULATION.
-#&gt;                                                (WARNING 22) WITH $MSFI AND "SUBPROBS", "TRUE=FINAL" ...</div><div class='input'>
-</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Summary for problem no. 0 [Global information] </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Software                      @software   : nonmem</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Software version              @version    : 7.3.0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Run directory                 @dir        : data</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Run file                      @file       : run001.lst</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Run number                    @run        : run001</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Reference model               @ref        : 000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Run description               @descr      : NONMEM PK example for xpose</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Run start time                @timestart  : Mon Oct 16 13:34:28 CEST 2017</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Run stop time                 @timestop   : Mon Oct 16 13:34:35 CEST 2017</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Summary for problem no. 1 [Parameter estimation] </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Input data                    @data       : ../../mx19_2.csv</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Number of individuals         @nind       : 74</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Number of observations        @nobs       : 476</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - ADVAN                         @subroutine : 2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Estimation method             @method     : foce-i</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Termination message           @term       : MINIMIZATION SUCCESSFUL</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Estimation runtime            @runtime    : 00:00:02</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Objective function value      @ofv        : -1403.905</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Number of significant digits  @nsig       : 3.3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Covariance step runtime       @covtime    : 00:00:03</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Condition number              @condn      : 21.5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Eta shrinkage                 @etashk     : 9.3 [1], 28.7 [2], 23.7 [3]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Epsilon shrinkage             @epsshk     : 14.9 [1]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Run warnings                  @warnings   : (WARNING 2) NM-TRAN INFERS THAT THE DATA ARE POPULATION.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Summary for problem no. 2 [Model simulations] </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Input data                    @data       : ../../mx19_2.csv</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Number of individuals         @nind       : 74</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Number of observations        @nobs       : 476</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Estimation method             @method     : sim</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Number of simulations         @nsim       : 20</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Simulation seed               @simseed    : 221287</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Run warnings                  @warnings   : (WARNING 2) NM-TRAN INFERS THAT THE DATA ARE POPULATION.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                (WARNING 22) WITH $MSFI AND "SUBPROBS", "TRUE=FINAL" ...</span>
+<span class='r-in'></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -250,11 +259,11 @@ to the console.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://github.com/guiastrennec'>Benjamin Guiastrennec</a>, <a href='https://github.com/andrewhooker'>Andrew C. Hooker</a>, <a href='https://github.com/sebastianueckert'>Sebastian Ueckert</a>, <a href='https://katalog.uu.se/profile/?id=XX3384'>Mats O. Karlsson</a>.</p>
+  <p><p>Developed by <a href="https://github.com/guiastrennec" class="external-link">Benjamin Guiastrennec</a>, <a href="https://github.com/andrewhooker" class="external-link">Andrew C. Hooker</a>, <a href="https://github.com/sebastianueckert" class="external-link">Sebastian Ueckert</a>, <a href="https://katalog.uu.se/profile/?id=XX3384" class="external-link">Mats O. Karlsson</a>.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -262,6 +271,8 @@ to the console.</p>
 
   
 
+
+  
 
   </body>
 </html>

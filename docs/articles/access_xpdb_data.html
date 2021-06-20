@@ -27,6 +27,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -39,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.13</span>
       </span>
     </div>
 
@@ -100,14 +102,14 @@
   <a href="../news/index.html">News</a>
 </li>
 <li>
-  <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fas fa-github fa-lg"></span>
+  <a href="https://github.com/UUPharmacometrics/xpose" class="external-link">
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fas fa-download"></span>
+  <a href="https://github.com/UUPharmacometrics/xpose/releases" class="external-link">
+    <span class="fa fa-download"></span>
      
   </a>
 </li>
@@ -121,15 +123,15 @@
 
       
 
-      </header><script src="access_xpdb_data_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="access_xpdb_data_files/header-attrs-2.9/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Access the xpdb data</h1>
-                        <h4 class="author">Benjamin Guiastrennec</h4>
+                        <h4 data-toc-skip class="author">Benjamin Guiastrennec</h4>
             
-            <h4 class="date">12 January, 2021</h4>
+            <h4 data-toc-skip class="date">20 June, 2021</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/UUPharmacometrics/xpose/blob/master/vignettes/access_xpdb_data.Rmd"><code>vignettes/access_xpdb_data.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/UUPharmacometrics/xpose/blob/master/vignettes/access_xpdb_data.Rmd" class="external-link"><code>vignettes/access_xpdb_data.Rmd</code></a></small>
       <div class="hidden name"><code>access_xpdb_data.Rmd</code></div>
 
     </div>
@@ -139,8 +141,8 @@
 <p>The xpose package was designed as a standardized interface between model outputs and R. Hence model output files can easily be imported in R and used to summarize data or create plots.</p>
 <div id="glimpse-at-the-xpdb" class="section level3">
 <h3 class="hasAnchor">
-<a href="#glimpse-at-the-xpdb" class="anchor"></a>Glimpse at the xpdb</h3>
-<p>The files attached to an xpdb object can be displayed to the console simply by writing the xpdb name to the console or by using the <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> function. Any of these files can be accessed from the xpdb using one of the functions listed below.</p>
+<a href="#glimpse-at-the-xpdb" class="anchor" aria-hidden="true"></a>Glimpse at the xpdb</h3>
+<p>The files attached to an xpdb object can be displayed to the console simply by writing the xpdb name to the console or by using the <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code> function. Any of these files can be accessed from the xpdb using one of the functions listed below.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">xpdb</span> <span class="co"># or print(xpdb)</span></code></pre></div>
 <pre><code>run001.lst overview: 
@@ -156,7 +158,7 @@
 </div>
 <div id="access-the-model-code" class="section level3">
 <h3 class="hasAnchor">
-<a href="#access-the-model-code" class="anchor"></a>Access the model code</h3>
+<a href="#access-the-model-code" class="anchor" aria-hidden="true"></a>Access the model code</h3>
 <p>The <code><a href="../reference/get_code.html">get_code()</a></code> function can be used to access the parsed model code from the xpdb. This code was used to create the summary and find table names. The parsed code can be used to get additional information about the run. If the argument <code>.problem</code> is specified a subset of the code can be returned based on <code>$PROBLEM</code>.</p>
 <p><em>Note that general code warnings and PsN outputs appended are listed as problem 0.</em></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -179,7 +181,7 @@
 </div>
 <div id="access-the-output-data" class="section level3">
 <h3 class="hasAnchor">
-<a href="#access-the-output-data" class="anchor"></a>Access the output data</h3>
+<a href="#access-the-output-data" class="anchor" aria-hidden="true"></a>Access the output data</h3>
 <p>The <code><a href="../reference/get_data.html">get_data()</a></code> function can be used to access the imported table files. Tables can be accessed by <code>table</code> name or by <code>.problem</code>. In the latter a single dataset containing all aggregated tables is returned. If more than one <code>table</code> name or <code>.problem</code> number is provided a named list is returned.</p>
 <p><em>Note when providing a table name it is not guaranteed that the table will be identical to its file (i.e. the order of the columns may have been changed and tables with <code>FIRSTONLY</code> will no longer be deduplicated).</em></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -202,7 +204,7 @@
 </div>
 <div id="access-the-run-files" class="section level3">
 <h3 class="hasAnchor">
-<a href="#access-the-run-files" class="anchor"></a>Access the run files</h3>
+<a href="#access-the-run-files" class="anchor" aria-hidden="true"></a>Access the run files</h3>
 <p>The <code><a href="../reference/get_file.html">get_file()</a></code> function can be used to access the imported output files. Files can be accessed by <code>file</code> name, by <code>.problem</code>, <code>.subprob</code> and/or <code>.method</code>. If more than one <code>file</code> name, <code>.problem</code>, <code>.subprob</code>, or <code>.method</code> is provided a named list is returned.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_file.html">get_file</a></span><span class="op">(</span><span class="va">xpdb</span>, file <span class="op">=</span> <span class="st">'run001.ext'</span><span class="op">)</span>
@@ -220,12 +222,12 @@
  8         7   26.6   1.49   4.93  0.205  0.217 0.0100  0.00658            1       0.0717
  9         8   26.6   1.48   4.62  0.211  0.217 0.00951 0.00735            1       0.0633
 10         9   26.6   1.46   4.41  0.209  0.217 0.00903 0.00874            1       0.0766
-# … with 18 more rows, and 6 more variables: `OMEGA(2,1)` &lt;dbl&gt;, `OMEGA(2,2)` &lt;dbl&gt;,
-#   `OMEGA(3,1)` &lt;dbl&gt;, `OMEGA(3,2)` &lt;dbl&gt;, `OMEGA(3,3)` &lt;dbl&gt;, OBJ &lt;dbl&gt;</code></pre>
+# … with 18 more rows, and 6 more variables: OMEGA(2,1) &lt;dbl&gt;, OMEGA(2,2) &lt;dbl&gt;, OMEGA(3,1) &lt;dbl&gt;,
+#   OMEGA(3,2) &lt;dbl&gt;, OMEGA(3,3) &lt;dbl&gt;, OBJ &lt;dbl&gt;</code></pre>
 </div>
 <div id="access-the-parameter-estimates" class="section level3">
 <h3 class="hasAnchor">
-<a href="#access-the-parameter-estimates" class="anchor"></a>Access the parameter estimates</h3>
+<a href="#access-the-parameter-estimates" class="anchor" aria-hidden="true"></a>Access the parameter estimates</h3>
 <p>The <code><a href="../reference/get_prm.html">get_prm()</a></code> function can be used to access the parameter estimates. To get a nice parameter table printed to the console use the function <code><a href="../reference/prm_table.html">prm_table()</a></code> instead. The arguments <code>.problem</code>, <code>.subprob</code> and <code>.method</code> can be used to select the parameter estimates to output.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Raw output for editing</span>
@@ -268,7 +270,7 @@ Estimates for $prob no.1, subprob no.0, method foce
 </div>
 <div id="access-the-run-summary" class="section level3">
 <h3 class="hasAnchor">
-<a href="#access-the-run-summary" class="anchor"></a>Access the run summary</h3>
+<a href="#access-the-run-summary" class="anchor" aria-hidden="true"></a>Access the run summary</h3>
 <p>The <code><a href="../reference/get_summary.html">get_summary()</a></code> function can be used to access the generated run summary from which the <code>template_titles</code>. If the argument <code>.problem</code> is specified a subset of the summary can be returned based on <code>$PROBLEM</code>.</p>
 <p><em>Note that general summary information are listed as problem 0.</em></p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
@@ -301,11 +303,13 @@ Estimates for $prob no.1, subprob no.0, method foce
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://github.com/guiastrennec">Benjamin Guiastrennec</a>, <a href="https://github.com/andrewhooker">Andrew C. Hooker</a>, <a href="https://github.com/sebastianueckert">Sebastian Ueckert</a>, <a href="https://katalog.uu.se/profile/?id=XX3384">Mats O. Karlsson</a>.</p>
+  <p></p>
+<p>Developed by <a href="https://github.com/guiastrennec" class="external-link external-link">Benjamin Guiastrennec</a>, <a href="https://github.com/andrewhooker" class="external-link external-link">Andrew C. Hooker</a>, <a href="https://github.com/sebastianueckert" class="external-link external-link">Sebastian Ueckert</a>, <a href="https://katalog.uu.se/profile/?id=XX3384" class="external-link external-link">Mats O. Karlsson</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9001.</p>
 </div>
 
       </footer>
@@ -313,6 +317,8 @@ Estimates for $prob no.1, subprob no.0, method foce
 
   
 
+
+  
 
   </body>
 </html>

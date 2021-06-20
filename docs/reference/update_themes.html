@@ -57,6 +57,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -68,9 +70,15 @@
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -84,7 +92,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.13</span>
       </span>
     </div>
 
@@ -146,13 +154,13 @@
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fas fa-download"></span>
+    <span class="fa fa-download"></span>
      
   </a>
 </li>
@@ -180,7 +188,7 @@
   defined xpose (<code>xp_theme</code>) and ggplot2 (<code>gg_theme</code>) themes.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>update_themes</span><span class='op'>(</span>xpdb <span class='op'>=</span> <span class='cn'>NULL</span>, gg_theme <span class='op'>=</span> <span class='cn'>NULL</span>, xp_theme <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>quiet</span><span class='op'>)</span></pre>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>update_themes</span><span class='op'>(</span>xpdb <span class='op'>=</span> <span class='cn'>NULL</span>, gg_theme <span class='op'>=</span> <span class='cn'>NULL</span>, xp_theme <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>quiet</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -200,8 +208,8 @@ ggplot2 theme, or a change to the current <code>gg_theme</code>.</p></td>
       <th>xp_theme</th>
       <td><p>A complete xpose theme object (e.g.
 <code><a href='xp_themes.html'>theme_xp_default</a></code>) or a list of modifications to the current
-<code>xp_theme</code> (e.g. <code><a href='https://rdrr.io/r/base/list.html'>list(point_color = 'red', line_linetype =
-'dashed')</a></code>).</p></td>
+<code>xp_theme</code> (e.g. <code>list(point_color = 'red', line_linetype =
+'dashed')</code>).</p></td>
     </tr>
     <tr>
       <th>quiet</th>
@@ -211,17 +219,27 @@ ggplot2 theme, or a change to the current <code>gg_theme</code>.</p></td>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Before default theme</span>
-<span class='fu'><a href='dv_vs_pred.html'>dv_vs_ipred</a></span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, facets <span class='op'>=</span> <span class='st'>'SEX'</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='img'><img src='update_themes-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># Updating the gg_theme and xp_theme</span>
-<span class='va'>xpdb_ex_pk</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>update_themes</span><span class='op'>(</span>gg_theme <span class='op'>=</span> <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>'top'</span><span class='op'>)</span>,
-                xp_theme <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>point_color <span class='op'>=</span> <span class='st'>'blue'</span>,
-                                line_color  <span class='op'>=</span> <span class='st'>'blue'</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='dv_vs_pred.html'>dv_vs_ipred</a></span><span class='op'>(</span>facets <span class='op'>=</span> <span class='st'>'SEX'</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='output co'>#&gt; <span class='message'>`geom_smooth()` using formula 'y ~ x'</span></div><div class='img'><img src='update_themes-2.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'># Before default theme</span></span>
+<span class='r-in'><span class='fu'><a href='dv_vs_pred.html'>dv_vs_ipred</a></span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, facets <span class='op'>=</span> <span class='st'>'SEX'</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Using data from $prob no.1</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Filtering data by EVID == 0</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> `geom_smooth()` using formula 'y ~ x'</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> `geom_smooth()` using formula 'y ~ x'</span>
+<span class='r-plt'><img src='update_themes-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Updating the gg_theme and xp_theme</span></span>
+<span class='r-in'><span class='va'>xpdb_ex_pk</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'>update_themes</span><span class='op'>(</span>gg_theme <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>'top'</span><span class='op'>)</span>,</span>
+<span class='r-in'>                xp_theme <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>point_color <span class='op'>=</span> <span class='st'>'blue'</span>,</span>
+<span class='r-in'>                                line_color  <span class='op'>=</span> <span class='st'>'blue'</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='dv_vs_pred.html'>dv_vs_ipred</a></span><span class='op'>(</span>facets <span class='op'>=</span> <span class='st'>'SEX'</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Using data from $prob no.1</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Filtering data by EVID == 0</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> `geom_smooth()` using formula 'y ~ x'</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> `geom_smooth()` using formula 'y ~ x'</span>
+<span class='r-plt'><img src='update_themes-2.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -233,11 +251,11 @@ ggplot2 theme, or a change to the current <code>gg_theme</code>.</p></td>
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://github.com/guiastrennec'>Benjamin Guiastrennec</a>, <a href='https://github.com/andrewhooker'>Andrew C. Hooker</a>, <a href='https://github.com/sebastianueckert'>Sebastian Ueckert</a>, <a href='https://katalog.uu.se/profile/?id=XX3384'>Mats O. Karlsson</a>.</p>
+  <p><p>Developed by <a href="https://github.com/guiastrennec" class="external-link">Benjamin Guiastrennec</a>, <a href="https://github.com/andrewhooker" class="external-link">Andrew C. Hooker</a>, <a href="https://github.com/sebastianueckert" class="external-link">Sebastian Ueckert</a>, <a href="https://katalog.uu.se/profile/?id=XX3384" class="external-link">Mats O. Karlsson</a>.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -245,6 +263,8 @@ ggplot2 theme, or a change to the current <code>gg_theme</code>.</p></td>
 
   
 
+
+  
 
   </body>
 </html>

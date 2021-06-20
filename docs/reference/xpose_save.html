@@ -49,9 +49,11 @@
   
 
 <meta property="og:title" content="Save xpose plot — xpose_save" />
-<meta property="og:description" content="Inspired by the ggsave, this function 
-facilitates the export of xpose plots." />
+<meta property="og:description" content="Built as a wrapper around ggsave, this function
+  facilitates the export of xpose plots." />
 <meta property="og:image" content="/logo.png" />
+
+
 
 
 
@@ -67,9 +69,15 @@ facilitates the export of xpose plots." />
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -83,7 +91,7 @@ facilitates the export of xpose plots." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.13</span>
       </span>
     </div>
 
@@ -145,13 +153,13 @@ facilitates the export of xpose plots." />
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fas fa-download"></span>
+    <span class="fa fa-download"></span>
      
   </a>
 </li>
@@ -174,21 +182,24 @@ facilitates the export of xpose plots." />
     </div>
 
     <div class="ref-description">
-    <p>Inspired by the <a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a>, this function 
-facilitates the export of xpose plots.</p>
+    <p>Built as a wrapper around <a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a>, this function
+  facilitates the export of xpose plots.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>xpose_save</span><span class='op'>(</span>
-  plot <span class='op'>=</span> <span class='fu'>last_plot</span><span class='op'>(</span><span class='op'>)</span>,
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>xpose_save</span><span class='op'>(</span>
+  plot <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/last_plot.html'>last_plot</a></span><span class='op'>(</span><span class='op'>)</span>,
   file <span class='op'>=</span> <span class='cn'>NULL</span>,
   dir <span class='op'>=</span> <span class='cn'>NULL</span>,
   device <span class='op'>=</span> <span class='cn'>NULL</span>,
+  scale <span class='op'>=</span> <span class='fl'>1</span>,
   width <span class='op'>=</span> <span class='fl'>7</span>,
   height <span class='op'>=</span> <span class='fl'>6</span>,
-  units <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"in"</span>, <span class='st'>"cm"</span>, <span class='st'>"mm"</span><span class='op'>)</span>,
+  units <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"in"</span>, <span class='st'>"cm"</span>, <span class='st'>"mm"</span>, <span class='st'>"px"</span><span class='op'>)</span>,
   dpi <span class='op'>=</span> <span class='fl'>200</span>,
+  limitsize <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  bg <span class='op'>=</span> <span class='cn'>NULL</span>,
   <span class='va'>...</span>
-<span class='op'>)</span></pre>
+<span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -199,48 +210,62 @@ facilitates the export of xpose plots.</p>
     </tr>
     <tr>
       <th>file</th>
-      <td><p>A name with file extension (if device is <code>NULL</code>) to be given to the 
-output file. Template variables such as <code>@run</code> (run number) and <code>@plotfun</code> 
-(plot function) can be used to automatically name files e.g. 
-<code>file = '@run_@plotfun.pdf'</code>.</p></td>
+      <td><p>A name with file extension (if device is <code>NULL</code>) to be given
+to the output file. Template variables such as <code>@run</code> (run number) and
+<code>@plotfun</code> (plot function) can be used to automatically name files
+e.g. <code>file = '@run_@plotfun.pdf'</code>.</p></td>
     </tr>
     <tr>
       <th>dir</th>
-      <td><p>Directory under which the xpose plots will be saved. Template variables 
-such as <code>@dir</code> can be used to generate template names.</p></td>
+      <td><p>Directory under which the xpose plots will be saved. Template
+variables such as <code>@dir</code> can be used to generate template names.</p></td>
     </tr>
     <tr>
       <th>device</th>
       <td><p>Graphical device to use. Can be either be a device function
-(e.g. <code><a href='https://rdrr.io/r/grDevices/png.html'>png</a></code>), or one of 'eps', 'ps', 'tex' (pictex),
-'pdf' (default), 'jpeg', 'tiff', 'png', 'bmp', 'svg' or 'wmf' (windows only).</p></td>
+(e.g. <code><a href='https://rdrr.io/r/grDevices/png.html'>png</a></code>), or one of 'eps', 'ps', 'tex' (pictex), 'pdf',
+'jpeg', 'tiff', 'png', 'bmp', 'svg' or 'wmf' (windows only).</p></td>
     </tr>
     <tr>
-      <th>width, height</th>
-      <td><p>Plot size in <code>units</code>.</p></td>
+      <th>scale</th>
+      <td><p>Multiplicative scaling factor.</p></td>
     </tr>
     <tr>
-      <th>units</th>
-      <td><p>Units of the plot size ('in', 'cm', or 'mm').</p></td>
+      <th>width, height, units</th>
+      <td><p>Plot size in in <code>units</code> ("in", "cm", "mm", or
+"px"). If not supplied, uses the size of current graphics device.</p></td>
     </tr>
     <tr>
       <th>dpi</th>
-      <td><p>Plot resolution. Applies only to raster output types.</p></td>
+      <td><p>Plot resolution. Also accepts a string input: "retina" (320),
+"print" (300), or "screen" (72). Applies only to raster output types.</p></td>
+    </tr>
+    <tr>
+      <th>limitsize</th>
+      <td><p>When <code>TRUE</code> (the default), <code>xpose_save()</code> will not
+save images larger than 50x50 inches, to prevent the common error of
+specifying dimensions in pixels.</p></td>
+    </tr>
+    <tr>
+      <th>bg</th>
+      <td><p>Background color. If <code>NULL</code>, uses the <code>plot.background</code>
+fill value from the plot theme.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Additional arguments passed on to <a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a> or graphics <code>device</code>.</p></td>
+      <td><p>Other arguments passed on to the graphics device function, as
+specified by <code>device</code>.</p></td>
     </tr>
     </table>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='va'>xpdb_ex_pk</span> <span class='op'>%&gt;%</span> 
- <span class='fu'><a href='dv_vs_pred.html'>dv_vs_ipred</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
- <span class='fu'>xpose_save</span><span class='op'>(</span>file <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='st'>"dv_vs_ipred_example.pdf"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='va'>xpdb_ex_pk</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'> <span class='fu'><a href='dv_vs_pred.html'>dv_vs_ipred</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'> <span class='fu'>xpose_save</span><span class='op'>(</span>file <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='st'>"dv_vs_ipred_example.pdf"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -252,11 +277,11 @@ such as <code>@dir</code> can be used to generate template names.</p></td>
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://github.com/guiastrennec'>Benjamin Guiastrennec</a>, <a href='https://github.com/andrewhooker'>Andrew C. Hooker</a>, <a href='https://github.com/sebastianueckert'>Sebastian Ueckert</a>, <a href='https://katalog.uu.se/profile/?id=XX3384'>Mats O. Karlsson</a>.</p>
+  <p><p>Developed by <a href="https://github.com/guiastrennec" class="external-link">Benjamin Guiastrennec</a>, <a href="https://github.com/andrewhooker" class="external-link">Andrew C. Hooker</a>, <a href="https://github.com/sebastianueckert" class="external-link">Sebastian Ueckert</a>, <a href="https://katalog.uu.se/profile/?id=XX3384" class="external-link">Mats O. Karlsson</a>.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -264,6 +289,8 @@ such as <code>@dir</code> can be used to generate template names.</p></td>
 
   
 
+
+  
 
   </body>
 </html>

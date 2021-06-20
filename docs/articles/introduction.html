@@ -27,6 +27,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -39,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.13</span>
       </span>
     </div>
 
@@ -100,14 +102,14 @@
   <a href="../news/index.html">News</a>
 </li>
 <li>
-  <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fas fa-github fa-lg"></span>
+  <a href="https://github.com/UUPharmacometrics/xpose" class="external-link">
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fas fa-download"></span>
+  <a href="https://github.com/UUPharmacometrics/xpose/releases" class="external-link">
+    <span class="fa fa-download"></span>
      
   </a>
 </li>
@@ -121,15 +123,15 @@
 
       
 
-      </header><script src="introduction_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="introduction_files/header-attrs-2.9/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction</h1>
-                        <h4 class="author">Benjamin Guiastrennec</h4>
+                        <h4 data-toc-skip class="author">Benjamin Guiastrennec</h4>
             
-            <h4 class="date">12 January, 2021</h4>
+            <h4 data-toc-skip class="date">20 June, 2021</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/UUPharmacometrics/xpose/blob/master/vignettes/introduction.Rmd"><code>vignettes/introduction.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/UUPharmacometrics/xpose/blob/master/vignettes/introduction.Rmd" class="external-link"><code>vignettes/introduction.Rmd</code></a></small>
       <div class="hidden name"><code>introduction.Rmd</code></div>
 
     </div>
@@ -138,22 +140,22 @@
     
 <div id="load-xpose" class="section level3">
 <h3 class="hasAnchor">
-<a href="#load-xpose" class="anchor"></a>Load xpose</h3>
+<a href="#load-xpose" class="anchor" aria-hidden="true"></a>Load xpose</h3>
 <p>The first step is to load xpose in R with the following command:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/UUPharmacometrics/xpose">xpose</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/UUPharmacometrics/xpose" class="external-link">xpose</a></span><span class="op">)</span></code></pre></div>
 </div>
 <div id="import-model-output" class="section level3">
 <h3 class="hasAnchor">
-<a href="#import-model-output" class="anchor"></a>Import model output</h3>
+<a href="#import-model-output" class="anchor" aria-hidden="true"></a>Import model output</h3>
 <p>The function <code><a href="../reference/xpose_data.html">xpose_data()</a></code> collects all model output files and table and organizes them into an R object commonly called <code>xpdb</code> which stands for “xpose database”.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">xpdb</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/xpose_data.html">xpose_data</a></span><span class="op">(</span>runno <span class="op">=</span> <span class="st">'001'</span>, dir <span class="op">=</span> <span class="st">'analysis/model/pk/'</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="glimpse-at-the-xpdb" class="section level3">
 <h3 class="hasAnchor">
-<a href="#glimpse-at-the-xpdb" class="anchor"></a>Glimpse at the xpdb</h3>
-<p>The files attached to an xpdb object can be displayed to the console simply by writing its name to the console or by using the <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> function.</p>
+<a href="#glimpse-at-the-xpdb" class="anchor" aria-hidden="true"></a>Glimpse at the xpdb</h3>
+<p>The files attached to an xpdb object can be displayed to the console simply by writing its name to the console or by using the <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code> function.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">xpdb</span> <span class="co"># or print(xpdb)</span></code></pre></div>
 <pre><code>run001.lst overview: 
@@ -169,10 +171,10 @@
 </div>
 <div id="model-summary" class="section level3">
 <h3 class="hasAnchor">
-<a href="#model-summary" class="anchor"></a>Model summary</h3>
-<p>A summary of a model run can be displayed to the console by using the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function on an xpdb object.</p>
+<a href="#model-summary" class="anchor" aria-hidden="true"></a>Model summary</h3>
+<p>A summary of a model run can be displayed to the console by using the <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code> function on an xpdb object.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">xpdb</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">xpdb</span><span class="op">)</span></code></pre></div>
 <pre><code>
 Summary for problem no. 0 [Global information] 
  - Software                      @software   : nonmem
@@ -213,7 +215,7 @@ Summary for problem no. 2 [Model simulations]
 </div>
 <div id="parameter-estimates" class="section level3">
 <h3 class="hasAnchor">
-<a href="#parameter-estimates" class="anchor"></a>Parameter estimates</h3>
+<a href="#parameter-estimates" class="anchor" aria-hidden="true"></a>Parameter estimates</h3>
 <p>A table of parameter estimates can be displayed to the console by using the <code><a href="../reference/prm_table.html">prm_table()</a></code> function on an xpdb object.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/prm_table.html">prm_table</a></span><span class="op">(</span><span class="va">xpdb</span><span class="op">)</span></code></pre></div>
@@ -237,7 +239,7 @@ Estimates for $prob no.1, subprob no.0, method foce
 </div>
 <div id="listing-variables" class="section level3">
 <h3 class="hasAnchor">
-<a href="#listing-variables" class="anchor"></a>Listing variables</h3>
+<a href="#listing-variables" class="anchor" aria-hidden="true"></a>Listing variables</h3>
 <p>A list of available variables for plotting can be displayed to the console by using the <code><a href="../reference/list_vars.html">list_vars()</a></code> function on an xpdb object.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/list_vars.html">list_vars</a></span><span class="op">(</span><span class="va">xpdb</span><span class="op">)</span></code></pre></div>
@@ -269,32 +271,32 @@ List of available variables for problem no. 2
 </div>
 <div id="pipes" class="section level3">
 <h3 class="hasAnchor">
-<a href="#pipes" class="anchor"></a>Pipes</h3>
-<p><code>xpose</code> makes use of the pipe operator <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> from the package <a href="https://dplyr.tidyverse.org">dplyr</a>. Pipes can be used to generate clear workflow.</p>
+<a href="#pipes" class="anchor" aria-hidden="true"></a>Pipes</h3>
+<p><code>xpose</code> makes use of the pipe operator <code>%&gt;%</code> from the package <a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a>. Pipes can be used to generate clear workflow.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/xpose_data.html">xpose_data</a></span><span class="op">(</span>runno <span class="op">=</span> <span class="st">'001'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="fu"><a href="../reference/xpose_data.html">xpose_data</a></span><span class="op">(</span>runno <span class="op">=</span> <span class="st">'001'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/xpose_save.html">xpose_save</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">'run001_dv_vs_ipred.pdf'</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="editing-the-xpdb" class="section level3">
 <h3 class="hasAnchor">
-<a href="#editing-the-xpdb" class="anchor"></a>Editing the xpdb</h3>
+<a href="#editing-the-xpdb" class="anchor" aria-hidden="true"></a>Editing the xpdb</h3>
 <p>Multiples edits can be made to the xpdb object. For instance the type (visible using the <code><a href="../reference/list_vars.html">list_vars()</a></code> function described above) of a variable can be changed. Hence the independent variable (idv) could be changed from <code>TIME</code> (default in NONMEM) to <code>TAD</code>. All plots using <code>idv</code> will then automatically use <code>TAD</code>.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># With the TIME default</span>
-<span class="va">xpdb</span> <span class="op">%&gt;%</span> 
+<span class="va">xpdb</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/pred_vs_idv.html">dv_vs_idv</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="introduction_files/figure-html/change%20idv-1.png" width="50%" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># After IDV reassignment</span>
-<span class="va">xpdb</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/set_vars.html">set_var_types</a></span><span class="op">(</span>idv <span class="op">=</span> <span class="st">'TAD'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="va">xpdb</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/set_vars.html">set_var_types</a></span><span class="op">(</span>idv <span class="op">=</span> <span class="st">'TAD'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/pred_vs_idv.html">dv_vs_idv</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="introduction_files/figure-html/change%20idv-2.png" width="50%" style="display: block; margin: auto;"></p>
 </div>
 <div id="generating-plots" class="section level3">
 <h3 class="hasAnchor">
-<a href="#generating-plots" class="anchor"></a>Generating plots</h3>
+<a href="#generating-plots" class="anchor" aria-hidden="true"></a>Generating plots</h3>
 <p>Plotting functions are used as follows:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># DV vs. IPRED plot</span>
@@ -307,7 +309,7 @@ List of available variables for problem no. 2
 </div>
 <div id="saving-plots" class="section level3">
 <h3 class="hasAnchor">
-<a href="#saving-plots" class="anchor"></a>Saving plots</h3>
+<a href="#saving-plots" class="anchor" aria-hidden="true"></a>Saving plots</h3>
 <p>The <code>xpose_save</code> function was designed to facilitate the export of xpose plots. The file extension is guessed from the file name and must match one of .pdf (default), .jpeg, .png, .bmp or .tiff. If no extension is provided as part of the file name a .pdf will be generated. Finally, if the <code>plot</code> argument is left empty <code>xpose_save</code> will automatically save the last plot that was created or modified.</p>
 <p>The <code><a href="../reference/xpose_save.html">xpose_save()</a></code> function is compatible with templates titles and keywords such as <code>@run</code> for the run number and <code>@plotfun</code> for the name of the plotting function can be used to automatically name files. Learn more about the template titles keywords using <code><a href="../reference/template_titles.html">help('template_titles')</a></code>.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
@@ -316,8 +318,8 @@ List of available variables for problem no. 2
 <span class="fu"><a href="../reference/xpose_save.html">xpose_save</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">'run001_dv_vs_ipred.pdf'</span><span class="op">)</span>
 
 <span class="co"># Template titles can also be used in filename and the directory</span>
-<span class="va">xpdb</span> <span class="op">%&gt;%</span> 
- <span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="va">xpdb</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+ <span class="fu"><a href="../reference/dv_vs_pred.html">dv_vs_ipred</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
  <span class="fu"><a href="../reference/xpose_save.html">xpose_save</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">'@run_@plotfun_[@ofv].jpeg'</span>, dir <span class="op">=</span> <span class="st">'@dir'</span><span class="op">)</span></code></pre></div>
 </div>
   </div>
@@ -331,11 +333,13 @@ List of available variables for problem no. 2
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://github.com/guiastrennec">Benjamin Guiastrennec</a>, <a href="https://github.com/andrewhooker">Andrew C. Hooker</a>, <a href="https://github.com/sebastianueckert">Sebastian Ueckert</a>, <a href="https://katalog.uu.se/profile/?id=XX3384">Mats O. Karlsson</a>.</p>
+  <p></p>
+<p>Developed by <a href="https://github.com/guiastrennec" class="external-link external-link">Benjamin Guiastrennec</a>, <a href="https://github.com/andrewhooker" class="external-link external-link">Andrew C. Hooker</a>, <a href="https://github.com/sebastianueckert" class="external-link external-link">Sebastian Ueckert</a>, <a href="https://katalog.uu.se/profile/?id=XX3384" class="external-link external-link">Mats O. Karlsson</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9001.</p>
 </div>
 
       </footer>
@@ -343,6 +347,8 @@ List of available variables for problem no. 2
 
   
 
+
+  
 
   </body>
 </html>

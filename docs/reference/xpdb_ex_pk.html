@@ -55,6 +55,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -66,9 +68,15 @@
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -82,7 +90,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.13</span>
       </span>
     </div>
 
@@ -144,13 +152,13 @@
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fas fa-download"></span>
+    <span class="fa fa-download"></span>
      
   </a>
 </li>
@@ -189,18 +197,19 @@ Moxonidine Data from Congestive Heart Failure Patients. Journal of Pharmacokinet
 Biopharmaceutics. 26(2):207–246 (1998).</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; run001.lst overview: 
-#&gt;  - Software: nonmem 7.3.0 
-#&gt;  - Attached files (memory usage 1.4 Mb): 
-#&gt;    + obs tabs: $prob no.1: catab001.csv, cotab001, patab001, sdtab001 
-#&gt;    + sim tabs: $prob no.2: simtab001.zip 
-#&gt;    + output files: run001.cor, run001.cov, run001.ext, run001.grd, run001.phi, run001.shk 
-#&gt;    + special: &lt;none&gt; 
-#&gt;  - gg_theme: theme_readable 
-#&gt;  - xp_theme: theme_xp_default 
-#&gt;  - Options: dir = data, quiet = FALSE, manual_import = NULL</div><div class='input'>
-</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> run001.lst overview: </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Software: nonmem 7.3.0 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Attached files (memory usage 1.4 Mb): </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    + obs tabs: $prob no.1: catab001.csv, cotab001, patab001, sdtab001 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    + sim tabs: $prob no.2: simtab001.zip </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    + output files: run001.cor, run001.cov, run001.ext, run001.grd, run001.phi, run001.shk </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    + special: &lt;none&gt; </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - gg_theme: theme_readable </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - xp_theme: theme_xp_default </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  - Options: dir = data, quiet = FALSE, manual_import = NULL</span>
+<span class='r-in'></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -212,11 +221,11 @@ Biopharmaceutics. 26(2):207–246 (1998).</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://github.com/guiastrennec'>Benjamin Guiastrennec</a>, <a href='https://github.com/andrewhooker'>Andrew C. Hooker</a>, <a href='https://github.com/sebastianueckert'>Sebastian Ueckert</a>, <a href='https://katalog.uu.se/profile/?id=XX3384'>Mats O. Karlsson</a>.</p>
+  <p><p>Developed by <a href="https://github.com/guiastrennec" class="external-link">Benjamin Guiastrennec</a>, <a href="https://github.com/andrewhooker" class="external-link">Andrew C. Hooker</a>, <a href="https://github.com/sebastianueckert" class="external-link">Sebastian Ueckert</a>, <a href="https://katalog.uu.se/profile/?id=XX3384" class="external-link">Mats O. Karlsson</a>.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -224,6 +233,8 @@ Biopharmaceutics. 26(2):207–246 (1998).</p>
 
   
 
+
+  
 
   </body>
 </html>

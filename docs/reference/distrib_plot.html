@@ -55,6 +55,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -66,9 +68,15 @@
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -82,7 +90,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">xpose</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.12</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.13</span>
       </span>
     </div>
 
@@ -144,13 +152,13 @@
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://github.com/UUPharmacometrics/xpose/releases">
-    <span class="fas fa-download"></span>
+    <span class="fa fa-download"></span>
      
   </a>
 </li>
@@ -176,7 +184,7 @@
     <p>Histograms and density plots of the ETA and parameter values.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>prm_distrib</span><span class='op'>(</span>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>prm_distrib</span><span class='op'>(</span>
   <span class='va'>xpdb</span>,
   mapping <span class='op'>=</span> <span class='cn'>NULL</span>,
   drop_fixed <span class='op'>=</span> <span class='cn'>TRUE</span>,
@@ -242,7 +250,7 @@
   <span class='va'>.problem</span>,
   <span class='va'>quiet</span>,
   <span class='va'>...</span>
-<span class='op'>)</span></pre>
+<span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -338,10 +346,10 @@ are passed to the functions <code><a href='https://ggforce.data-imaginist.com/re
 argument is a character string (e.g. <code>facets = c('SEX', 'MED1')</code>) or 
 <code><a href='https://ggforce.data-imaginist.com/reference/facet_grid_paginate.html'>facet_grid_paginate</a></code> when facets is a formula (e.g. <code>facets = SEX~MED1</code>).
 All xpose plot functions accept all the arguments for the <code><a href='https://ggforce.data-imaginist.com/reference/facet_wrap_paginate.html'>facet_wrap_paginate</a></code> 
-and <code><a href='https://ggforce.data-imaginist.com/reference/facet_grid_paginate.html'>facet_grid_paginate</a></code> functions e.g. <code><a href='dv_vs_pred.html'>dv_vs_ipred(xpdb_ex_pk, 
-facets = SEX~MED1, ncol = 3, nrow = 3, page = 1, margins = TRUE, labeller = 'label_both')</a></code>.</p>
-<p>Faceting options can either be defined in plot functions (e.g. <code><a href='dv_vs_pred.html'>dv_vs_ipred(xpdb_ex_pk, 
-facets = 'SEX')</a></code>) or assigned globally to an xpdb object via the <code>xp_theme</code> (e.g. <code>xpdb 
+and <code><a href='https://ggforce.data-imaginist.com/reference/facet_grid_paginate.html'>facet_grid_paginate</a></code> functions e.g. <code>dv_vs_ipred(xpdb_ex_pk, 
+facets = SEX~MED1, ncol = 3, nrow = 3, page = 1, margins = TRUE, labeller = 'label_both')</code>.</p>
+<p>Faceting options can either be defined in plot functions (e.g. <code>dv_vs_ipred(xpdb_ex_pk, 
+facets = 'SEX')</code>) or assigned globally to an xpdb object via the <code>xp_theme</code> (e.g. <code>xpdb 
 &lt;- update_themes(xpdb_ex_pk, xp_theme = list(facets = 'SEX'))</code>). In the latter example all plots 
 generate from this xpdb will automatically be stratified by `SEX`.</p>
 <p>By default, some plot functions use a custom stratifying variable named `variable`, e.g. 
@@ -364,18 +372,35 @@ are listed under <code><a href='template_titles.html'>template_titles</a></code>
     <div class='dont-index'><p><code><a href='xplot_distrib.html'>xplot_distrib</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Histogram of parameters</span>
-<span class='fu'>prm_distrib</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, type <span class='op'>=</span> <span class='st'>'h'</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Dropped fixed variables ALAG1.</span></div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Removing duplicated rows based on: ID</span></div><div class='output co'>#&gt; <span class='message'>Tidying data by ID, SEX, MED1, MED2, DOSE ... and 23 more variables</span></div><div class='img'><img src='distrib_plot-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># Density plot of etas with a rug</span>
-<span class='fu'>eta_distrib</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, type <span class='op'>=</span> <span class='st'>'dr'</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Removing duplicated rows based on: ID</span></div><div class='output co'>#&gt; <span class='message'>Tidying data by ID, SEX, MED1, MED2, DOSE ... and 23 more variables</span></div><div class='img'><img src='distrib_plot-2.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># Histogram of different residuals</span>
-<span class='fu'>res_distrib</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, type <span class='op'>=</span> <span class='st'>'hr'</span>, res <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'IWRES'</span>, <span class='st'>'CWRES'</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Filtering data by EVID == 0</span></div><div class='output co'>#&gt; <span class='message'>Tidying data by ID, SEX, MED1, MED2, DOSE ... and 24 more variables</span></div><div class='img'><img src='distrib_plot-3.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># Density plot of continuous covariates</span>
-<span class='fu'>cov_distrib</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, type <span class='op'>=</span> <span class='st'>'d'</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Using data from $prob no.1</span></div><div class='output co'>#&gt; <span class='message'>Removing duplicated rows based on: ID</span></div><div class='output co'>#&gt; <span class='message'>Tidying data by ID, SEX, MED1, MED2, DOSE ... and 23 more variables</span></div><div class='img'><img src='distrib_plot-4.png' alt='' width='700' height='433' /></div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'># Histogram of parameters</span></span>
+<span class='r-in'><span class='fu'>prm_distrib</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, type <span class='op'>=</span> <span class='st'>'h'</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Dropped fixed variables ALAG1.</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Using data from $prob no.1</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Removing duplicated rows based on: ID</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Tidying data by ID, SEX, MED1, MED2, DOSE ... and 23 more variables</span>
+<span class='r-plt'><img src='distrib_plot-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Density plot of etas with a rug</span></span>
+<span class='r-in'><span class='fu'>eta_distrib</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, type <span class='op'>=</span> <span class='st'>'dr'</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Using data from $prob no.1</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Removing duplicated rows based on: ID</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Tidying data by ID, SEX, MED1, MED2, DOSE ... and 23 more variables</span>
+<span class='r-plt'><img src='distrib_plot-2.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Histogram of different residuals</span></span>
+<span class='r-in'><span class='fu'>res_distrib</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, type <span class='op'>=</span> <span class='st'>'hr'</span>, res <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'IWRES'</span>, <span class='st'>'CWRES'</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Using data from $prob no.1</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Filtering data by EVID == 0</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Tidying data by ID, SEX, MED1, MED2, DOSE ... and 24 more variables</span>
+<span class='r-plt'><img src='distrib_plot-3.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Density plot of continuous covariates</span></span>
+<span class='r-in'><span class='fu'>cov_distrib</span><span class='op'>(</span><span class='va'>xpdb_ex_pk</span>, type <span class='op'>=</span> <span class='st'>'d'</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Using data from $prob no.1</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Removing duplicated rows based on: ID</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Tidying data by ID, SEX, MED1, MED2, DOSE ... and 23 more variables</span>
+<span class='r-plt'><img src='distrib_plot-4.png' alt='' width='700' height='433' /></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -387,11 +412,11 @@ are listed under <code><a href='template_titles.html'>template_titles</a></code>
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://github.com/guiastrennec'>Benjamin Guiastrennec</a>, <a href='https://github.com/andrewhooker'>Andrew C. Hooker</a>, <a href='https://github.com/sebastianueckert'>Sebastian Ueckert</a>, <a href='https://katalog.uu.se/profile/?id=XX3384'>Mats O. Karlsson</a>.</p>
+  <p><p>Developed by <a href="https://github.com/guiastrennec" class="external-link">Benjamin Guiastrennec</a>, <a href="https://github.com/andrewhooker" class="external-link">Andrew C. Hooker</a>, <a href="https://github.com/sebastianueckert" class="external-link">Sebastian Ueckert</a>, <a href="https://katalog.uu.se/profile/?id=XX3384" class="external-link">Mats O. Karlsson</a>.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -399,6 +424,8 @@ are listed under <code><a href='template_titles.html'>template_titles</a></code>
 
   
 
+
+  
 
   </body>
 </html>

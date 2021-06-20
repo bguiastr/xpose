@@ -1,6 +1,6 @@
-pandoc: 2.7.3
-pkgdown: 1.6.1
-pkgdown_sha: ~
+pandoc: 2.11.4
+pkgdown: 1.6.1.9001
+pkgdown_sha: 51268b0d9cb0588d7a6404a2b8ef4ee19c435e89
 articles:
   about: about.html
   access_xpdb_data: access_xpdb_data.html
@@ -12,5 +12,5 @@ articles:
   multiple_pages: multiple_pages.html
   plot_list: plot_list.html
   vpc: vpc.html
-last_built: 2021-01-12T15:56Z
+last_built: 2021-06-20T20:16Z
 
