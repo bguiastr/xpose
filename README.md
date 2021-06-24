@@ -3,9 +3,7 @@
 
 # xpose <a href="https://UUPharmacometrics.github.io/xpose/"><img src="man/figures/logo.png" align="right" /></a>
 
-[![travis\_status](https://travis-ci.org/UUPharmacometrics/xpose.svg?branch=master)](https://travis-ci.org/UUPharmacometrics/xpose)
-[![appveyor
-status](https://ci.appveyor.com/api/projects/status/f6k09rf2cfi3vcs2?svg=true)](https://ci.appveyor.com/project/guiastrennec/xpose)
+[![R-CMD-check](https://github.com/UUPharmacometrics/xpose/workflows/R-CMD-check/badge.svg)](https://github.com/UUPharmacometrics/xpose/actions)
 [![cran\_version](https://www.r-pkg.org/badges/version/xpose)](https://CRAN.R-project.org/package=xpose)
 [![codecov](https://codecov.io/gh/UUPharmacometrics/xpose/branch/master/graph/badge.svg)](https://codecov.io/gh/UUPharmacometrics/xpose)
 [![Lifecycle
@@ -68,45 +66,43 @@ xpdb
 summary(xpdb, problem = 1)
 ```
 
-``` 
 
-Summary for problem no. 0 [Global information] 
- - Software                      @software   : nonmem
- - Software version              @version    : 7.3.0
- - Run directory                 @dir        : data
- - Run file                      @file       : run001.lst
- - Run number                    @run        : run001
- - Reference model               @ref        : 000
- - Run description               @descr      : NONMEM PK example for xpose
- - Run start time                @timestart  : Mon Oct 16 13:34:28 CEST 2017
- - Run stop time                 @timestop   : Mon Oct 16 13:34:35 CEST 2017
+    Summary for problem no. 0 [Global information] 
+     - Software                      @software   : nonmem
+     - Software version              @version    : 7.3.0
+     - Run directory                 @dir        : data
+     - Run file                      @file       : run001.lst
+     - Run number                    @run        : run001
+     - Reference model               @ref        : 000
+     - Run description               @descr      : NONMEM PK example for xpose
+     - Run start time                @timestart  : Mon Oct 16 13:34:28 CEST 2017
+     - Run stop time                 @timestop   : Mon Oct 16 13:34:35 CEST 2017
 
-Summary for problem no. 1 [Parameter estimation] 
- - Input data                    @data       : ../../mx19_2.csv
- - Number of individuals         @nind       : 74
- - Number of observations        @nobs       : 476
- - ADVAN                         @subroutine : 2
- - Estimation method             @method     : foce-i
- - Termination message           @term       : MINIMIZATION SUCCESSFUL
- - Estimation runtime            @runtime    : 00:00:02
- - Objective function value      @ofv        : -1403.905
- - Number of significant digits  @nsig       : 3.3
- - Covariance step runtime       @covtime    : 00:00:03
- - Condition number              @condn      : 21.5
- - Eta shrinkage                 @etashk     : 9.3 [1], 28.7 [2], 23.7 [3]
- - Epsilon shrinkage             @epsshk     : 14.9 [1]
- - Run warnings                  @warnings   : (WARNING 2) NM-TRAN INFERS THAT THE DATA ARE POPULATION.
+    Summary for problem no. 1 [Parameter estimation] 
+     - Input data                    @data       : ../../mx19_2.csv
+     - Number of individuals         @nind       : 74
+     - Number of observations        @nobs       : 476
+     - ADVAN                         @subroutine : 2
+     - Estimation method             @method     : foce-i
+     - Termination message           @term       : MINIMIZATION SUCCESSFUL
+     - Estimation runtime            @runtime    : 00:00:02
+     - Objective function value      @ofv        : -1403.905
+     - Number of significant digits  @nsig       : 3.3
+     - Covariance step runtime       @covtime    : 00:00:03
+     - Condition number              @condn      : 21.5
+     - Eta shrinkage                 @etashk     : 9.3 [1], 28.7 [2], 23.7 [3]
+     - Epsilon shrinkage             @epsshk     : 14.9 [1]
+     - Run warnings                  @warnings   : (WARNING 2) NM-TRAN INFERS THAT THE DATA ARE POPULATION.
 
-Summary for problem no. 2 [Model simulations] 
- - Input data                    @data       : ../../mx19_2.csv
- - Number of individuals         @nind       : 74
- - Number of observations        @nobs       : 476
- - Estimation method             @method     : sim
- - Number of simulations         @nsim       : 20
- - Simulation seed               @simseed    : 221287
- - Run warnings                  @warnings   : (WARNING 2) NM-TRAN INFERS THAT THE DATA ARE POPULATION.
-                                               (WARNING 22) WITH $MSFI AND "SUBPROBS", "TRUE=FINAL" ...
-```
+    Summary for problem no. 2 [Model simulations] 
+     - Input data                    @data       : ../../mx19_2.csv
+     - Number of individuals         @nind       : 74
+     - Number of observations        @nobs       : 476
+     - Estimation method             @method     : sim
+     - Number of simulations         @nsim       : 20
+     - Simulation seed               @simseed    : 221287
+     - Run warnings                  @warnings   : (WARNING 2) NM-TRAN INFERS THAT THE DATA ARE POPULATION.
+                                                   (WARNING 22) WITH $MSFI AND "SUBPROBS", "TRUE=FINAL" ...
 
 ### Generate diagnostics
 
@@ -160,11 +156,11 @@ several useful articles to make full use of xpose
 When working with xpose, a working knowledge of ggplot2 is recommended.
 Help for ggplot2 can be found in:
 
-  - The ggplot2
+-   The ggplot2
     [documentation](https://ggplot2.tidyverse.org/reference/)
-  - The ggplot2 [mailing
+-   The ggplot2 [mailing
     list](https://groups.google.com/forum/?fromgroups#!forum/ggplot2)
-  - Internet resources (stack overflow, etc.)
+-   Internet resources (stack overflow, etc.)
 
 ## Contribute
 
