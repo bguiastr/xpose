@@ -50,7 +50,7 @@ test_that('error is returned when missing table header', {
   # Test with skip = 1 and header = FALSE
   writeLines(text = test_file[c(1, 3:4)], con = files[1])
   expect_error(suppressWarnings(read_nm_tables(file = files[1], quiet = TRUE)), 
-                 regexp = 'No table imported')
+               regexp = 'No table imported')
 })
 
 test_that('dot arguments are properly passed to readr', {
@@ -99,7 +99,13 @@ test_that('properly pick up column signs', {
                                  guess_max = 1, skip = 2)$DV) == -5)
   
   # Positive control with readr (reproducible bug example)
-  expect_false(min(readr::read_fwf(file = files, skip = 2,
-                                   col_positions = readr::fwf_empty(files, skip = 2, n = 1, col_names = c('ID', 'TIME', 'DV')))$DV) == -5)
-  })
+  if (utils::packageVersion("readr") > "1.4.0") {
+    expect_false(min(readr::read_fwf(file = files, skip = 2,
+                                     col_positions = readr::fwf_empty(files, skip = 2, n = 1, col_names = c('ID', 'TIME', 'DV')))$DV) == -5)
+  } else {
+    expect_false(min(readr::read_table(file = files, skip = 2, guess_max = 1,
+                                       col_names = c('ID', 'TIME', 'DV'))$DV) == -5)
+  }
+})
+
 

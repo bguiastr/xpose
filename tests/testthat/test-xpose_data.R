@@ -38,7 +38,7 @@ test_that('properly creates the xpdb when using the file argument', {
   xpdb_1$xp_theme <- as.xpose.theme(xpdb_1$xp_theme)
   attr(xpdb_1$xp_theme, 'theme') <- 'theme_xp_default'
   xpdb_1 <- as.xpdb(xpdb_1)
-  expect_identical(xpdb_1, xpdb_ex_pk)
+  expect_equal(xpdb_1, xpdb_ex_pk)
 })
 
 test_that('properly creates the xpdb when using the runno argument', {
@@ -53,7 +53,7 @@ test_that('properly creates the xpdb when using the runno argument', {
   xpdb_2$xp_theme <- as.xpose.theme(xpdb_2$xp_theme)
   attr(xpdb_2$xp_theme, 'theme') <- 'theme_xp_default'
   xpdb_2 <- as.xpdb(xpdb_2)
-  expect_identical(xpdb_2, xpdb_ex_pk)
+  expect_equal(xpdb_2, xpdb_ex_pk)
 })
 
 test_that('properly handles errors in tables', {
