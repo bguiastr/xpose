@@ -21,3 +21,4 @@
 ^vignettes/cheatsheet.pdf$
 ^vignettes/faq.*$
 ^vignettes/interactive_plots.*$
+^codecov\.yml$
