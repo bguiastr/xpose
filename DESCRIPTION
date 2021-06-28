@@ -47,7 +47,8 @@ Suggests:
   testthat,
   plotly,
   webshot,
-  mvtnorm
+  mvtnorm,
+  covr
 License: LGPL-3
 URL: https://github.com/UUPharmacometrics/xpose
 BugReports: https://github.com/UUPharmacometrics/xpose/issues
