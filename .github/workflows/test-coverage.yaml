@@ -1,16 +1,18 @@
 on:
   push:
     branches:
+      - main
       - master
   pull_request:
     branches:
+      - main
       - master
 
 name: test-coverage
 
 jobs:
   test-coverage:
-    runs-on: macOS-latest
+    uns-on: ubuntu-18.04
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
