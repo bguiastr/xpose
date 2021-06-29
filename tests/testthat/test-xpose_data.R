@@ -31,6 +31,7 @@ test_that('properly creates the xpdb when using the file argument', {
   expect_true(inherits(xpdb_1, 'xpose_data'))
   
   skip_on_cran() # Skip to avoid issue with no long double
+  skip_on_covr() # Avoid issue with covr
   
   # Correct path and quiet option for identical comparison with xpdb_ex_pk
   xpdb_1$options$quiet <- FALSE
@@ -46,6 +47,7 @@ test_that('properly creates the xpdb when using the runno argument', {
   expect_true(inherits(xpdb_2, 'xpose_data'))
   
   skip_on_cran() # Skip to avoid issue with no long double
+  skip_on_covr() # Avoid issue with covr
   
   # Correct path and quiet option for identical comparison with xpdb_ex_pk
   xpdb_2$options$quiet <- FALSE
