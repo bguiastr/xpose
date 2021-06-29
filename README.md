@@ -7,8 +7,6 @@
 [![cran\_version](https://www.r-pkg.org/badges/version/xpose)](https://CRAN.R-project.org/package=xpose)
 [![Codecov test
 coverage](https://codecov.io/gh/UUPharmacometrics/xpose/branch/master/graph/badge.svg)](https://codecov.io/gh/UUPharmacometrics/xpose?branch=master)
-[![Lifecycle
-Status](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![downloads](https://cranlogs.r-pkg.org/badges/grand-total/xpose)](https://CRAN.R-project.org/package=xpose)
 
 ## Overview
