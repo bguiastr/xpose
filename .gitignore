@@ -17,3 +17,4 @@ vignettes/*.R
 
 #OSX directories
 __MACOSX/
+docs
