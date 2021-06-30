@@ -17,10 +17,11 @@
 #' @inheritSection xplot_scatter Template titles
 #' @seealso \code{\link{xplot_scatter}}
 #' @examples
+#' \dontrun{
 #' # Basic example
 #' ind_plots(xpdb_ex_pk, page = 1,
 #'           ncol = 2, nrow = 2)
-#' 
+#' }
 #' @export
 ind_plots <- function(xpdb,
                       mapping       = NULL,
