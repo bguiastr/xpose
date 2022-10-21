@@ -84,7 +84,7 @@ xplot_distrib <- function(xpdb,
   if (stringr::str_detect(type, stringr::fixed('h', ignore_case = TRUE))) {
     xp <- xp + xp_geoms(mapping  = mapping %>% 
                           aes_rename('y', 'histogram_y') %>% 
-                          aes_c(fun_aes = aes(histogram_y = ..density..)),
+                          aes_c(fun_aes = aes(histogram_y = after_stat(!!rlang::sym("density")))),
                         xp_theme = xpdb$xp_theme,
                         name     = 'histogram',
                         ggfun    = 'geom_histogram',
