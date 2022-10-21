@@ -229,7 +229,7 @@ absval_res_vs_idv <- function(xpdb,
                     filter = only_obs(xpdb, .problem, quiet),
                     tidy = TRUE, value_col = res)
     vars <- aes_c(aes(x = .data[[xp_var(xpdb, .problem, type = 'idv')$col]], 
-                      y = abs(.data[[value]])), mapping)
+                      y = abs(.data[["value"]])), mapping)
   } else {
     if (missing(facets)) facets <- xpdb$xp_theme$facets
     opt <- data_opt(.problem = .problem, 
