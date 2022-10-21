@@ -40,7 +40,7 @@ print.xpose_plot <- function(x, page, ...) {
       
       ## Improve parsing since we now have to use the .data[["var"]] format in aes()
       ifelse(stringr::str_detect(., "\\.data\\[\\[\"\\w+\"]]"), 
-             yes = stringr::str_remove_all(., "(\\.data\\[\\[\")|(\"]]$)"),
+             yes = stringr::str_remove_all(., "(\\.data\\[\\[\")|(\"]])"),
              no  = .) %>% 
       purrr::set_names(names(x$mapping))
     
