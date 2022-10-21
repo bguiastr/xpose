@@ -63,6 +63,7 @@ update_themes <- function(xpdb     = NULL,
         xpdb$xp_theme[[names(xp_theme[x])]] <- xp_theme[[x]] # Beware drops NULL elements
       }
       attr(xpdb$xp_theme, 'theme') <- paste(attr(xpdb$xp_theme, 'theme'), '(modified)')
+      xpdb$xp_theme <- as.xpose.theme(xpdb$xp_theme)
     } else {
       msg('`xp_theme` argument not used. Reason: invalid input.', quiet)
     }
