@@ -42,11 +42,17 @@ test_that('full xp_themes are properly added', {
 })
 
 test_that('parial xp_themes are properly added', {
-  expect_equal(update_themes(xpdb = xpdb_ex_pk, 
-                             xp_theme = c(point_color = 'green'))$xp_theme,
-               theme_xp_custom,
-               check.attributes = FALSE,
-               check.environment = FALSE)
+  test <- update_themes(xpdb = xpdb_ex_pk, xp_theme = c(point_color = 'green'))$xp_theme
+  test_class <- class(test)
+  test$labeller <- NULL ## Reduce sensibility to ggplot2 updates
+  class(test) <- test_class
+  
+  ref <- theme_xp_custom
+  ref_class <- class(ref)
+  ref$labeller  <- NULL  ## Reduce sensibility to ggplot2 updates
+  class(ref) <- ref_class
+  
+  expect_equal(test, ref)
 })
 
 test_that('message on unnamed xp_theme input', {
