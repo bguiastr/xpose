@@ -19,19 +19,19 @@ test_that('errors are returned for bad filename input', {
   
   # Missing filename
   expect_error(xpose_save(plot = plot), 
-               regexp = 'Argument `file` required')
+               regexp = 'Argument.+file.+required')
   
   # Unrecognized extension
   expect_error(xpose_save(plot = plot, file = paths_1[1]), 
-               regexp = 'Unknown graphics device \'abcd\'')
+               regexp = 'Unknown graphics device')
   
   # Missing extension
   expect_error(xpose_save(plot = plot, file = paths_1[3]),
-               regexp = 'Unknown graphics device \'\'')
+               regexp = 'Unknown graphics device')
   
   # Length filename > 1
   expect_error(xpose_save(plot = plot, file = paths_1),
-               regexp = '`device` must be NULL, a string or a function.')
+               regexp = 'device.+must be.+NULL.+string or a function')
 })
 
 
