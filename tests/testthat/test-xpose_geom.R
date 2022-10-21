@@ -15,15 +15,27 @@ test_that('update_args works properly', {
 })
 
 test_that('xp_map works properly', {
-  expect_equal(xp_map(arg = list(color = 'red'), mapping = aes(x = .data[["IPRED"]]), ggfun = 'geom_point'),
-               geom_point(mapping = aes(x = .data[["IPRED"]]) , color = 'red'),
-               check.environment = FALSE)
+  test <- xp_map(arg = list(color = 'red'), mapping = aes(x = .data[["IPRED"]]), ggfun = 'geom_point')
+  test <- as.list(test)    ## Convert environment to list
+  test$constructor <- NULL ## Constructor cannot be match due to the different construct approaches
+  
+  ref <- geom_point(mapping = aes(x = .data[["IPRED"]]) , color = 'red')
+  ref <- as.list(ref)      ## Convert environment to list
+  ref$constructor <- NULL  ## Constructor cannot be match due to the different construct approaches
+  
+  expect_equal(test, ref)
 })
 
 test_that('xp_geoms works properly', {
- expect_equal(xp_geoms(mapping = aes(point_color = .data[["IPRED"]]), xpdb_ex_pk$xp_theme, name = 'point', 
-                       ggfun = 'geom_point', point_size = 3),
-              geom_point(mapping = aes(color = .data[["IPRED"]]) , alpha = 0.7, fill = NA, 
-                         shape = 19, size = 3, stroke = 0),
-              check.environment = FALSE)
+  test <- xp_geoms(mapping = aes(point_color = .data[["IPRED"]]), xpdb_ex_pk$xp_theme, name = 'point', 
+                   ggfun = 'geom_point', point_size = 3)
+  test <- as.list(test)    ## Convert environment to list
+  test$constructor <- NULL ## Constructor cannot be match due to the different construct approaches
+  
+  ref <- geom_point(mapping = aes(color = .data[["IPRED"]]) , alpha = 0.7, fill = NA, 
+                    shape = 19, size = 3, stroke = 0)
+  ref <- as.list(ref)      ## Convert environment to list
+  ref$constructor <- NULL  ## Constructor cannot be match due to the different construct approaches
+  
+  expect_equal(test, ref)
 })
