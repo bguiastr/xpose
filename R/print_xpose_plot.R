@@ -36,7 +36,12 @@ print.xpose_plot <- function(x, page, ...) {
     # Get the mapping variables keywords and values
     var_map <- x$mapping %>% 
       as.character() %>%
-      stringr::str_replace(pattern = '^~', replacement = '') %>% 
+      stringr::str_remove(pattern = "^~") %>% 
+      
+      ## Improve parsing since we now have to use the .data[["var"]] format in aes()
+      ifelse(stringr::str_detect(., "\\.data\\[\\[\"\\w+\"]]"), 
+             yes = stringr::str_remove_all(., "(\\.data\\[\\[\")|(\"]]$)"),
+             no  = .) %>% 
       purrr::set_names(names(x$mapping))
     
     # Process the keywords

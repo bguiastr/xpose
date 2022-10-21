@@ -14,6 +14,7 @@ To learn more about xpose, visit our website: \url{https://UUPharmacometrics.git
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://uupharmacometrics.github.io/xpose}
   \item \url{https://github.com/UUPharmacometrics/xpose}
   \item Report bugs at \url{https://github.com/UUPharmacometrics/xpose/issues}
 }

@@ -61,7 +61,7 @@ prm_qq <- function(xpdb,
            opt = data_opt(.problem = .problem, 
                           filter = only_distinct(xpdb, .problem, facets, quiet), 
                           tidy = TRUE, value_col = prm_col),
-           mapping = aes_c(aes_string(sample = 'value'), mapping), 
+           mapping = aes_c(aes(sample = .data[["value"]]), mapping), 
            type = type, guide = guide, facets = facets,
            xscale = check_scales('x', log), 
            yscale = check_scales('y', log), 
@@ -113,7 +113,7 @@ eta_qq <- function(xpdb,
                           filter = only_distinct(xpdb, .problem, facets, quiet), 
                           tidy = TRUE, value_col = eta_col,
                           post_processing = post_processing_eta),
-           mapping = aes_c(aes_string(sample = 'value'), mapping), 
+           mapping = aes_c(aes(sample = .data[["value"]]), mapping), 
            type = type, guide = guide, facets = facets,
            xscale = check_scales('x', log), 
            yscale = check_scales('y', log), 
@@ -157,12 +157,12 @@ res_qq <- function(xpdb,
     opt <- data_opt(.problem = .problem, 
                     filter = only_obs(xpdb, .problem, quiet),
                     tidy = TRUE, value_col = res)
-    vars <- aes_c(aes_string(sample = 'value'), mapping)
+    vars <- aes_c(aes(sample = .data[["value"]]), mapping)
   } else {
     if (missing(facets)) facets <- xpdb$xp_theme$facets
     opt <- data_opt(.problem = .problem, 
                     filter = only_obs(xpdb, .problem, quiet))
-    vars <- aes_c(aes_string(sample = toupper(res)), mapping)
+    vars <- aes_c(aes(sample = .data[[toupper(res)]]), mapping)
   }
   
   xplot_qq(xpdb = xpdb, quiet = quiet,
@@ -212,7 +212,7 @@ cov_qq <- function(xpdb,
            opt = data_opt(.problem = .problem, 
                           filter = only_distinct(xpdb, .problem, facets, quiet), 
                           tidy = TRUE, value_col = cov_col),
-           mapping = aes_c(aes_string(sample = 'value'), mapping), 
+           mapping = aes_c(aes(sample = .data[["value"]]), mapping), 
            type = type, guide = guide, facets = facets,
            xscale = check_scales('x', log), 
            yscale = check_scales('y', log), 

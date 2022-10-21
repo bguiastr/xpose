@@ -73,11 +73,11 @@ test_that('Check xp_var', {
 })
 
 test_that('Check append_aes', {
-  expect_equal(aes_c(aes_string(x = 'IPRED', y = 'DV'), NULL), 
-               aes_string(x = 'IPRED', y = 'DV'))
-  expect_equal(aes_c(aes_string(x = 'IPRED', y = 'DV'), 
-                     aes_string(y = 'PRED')), 
-               aes_string(x = 'IPRED', y = 'PRED'))
+  expect_equal(aes_c(aes(x = .data[["IPRED"]], y = .data[["DV"]]), NULL), 
+               aes(x = .data[["IPRED"]], y = .data[["DV"]]))
+  expect_equal(aes_c(aes(x = .data[["IPRED"]], y = .data[["DV"]]), 
+                     aes(y = .data[["PRED"]])), 
+               aes(x = .data[["IPRED"]], y = .data[["PRED"]]))
 })
 
 test_that('Check check_xpdb', {

@@ -123,7 +123,7 @@ xplot_scatter <- function(xpdb,
   
   # Add lines
   if (stringr::str_detect(type, stringr::fixed('l', ignore_case = TRUE))) {
-    xp <- xp + xp_geoms(mapping  = c(mapping, aes_string(line_group = group)),
+    xp <- xp + xp_geoms(mapping  = c(mapping, aes(line_group = .data[[group]])),
                         xp_theme = xpdb$xp_theme,
                         name     = 'line',
                         ggfun    = 'geom_line',
@@ -141,7 +141,7 @@ xplot_scatter <- function(xpdb,
   
   # Add text
   if (stringr::str_detect(type, stringr::fixed('t', ignore_case = TRUE))) {
-    xp <- xp + xp_geoms(mapping  = c(mapping, aes_string(text_label = group)),
+    xp <- xp + xp_geoms(mapping  = c(mapping, aes(text_label = .data[[group]])),
                         xp_theme = xpdb$xp_theme,
                         name     = 'text',
                         ggfun    = 'geom_text',

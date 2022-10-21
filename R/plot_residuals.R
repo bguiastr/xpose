@@ -52,14 +52,16 @@ res_vs_pred <- function(xpdb,
     opt <- data_opt(.problem = .problem, 
                     filter = only_obs(xpdb, .problem, quiet),
                     tidy = TRUE, value_col = res)
-    vars <- aes_c(aes_string(x = xp_var(xpdb, .problem, type = 'pred')$col, 
-                             y = 'value'), mapping)
+    vars <- aes_c(aes(
+      x = .data[[xp_var(xpdb, .problem, type = 'pred')$col]], 
+      y = .data[["value"]]), mapping)
   } else {
     if (missing(facets)) facets <- xpdb$xp_theme$facets
     opt <- data_opt(.problem = .problem, 
                     filter = only_obs(xpdb, .problem, quiet))
-    vars <- aes_c(aes_string(x = xp_var(xpdb, .problem, type = 'pred')$col, 
-                             y = toupper(res)), mapping)
+    vars <- aes_c(aes(
+      x = .data[[xp_var(xpdb, .problem, type = 'pred')$col]], 
+      y = .data[[toupper(res)]]), mapping)
   }
   
   xplot_scatter(xpdb = xpdb, group = group, quiet = quiet,
@@ -102,14 +104,14 @@ absval_res_vs_pred <- function(xpdb,
     opt <- data_opt(.problem = .problem, 
                     filter = only_obs(xpdb, .problem, quiet),
                     tidy = TRUE, value_col = res)
-    vars <- aes_c(aes_string(x = xp_var(xpdb, .problem, type = 'pred')$col, 
-                             y = 'abs(value)'), mapping)
+    vars <- aes_c(aes(x = .data[[xp_var(xpdb, .problem, type = 'pred')$col]], 
+                      y = abs(.data[["value"]])), mapping)
   } else {
     if (missing(facets)) facets <- xpdb$xp_theme$facets
     opt <- data_opt(.problem = .problem, 
                     filter = only_obs(xpdb, .problem, quiet))
-    vars <- aes_c(aes_string(x = xp_var(xpdb, .problem, type = 'pred')$col, 
-                             y =  stringr::str_c('abs(', toupper(res), ')')), mapping)
+    vars <- aes_c(aes(x = .data[[xp_var(xpdb, .problem, type = 'pred')$col]], 
+                      y =  abs(.data[[toupper(res)]])), mapping)
   }
   
   xplot_scatter(xpdb = xpdb, group = group, quiet = quiet,
@@ -176,14 +178,14 @@ res_vs_idv <- function(xpdb,
     opt <- data_opt(.problem = .problem, 
                     filter = only_obs(xpdb, .problem, quiet),
                     tidy = TRUE, value_col = res)
-    vars <- aes_c(aes_string(x = xp_var(xpdb, .problem, type = 'idv')$col, 
-                             y = 'value'), mapping)
+    vars <- aes_c(aes(x = .data[[xp_var(xpdb, .problem, type = 'idv')$col]], 
+                      y = .data[["value"]]), mapping)
   } else {
     if (missing(facets)) facets <- xpdb$xp_theme$facets
     opt <- data_opt(.problem = .problem, 
                     filter = only_obs(xpdb, .problem, quiet))
-    vars <- aes_c(aes_string(x = xp_var(xpdb, .problem, type = 'idv')$col, 
-                             y = toupper(res)), mapping)
+    vars <- aes_c(aes(x = .data[[xp_var(xpdb, .problem, type = 'idv')$col]], 
+                      y = .data[[toupper(res)]]), mapping)
   }
   
   xplot_scatter(xpdb = xpdb, group = group, quiet = quiet,
@@ -226,14 +228,14 @@ absval_res_vs_idv <- function(xpdb,
     opt <- data_opt(.problem = .problem, 
                     filter = only_obs(xpdb, .problem, quiet),
                     tidy = TRUE, value_col = res)
-    vars <- aes_c(aes_string(x = xp_var(xpdb, .problem, type = 'idv')$col, 
-                             y = 'abs(value)'), mapping)
+    vars <- aes_c(aes(x = .data[[xp_var(xpdb, .problem, type = 'idv')$col]], 
+                      y = abs(.data[[value]])), mapping)
   } else {
     if (missing(facets)) facets <- xpdb$xp_theme$facets
     opt <- data_opt(.problem = .problem, 
                     filter = only_obs(xpdb, .problem, quiet))
-    vars <- aes_c(aes_string(x = xp_var(xpdb, .problem, type = 'idv')$col, 
-                             y =  stringr::str_c('abs(', toupper(res), ')')), mapping)
+    vars <- aes_c(aes(x = .data[[xp_var(xpdb, .problem, type = 'idv')$col]], 
+                      y =  abs(.data[[toupper(res)]])), mapping)
   }
   
   xplot_scatter(xpdb = xpdb, group = group, quiet = quiet,

@@ -2,10 +2,10 @@ context('Check printing method for xpose_plots')
 
 # Define plots to be tested -----------------------------------------------
 # Facet wrap
-p1 <- xplot_scatter(xpdb = xpdb_ex_pk, aes_string(x = 'PRED', y = 'DV'), quiet = TRUE)
-p2 <- xplot_scatter(xpdb = xpdb_ex_pk, aes_string(x = 'PRED', y = 'DV'), 
+p1 <- xplot_scatter(xpdb = xpdb_ex_pk, aes(x = PRED, y = DV), quiet = TRUE)
+p2 <- xplot_scatter(xpdb = xpdb_ex_pk, aes(x = PRED, y = DV), 
                     facets = ~SEX, quiet = TRUE, ncol = 1, nrow = 1, page = 1)
-p3 <- xplot_scatter(xpdb = xpdb_ex_pk, aes_string(x = 'PRED', y = 'DV'), 
+p3 <- xplot_scatter(xpdb = xpdb_ex_pk, aes(x = PRED, y = DV), 
                     facets = 'SEX', quiet = TRUE, ncol = 1, nrow = 1, page = c(1, 2),
                     caption = 'Page @page of @lastpage')
 
@@ -23,10 +23,10 @@ test_that('warnings and errors are properly returned', {
 })
 
 test_that('console output are silenced with quiet', {
-  expect_message(xplot_scatter(xpdb = xpdb_ex_pk, aes_string(x = 'PRED', y = 'DV'),
+  expect_message(xplot_scatter(xpdb = xpdb_ex_pk, aes(x = PRED, y = DV),
                                facets = DOSE~SEX, quiet = FALSE, ncol = 1, nrow = 1,
                                page = 1), regex = 'Using data from')
-  expect_silent(xplot_scatter(xpdb = xpdb_ex_pk, aes_string(x = 'PRED', y = 'DV'),
+  expect_silent(xplot_scatter(xpdb = xpdb_ex_pk, aes(x = PRED, y = DV),
                               facets = DOSE~SEX, quiet = TRUE, ncol = 1, nrow = 1,
                               page = 1:2))
 })

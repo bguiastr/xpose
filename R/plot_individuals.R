@@ -65,10 +65,11 @@ ind_plots <- function(xpdb,
                                 post_processing = function(x) {
                                   dplyr::mutate(.data = x, variable = factor(x$variable, levels = variable_names))
                                 }),
-                 mapping = aes_c(aes_string(x = xp_var(xpdb, .problem, type = 'idv')$col, 
-                                            y = 'value', line_color = 'variable', text_color = 'variable',
-                                            line_linetype = 'variable', point_color = 'variable', 
-                                            point_alpha = 'variable'), mapping),
+                 mapping = aes_c(aes(
+                   x = .data[[xp_var(xpdb, .problem, type = 'idv')$col]], 
+                   y = .data[["value"]], line_color = .data[["variable"]], 
+                   text_color = .data[["variable"]], line_linetype = .data[["variable"]], 
+                   point_color = .data[["variable"]], point_alpha = .data[["variable"]]), mapping),
                  type = type, facets = facets,
                  xscale = check_scales('x', log),
                  yscale = check_scales('y', log), 

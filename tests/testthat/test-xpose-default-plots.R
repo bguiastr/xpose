@@ -4,32 +4,32 @@ context('Check default plot functions')
 # Define plots to be tested -----------------------------------------------
 
 # General tests
-p1 <- xplot_scatter(xpdb = xpdb_ex_pk, aes_string(x = 'PRED', y = 'DV'), guide = TRUE, type = 'plst',
+p1 <- xplot_scatter(xpdb = xpdb_ex_pk, aes(x = .data[["PRED"]], y = .data[["DV"]]), guide = TRUE, type = 'plst',
                     title = '@run-title', subtitle = '@run-subtitle', caption = '@run-caption',
                     tag = '@run-tag', point_color = 'red', line_color = 'blue', 
                     smooth_color = 'green', text_color = 'yellow', quiet = TRUE)
-d1 <- xplot_distrib(xpdb = xpdb_ex_pk, aes_string(x = 'PRED'), guide = FALSE, type = 'dhr',
+d1 <- xplot_distrib(xpdb = xpdb_ex_pk, aes(x = .data[["PRED"]]), guide = FALSE, type = 'dhr',
                     title = '@run-title', subtitle = '@run-subtitle', caption = '@run-caption',
                     tag = '@run-tag', histogram_color = 'red', density_color = 'blue',
                     rug_color = 'yellow', quiet = TRUE)
-q1 <- xplot_qq(xpdb = xpdb_ex_pk, aes_string(sample = 'PRED'), guide = TRUE, type = 'p',
+q1 <- xplot_qq(xpdb = xpdb_ex_pk, aes(sample = .data[["PRED"]]), guide = TRUE, type = 'p',
                title = '@run-title', subtitle = '@run-subtitle', caption = '@run-caption',
                tag = '@run-tag', point_color = 'red', guide_color = 'blue', quiet = TRUE)
 
 # Facet wrap
-p2 <- xplot_scatter(xpdb = xpdb_ex_pk, aes_string(x = 'PRED', y = 'DV'), 
+p2 <- xplot_scatter(xpdb = xpdb_ex_pk, aes(x = .data[["PRED"]], y = .data[["DV"]]), 
                     facets = c('MED2', 'SEX'), quiet = TRUE)
-d2 <- xplot_distrib(xpdb = xpdb_ex_pk, aes_string(x = 'PRED'), 
+d2 <- xplot_distrib(xpdb = xpdb_ex_pk, aes(x = .data[["PRED"]]), 
                     facets = c('MED2', 'SEX'), quiet = TRUE, page = 1, ncol = 1, nrow = 1)
-q2 <- xplot_qq(xpdb = xpdb_ex_pk, aes_string(sample = 'PRED'), 
+q2 <- xplot_qq(xpdb = xpdb_ex_pk, aes(sample = .data[["PRED"]]), 
                facets = c('MED2', 'SEX'), quiet = TRUE, page = 1:2, ncol = 1, nrow = 1)
 
 # Facet grid
-p3 <- xplot_scatter(xpdb = xpdb_ex_pk, aes_string(x = 'PRED', y = 'DV'), 
+p3 <- xplot_scatter(xpdb = xpdb_ex_pk, aes(x = .data[["PRED"]], y = .data[["DV"]]), 
                     facets = MED2~SEX, quiet = TRUE, page = 1, ncol = 1, nrow = 1)
-d3 <- xplot_distrib(xpdb = xpdb_ex_pk, aes_string(x = 'PRED'), 
+d3 <- xplot_distrib(xpdb = xpdb_ex_pk, aes(x = .data[["PRED"]]), 
                     facets = MED2~SEX, quiet = TRUE)
-q3 <- xplot_qq(xpdb = xpdb_ex_pk, aes_string(sample = 'PRED'), 
+q3 <- xplot_qq(xpdb = xpdb_ex_pk, aes(sample = .data[["PRED"]]), 
                facets = MED2~SEX, quiet = TRUE, page = 1:2, ncol = 1, nrow = 1)
 
 

@@ -119,10 +119,11 @@ are listed under \code{\link{template_titles}}.
 }
 
 \examples{
+\dontrun{
 # Basic example
 ind_plots(xpdb_ex_pk, page = 1,
           ncol = 2, nrow = 2)
-
+}
 }
 \seealso{
 \code{\link{xplot_scatter}}
