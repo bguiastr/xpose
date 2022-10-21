@@ -61,6 +61,11 @@ read_nm_model <- function(runno   = NULL,
     stop('Model file ', basename(full_path), ' not found.', call. = FALSE) 
   }
   
+  # Check for readr lazy loading
+  if (readr::should_read_lazy() & .Platform$OS.type == "windows") {
+    warning("Using lazy loading in `readr` on Windows can cause unexpected behavior and is not recommended for `xpose`.", call. = FALSE)
+  }
+  
   model <- readr::read_lines(full_path)
   
   if (!any(stringr::str_detect(model, '^\\s*\\$PROB.+')) && ext %in% c('.lst', '.out', '.res')) {

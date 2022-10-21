@@ -36,6 +36,11 @@ read_nm_files <- function(runno  = NULL,
   
   if (missing(quiet)) quiet <- !interactive()
   
+  # Check for readr lazy loading
+  if (readr::should_read_lazy() & .Platform$OS.type == "windows") {
+    warning("Using lazy loading in `readr` on Windows can cause unexpected behavior and is not recommended with `xpose`.", call. = FALSE)
+  }
+  
   # Generate full paths
   if (!is.null(runno)) {
     full_path <- file_path(dir, stringr::str_c(prefix, runno, make_extension(ext)))

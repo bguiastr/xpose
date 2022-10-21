@@ -80,6 +80,11 @@ read_nm_tables <- function(file          = NULL,
     stop('No table imported due to duplicated names.', call. = FALSE)
   }
   
+  # Check for readr lazy loading
+  if (readr::should_read_lazy() & .Platform$OS.type == "windows") {
+    warning("Using lazy loading in `readr` on Windows can cause unexpected behavior and is not recommended for `xpose`.", call. = FALSE)
+  }
+  
   tables <- file[file.exists(file$file), ]
   
   # Search for compressed tables
