@@ -1,3 +1,7 @@
+# xpose 0.4.13.9000
+* Compatibility fix with ggplot2 3.4.0
+* Compatibility fix with stringr 1.5.0 (@hadley, #207)
+
 # xpose 0.4.13
 * Compatibility fix with ggplot2 3.3.4
 * Compatibility fix with readr 2.0.0 (@jimhester, #194)
