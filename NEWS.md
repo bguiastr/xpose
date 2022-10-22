@@ -1,6 +1,10 @@
 # xpose 0.4.13.9000
 * Compatibility fix with ggplot2 3.4.0
 * Compatibility fix with stringr 1.5.0 (@hadley, #207)
+* xpose will now give a warning on windows if `options(readr.read_lazy = TRUE)` (@AndreasCalvagone #198)
+* Fixed errors in plots when calling function with `xpose::` (@mattfidler #95)
+* Updated continuous integration workflow
+* Small fixes and improvements
 
 # xpose 0.4.13
 * Compatibility fix with ggplot2 3.3.4
