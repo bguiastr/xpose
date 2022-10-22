@@ -74,7 +74,7 @@ ind_plots <- function(xpdb,
                  xscale = check_scales('x', log),
                  yscale = check_scales('y', log), 
                  title = title, subtitle = subtitle, caption = caption, 
-                 tag = tag, plot_name = as.character(match.call()[[1]])))) +
+                 tag = tag, plot_name = stringr::str_remove(deparse(match.call()[[1]]), "(\\w+\\.*)+::")))) +
     scale_alpha_manual(values = point_alpha) +
     scale_color_manual(values = color) +
     scale_linetype_manual(values = line_linetype)

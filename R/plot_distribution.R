@@ -66,7 +66,7 @@ prm_distrib <- function(xpdb,
                 xscale = check_scales('x', log), 
                 yscale = check_scales('y', log), 
                 title = title, subtitle = subtitle, caption = caption,
-                tag = tag, plot_name = as.character(match.call()[[1]]), ...)
+                tag = tag, plot_name = stringr::str_remove(deparse(match.call()[[1]]), "(\\w+\\.*)+::"), ...)
 }
 
 #' @rdname distrib_plot
@@ -117,7 +117,7 @@ eta_distrib <- function(xpdb,
                 xscale = check_scales('x', log), 
                 yscale = check_scales('y', log), 
                 title = title, subtitle = subtitle, caption = caption,
-                tag = tag, plot_name = as.character(match.call()[[1]]), ...)
+                tag = tag, plot_name = stringr::str_remove(deparse(match.call()[[1]]), "(\\w+\\.*)+::"), ...)
 }
 
 #' @param res Only used for \code{res_distrib}. Defines the type of residual to be used. Default is "CWRES".
@@ -168,7 +168,7 @@ res_distrib <- function(xpdb,
                 xscale = check_scales('x', log), 
                 yscale = check_scales('y', log), 
                 title = title, subtitle = subtitle, caption = caption,
-                tag = tag, plot_name = as.character(match.call()[[1]]), ...)
+                tag = tag, plot_name = stringr::str_remove(deparse(match.call()[[1]]), "(\\w+\\.*)+::"), ...)
 }
 
 #' @rdname distrib_plot
@@ -212,5 +212,5 @@ cov_distrib <- function(xpdb,
                 xscale = check_scales('x', log), 
                 yscale = check_scales('y', log), 
                 title = title, subtitle = subtitle, caption = caption,
-                tag = tag, plot_name = as.character(match.call()[[1]]), ...)
+                tag = tag, plot_name = stringr::str_remove(deparse(match.call()[[1]]), "(\\w+\\.*)+::"), ...)
 }
