@@ -1,4 +1,4 @@
-# xpose 0.4.13.9000
+# xpose 0.4.14
 * Compatibility fix with ggplot2 3.4.0
 * Compatibility fix with stringr 1.5.0 (@hadley, #207)
 * xpose will now give a warning on windows if `options(readr.read_lazy = TRUE)` (@AndreasCalvagone #198)
