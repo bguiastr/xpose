@@ -6,16 +6,16 @@
 [![R-CMD-check](https://github.com/UUPharmacometrics/xpose/workflows/R-CMD-check/badge.svg)](https://github.com/UUPharmacometrics/xpose/actions)
 [![cran_version](https://www.r-pkg.org/badges/version/xpose)](https://CRAN.R-project.org/package=xpose)
 [![Codecov test
-coverage](https://codecov.io/gh/UUPharmacometrics/xpose/branch/master/graph/badge.svg)](https://codecov.io/gh/UUPharmacometrics/xpose?branch=master)
+coverage](https://codecov.io/gh/UUPharmacometrics/xpose/branch/master/graph/badge.svg)](https://app.codecov.io/gh/UUPharmacometrics/xpose?branch=master)
 [![downloads](https://cranlogs.r-pkg.org/badges/grand-total/xpose)](https://CRAN.R-project.org/package=xpose)
 
 ## Overview
 
 [xpose](https://UUPharmacometrics.github.io/xpose/) was designed as a
 [ggplot2](https://ggplot2.tidyverse.org/)-based alternative to
-[xpose4](http://xpose.sourceforge.net). xpose aims to reduce the post
-processing burden and improve diagnostics commonly associated the
-development of non-linear mixed effect models.
+[xpose4](https://uupharmacometrics.github.io/xpose4/). xpose aims to
+reduce the post processing burden and improve diagnostics commonly
+associated the development of non-linear mixed effect models.
 
 ## Installation
 
