@@ -49,8 +49,8 @@ Suggests:
   webshot,
   mvtnorm
 License: LGPL-3
-URL: https://uupharmacometrics.github.io/xpose, https://github.com/UUPharmacometrics/xpose
-BugReports: https://github.com/UUPharmacometrics/xpose/issues
+URL: https://uupharmacometrics.github.io/xpose/, https://github.com/UUPharmacometrics/xpose/
+BugReports: https://github.com/UUPharmacometrics/xpose/issues/
 Encoding: UTF-8
 LazyData: true
 VignetteBuilder: knitr
