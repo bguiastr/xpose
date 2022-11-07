@@ -9,14 +9,14 @@
 xpose was designed as a ggplot2-based alternative to xpose4. This package aims to reduce the post 
 processing burden and improve diagnostics commonly associated the development of non-linear mixed effect models.
 
-To learn more about xpose, visit our website: \url{https://UUPharmacometrics.github.io/xpose/}.
+To learn more about xpose, visit our website: \url{https://uupharmacometrics.github.io/xpose/}.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://uupharmacometrics.github.io/xpose}
-  \item \url{https://github.com/UUPharmacometrics/xpose}
-  \item Report bugs at \url{https://github.com/UUPharmacometrics/xpose/issues}
+  \item \url{https://uupharmacometrics.github.io/xpose/}
+  \item \url{https://github.com/UUPharmacometrics/xpose/}
+  \item Report bugs at \url{https://github.com/UUPharmacometrics/xpose/issues/}
 }
 
 }
