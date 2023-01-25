@@ -1,4 +1,5 @@
 # xpose (development version)
+* Don't summarise RANMETHOD as an estimation method (@vrognas)
 
 # xpose 0.4.14
 * Compatibility fix with ggplot2 3.4.0
