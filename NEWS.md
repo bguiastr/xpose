@@ -1,3 +1,5 @@
+# xpose (development version)
+
 # xpose 0.4.14
 * Compatibility fix with ggplot2 3.4.0
 * Compatibility fix with stringr 1.5.0 (@hadley, #207)
