@@ -117,7 +117,7 @@ parse_nm_files <- function(dat, quiet) {
   }
   
   x[tab_rows, ]$problem <- stringr::str_match(x[tab_rows, ]$raw, '\\s+Problem=(\\d+)')[,2]
-  x[tab_rows, ]$subprob <- stringr::str_match(x[tab_rows, ]$raw, '\\s+Subproblem=(\\d+)')[,2]
+  x <- x %>% dplyr::mutate(subprob = cumsum(duplicated(problem) & !is.na(problem)))
   x[tab_rows, ]$method  <- dplyr::case_when(stringr::str_detect(x[tab_rows, ]$raw, 'First Order Conditional') ~ 'foce',
                                             stringr::str_detect(x[tab_rows, ]$raw, 'First Order') ~ 'fo',
                                             stringr::str_detect(x[tab_rows, ]$raw, 'Laplacian Conditional') ~ 'lce', 
