@@ -1,5 +1,3 @@
-context('Check printing method for xpose_plots')
-
 # Define plots to be tested -----------------------------------------------
 # Facet wrap
 p1 <- xplot_scatter(xpdb = xpdb_ex_pk, aes(x = PRED, y = DV), quiet = TRUE)

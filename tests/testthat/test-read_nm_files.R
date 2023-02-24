@@ -1,5 +1,3 @@
-context('Check read_nm_files')
-
 # Define files to be tested -----------------------------------------------
 test_file1 <- c('ID          KA          CL          V           ALAG1       ETA1        ETA2        ETA3        DV          PRED        RES         WRES',
                 '  1.1000E+02  4.1052E-01  2.5483E+01  1.4917E+02  2.3223E-01 -4.5845E-02 -3.5313E-03 -2.1460E+00  0.0000E+00 -3.6889E+00  0.0000E+00  0.0000E+00',

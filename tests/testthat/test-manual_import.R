@@ -1,5 +1,3 @@
-context('Check manual_import')
-
 ctrl_str <- list(tab_suffix = '',
                  sim_suffix = 'sim',
                  tab_names = c('sdtab', 'mutab', 'patab', 'catab', 'cotab', 'mytab', 'extra', 'xptab', 'cwtab'))

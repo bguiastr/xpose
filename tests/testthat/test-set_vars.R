@@ -1,5 +1,3 @@
-context('Check set_vars')
-
 # Tests start here --------------------------------------------------------
 test_that('input is check properly', {
   expect_error(set_var_types(), regexp = 'argument \"xpdb\" is missing')

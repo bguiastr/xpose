@@ -1,5 +1,3 @@
-context('Check read_nm_model')
-
 # Define files to be tested -----------------------------------------------
 ctrl_mod   <- xpdb_ex_pk$code
 

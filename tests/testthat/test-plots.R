@@ -1,5 +1,3 @@
-context('Check plot functions')
-
 prediction_plot_functions <- c('dv_vs_pred', 'dv_vs_ipred', 'dv_vs_idv', 
                                'ipred_vs_idv', 'pred_vs_idv', 'dv_preds_vs_idv')
 residual_plot_functions   <- c('res_vs_idv', 'res_vs_pred', 'absval_res_vs_idv', 

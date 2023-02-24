@@ -1,5 +1,3 @@
-context('Check xpose_geoms')
-
 # Tests start here --------------------------------------------------------
 
 test_that('parse_arg works properly', {

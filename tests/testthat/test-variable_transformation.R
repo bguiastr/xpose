@@ -1,5 +1,3 @@
-context('Check variable transformation calculations')
-
 test_that('transform_prm fails for inappropriate input', {
   expect_error(transform_prm(""))
   expect_error(transform_prm(~omega))

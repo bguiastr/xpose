@@ -1,5 +1,3 @@
-context('Check xpose_data')
-
 # Tests start here --------------------------------------------------------
 
 test_that('error is returned when missing file and runno arguments', {
