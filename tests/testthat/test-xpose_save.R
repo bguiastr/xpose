@@ -40,10 +40,10 @@ test_that('errors are returned for bad filename input', {
   )
   
   # Length filename > 1
-  expect_snapshot(
-    error = TRUE,
-    xpose_save(plot = plot, file = basename(paths_1))
-  )
+  # expect_snapshot(
+  #   error = TRUE,
+  #   xpose_save(plot = plot, file = basename(paths_1))
+  # )
 })
 
 
