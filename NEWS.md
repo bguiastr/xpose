@@ -1,3 +1,9 @@
+# xpose 0.4.14.9000
+* Compatibility fix with ggplot2 3.4.0
+* Compatibility fix with dplyr 1.1.0
+* Updated minimal requirements (@sebastianueckert, #208)
+* Small fixes and improvements
+
 # xpose 0.4.14
 * Compatibility fix with ggplot2 3.4.0
 * Compatibility fix with stringr 1.5.0 (@hadley, #207)
