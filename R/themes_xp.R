@@ -56,7 +56,7 @@ theme_xp_default <- function() {
     line_alpha      =  0.7,
     line_color      = 'grey20',
     line_linetype   = 'solid',
-    line_size       =  0.5,
+    line_linewidth  =  0.5,
     
     # Point
     point_alpha     = 0.7,
@@ -116,6 +116,11 @@ theme_xp_default <- function() {
     area_linetype    = 1
   )
   
+  ## ggplot2 v3.4.0 compatibility fix
+  if (utils::packageVersion("tidyr") < "3.4.0") {
+    names(tmp_theme)[names(tmp_theme) == "line_linewidth"] <- "line_size"
+  }
+  
   as.xpose.theme(tmp_theme)
 }
 
@@ -158,7 +163,7 @@ theme_xp_xpose4 <- function() {
     line_alpha      =  NA,
     line_color      = 'blue',
     line_linetype   = 'solid',
-    line_size       =  0.5,
+    line_linewidth  =  0.5,
     
     # Point
     point_alpha     = NA,
@@ -217,6 +222,11 @@ theme_xp_xpose4 <- function() {
     area_size        = 0.5,
     area_linetype    = 1
   )
+  
+  ## ggplot2 v3.4.0 compatibility fix
+  if (utils::packageVersion("tidyr") < "3.4.0") {
+    names(tmp_theme)[names(tmp_theme) == "line_linewidth"] <- "line_size"
+  }
   
   as.xpose.theme(tmp_theme)
 }
