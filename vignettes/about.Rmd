@@ -10,23 +10,23 @@ vignette: >
 ---
 
 # Team
-## 2018-2021
+## 2018-2023
 - [Benjamin Guiastrennec](mailto:guiastrennec@gmail.com) *(non-affiliated)*
-- [Sebastian Ueckert](mailto:sebastian.ueckert@farmbio.uu.se) *(Uppsala University)*
+- [Sebastian Ueckert](mailto:sebastian.ueckert@farmaci.uu.se) *(Uppsala University)*
 - [Mike K. Smith](mailto:mike.k.smith@pfizer.com) *(Pfizer)*
-- [Mats O. Karlsson](mailto:mats.karlsson@farmbio.uu.se) *(Uppsala University)*
-- [Andrew C. Hooker](mailto:andrew.hooker@farmbio.uu.se) *(Uppsala University)*
+- [Mats O. Karlsson](mailto:mats.karlsson@farmaci.uu.se) *(Uppsala University)*
+- [Andrew C. Hooker](mailto:andrew.hooker@farmaci.uu.se) *(Uppsala University)*
 
 ## 2017
 - [Benjamin Guiastrennec](mailto:guiastrennec@gmail.com) *(Uppsala University)*
-- [Andrew C. Hooker](mailto:andrew.hooker@farmbio.uu.se) *(Uppsala University)*
+- [Andrew C. Hooker](mailto:andrew.hooker@farmaci.uu.se) *(Uppsala University)*
 - [Anna Olofsson](mailto:anna.olofsson@pharmetheus.com) *(Pharmetheus)*
-- [Sebastian Ueckert](mailto:sebastian.ueckert@farmbio.uu.se) *(Uppsala University)*
+- [Sebastian Ueckert](mailto:sebastian.ueckert@farmaci.uu.se) *(Uppsala University)*
 - [Ron Keizer](mailto:ronkeizer@gmail.com) *(InsightRx)*
 - [Kajsa Harling](mailto:kajsa.harling@pharmetheus.com) *(Pharmetheus)*
 - [Mike K. Smith](mailto:mike.k.smith@pfizer.com) *(Pfizer)*
 - [Elodie Plan](mailto:elodie.plan@pharmetheus.com) *(Pharmetheus)*
-- [Mats O. Karlsson](mailto:mats.karlsson@farmbio.uu.se) *(Uppsala University)*
+- [Mats O. Karlsson](mailto:mats.karlsson@farmaci.uu.se) *(Uppsala University)*
 
 ## 2016
 - [Benjamin Guiastrennec](mailto:guiastrennec@gmail.com) *(Uppsala University)*
@@ -41,7 +41,7 @@ The xpose package development was kindly sponsored by:
 # History
 The new xpose was inspired from data visualization and model diagnostics concepts established by the [xpose4](http://xpose.sourceforge.net) package. 
 
-Xpose4 was developed by the [Department of Pharmaceutical Biosciences](https://www.farmbio.uu.se/forskning/researchgroups/pharmacometrics/) at Uppsala University:
+Xpose4 was developed by the [Department of Pharmaceutical Biosciences](https://www.farmaci.uu.se/forskning/researchgroups/pharmacometrics/) at Uppsala University:
 
 - Copyright (C) 2009-present Andrew C. Hooker, Mats O. Karlsson and E. Niclas Jonsson.
 - Copyright (C) 2005-2008 Andrew C. Hooker, Justin J. Wilkins, Mats O. Karlsson and E. Niclas Jonsson.
