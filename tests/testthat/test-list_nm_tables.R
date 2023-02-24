@@ -1,5 +1,3 @@
-context('Check list_nm_tables')
-
 # Define files to be tested -----------------------------------------------
 simtab_test <- structure(
   dplyr::tibble(problem    = 1,

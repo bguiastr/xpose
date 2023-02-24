@@ -1,6 +1,3 @@
-context('Check default plot functions')
-
-
 # Define plots to be tested -----------------------------------------------
 
 # General tests

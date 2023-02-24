@@ -1,5 +1,3 @@
-context('Check fetch_data')
-
 # Tests start here --------------------------------------------------------
 test_that('data_opt function works properly', {
   expect_equal(data_opt(.problem = 1, .subprob = 2, .method = 'foce', .source = 'data', 

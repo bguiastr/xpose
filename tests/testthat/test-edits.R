@@ -1,5 +1,3 @@
-context('Check xpdb_edits')
-
 # Define files to be tested -----------------------------------------------
 ctrl_tab_1 <- xpdb_ex_pk %>% 
   mutate.xpose_data(DV = log(DV), .problem = 1) %>% 
