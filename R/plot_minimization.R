@@ -51,7 +51,7 @@ prm_vs_iteration <- function(xpdb,
                                .method = .method, .source = 'ext',
                                filter = function(x) {
                                  x <- x %>%
-                                   dplyr::filter(!!x_var >= 0) %>%
+                                   dplyr::filter(!!rlang::sym(x_var) >= 0) %>%
                                    dplyr::select_if(.predicate = function(x) dplyr::n_distinct(x) > 1)
                                  
                                  if (ncol(x[, colnames(x) != x_var]) == 0) {
@@ -104,7 +104,7 @@ grd_vs_iteration <- function(xpdb,
                                .method = .method, .source = 'grd',
                                filter = function(x) {
                                  x <- x %>%
-                                   dplyr::filter(!!x_var >= 0) %>%
+                                   dplyr::filter(!!rlang::sym(x_var) >= 0) %>%
                                    dplyr::select_if(.predicate = function(x) dplyr::n_distinct(x) > 1)
                                  
                                  if (ncol(x[, colnames(x) != x_var]) == 0) {
