@@ -50,9 +50,10 @@ prm_vs_iteration <- function(xpdb,
                 opt = data_opt(.problem = .problem, .subprob = .subprob,
                                .method = .method, .source = 'ext',
                                filter = function(x) {
-                                 x <- x %>% 
-                                   dplyr::filter(.[, x_var] >= 0) %>% 
+                                 x <- x %>%
+                                   dplyr::filter(!!x_var >= 0) %>%
                                    dplyr::select_if(.predicate = function(x) dplyr::n_distinct(x) > 1)
+                                 
                                  if (ncol(x[, colnames(x) != x_var]) == 0) {
                                    stop('No parameters varying across ', x_var, ' were found.', call. = FALSE)
                                  }
@@ -102,9 +103,10 @@ grd_vs_iteration <- function(xpdb,
                 opt = data_opt(.problem = .problem, .subprob = .subprob, 
                                .method = .method, .source = 'grd',
                                filter = function(x) {
-                                 x <- x %>% 
-                                   dplyr::filter(.[, x_var] >= 0) %>% 
+                                 x <- x %>%
+                                   dplyr::filter(!!x_var >= 0) %>%
                                    dplyr::select_if(.predicate = function(x) dplyr::n_distinct(x) > 1)
+                                 
                                  if (ncol(x[, colnames(x) != x_var]) == 0) {
                                    stop('No parameters varying across ', x_var, ' were found.', call. = FALSE)
                                  }
