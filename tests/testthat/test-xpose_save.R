@@ -1,6 +1,4 @@
 # Inspired from ggplot2 ggsave tests
-context('Check xpose_save')
-
 # Define plots to be tested -----------------------------------------------
 
 plot <- dv_vs_ipred(xpdb = xpdb_ex_pk, quiet = TRUE)
@@ -14,24 +12,38 @@ test_that('errors are returned for bad plot input', {
 })
 
 test_that('errors are returned for bad filename input', {
+  # Note: testthat::expect_snapshot requires use of 3rd edition 
+  #       but we are only using it locally for now as it would 
+  #       require making substantial changes if used globally.
+  local_edition(3) 
+
+  # Setup paths  
   paths_1 <- file.path(tempdir(), paste0('test_plot', c('.abcd', '.bcde', '')))
   on.exit(unlink(paths_1))
   
   # Missing filename
-  expect_error(xpose_save(plot = plot), 
-               regexp = 'Argument.+file.+required')
+  expect_snapshot(
+    error = TRUE, 
+    xpose_save(plot = plot)
+  )
   
   # Unrecognized extension
-  expect_error(xpose_save(plot = plot, file = paths_1[1]), 
-               regexp = 'Unknown graphics device')
+  expect_snapshot(
+    error = TRUE,
+    xpose_save(plot = plot, file = paths_1[1])
+  )
   
   # Missing extension
-  expect_error(xpose_save(plot = plot, file = paths_1[3]),
-               regexp = 'Unknown graphics device')
+  expect_snapshot(
+    error = TRUE, 
+    xpose_save(plot = plot, file = paths_1[3])
+  )
   
   # Length filename > 1
-  expect_error(xpose_save(plot = plot, file = paths_1),
-               regexp = 'device.+must be.+NULL.+string or a function')
+  expect_snapshot(
+    error = TRUE,
+    xpose_save(plot = plot, file = basename(paths_1))
+  )
 })
 
 
