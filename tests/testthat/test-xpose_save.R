@@ -12,38 +12,25 @@ test_that('errors are returned for bad plot input', {
 })
 
 test_that('errors are returned for bad filename input', {
-  # Note: testthat::expect_snapshot requires use of 3rd edition 
-  #       but we are only using it locally for now as it would 
-  #       require making substantial changes if used globally.
-  local_edition(3) 
-
-  # Setup paths  
-  paths_1 <- file.path(tempdir(), paste0('test_plot', c('.abcd', '.bcde', '')))
+  paths_1 <- file.path(tempdir(), paste0('test_plot', c('.abcd', '.bcde', '', '.pdf', '.png')))
   on.exit(unlink(paths_1))
   
   # Missing filename
-  expect_snapshot(
-    error = TRUE, 
-    xpose_save(plot = plot)
-  )
+  expect_error(xpose_save(plot = plot), 
+               regexp = 'Argument.+file.+required')
   
   # Unrecognized extension
-  expect_snapshot(
-    error = TRUE,
-    xpose_save(plot = plot, file = paths_1[1])
-  )
+  expect_error(xpose_save(plot = plot, file = paths_1[1]), 
+               regexp = 'Unknown graphics device')
   
   # Missing extension
-  expect_snapshot(
-    error = TRUE, 
-    xpose_save(plot = plot, file = paths_1[3])
-  )
+  expect_error(xpose_save(plot = plot, file = paths_1[3]),
+               regexp = 'Unknown graphics device')
   
-  # Length filename > 1
-  # expect_snapshot(
-  #   error = TRUE,
-  #   xpose_save(plot = plot, file = basename(paths_1))
-  # )
+  # Length filename > 1 
+  # Note: No longer an error
+  # expect_warning(xpose_save(plot = plot, file = paths_1[4:5]),
+  #              regexp = 'Only the first')
 })
 
 
