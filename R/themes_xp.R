@@ -117,7 +117,7 @@ theme_xp_default <- function() {
   )
   
   ## ggplot2 v3.4.0 compatibility fix
-  if (utils::packageVersion("tidyr") < "3.4.0") {
+  if (utils::packageVersion("ggplot2") < "3.4.0") {
     names(tmp_theme)[names(tmp_theme) == "line_linewidth"] <- "line_size"
   }
   
@@ -224,7 +224,7 @@ theme_xp_xpose4 <- function() {
   )
   
   ## ggplot2 v3.4.0 compatibility fix
-  if (utils::packageVersion("tidyr") < "3.4.0") {
+  if (utils::packageVersion("ggplot2") < "3.4.0") {
     names(tmp_theme)[names(tmp_theme) == "line_linewidth"] <- "line_size"
   }
   
