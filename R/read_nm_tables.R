@@ -132,7 +132,7 @@ read_nm_tables <- function(file          = NULL,
   tables <- tables %>% 
     dplyr::bind_cols(tables %>% 
                        dplyr::select(dplyr::one_of(c('fun', 'params'))) %>% 
-                       dplyr::mutate(table = purrr::map2(.x = fun, .y = params, .f = do.call)) %>% 
+                       dplyr::mutate(table = purrr::map2(.x = .$fun, .y = .$params, .f = do.call)) %>% 
                        dplyr::pull(table) %>% 
                        dplyr::tibble(data = .))
   
