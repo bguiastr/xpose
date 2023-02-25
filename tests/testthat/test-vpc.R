@@ -1,5 +1,3 @@
-context('Check VPCs')
-
 # Define files to be tested -----------------------------------------------
 # ctrl_special <- xpdb_ex_pk %>%
 #   vpc_data(opt = vpc_opt(n_bins = 3, lloq = 0.1)) %>%

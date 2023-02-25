@@ -1,5 +1,3 @@
-context('Check read_nm_tables')
-
 # Define files to be tested -----------------------------------------------
 
 test_tab <- read_nm_tables(file = 'sdtab001', dir = 'data', quiet = TRUE)

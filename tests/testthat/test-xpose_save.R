@@ -1,6 +1,4 @@
 # Inspired from ggplot2 ggsave tests
-context('Check xpose_save')
-
 # Define plots to be tested -----------------------------------------------
 
 plot <- dv_vs_ipred(xpdb = xpdb_ex_pk, quiet = TRUE)
@@ -14,7 +12,7 @@ test_that('errors are returned for bad plot input', {
 })
 
 test_that('errors are returned for bad filename input', {
-  paths_1 <- file.path(tempdir(), paste0('test_plot', c('.abcd', '.bcde', '')))
+  paths_1 <- file.path(tempdir(), paste0('test_plot', c('.abcd', '.bcde', '', '.pdf', '.png')))
   on.exit(unlink(paths_1))
   
   # Missing filename
@@ -29,9 +27,10 @@ test_that('errors are returned for bad filename input', {
   expect_error(xpose_save(plot = plot, file = paths_1[3]),
                regexp = 'Unknown graphics device')
   
-  # Length filename > 1
-  expect_error(xpose_save(plot = plot, file = paths_1),
-               regexp = 'device.+must be.+NULL.+string or a function')
+  # Length filename > 1 
+  # Note: No longer an error
+  # expect_warning(xpose_save(plot = plot, file = paths_1[4:5]),
+  #              regexp = 'Only the first')
 })
 
 

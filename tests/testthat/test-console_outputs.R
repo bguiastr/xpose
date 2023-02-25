@@ -1,5 +1,3 @@
-context('Check console output function')
-
 # Define files to be tested -----------------------------------------------
 xpdb_modified <- xpdb_ex_pk %>% 
   vpc_data(opt = vpc_opt(n_bins = 2), quiet = TRUE) %>% 

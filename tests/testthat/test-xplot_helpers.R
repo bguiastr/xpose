@@ -1,5 +1,3 @@
-context('Check xplot_helpers')
-
 xpdb_NULL       <- xpdb_ex_pk
 xpdb_NULL$data  <- NULL
 xpdb_NULL$files <- NULL

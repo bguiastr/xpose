@@ -1,5 +1,3 @@
-context('Check model summary functions')
-
 # Define files to be tested -----------------------------------------------
 software <- 'nonmem'
 model    <- xpdb_ex_pk$code

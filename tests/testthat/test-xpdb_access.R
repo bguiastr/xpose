@@ -1,5 +1,3 @@
-context('Check xpdb_access functions')
-
 # Tests for get_code ------------------------------------------------------
 
 test_that('get_code checks input properly', {
