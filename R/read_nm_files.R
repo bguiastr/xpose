@@ -117,7 +117,11 @@ parse_nm_files <- function(dat, quiet) {
   }
   
   x[tab_rows, ]$problem <- stringr::str_match(x[tab_rows, ]$raw, '\\s+Problem=(\\d+)')[,2]
-  x <- x %>% dplyr::mutate(subprob = cumsum(duplicated(problem) & !is.na(problem)))
+  
+  ## Give stacked estimation methods a unique subproblem number
+  ## Note: this allows the use of the same estimation method several times within one $PROBLEM
+  x <- dplyr::mutate(x, subprob = cumsum(duplicated(!!rlang::sym("problem")) & !is.na(!!rlang::sym("problem"))) + 1)
+  
   x[tab_rows, ]$method  <- dplyr::case_when(stringr::str_detect(x[tab_rows, ]$raw, 'First Order Conditional') ~ 'foce',
                                             stringr::str_detect(x[tab_rows, ]$raw, 'First Order') ~ 'fo',
                                             stringr::str_detect(x[tab_rows, ]$raw, 'Laplacian Conditional') ~ 'lce', 
