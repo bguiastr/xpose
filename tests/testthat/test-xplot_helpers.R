@@ -58,7 +58,7 @@ test_that('Check last_file_problem', {
 })
 
 test_that('Check last_file_subprob', {
-  expect_equal(last_file_subprob(xpdb_ex_pk, ext = 'ext', .problem = 1), 0)
+  expect_equal(last_file_subprob(xpdb_ex_pk, ext = 'ext', .problem = 1), 1)
   expect_equal(last_file_subprob(xpdb_ex_pk, ext = 'fake', .problem = 1), NA_integer_)
 })
 
