@@ -1,8 +1,9 @@
-# xpose 0.4.14.9000
-* Compatibility fix with ggplot2 3.4.0
-* Compatibility fix with dplyr 1.1.0
+# xpose 0.4.15
 * Updated minimal requirements (@sebastianueckert, #208)
-* Don't summarise RANMETHOD as an estimation method (@vrognas, #213)
+* Don't summarize RANMETHOD as an estimation method (@vrognas, #213)
+* Fix bug when a given estimation method is used several time in a single `$PROBLEM`. Sequential `$ESTIMATION` are now each attributed different `subprob` visible to the user using `list_files(xpdb)` (@vrognas, #213)
+* Compatibility fix with ggplot2 3.4.0, all layers but `geom_point` and `geom_text` should now use `linewidth` instead of `size` for line width.
+* Compatibility fix with dplyr 1.1.0
 * Small fixes and improvements
 
 # xpose 0.4.14
