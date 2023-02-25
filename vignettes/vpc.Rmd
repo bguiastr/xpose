@@ -30,7 +30,7 @@ VPC can be created either by:
 1. Using an xpdb containing a simulation and an estimation problem
 2. Using a [PsN](https://uupharmacometrics.github.io/PsN/) generated VPC folder
 
-The VPC functionality in xpose is build around the [vpc R package](https://cran.r-project.org/package=vpc). For more details about the way the vpc package works, please check the [documentation website](http://vpc.ronkeizer.com).
+The VPC functionality in xpose is build around the [vpc R package](https://cran.r-project.org/package=vpc). For more details about the way the vpc package works, please check the [github repository](https://github.com/ronkeizer/vpc).
 
 ### Workflow
 The VPC computing and plotting parts have been separated into two distinct functions: `vpc_data()` and `vpc()` respectively. This allows to:
