@@ -153,7 +153,7 @@ Layers can also be used to modify the aesthetics scales for example  `ggplot2::s
 ```{r demo layers}
 dv_vs_ipred(xpdb) +
   geom_rug(alpha = 0.2, color = 'grey50',
-           sides = 'lb', size = 0.4) +
+           sides = 'lb', linewidth = 0.4) +
   annotate(geom = 'text',
            fontface = 'bold',
            color = 'darkred',
