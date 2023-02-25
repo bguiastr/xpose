@@ -73,14 +73,14 @@ test_that('get_file checks input properly', {
 
 test_that('get_file works properly', {
   # Return single file
-  expect_equal(get_file(xpdb_ex_pk, file = 'run001.ext', .problem = 1, .subprob = 0, quiet = TRUE), 
+  expect_equal(get_file(xpdb_ex_pk, file = 'run001.ext', .problem = 1, .subprob = 1, quiet = TRUE), 
                xpdb_ex_pk$files[xpdb_ex_pk$files$name == 'run001.ext', ]$data[[1]])
   
   # Return multiple files
   expect_equal(get_file(xpdb_ex_pk, file = c('run001.ext', 'run001.phi')), 
-               list(`run001.ext_prob_1_subprob_0_foce` = 
+               list(`run001.ext_prob_1_subprob_1_foce` = 
                       xpdb_ex_pk$files[xpdb_ex_pk$files$name == 'run001.ext', ]$data[[1]],
-                    `run001.phi_prob_1_subprob_0_foce` = 
+                    `run001.phi_prob_1_subprob_1_foce` = 
                       xpdb_ex_pk$files[xpdb_ex_pk$files$name == 'run001.phi', ]$data[[1]]))
 })
 
