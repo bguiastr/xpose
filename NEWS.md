@@ -1,3 +1,6 @@
+# xpose 0.4.16
+* Updated tests for `ggplot2`(3.4.2)
+
 # xpose 0.4.15
 * Updated minimal requirements for `readr` (>= 2.1.0) (@sebastianueckert, #208)
 * Updated minimal requirments for R (>= 3.5.0) `because serialized objects in serialize/load version 3 cannot be read in older versions of R`

@@ -20,12 +20,12 @@ test_that('errors are returned for bad filename input', {
                regexp = 'Argument.+file.+required')
   
   # Unrecognized extension
-  expect_error(xpose_save(plot = plot, file = paths_1[1]), 
+  expect_error(xpose_save(plot = plot, file = paths_1[1]),
                regexp = 'Unknown graphics device')
   
   # Missing extension
   expect_error(xpose_save(plot = plot, file = paths_1[3]),
-               regexp = 'Unknown graphics device')
+               regexp = 'has no file extension')
   
   # Length filename > 1 
   # Note: No longer an error
