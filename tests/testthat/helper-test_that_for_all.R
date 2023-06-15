@@ -17,7 +17,7 @@ test_that_for_all <- function(X, desc, code, envir = parent.frame()){
       attr(code_x, "srcref") <- attr(code, "srcref")
       
       # call test_code function avoiding ::: operator
-      do.call(get("test_code", envir = asNamespace("testthat")), list(test = paste(desc, "for", name_x, x), code = code_x), envir = envir)
+      do.call(get("test_code", envir = asNamespace("testthat")), list(test = paste(desc, "for", name_x, x), code = code_x, env = envir), envir = envir)
     })
 }
 
