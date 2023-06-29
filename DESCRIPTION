@@ -1,7 +1,7 @@
 Package: xpose
 Type: Package
 Title: Diagnostics for Pharmacometric Models
-Version: 0.4.15
+Version: 0.4.16
 Authors@R: c(
       person('Benjamin', 'Guiastrennec',
              role  = c('aut', 'cre', 'cph'),
@@ -19,7 +19,7 @@ Authors@R: c(
              role  = c('aut', 'cph'),
              email = 'mats.karlsson@farmaci.uu.se'))
 Description: Diagnostics for non-linear mixed-effects (population) 
-    models from 'NONMEM' <https://www.iconplc.com/innovation/nonmem/>. 
+    models from 'NONMEM' <https://www.iconplc.com/solutions/technologies/nonmem/>. 
     'xpose' facilitates data import, creation of numerical run summary 
     and provide 'ggplot2'-based graphics for data exploration and model 
     diagnostics.
