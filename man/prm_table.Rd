@@ -34,12 +34,13 @@ off diagonal elements be transformed to correlations.}
 Display parameter estimates from an xpdb object to the console.
 }
 \examples{
+\dontrun{
 # Store the parameter table
 prm <- get_prm(xpdb_ex_pk, .problem = 1)
 
 # Display parameters to the console
 prm_table(xpdb_ex_pk, .problem = 1)
-
+}
 }
 \seealso{
 \code{\link{get_prm}},
