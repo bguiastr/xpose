@@ -1,3 +1,6 @@
+# xpose 0.4.17
+* Updated tests for `ggplot2`(@hadley, #220)
+
 # xpose 0.4.16
 * Updated tests for `ggplot2`(3.4.2)
 
