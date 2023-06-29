@@ -1,9 +1,9 @@
 # Inspired from ggplot2 ggsave tests
 # Define plots to be tested -----------------------------------------------
 
-plot <- dv_vs_ipred(xpdb = xpdb_ex_pk, quiet = TRUE)
+plot <- dv_vs_ipred(xpdb = xpdb_ex_pk, type = "p", quiet = TRUE)
 
-plot_multiple <- dv_vs_ipred(xpdb = xpdb_ex_pk, quiet = TRUE, facet = c('SEX', 'MED1'), ncol = 1, nrow = 1, page = 1:2)
+plot_multiple <- dv_vs_ipred(xpdb = xpdb_ex_pk, type = "p", quiet = TRUE, facets = c('SEX', 'MED1'), ncol = 1, nrow = 1, page = 1:2)
 
 # Tests start here --------------------------------------------------------
 
@@ -12,22 +12,22 @@ test_that('errors are returned for bad plot input', {
 })
 
 test_that('errors are returned for bad filename input', {
+  local_edition(3)
+  local_reproducible_output()
+
   paths_1 <- file.path(tempdir(), paste0('test_plot', c('.abcd', '.bcde', '', '.pdf', '.png')))
-  on.exit(unlink(paths_1))
-  
+  on.exit(unlink(paths_1), add = TRUE)
+
   # Missing filename
-  expect_error(xpose_save(plot = plot), 
-               regexp = 'Argument.+file.+required')
-  
+  expect_snapshot(xpose_save(plot = plot), error = TRUE)
+
   # Unrecognized extension
-  expect_error(xpose_save(plot = plot, file = paths_1[1]),
-               regexp = 'Unknown graphics device')
-  
+  expect_snapshot(xpose_save(plot = plot, file = paths_1[1]), error = TRUE)
+
   # Missing extension
-  expect_error(xpose_save(plot = plot, file = paths_1[3]),
-               regexp = 'has no file extension')
-  
-  # Length filename > 1 
+  expect_snapshot(xpose_save(plot = plot, file = paths_1[3]), error = TRUE)
+
+  # Length filename > 1
   # Note: No longer an error
   # expect_warning(xpose_save(plot = plot, file = paths_1[4:5]),
   #              regexp = 'Only the first')

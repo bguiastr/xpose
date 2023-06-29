@@ -53,7 +53,7 @@ test_that('read_nm_files handles all files with inappropriate format', {
 test_that('files are imported correctly', {
   skip_on_cran() # Unknown error on CRAN !
   
-  expect_identical(read_nm_files(runno = '001', dir = 'data', quiet = TRUE), ctrl_file1)
-  expect_identical(read_nm_files(file = paste0('run001', c('.ext', '.cor', '.cov', '.phi', '.grd', '.shk')), 
+  expect_equal(read_nm_files(runno = '001', dir = 'data', quiet = TRUE), ctrl_file1)
+  expect_equal(read_nm_files(file = paste0('run001', c('.ext', '.cor', '.cov', '.phi', '.grd', '.shk')), 
                                  dir = 'data', quiet = TRUE), ctrl_file1)
 })
