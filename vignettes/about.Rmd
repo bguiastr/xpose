@@ -10,7 +10,7 @@ vignette: >
 ---
 
 # Team
-## 2018-2023
+## 2018-2024
 - [Benjamin Guiastrennec](mailto:guiastrennec@gmail.com) *(non-affiliated)*
 - [Sebastian Ueckert](mailto:sebastian.ueckert@farmaci.uu.se) *(Uppsala University)*
 - [Mike K. Smith](mailto:mike.k.smith@pfizer.com) *(Pfizer)*

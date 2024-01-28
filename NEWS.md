@@ -1,33 +1,33 @@
 # xpose 0.4.17.9000
-* Compatibility fix for `roxygen2`(7.3.1)
+* Compatibility fix for `roxygen2` 7.3.1
 * Small documentation fixes
 
 # xpose 0.4.17
-* Updated tests for `ggplot2`(@hadley, #220)
+* Updated tests for `ggplot2` (@hadley, #220)
 
 # xpose 0.4.16
-* Updated tests for `ggplot2`(3.4.2)
+* Updated tests for `ggplot2` 3.4.2
 
 # xpose 0.4.15
 * Updated minimal requirements for `readr` (>= 2.1.0) (@sebastianueckert, #208)
-* Updated minimal requirments for R (>= 3.5.0) `because serialized objects in serialize/load version 3 cannot be read in older versions of R`
+* Updated minimal requirements for R (>= 3.5.0) `because serialized objects in serialize/load version 3 cannot be read in older versions of R`
 * Don't summarize RANMETHOD as an estimation method (@vrognas, #213)
 * Fix bug when a given estimation method is used several time in a single `$PROBLEM`. Sequential `$ESTIMATION` are now each attributed different `subprob` visible to the user using `list_files(xpdb)` (@vrognas, #213)
-* Compatibility fix with ggplot2 3.4.0, all layers but `geom_point` and `geom_text` should now use `linewidth` instead of `size` for line width.
-* Compatibility fix with dplyr 1.1.0
+* Compatibility fix with `ggplot2` 3.4.0, all layers but `geom_point` and `geom_text` should now use `linewidth` instead of `size` for line width.
+* Compatibility fix with `dplyr` 1.1.0
 * Small fixes and improvements
 
 # xpose 0.4.14
-* Compatibility fix with ggplot2 3.4.0
-* Compatibility fix with stringr 1.5.0 (@hadley, #207)
-* xpose will now give a warning on windows if `options(readr.read_lazy = TRUE)` (@AndreasCalvagone #198)
+* Compatibility fix with `ggplot2` 3.4.0
+* Compatibility fix with `stringr` 1.5.0 (@hadley, #207)
+* `xpose` will now give a warning on windows if `options(readr.read_lazy = TRUE)` (@AndreasCalvagone #198)
 * Fixed errors in plots when calling function with `xpose::` (@mattfidler #95)
 * Updated continuous integration workflow
 * Small fixes and improvements
 
 # xpose 0.4.13
-* Compatibility fix with ggplot2 3.3.4
-* Compatibility fix with readr 2.0.0 (@jimhester, #194)
+* Compatibility fix with `ggplot2` 3.3.4
+* Compatibility fix with `readr` 2.0.0 (@jimhester, #194)
 
 # xpose 0.4.12
 * Compatibility fix for R 4.1.x
@@ -36,13 +36,13 @@
 * Improve `noLD` in tests
 
 # xpose 0.4.10
-* Compatibility fix for vpc 1.2.1
+* Compatibility fix for `vpc` 1.2.1
 
 # xpose 0.4.9
-* Compatibility fix for dplyr 1.0.0 and vpc 1.2.0
+* Compatibility fix for `dplyr` 1.0.0 and `vpc` 1.2.0
 
 # xpose 0.4.8
-* Compatibility fix for ggplot 3.3.0 and tibble 3.0.0
+* Compatibility fix for `ggplot` 3.3.0 and `tibble` 3.0.0
 
 # xpose 0.4.7
 * Fixed error in documentation check fail in R 4.0.0
@@ -53,8 +53,8 @@
 
 # xpose 0.4.5
 ## General
-* The `gg_theme` argument in `xpose_data`, `update_themes` or plots now accepts a function returning a complete ggplot2 theme. In addition theme `gg_theme` can now accept theme elements in `update_themes` and plots. (#157)
-* Added compatibility with tidyr 1.0.0 (#166)
+* The `gg_theme` argument in `xpose_data`, `update_themes` or plots now accepts a function returning a complete `ggplot2` theme. In addition theme `gg_theme` can now accept theme elements in `update_themes` and plots. (#157)
+* Added compatibility with `tidyr` 1.0.0 (#166)
 * Small fixes to vignettes, documentations and website
 
 # xpose 0.4.4
@@ -67,19 +67,19 @@
 # xpose 0.4.3
 ### General
 * Fixed bug in `get_prm()`/`prm_table()` where off diagonal correlations were improperly computed.
-* Fixed bug in `print.xpose_data()`where a warning from stringi was returned.
-* Fixed multiple bugs introduced by the new versions of tidyverse packages
-* Added compatibility to ggplot2 v3.0.0
+* Fixed bug in `print.xpose_data()`where a warning from `stringi` was returned.
+* Fixed multiple bugs introduced by the new versions of `tidyverse` packages
+* Added compatibility to `ggplot2` v3.0.0
 
 # xpose 0.4.2
 ### General
 * Address CRAN requests
 * Improved internal structure of VPC
-* Fixed bug with vpc 1.0.1
+* Fixed bug with `vpc` 1.0.1
 
 # xpose 0.4.1
 ### General
-* Improved integration of the xpose.nlmixr package
+* Improved integration of the `xpose.nlmixr` package
 * Prevented a problem in the `print()` function with the upcoming ggplot2 version
 * Fixed bug in `summary()` where missing estimation method was reported if NM code written as METH=... instead of METHOD=...
 * Fixed bug where labels in `prm_table()`, `get_prm()` were missing with a commented row in $THETA, $OMEGA or $SIGMA
