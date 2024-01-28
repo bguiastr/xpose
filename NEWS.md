@@ -1,3 +1,7 @@
+# xpose 0.4.17.9000
+* Compatibility fix for `roxygen2`(7.3.1)
+* Small documentation fixes
+
 # xpose 0.4.17
 * Updated tests for `ggplot2`(@hadley, #220)
 
