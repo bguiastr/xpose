@@ -33,11 +33,11 @@ Quickly import NONMEM output files into R.
 }
 \section{File path generation}{
  The rules for model file names generation are
-  as follow: \itemize{ 
+  as follow: \itemize{
   \item with \code{runno}: the full path is generated as
   \code{<dir>/<prefix><runno>.<ext>} e.g. with \code{dir = 'model/pk'},
   \code{prefix = 'run'}, \code{runno = '001'}, \code{ext = '.lst'} the
-  resulting path would be \code{model/pk/run001.lst} 
+  resulting path would be \code{model/pk/run001.lst}
   \item with \code{file}:
   the full path is generated as \code{<dir>/<file>} e.g. with \code{dir =
   'model/pk'}, \code{file = 'run001.lst'} the resulting path would also be
