@@ -136,7 +136,8 @@ print.xpose_plot <- function(x, page, ...) {
   }
 }
 
-# Import print ggplot method
+#' Import print ggplot method
+#' @keywords internal
 print.ggplot <- get('print.ggplot', envir = asNamespace('ggplot2'))
 
 
