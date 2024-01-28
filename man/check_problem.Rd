@@ -12,8 +12,6 @@ check_problem(.problem, .subprob, .method)
 \item{.subprob}{The subproblem to be checked.}
 
 \item{.method}{The estimation method to be checked.}
-
-\item{xpdb}{An xpose database object.}
 }
 \description{
 Check .problem, .subprob and .method

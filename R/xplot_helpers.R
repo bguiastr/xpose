@@ -1,6 +1,5 @@
 #' Check .problem, .subprob and .method
 #' 
-#' @param xpdb An xpose database object.
 #' @param .problem The problem to be checked.
 #' @param .subprob The subproblem to be checked.
 #' @param .method The estimation method to be checked.
