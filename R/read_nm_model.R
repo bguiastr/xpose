@@ -68,7 +68,7 @@ read_nm_model <- function(runno   = NULL,
   
   model <- readr::read_lines(full_path)
   
-  if (!any(stringr::str_detect(model, '^\\s*\\$PROB.+')) && ext %in% c('.lst', '.out', '.res')) {
+  if (!any(stringr::str_detect(model, '^\\s*\\$PROB')) && ext %in% c('.lst', '.out', '.res')) {
     # Attempts to recover the model code from model file rather than in the nonmem output file
     full_path <- update_extension(full_path, c('.mod', '.ctl'))
     full_path <- full_path[file.exists(full_path)]
@@ -81,7 +81,7 @@ read_nm_model <- function(runno   = NULL,
   }
   
   # Return error if input is bad
-  if (!any(stringr::str_detect(model, '^\\s*\\$PROB.+'))) {
+  if (!any(stringr::str_detect(model, '^\\s*\\$PROB'))) {
     stop(basename(full_path), ' is not a NONMEM model.', call. = FALSE)
   }
   
@@ -89,7 +89,7 @@ read_nm_model <- function(runno   = NULL,
     dplyr::filter(!stringr::str_detect(.$code, '^;[^;]*$|^$')) %>% 
     dplyr::mutate(code = stringr::str_replace_all(.$code, '\\t+|\\s{2,}', ' ')) %>% 
     dplyr::mutate(
-      problem     = findInterval(seq_along(.$code), which(stringr::str_detect(.$code, '^\\s*\\$PROB.+'))),
+      problem     = findInterval(seq_along(.$code), which(stringr::str_detect(.$code, '^\\s*\\$PROB'))),
       level       = findInterval(seq_along(.$code), which(stringr::str_detect(.$code, '^\\s*\\$.+'))),
       subroutine  = stringr::str_match(.$code, '^\\s*\\$(\\w+)')[, 2]) %>% 
     tidyr::fill(dplyr::one_of('subroutine'))

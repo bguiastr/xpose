@@ -1,6 +1,7 @@
 # xpose 0.4.17.9000
 * Compatibility fix for `roxygen2` 7.3.1
-* Small documentation fixes
+* Fix bug when reading a control stream and using `$PROB` instead of `$PROBLEM` (@AndreasCalvagone, #222)
+* Small documentation fixes and improvements
 
 # xpose 0.4.17
 * Updated tests for `ggplot2` (@hadley, #220)
