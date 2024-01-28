@@ -19,7 +19,7 @@ attached to an \code{\link{xpose_data}} object.
 # Using the print function
 print(xpdb_ex_pk)
 
-# Or simply by writting the xpdb name
+# Or simply by writing the xpdb name
 xpdb_ex_pk
 
 }
