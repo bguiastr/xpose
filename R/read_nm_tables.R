@@ -421,9 +421,9 @@ merge_firstonly <- function(x, quiet) {
 #' @export
 index_table <- function(x) {
   tab_type <- dplyr::case_when(
-    stringr::str_detect(x$name, 'patab') ~ 'param',   # model parameters
-    stringr::str_detect(x$name, 'catab') ~ 'catcov',  # categorical covariate
-    stringr::str_detect(x$name, 'cotab') ~ 'contcov', # continuous covariate
+    stringr::str_detect(tolower(x$name), 'patab') ~ 'param',   # model parameters
+    stringr::str_detect(tolower(x$name), 'catab') ~ 'catcov',  # categorical covariate
+    stringr::str_detect(tolower(x$name), 'cotab') ~ 'contcov', # continuous covariate
     TRUE ~ 'na')
   
   x$data[[1]] %>% 
