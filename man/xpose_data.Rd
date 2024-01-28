@@ -15,6 +15,7 @@ xpose_data(
   simtab = NULL,
   manual_import = NULL,
   ignore = NULL,
+  check_ext = TRUE,
   extra_files,
   quiet,
   ...
@@ -27,7 +28,7 @@ combination with \code{prefix} and \code{ext}.}
 \item{prefix}{Prefix to be used to generate model file name. Used in
 combination with \code{runno} and \code{ext}.}
 
-\item{ext}{Extension to be used to generate model file name.Should be one of
+\item{ext}{Extension to be used to generate model file name. Should be one of
 '.lst' (default), '.out', '.res', '.mod' or '.ctl' for NONMEM.}
 
 \item{file}{Model file name (preferably a '.lst' file) containing the file
@@ -55,8 +56,13 @@ in previous versions of xpose, the check the function
 \item{ignore}{Character vector be used to ignore the import/generation of:
 'data', 'files', 'summary' or any combination of the three.}
 
+\item{check_ext}{Logical, if \code{TRUE} will provide an error message if the
+extension of the NONMEM input file is not one of '.lst', '.out', '.res',
+'.mod' or '.ctl' for NONMEM. If \code {FALSE} any file extension can be
+used.}
+
 \item{extra_files}{A vector of additional output file extensions to be
-imported. Default is '.ext', '.cov', '.cor', '.phi', ".grd" for NONMEM.}
+imported. Default is '.ext', '.cov', '.cor', '.phi', '.grd' for NONMEM.}
 
 \item{quiet}{Logical, if \code{FALSE} messages are printed to the console.}
 
@@ -68,11 +74,11 @@ Gather model outputs into a R database
 }
 \section{File path generation}{
  The rules for model file names generation are
-  as follow: \itemize{ 
+  as follow: \itemize{
   \item with \code{runno}: the full path is generated as
   \code{<dir>/<prefix><runno>.<ext>} e.g. with \code{dir = 'model/pk'},
   \code{prefix = 'run'}, \code{runno = '001'}, \code{ext = '.lst'} the
-  resulting path would be \code{model/pk/run001.lst} 
+  resulting path would be \code{model/pk/run001.lst}
   \item with \code{file}:
   the full path is generated as \code{<dir>/<file>} e.g. with \code{dir =
   'model/pk'}, \code{file = 'run001.lst'} the resulting path would also be

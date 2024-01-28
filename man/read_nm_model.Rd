@@ -9,7 +9,8 @@ read_nm_model(
   prefix = "run",
   ext = ".lst",
   file = NULL,
-  dir = NULL
+  dir = NULL,
+  check_ext = TRUE
 )
 }
 \arguments{
@@ -19,7 +20,7 @@ combination with \code{prefix} and \code{ext}.}
 \item{prefix}{Prefix to be used to generate model file name. Used in
 combination with \code{runno} and \code{ext}.}
 
-\item{ext}{Extension to be used to generate model file name.Should be one of
+\item{ext}{Extension to be used to generate model file name. Should be one of
 '.lst' (default), '.out', '.res', '.mod' or '.ctl' for NONMEM.}
 
 \item{file}{Model file name (preferably a '.lst' file) containing the file
@@ -27,6 +28,11 @@ extension. Alternative to \code{prefix}, \code{runno} and \code{ext}
 arguments.}
 
 \item{dir}{Location of the model files.}
+
+\item{check_ext}{Logical, if \code{TRUE} will provide an error message if the
+extension of the NONMEM input file is not one of '.lst', '.out', '.res',
+'.mod' or '.ctl' for NONMEM. If \code {FALSE} any file extension can be
+used.}
 }
 \value{
 A \code{\link[dplyr]{tibble}} of class \code{model} containing the following columns: 
@@ -53,11 +59,11 @@ associated with run001.mod.
 }
 \section{File path generation}{
  The rules for model file names generation are
-  as follow: \itemize{ 
+  as follow: \itemize{
   \item with \code{runno}: the full path is generated as
   \code{<dir>/<prefix><runno>.<ext>} e.g. with \code{dir = 'model/pk'},
   \code{prefix = 'run'}, \code{runno = '001'}, \code{ext = '.lst'} the
-  resulting path would be \code{model/pk/run001.lst} 
+  resulting path would be \code{model/pk/run001.lst}
   \item with \code{file}:
   the full path is generated as \code{<dir>/<file>} e.g. with \code{dir =
   'model/pk'}, \code{file = 'run001.lst'} the resulting path would also be
