@@ -1,6 +1,7 @@
 # xpose 0.4.17.9000
 * Compatibility fix for `roxygen2` 7.3.1
 * Fix bug when reading a control stream and using `$PROB` instead of `$PROBLEM` (@AndreasCalvagone, #222)
+* Introduced `check_ext` argument in `xpose_data()`, `read_nm_model()`, to bypass the strict NONMEM model format check if needed.
 * Small documentation fixes and improvements
 
 # xpose 0.4.17

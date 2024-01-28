@@ -8,7 +8,7 @@ test_that('error is returned when missing file and runno arguments', {
 })
 
 test_that('error is returned when extension is unrecognized', {
-  expect_error(read_nm_model(file = 'run001.exe', dir = 'data'), regexp = 'NONMEM model file extension should be one lst, out, res, mod or ctl.')
+  expect_error(read_nm_model(file = 'run001.exe', dir = 'data'), regexp = 'NONMEM model file extension should be one of .lst, .out, .res, .mod or .ctl. If you want to use the .exe extension anyway use `check_ext = FALSE`')
 })
 
 test_that('error is returned when file does not exist', {

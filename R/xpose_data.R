@@ -6,7 +6,7 @@
 #'   combination with \code{prefix} and \code{ext}.
 #' @param prefix Prefix to be used to generate model file name. Used in
 #'   combination with \code{runno} and \code{ext}.
-#' @param ext Extension to be used to generate model file name.Should be one of
+#' @param ext Extension to be used to generate model file name. Should be one of
 #'   '.lst' (default), '.out', '.res', '.mod' or '.ctl' for NONMEM.
 #' @param file Model file name (preferably a '.lst' file) containing the file
 #'   extension. Alternative to \code{prefix}, \code{runno} and \code{ext}
@@ -26,18 +26,22 @@
 #'   \code{\link{manual_nm_import}}.
 #' @param ignore Character vector be used to ignore the import/generation of:
 #'   'data', 'files', 'summary' or any combination of the three.
+#' @param check_ext Logical, if \code{TRUE} will provide an error message if the
+#'   extension of the NONMEM input file is not one of '.lst', '.out', '.res',
+#'   '.mod' or '.ctl' for NONMEM. If \code {FALSE} any file extension can be
+#'   used.
 #' @param extra_files A vector of additional output file extensions to be
-#'   imported. Default is '.ext', '.cov', '.cor', '.phi', ".grd" for NONMEM.
+#'   imported. Default is '.ext', '.cov', '.cor', '.phi', '.grd' for NONMEM.
 #' @param quiet Logical, if \code{FALSE} messages are printed to the console.
 #' @param ... Additional arguments to be passed to the
 #'   \code{\link{read_nm_tables}} functions.
 #'
 #' @section File path generation: The rules for model file names generation are
-#'   as follow: \itemize{ 
+#'   as follow: \itemize{
 #'   \item with \code{runno}: the full path is generated as
 #'   \code{<dir>/<prefix><runno>.<ext>} e.g. with \code{dir = 'model/pk'},
 #'   \code{prefix = 'run'}, \code{runno = '001'}, \code{ext = '.lst'} the
-#'   resulting path would be \code{model/pk/run001.lst} 
+#'   resulting path would be \code{model/pk/run001.lst}
 #'   \item with \code{file}:
 #'   the full path is generated as \code{<dir>/<file>} e.g. with \code{dir =
 #'   'model/pk'}, \code{file = 'run001.lst'} the resulting path would also be
@@ -82,6 +86,7 @@ xpose_data <- function(runno         = NULL,
                        simtab        = NULL,
                        manual_import = NULL,
                        ignore        = NULL,
+                       check_ext     = TRUE,
                        extra_files,
                        quiet,
                        ...) {
@@ -111,10 +116,11 @@ xpose_data <- function(runno         = NULL,
   }
   
   # List tables
-  if (ext %in% c('.lst', '.out', '.res', '.mod', '.ctl')) {
+  if (ext %in% c('.lst', '.out', '.res', '.mod', '.ctl') | !check_ext) {
     software   <- 'nonmem'
-    model_code <- read_nm_model(file = basename(full_path), 
-                                dir  = dirname(full_path))
+    model_code <- read_nm_model(file      = basename(full_path), 
+                                dir       = dirname(full_path),
+                                check_ext = check_ext)
     
     if (is.null(manual_import)) {
       tbl_names <- list_nm_tables(model_code)
@@ -123,7 +129,9 @@ xpose_data <- function(runno         = NULL,
                                          dir = dirname(full_path), tab_list = manual_import)
     }
   } else {
-    stop('Model file currently not supported by xpose.', call. = FALSE)
+    stop(paste(
+      'Model file currently not supported by xpose. If you want to use the',
+      ext ,'extension anyway use `check_ext = FALSE`'), call. = FALSE)
   }  
   
   # Import estimation tables

@@ -35,11 +35,12 @@
 #' }
 #' 
 #' @export
-read_nm_model <- function(runno   = NULL,
-                          prefix  = 'run',
-                          ext     = '.lst',
-                          file    = NULL,
-                          dir     = NULL) {
+read_nm_model <- function(runno     = NULL,
+                          prefix    = 'run',
+                          ext       = '.lst',
+                          file      = NULL,
+                          dir       = NULL,
+                          check_ext = TRUE) {
   
   if (is.null(runno) && is.null(file)) {
     stop('Argument `runno` or `file` required.', call. = FALSE)
@@ -53,8 +54,12 @@ read_nm_model <- function(runno   = NULL,
     full_path <- file_path(dir, file)
   }
   
-  if (!ext %in% c('.lst', '.out', '.res', '.mod', '.ctl')) {
-    stop('NONMEM model file extension should be one lst, out, res, mod or ctl.', call. = FALSE) 
+  if (check_ext & !ext %in% c('.lst', '.out', '.res', '.mod', '.ctl')) {
+    stop(
+      paste(
+        'NONMEM model file extension should be one of .lst, .out, .res, .mod or .ctl. If you want to use the',
+        ext ,'extension anyway use `check_ext = FALSE`'), 
+        call. = FALSE) 
   }
   
   if (!file.exists(full_path)) { 
