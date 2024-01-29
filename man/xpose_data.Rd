@@ -58,7 +58,7 @@ in previous versions of xpose, the check the function
 
 \item{check_ext}{Logical, if \code{TRUE} will provide an error message if the
 extension of the NONMEM input file is not one of '.lst', '.out', '.res',
-'.mod' or '.ctl' for NONMEM. If \code {FALSE} any file extension can be
+'.mod' or '.ctl' for NONMEM. If \code{FALSE} any file extension can be
 used.}
 
 \item{extra_files}{A vector of additional output file extensions to be
