@@ -428,27 +428,53 @@ sum_nsig <- function(model, software) {
 # Condition number
 sum_condn <- function(model, software, rounding) {
   if (software == 'nonmem') {
-    x <- model %>% 
-      dplyr::filter(.$subroutine == 'lst') %>% 
-      dplyr::slice(which(stringr::str_detect(.$code, stringr::fixed('EIGENVALUES OF COR'))) + 4)
     
-    if (nrow(x) == 0) return(sum_tpl('condn', 'na'))
+    ## Check if any match for eigenvalues throughout the lst
+    if (!any(stringr::str_detect(model$code[model$subroutine == "lst"], stringr::fixed('EIGENVALUES OF COR')))) { 
+      return(sum_tpl('condn', 'na'))
+    }
     
-    x %>% 
+    model %>% 
       dplyr::group_by_at(.vars = 'problem') %>% 
       tidyr::nest() %>% 
       dplyr::ungroup() %>% 
-      dplyr::mutate(subprob = 0,
-                    label = 'condn',
-                    value = purrr::map_chr(.$data, function(x) {
-                      stringr::str_trim(x$code, side = 'both') %>%  
-                        stringr::str_split(pattern = '\\s+') %>% 
-                        purrr::flatten_chr() %>% 
-                        as.numeric() %>% 
-                        {max(.)/min(.)} %>% 
-                        round(digits = rounding) %>% 
-                        as.character()})) %>% 
-      dplyr::select(dplyr::one_of('problem', 'subprob', 'label', 'value'))
+      mutate(value = purrr::map_chr(
+        .x = .$data,
+        .f = ~{
+          ## Find the eigenvalues header
+          eigen_header <- stringr::str_which(.x$code, stringr::fixed('EIGENVALUES OF COR'))
+          
+          if (length(eigen_header) == 0) return(NA_character_)
+          
+          # Find numeric values in the format of eigen values
+          eigen_rows <- eigen_header - 1 + stringr::str_which(.x$code[eigen_header:length(.x$code)], pattern = "\\d\\.\\d{2}E[+-]?\\d+(?=\\s|$)")
+          
+          ## Make sure rows are consecutive to prevent possible false positive match
+          diff_rows <- c(1, diff(eigen_rows))
+          if (any(diff_rows != 1)) {
+            eigen_rows <- eigen_rows[1:(which(diff_rows != 1) - 1)]
+          }
+          
+          ## Parse the eigen values
+          eigen_values <- .x[eigen_rows, ] %>% 
+            dplyr::pull("code") %>% 
+            stringr::str_trim(side = 'both') %>%  
+            paste(collapse = " ") %>% 
+            stringr::str_split(pattern = '\\s+') %>% 
+            purrr::flatten_chr() %>% 
+            as.numeric()
+          
+          ## Compute the condition number
+          eigen_values %>% 
+            {max(.)/min(.)} %>% 
+            round(digits = rounding) %>% 
+            as.character()
+        }
+      )) %>% 
+      dplyr::ungroup() %>% 
+      mutate(subprob = 0, label = 'condn') %>% 
+      dplyr::select(dplyr::one_of('problem', 'subprob', 'label', 'value')) %>% 
+      dplyr::filter(!is.na(.$value))
   }
 }
 

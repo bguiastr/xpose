@@ -1,3 +1,6 @@
+# xpose 0.4.19
+* Fixed bug in condition number when eigen values outputted on multiple records in .lst file (@billdenney & @marianklose, #128)
+
 # xpose 0.4.18
 * Compatibility fix for `roxygen2` 7.3.1
 * Fix bug when reading a control stream and using `$PROB` instead of `$PROBLEM` (@AndreasCalvagone, #222)
