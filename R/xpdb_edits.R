@@ -368,7 +368,7 @@ irep <- function(x, quiet = FALSE) {
   dupcheck <- duplicated(x)
   check <- dplyr::if_else(lagcheck & dupcheck, 1, 0)
   ilen <- which(check==1)[1] - 1
-  if (is.na(ilen)) ilen <- length(x)
+  if (length(ilen)==0 || is.na(ilen)) ilen <- length(x)
   x <- rep(1:(length(x)/ilen), each=ilen)
   msg(c('irep: ', max(x), ' simulations found.'), quiet)
   x
