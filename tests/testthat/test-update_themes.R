@@ -48,6 +48,7 @@ test_that('parial xp_themes are properly added', {
   ref_class <- class(ref)
   ref$labeller  <- NULL  ## Reduce sensibility to ggplot2 updates
   class(ref) <- ref_class
+  attr(ref, "theme") <- "theme_xp_default (modified)"
   
   expect_equal(test, ref)
 })

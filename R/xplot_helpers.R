@@ -336,7 +336,7 @@ drop_fixed_cols <- function(xpdb, .problem, cols, quiet) {
                  stringr::str_c(stringr::str_c(cols_rm[1:5], collapse = ', '), 
                                 '... and', length(cols_rm) - 5 , 'more', sep = ' '),
                  stringr::str_c(cols_rm , collapse = ', ')) %>%
-                 {msg(c('Dropped fixed variables ', .,'.'), quiet)}
+    {msg(c('Dropped fixed variables ', .,'.'), quiet)}
   
   cols
 }
@@ -400,8 +400,7 @@ xp_var <- function(xpdb, .problem, col = NULL, type = NULL, silent = FALSE) {
 #' @export
 aes_c <- function(fun_aes, user_aes) {
   if (is.null(user_aes)) return(fun_aes)
-  aes <- c(fun_aes[!names(fun_aes) %in% names(user_aes)], user_aes)
-  structure(aes, class = 'uneval')
+  aes(!!!c(fun_aes[!names(fun_aes) %in% names(user_aes)], user_aes))
 }
 
 
@@ -464,7 +463,9 @@ add_facet_var <- function(facets, variable = 'variable') {
   if (!is.formula(facets)) {
     c(variable, facets)
   } else {
-    stats::update.formula(old = facets, 
-                          new = stats::as.formula(stringr::str_c('~. + ', variable)))
+    stats::update.formula(
+      old = facets, 
+      new = stats::as.formula(stringr::str_c('~. + ', variable))
+    )
   }
 }

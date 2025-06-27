@@ -2,8 +2,8 @@
 
 test_that('gg_themes objects were properly created', {
   # Proper object class
-  expect_true(is.theme(theme_readable()))
-  expect_true(is.theme(theme_bw2()))
+  expect_true(is_theme(theme_readable()))
+  expect_true(is_theme(theme_bw2()))
 })
 
 test_that('xp_themes objects were properly created', {
@@ -15,3 +15,4 @@ test_that('xp_themes objects were properly created', {
   expect_true(inherits(theme_xp_default(), 'xpose_theme'))
   expect_true(inherits(theme_xp_xpose4(), 'xpose_theme'))
 })
+

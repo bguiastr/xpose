@@ -24,7 +24,7 @@ my_plot <- dv_vs_ipred(xpdb_ex_pk) +
 # Using the print function
 print(my_plot)
 
-# Or simply by writting the plot object name
+# Or simply by writing the plot object name
 my_plot
 
 }

@@ -95,7 +95,7 @@ xpose_data <- function(runno         = NULL,
     stop('Argument `runno` or `file` required.', call. = FALSE)
   }
   
-  if (!is.function(gg_theme) && (!is.theme(gg_theme) || !attr(gg_theme, 'complete'))) {
+  if (!is.function(gg_theme) && (!is_theme(gg_theme) || !attr(gg_theme, 'complete'))) {
     stop('Argument `gg_theme` must be a full ggplot2 theme or a function returning a theme. To modify a pre-existing theme use update_themes() instead.', call. = FALSE) 
   }
   

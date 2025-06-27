@@ -36,7 +36,7 @@ update_themes <- function(xpdb     = NULL,
   if (missing(quiet)) quiet <- xpdb$options$quiet
   
   # Replace/Update gg_theme
-  if (is.function(gg_theme) || is.theme(gg_theme)) {
+  if (is.function(gg_theme) || is_theme(gg_theme)) {
     if (is.function(gg_theme) || attr(gg_theme, 'complete')) {
       attr(gg_theme, 'theme') <- as.character(substitute(gg_theme)) 
       xpdb$gg_theme <- gg_theme
@@ -48,7 +48,7 @@ update_themes <- function(xpdb     = NULL,
       attr(xpdb$gg_theme, 'theme') <- paste(attr(xpdb$gg_theme, 'theme'), '(modified)')
       xpdb$gg_theme <- xpdb$gg_theme + gg_theme
     }
-  } else if (!is.null(gg_theme) & !is.theme(gg_theme)) {
+  } else if (!is.null(gg_theme) & !is_theme(gg_theme)) {
     msg('`gg_theme` argument not used. Reason: invalid input.', quiet)
   }
   
