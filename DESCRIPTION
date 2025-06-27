@@ -1,7 +1,7 @@
 Package: xpose
 Type: Package
 Title: Diagnostics for Pharmacometric Models
-Version: 0.4.19
+Version: 0.4.19.9000
 Authors@R: c(
       person('Benjamin', 'Guiastrennec',
              role  = c('aut', 'cre', 'cph'),
@@ -24,21 +24,20 @@ Description: Diagnostics for non-linear mixed-effects (population)
     and provide 'ggplot2'-based graphics for data exploration and model 
     diagnostics.
 Depends:
-  R (>= 3.5.0),
-  ggplot2 (>= 3.1.0)
+    R (>= 4.2.0),
+    ggplot2 (>= 3.5.2.9001)
 Imports:
-  dplyr (>= 0.8.0),
-  ggforce (>= 0.2.0),
-  grDevices,
-  purrr (>= 0.3.0),
-  readr (>= 2.1.0),
-  rlang (>= 0.3.0),
-  stringr (>= 1.4.0),
-  tibble (>= 2.1.0),
-  tidyr (>= 0.8.0),
-  utils,
-  stats,
-  vpc (>= 1.1.0)
+    dplyr (>= 1.1.4),
+    ggforce (>= 0.5.0),
+    purrr (>= 1.0.4),
+    readr (>= 2.1.5),
+    rlang (>= 1.1.6),
+    stringr (>= 1.5.1),
+    tibble (>= 3.3.0),
+    tidyr (>= 1.3.1),
+    utils,
+    stats,
+    vpc (>= 1.2.2)
 Suggests:
   here,
   gridExtra,
