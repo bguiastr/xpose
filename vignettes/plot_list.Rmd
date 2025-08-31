@@ -40,10 +40,15 @@ dv_vs_ipred(xpdb_ex_pk)
 ### Residual plots
 ```{r}
 res_vs_idv(xpdb_ex_pk, res = 'CWRES')
+res_vs_tad(xpdb_ex_pk, res = 'CWRES')
 res_vs_pred(xpdb_ex_pk, res = 'CWRES')
+res_vs_ipred(xpdb_ex_pk, res = 'CWRES')
 absval_res_vs_idv(xpdb_ex_pk, res = 'CWRES')
+absval_res_vs_tad(xpdb_ex_pk, res = 'CWRES')
 absval_res_vs_pred(xpdb_ex_pk, res = 'CWRES')
+absval_res_vs_ipred(xpdb_ex_pk, res = 'CWRES')
 ```
+
 
 ## Minimization plots
 ```{r}
