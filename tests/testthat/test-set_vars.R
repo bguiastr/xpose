@@ -13,7 +13,7 @@ test_that('set_vars_type works properly', {
   expect_true(is.xpdb(xpdb_2))
   expect_identical(set_var_types(xpdb_ex_pk, .problem = NULL), xpdb_ex_pk)
   expect_equal(xpdb_2$data$index[[1]]$col[xpdb_2$data$index[[1]]$type == 'idv'], 'PRED')
-  expect_equal(xpdb_2$data$index[[1]]$type[xpdb_2$data$index[[1]]$col == 'TAD'], 'na')
+  expect_equal(xpdb_2$data$index[[1]]$type[xpdb_2$data$index[[1]]$col == 'TAD'], 'tad')
   expect_equal(xpdb_2$data$index[[1]]$type[xpdb_2$data$index[[1]]$col == 'SS'], 'catcov')
   expect_equal(class(xpdb_2$data$data[[1]]$SS), 'factor')
 })
