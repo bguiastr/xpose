@@ -1,5 +1,9 @@
+# xpose 0.4.20
+* Compatbility fix with `ggplot` (>= 4.0.0)
+* Correct sensitivity of `irep()` to sort order (@jpryby #226)
+
 # xpose 0.4.19
-* Fixed bug in condition number when eigen values outputted on multiple records in .lst file (@billdenney & @marianklose, #128)
+* Fixed bug in condition number when Eigen values outputted on multiple records in .lst file (@billdenney & @marianklose, #128)
 
 # xpose 0.4.18
 * Compatibility fix for `roxygen2` 7.3.1
