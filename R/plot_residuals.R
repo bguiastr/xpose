@@ -189,7 +189,7 @@ res_vs_ipred <- function(xpdb,
     opt <- data_opt(.problem = .problem, 
                     filter = only_obs(xpdb, .problem, quiet))
     vars <- aes_c(aes(
-      x = .data[[xp_var(xpdb, .problem, type = 'pred')$col]], 
+      x = .data[[xp_var(xpdb, .problem, type = 'ipred')$col]], 
       y = .data[[toupper(res)]]), mapping)
   }
   
@@ -423,12 +423,12 @@ res_vs_tad <- function(xpdb,
   check_problem(.problem, .subprob = NULL, .method = NULL)
   
   # Change IDV variable type
-  vars <- xpobj$data[xpobj$data$problem == .problem, ]$index[[1]]$col
-  if ( length(tad) > 1 ) {
+  vars <- xpdb$data[xpdb$data$problem == .problem, ]$index[[1]]$col
+  if (length(tad) > 1) {
     tads <- c('TSPD', 'TSLD', 'TAD', 'TPD')
     tad <- tads[ tads %in% vars][1]
   }
-  if ( !tad %in% vars ){
+  if (!tad %in% vars) {
     stop(
       paste(tad, 'not present in data')
     )

@@ -1,7 +1,8 @@
 prediction_plot_functions <- c('dv_vs_pred', 'dv_vs_ipred', 'dv_vs_idv', 
                                'ipred_vs_idv', 'pred_vs_idv', 'dv_preds_vs_idv')
-residual_plot_functions   <- c('res_vs_idv', 'res_vs_pred', 'absval_res_vs_idv', 
-                               'absval_res_vs_pred', 'res_distrib', 'res_qq') 
+residual_plot_functions   <- c('res_vs_idv', 'res_vs_tad', 'res_vs_pred', 'res_vs_ipred', 
+                               'absval_res_vs_idv', 'absval_res_vs_tad', 'absval_res_vs_pred', 
+                               'absval_res_vs_ipred', 'res_distrib', 'res_qq') 
 iteration_plot_functions  <- c('prm_vs_iteration', 'grd_vs_iteration')
 parameter_plot_functions  <- c('prm_distrib', 'prm_qq')
 eta_plot_functions        <- c('eta_distrib', 'eta_qq')
@@ -14,7 +15,7 @@ plot_functions <- c(prediction_plot_functions, residual_plot_functions,
                     eta_plot_functions, cov_plot_functions, 
                     individual_plot_functions, kinetic_plot_functions)
 
-not_sim_functions <- plot_functions[!grepl('iteration|prm_|eta_|cov_|res_qq|res_distrib|amt_|pred|ind_plots', plot_functions)]
+not_sim_functions <- plot_functions[!grepl('iteration|prm_|eta_|cov_|res_qq|res_distrib|amt_|pred|ind_plots|res_', plot_functions)]
 distribution_functions <- plot_functions[grepl('(prm|eta|cov|res)_(distrib|qq)', plot_functions)]
 
 # Simulation only xpdb
