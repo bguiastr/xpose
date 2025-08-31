@@ -50,6 +50,8 @@ absval_res_vs_tad(
 
 \item{res}{Type of residual to be used. Default is "CWRES".}
 
+\item{tad}{Time after dose variable.}
+
 \item{group}{Grouping variable to be used for lines.}
 
 \item{type}{String setting the type of plot to be used. Can be points 'p',

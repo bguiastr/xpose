@@ -481,6 +481,7 @@ add_facet_var <- function(facets, variable = 'variable') {
 #' @return The name of a variable.
 #' 
 #' @examples 
+#' library(ggplot2)
 #' mapping <- aes(x = TIME, y = DV, point_color = MED1)
 #' get_aes(mapping, 'x')
 #' get_aes(mapping, point_colour)

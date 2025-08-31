@@ -39,7 +39,7 @@ test_that_for_all(plot_functions, 'errors are returned when length .problem is >
   expect_error(.plot_function(xpdb_ex_pk, .problem = 1:2),  regexp = 'must be of length 1')
 })
 
-test_that_for_all(plot_functions, 'errors are returned a .problem not in the data', {
+test_that_for_all(plot_functions, 'errors are returned when a .problem is not in the data', {
   expect_error(.plot_function(xpdb_ex_pk, .problem = 99),  regexp = '99 not found in')
 })
 

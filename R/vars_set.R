@@ -57,8 +57,6 @@
 #' 
 #' @return A xpose object
 #' @export
-#' 
-#' 
 set_var_types <- function(xpdb, .problem = NULL, ..., auto_factor = TRUE, quiet) {
   # Check input
   check_xpdb(xpdb, check = 'data')
@@ -214,52 +212,52 @@ set_var_labels_units <- function(
   
   check_xpdb(xpdb, check = 'data')
   
-  if ( !is.data.frame(info) ){
+  if (!is.data.frame(info)) {
     stop('Invalid info argument')
   }
   
-  if ( !all(names(info) == c('col', 'label', 'units')) ){
+  if (!all(names(info) == c('col', 'label', 'units'))) {
     stop('Invalid data frame structure in info')
   }
   
   info <- info %>% 
-    select( col, label, units )
+    dplyr::select(dplyr::all_of(c("col", "label", "units")))
   
-  if ( nrow(info) > nrow(unique(info)) ){
+  if (nrow(info) > nrow(unique(info))) {
     stop('Duplicate variable entries in info')
   }
   
-  if ( is.null(.problem) ){
+  if (is.null(.problem)) {
     .problem <- 1:length(xpdb$data$index)
   }
   
-  for (.prob in .problem){
+  for (.prob in .problem) {
     # Filter info to distinct variables present in data
     tmp <- info %>%
-      dplyr::distinct( col, .keep_all = TRUE ) %>%
-      dplyr::filter( col %in% names(get_data(xpdb, .problem = .prob)) )
+      dplyr::distinct(col, .keep_all = TRUE) %>%
+      dplyr::filter(col %in% names(get_data(xpdb, .problem = .prob)))
     
     # Collapse labels and units information into strings
     var_labels <- c()
-    var_units <- c()
-    for ( i in seq_len(nrow(tmp)) ){
-      if ( is.na(tmp$label[i]) ){
-        var_labels <- c( var_labels, paste0(tmp$col[i], '  = NA') )
+    var_units  <- c()
+    for (i in seq_len(nrow(tmp))) {
+      if (is.na(tmp$label[i])) {
+        var_labels <- c(var_labels, paste0(tmp$col[i], '  = NA'))
       } else {
-        var_labels <- c( var_labels, paste0(tmp$col[i], '  = \'', tmp$label[i], '\'') )
+        var_labels <- c(var_labels, paste0(tmp$col[i], '  = \'', tmp$label[i], '\''))
       }
-      if ( is.na(tmp$units[i]) ){
-        var_units <- c( var_units, paste0(tmp$col[i], '  = NA') )
+      if (is.na(tmp$units[i])) {
+        var_units <- c(var_units, paste0(tmp$col[i], '  = NA'))
       } else {
-        var_units <- c( var_units, paste0(tmp$col[i], '  = \'', tmp$units[i], '\'') )
+        var_units <- c(var_units, paste0(tmp$col[i], '  = \'', tmp$units[i], '\''))
       }
     }
     
     var_labels <- paste(var_labels, collapse = ', ')
-    var_units <- paste(var_units, collapse = ', ')
+    var_units  <- paste(var_units, collapse = ', ')
     
     # Apply labels and units
-    if ( var_labels != '' ){
+    if (var_labels != '') {
       eval(
         parse(
           text = sprintf(
@@ -270,7 +268,7 @@ set_var_labels_units <- function(
         )
       )
     }
-    if ( var_units != '' ){
+    if (var_units != '') {
       eval(
         parse(
           text = sprintf(
@@ -299,7 +297,7 @@ set_var_labels_units <- function(
 #' purposes. Additionally, formats can be used to discretize continuous 
 #' variables by defining ranges of values associated with specific formats.
 #'  
-#' @param .data A data.frame or tibble of data
+#' @inheritParams dv_vs_pred
 #' @param formats A data.frame with an expected structure defined in the Details
 #' section
 #'
@@ -361,13 +359,12 @@ set_var_labels_units <- function(
 #'   order = c(1L, 2L, 1L, 2L, 3L, 4L, 5L)
 #' )
 #' fmts
-#' xp2 <- apply_formats(xpdb, .problem = 1, fmts) 
+#' xp2 <- apply_formats(xpdb_ex_pk, .problem = 1, fmts) 
 #' 
 #' @rdname apply_formats
 #'
 #' @export
 #'
-
 apply_formats <- function( 
     xpdb, 
     .problem,
@@ -377,25 +374,25 @@ apply_formats <- function(
   
   are_range_overlapping <- function(ranges){
     
-    if ( nrow(ranges) == 1 ){
+    if (nrow(ranges) == 1) {
       return(FALSE)
     }
     ranges <- as.data.frame(ranges)
     
-    ranges <- ranges[order(ranges[,1]),]
+    ranges <- ranges[order(ranges[, 1]), ]
     
-    if ( any(ranges[2,1:2]-ranges[1,1:2] < 0) ){
+    if (any(ranges[2, 1:2] - ranges[1, 1:2] < 0)) {
       stop('Range end(s) larger than range start(s)')
     }
     
     # Check if edges overlap
-    edges <- c(t(as.matrix(ranges[,1:2])))
+    edges <- c(t(as.matrix(ranges[, 1:2])))
     
     # Check if same edge is included in 2 consecutive interval
-    excls <- c(t(as.matrix(ranges[,3:4])))
+    excls <- c(t(as.matrix(ranges[, 3:4])))
     nr <- nrow(ranges)
-    same_edge <- diff(edges)[2*(1:(nr-1))]==0 & diff(excls)[2*(1:(nr-1))]==0 &
-      ranges[-1,3]==0
+    same_edge <- diff(edges)[2*(1:(nr - 1))] == 0 & diff(excls)[2*(1:(nr - 1))] == 0 &
+      ranges[-1, 3] == 0
     
     is.unsorted(edges) | any(same_edge)
     
@@ -411,7 +408,7 @@ apply_formats <- function(
   # Check xpdb
   check_xpdb(xpdb, check = 'data')
   
-  if ( missing(.problem) ){
+  if (missing(.problem)) {
     .problem <- default_plot_problem(xpdb)
   }
   
@@ -419,23 +416,23 @@ apply_formats <- function(
     dplyr::ungroup()
   
   # Check formats
-  if ( missing(formats) ){
+  if (missing(formats)) {
     stop('Missing `formats` argument')
   }
   # formats must be a data.frame or a tibble
-  if ( !(is.data.frame(formats) | dplyr::is.tbl(formats)) ){
+  if (!(is.data.frame(formats) | dplyr::is.tbl(formats))) {
     stop( 'Invalid `formats` argument' )
   }
   names(formats) <- toupper( names(formats) )
   
   formats_col <- c('VARIABLE', 'START', 'END', 'EXCLS', 'EXCLE', 'LABEL', 'ORDER')
-  if ( !all( formats_col %in% names(formats) ) ){
+  if (!all(formats_col %in% names(formats))) {
     stop( 'Missing columns in `formats` argument' )
   }
   
   formats <- formats %>%
     dplyr::ungroup() %>%
-    dplyr::select( VARIABLE, START, END, EXCLS, EXCLE, LABEL, ORDER )
+    dplyr::select(dplyr::all_of(c("VARIABLE", "START", "END", "EXCLS", "EXCLE", "LABEL", "ORDER")))
   
   if ( !is.character(formats$VARIABLE) | !is.character(formats$LABEL) ) {
     stop('VARIABLE and LABEL columns in `formats` argument must be character')
@@ -448,53 +445,60 @@ apply_formats <- function(
   if (
     !(is.numeric(formats$EXCLS) | is.logical(formats$EXCLS)) |
     !(is.numeric(formats$EXCLE) | is.logical(formats$EXCLE))
-  ){
+  ) {
     stop('EXCLS and EXCLE columns in `formats` argument must be integer or logical')
   }
   
-  if ( nrow(formats) == 0 ){
-    if ( !quiet )
+  if (nrow(formats) == 0){
+    if (!quiet) {
       warning( 'No available format. Formatting aborted.' )
-    return( xpdb )
+    }
+    return(xpdb)
   }
   
   # Pre-process formats
   formats <- formats %>%
     # Ensure labels are characters
-    dplyr::mutate( LABEL = as.character(LABEL) ) %>%
+    dplyr::mutate(LABEL = as.character(dplyr::all_of("LABEL"))) %>%
     # Filter out from formats variables which are not in data
-    dplyr::filter( VARIABLE %in% names(data) ) %>%
+    dplyr::filter(dplyr::all_of("VARIABLE") %in% names(data) ) %>%
     # Replace missing min with -inf and missing max with +inf
     dplyr::mutate(
-      START = ifelse( is.na(START), -Inf, START ),
-      END = ifelse( is.na(END), +Inf, END ),
+      START = ifelse(is.na(dplyr::all_of("START")), -Inf, dplyr::all_of("START")),
+      END = ifelse(is.na(dplyr::all_of("END")), +Inf, dplyr::all_of("END")),
     ) %>%
     # Coerce exclusion columns to integer
     dplyr::mutate(
-      EXCLS = as.integer(as.logical(EXCLS)),
-      EXCLE = as.integer(as.logical(EXCLE))
+      EXCLS = as.integer(as.logical(dplyr::all_of("EXCLS"))),
+      EXCLE = as.integer(as.logical(dplyr::all_of("EXCLE")))
     ) %>%
     # Filter out duplicated format rows
     dplyr::distinct()
   
-  if ( nrow(formats) == 0 ){
-    if ( !quiet )
-      warning( 'Variables in data have no available format' )
-    return( xpdb )
+  if (nrow(formats) == 0) {
+    if (!quiet) {
+      warning('Variables in data have no available format')
+    }
+    return(xpdb)
   }
   
   # Trap formats with empty rows
   empty_vars <- formats %>%
     dplyr::filter(
-      START == -Inf & END == Inf & is.na(EXCLS) & is.na(EXCLE) & is.na(LABEL) & is.na(ORDER)
+      dplyr::all_of("START") == -Inf & 
+        dplyr::all_of("END") == Inf & 
+        is.na(dplyr::all_of("EXCLS")) &
+        is.na(dplyr::all_of("EXCLE")) & 
+        is.na(dplyr::all_of("LABEL")) & 
+        is.na(dplyr::all_of("ORDER"))
     ) %>%
-    dplyr::distinct( VARIABLE) %>%
-    dplyr::pull( VARIABLE )
+    dplyr::distinct(dplyr::all_of("VARIABLE")) %>%
+    dplyr::pull(dplyr::all_of("VARIABLE"))
   
-  if ( length(empty_vars) > 0 ){
+  if (length(empty_vars) > 0) {
     formats <- formats %>%
-      dplyr::filter( !VARIABLE %in% empty_vars )
-    if ( !quiet ){
+      dplyr::filter(!dplyr::all_of("VARIABLE") %in% empty_vars)
+    if (!quiet) {
       warning(
         sprintf(
           paste(
@@ -507,14 +511,14 @@ apply_formats <- function(
   }
   
   # Trap formats with missing (NA) information
-  if ( any(is.na(formats)) ){
+  if (any(is.na(formats))) {
     na_vars <- formats %>%
-      dplyr::mutate( CHK = dplyr::if_any(.fns = is.na) ) %>%
-      dplyr::filter( CHK == TRUE ) %>%
-      dplyr::pull( VARIABLE )
+      dplyr::mutate(CHK = dplyr::if_any(.fns = is.na)) %>%
+      dplyr::filter(dplyr::all_of("CHK") == TRUE) %>%
+      dplyr::pull(dplyr::all_of("VARIABLE"))
     formats <- formats %>%
-      dplyr::filter( !VARIABLE %in% na_vars )
-    if ( !quiet ){
+      dplyr::filter(!dplyr::all_of("VARIABLE") %in% na_vars)
+    if (!quiet) {
       warning(
         sprintf(
           paste(
@@ -526,34 +530,39 @@ apply_formats <- function(
     }
   }
   
-  if ( nrow(formats) == 0 ){
-    if ( !quiet )
+  if (nrow(formats) == 0) {
+    if (!quiet) {
       warning( 'Variables in data have no available format' )
+    }
     return( xpdb )
   }
   
   # Check for consistency of label and order numbers within variables
   if (
-    formats %>% dplyr::distinct( VARIABLE, LABEL) %>% nrow() !=
-    formats %>% dplyr::distinct( VARIABLE, ORDER) %>% nrow()
-  ){
-    if ( !quiet )
+    formats %>% dplyr::distinct(dplyr::all_of(c("VARIABLE", "LABEL"))) %>% nrow() !=
+    formats %>% dplyr::distinct(dplyr::all_of(c("VARIABLE", "ORDER"))) %>% nrow()
+  ) {
+    if (!quiet) {
       warning(
         paste(
           'Format not applied because the numbers of unique',
           'format labels and orders\n  was not consistent for all variables'
         )
       )
-    return( xpdb )
+    }
+    return(xpdb)
   }
   
   tmp <- suppressWarnings(
-    formats %>% dplyr::distinct( VARIABLE, LABEL) %>% rownames() ==
-      formats %>% dplyr::distinct( VARIABLE, ORDER) %>% rownames()
+    formats %>% 
+      dplyr::distinct(dplyr::all_of(c("VARIABLE", "LABEL"))) %>% 
+      rownames() == formats %>% 
+      dplyr::distinct(dplyr::all_of(c("VARIABLE", "ORDER"))) %>% 
+      rownames()
   )
-  if ( !all(tmp) ){
+  if (!all(tmp)) {
     vars <- formats[!tmp, 'VARIABLE']
-    if ( !quiet )
+    if (!quiet) {
       warning(
         sprintf(
           paste(
@@ -563,7 +572,8 @@ apply_formats <- function(
           paste(vars, collapse = ', ')
         )
       )
-    return( xpdb )
+    }
+    return(xpdb)
   }
   
   # Store formats for later usage
@@ -573,15 +583,15 @@ apply_formats <- function(
   error_fvars <- c()
   fvars <- unique(formats$VARIABLE)
   
-  for (var in fvars){
+  for (var in fvars) {
     tmp <- try(
       formats %>%
-        dplyr::filter( VARIABLE == var) %>%
-        dplyr::select( START, END, EXCLS, EXCLE ) %>%
+        dplyr::filter(dplyr::all_of("VARIABLE") == var) %>%
+        dplyr::select(dplyr::all_of(c("START", "END", "EXCLS", "EXCLE"))) %>%
         are_range_overlapping(),
       silent = TRUE
     )
-    if ( class(tmp)=='try-error' || tmp ){
+    if (inherits(tmp, 'try-error') || tmp) {
       error_fvars <- c(error_fvars, var)
     }
   }
@@ -589,11 +599,11 @@ apply_formats <- function(
   # Store formats for later usage
   oformats <- formats
   
-  if ( length(fvars) > 0 && length(error_fvars) > 0){
-    fvars <- fvars[ !fvars%in%error_fvars ]
+  if (length(fvars) > 0 && length(error_fvars) > 0) {
+    fvars <- fvars[!fvars %in% error_fvars]
     formats <- formats %>%
-      dplyr::filter( VARIABLE %in% fvars )
-    if ( !quiet )
+      dplyr::filter(dplyr::all_of("VARIABLE") %in% fvars)
+    if (!quiet) {
       warning(
         sprintf(
           paste(
@@ -603,69 +613,71 @@ apply_formats <- function(
           paste(error_fvars, collapse = ', ')
         )
       )
+    }
   }
   
   # Prevent formatting of character variables
   error_fvars <- c()
-  for ( var in fvars ){
-    if ( mode(data[[var]]) != 'numeric' ){  #note: mode also detects numeric factor
+  for (var in fvars) {
+    if (mode(data[[var]]) != 'numeric') {  #note: mode also detects numeric factor
       error_fvars <- c(error_fvars, var)
     }
   }
   
-  if ( length(error_fvars) > 0 ){
+  if (length(error_fvars) > 0) {
     formats <- formats %>%
-      dplyr::filter( !VARIABLE %in% error_fvars )
-    if ( !quiet )
+      dplyr::filter(!dplyr::all_of("VARIABLE") %in% error_fvars)
+    if (!quiet) {
       warning(
         sprintf(
           'Non-numeric variable(s) cannot be formatted:\n %s\n',
           paste(error_fvars, collapse = ', ')
         )
       )
+    }
   }
   
   fvars <- formats %>%
-    dplyr::distinct( VARIABLE ) %>%
-    dplyr::pull( VARIABLE )
+    dplyr::distinct(dplyr::all_of("VARIABLE")) %>%
+    dplyr::pull(dplyr::all_of("VARIABLE"))
   
-  if ( nrow(formats) == 0 ){
-    if ( !quiet )
-      warning( 'Variables in data have no available format' )
-    return( xpdb )
+  if ( nrow(formats) == 0 ) {
+    if (!quiet) {
+      warning('Variables in data have no available format')
+    }
+    return(xpdb)
   }
   
   # Apply formats
-  
   # Copy original variables
   odata <- data %>%
-    dplyr::select( dplyr::any_of(fvars) )
+    dplyr::select(dplyr::any_of(fvars))
   
   # Determine which formats are defined with ranges
   formats <- formats %>%
-    dplyr::mutate( ISRANGE = ifelse( abs(END - START) > 0, 1, 0) )
+    dplyr::mutate(ISRANGE = ifelse(abs(dplyr::all_of("END") - dplyr::all_of("START")) > 0, 1, 0))
   
   tmp <- formats %>%
-    dplyr::group_by( VARIABLE ) %>%
+    dplyr::group_by(dplyr::all_of("VARIABLE")) %>%
     dplyr::summarize(
-      ISRANGE = max(ISRANGE),
+      ISRANGE = max(dplyr::all_of("ISRANGE")),
       .groups = 'keep'
     )
   fvars_byrange <- tmp %>%
-    dplyr::filter( ISRANGE == 1 ) %>%
-    dplyr::pull( VARIABLE )
+    dplyr::filter(dplyr::all_of("ISRANGE") == 1) %>%
+    dplyr::pull(dplyr::all_of("VARIABLE"))
   fvars_byval <- tmp %>%
-    dplyr::filter( ISRANGE == 0 ) %>%
-    dplyr::pull( VARIABLE )
+    dplyr::filter(dplyr::all_of("ISRANGE") == 0) %>%
+    dplyr::pull(dplyr::all_of("VARIABLE"))
   
   # Coerce EXCLS and EXCLE to 0 for fvars_byval
   if (
     formats %>%
-    dplyr::filter( VARIABLE %in% fvars_byval ) %>%
-    dplyr::filter( EXCLS == 1L | EXCLE == 1L) %>%
+    dplyr::filter(dplyr::all_of("VARIABLE") %in% fvars_byval) %>%
+    dplyr::filter(dplyr::all_of("EXCLS") == 1L | dplyr::all_of("EXCLE") == 1L) %>%
     nrow() > 0
-  ){
-    if ( !quiet )
+  ) {
+    if (!quiet) {
       message(
         sprintf(
           paste(
@@ -674,43 +686,44 @@ apply_formats <- function(
           paste(fvars_byval, collapse = ', ')
         )
       )
+    }
   }
   formats <- formats %>%
     dplyr::mutate(
-      EXCLS = ifelse( VARIABLE %in% fvars_byval, 0L, EXCLS),
-      EXCLE = ifelse( VARIABLE %in% fvars_byval, 0L, EXCLE)
+      EXCLS = ifelse(dplyr::all_of("VARIABLE") %in% fvars_byval, 0L, dplyr::all_of("EXCLS")),
+      EXCLE = ifelse(dplyr::all_of("VARIABLE") %in% fvars_byval, 0L, dplyr::all_of("EXCLE"))
     )
   
   # Format variables in data
-  done <- c()
+  done     <- c()
   messages <- c()
-  nformats <- formats[c(),]
+  nformats <- formats[c(), ]
   
-  for ( var in fvars ){
+  for (var in fvars) {
     
     # Reset variable to NA
     data[[var]] <- NA
     
     # Get format for var
     format <- formats %>%
-      dplyr::filter( VARIABLE == var ) %>%
+      dplyr::filter(dplyr::all_of("VARIABLE") == var) %>%
       dplyr::distinct()
     
     # Subset format to values found in data, only for format defined by value
     tmp <- format$START %in% unique(data[[var]])
-    if ( var %in% fvars_byval && sum(tmp) > 0 ){
+    if (var %in% fvars_byval && sum(tmp) > 0) {
       format <- format %>%
-        dplyr::filter( START %in% unique(data[[var]]) )
+        dplyr::filter(dplyr::all_of("START") %in% unique(data[[var]]) )
     }
     
     # Re-order format
     format <- format %>%
-      dplyr::arrange( ORDER )
-    format$ORDER <- match( format$LABEL, unique(format$LABEL) )
+      dplyr::arrange(dplyr::all_of("ORDER"))
+    format$ORDER <- match(format$LABEL, unique(format$LABEL))
     
     # Convert to numeric data
-    if ( mode(odata[[var]]) == 'numeric' & inherits(odata[[var]], 'factor') ){
-      vdata <- as.numeric( levels(odata[[var]]) )[ odata[[var]] ]
+    if (mode(odata[[var]]) == 'numeric' & inherits(odata[[var]], 'factor')) {
+      vdata <- as.numeric(levels(odata[[var]]))[odata[[var]]]
     } else {
       vdata <- odata[[var]]
     }
@@ -718,26 +731,26 @@ apply_formats <- function(
     # Detect if variables include NA's, substitute value and add format if this
     # is the case
     hasNA <- FALSE
-    if ( any(is.na(vdata)) ){
+    if (any(is.na(vdata))) {
       hasNA <- TRUE
       
       # Find replacement info
       missingVal <- -99
       n <- 3
-      while ( missingVal %in% vdata ){
-        missingVal <- -sum(sapply(1:n, function(n) 9*10^(n-1)))
-        n <- n+1
+      while (missingVal %in% vdata) {
+        missingVal <- -sum(sapply(1:n, function(n) 9*10^(n - 1)))
+        n          <- n + 1
       }
       replacement <- 'Missing'
-      while ( any(format$LABEL == replacement) ){
+      while (any(format$LABEL == replacement)) {
         replacement <- sprintf('_%s_', replacement)
       }
       
       # Replace in vdata
-      vdata[ is.na(vdata) ] <- missingVal
+      vdata[is.na(vdata)] <- missingVal
       
       # Replace NA in odata
-      if ( is.factor(odata[[var]]) ){
+      if (is.factor(odata[[var]])) {
         odata[[var]] <- factor(
           odata[[var]],
           levels = c(levels(odata[[var]]), NA),
@@ -753,12 +766,12 @@ apply_formats <- function(
         dplyr::bind_rows(
           data.frame(
             VARIABLE = var,
-            START = missingVal,
-            END = missingVal,
-            EXCLS = 0L,
-            EXCLE = 0L,
-            LABEL = replacement,
-            ORDER = max(format$ORDER) + 1
+            START    = missingVal,
+            END      = missingVal,
+            EXCLS    = 0L,
+            EXCLE    = 0L,
+            LABEL    = replacement,
+            ORDER    = max(format$ORDER) + 1
           )
         )
       
@@ -769,14 +782,14 @@ apply_formats <- function(
     }
     
     # Update nformat
-    nformats <- dplyr::bind_rows( nformats, format )
+    nformats <- dplyr::bind_rows(nformats, format)
     
     # Replace NA by order in var
     # Add 1e-12 left and right of interval (proportionally) when >= or <= is  
     # used to deal with numerical representation issues
     fs <- c()
     
-    for ( f in 1:nrow(format) ){
+    for (f in 1:nrow(format)) {
       
       matches <- eval(
         parse(
@@ -787,8 +800,8 @@ apply_formats <- function(
               format$EXCLS[f] == 0,
               ifelse(
                 format$START[f] >= 0,
-                format$START[f]*(1-1e-12),
-                format$START[f]*(1+1e-12)
+                format$START[f]*(1 - 1e-12),
+                format$START[f]*(1 + 1e-12)
               ),
               format$START[f]
             ),
@@ -798,8 +811,8 @@ apply_formats <- function(
               format$EXCLE[f] == 0,
               ifelse(
                 format$END[f] >= 0,
-                format$END[f]*(1+1e-12),
-                format$END[f]*(1-1e-12)
+                format$END[f]*(1 + 1e-12),
+                format$END[f]*(1 - 1e-12)
               ),
               format$END[f]
             ),
@@ -808,10 +821,10 @@ apply_formats <- function(
         )
       )
       matches <- !is.na(matches) & matches
-      if ( length(matches) > 0){
+      if (length(matches) > 0) {
         data[matches, var] <- format$ORDER[f]
       }
-      if ( any(matches) ){
+      if (any(matches)) {
         fs <- c(fs, f)
       }
     }
@@ -820,10 +833,10 @@ apply_formats <- function(
     # level in NONMEM table): if yes, revert to original var data; otherwise,
     # apply labels and set var to formatted factors
     
-    if ( any(is.na(data[[var]])) ){
-      misvals <- unique( odata[is.na(data[[var]]),var] )
+    if (any(is.na(data[[var]]))) {
+      misvals  <- unique( odata[is.na(data[[var]]),var] )
       nmisvals <- length(misvals)
-      misvals <- misvals[ 1:min(c(10, nmisvals)) ]
+      misvals  <- misvals[ 1:min(c(10, nmisvals)) ]
       messages <- c(
         messages,
         sprintf(
@@ -831,8 +844,8 @@ apply_formats <- function(
             'Format not applied for %s because',
             'labels were not provided for the\n  following value(s)%s: %s\n'),
           var,
-          ifelse(nmisvals>10,' (only 10 shown)',''),
-          paste(misvals, collapse=', ')
+          ifelse(nmisvals > 10,' (only 10 shown)',''),
+          paste(misvals, collapse = ', ')
         )
       )
       data[[var]] <- odata[[var]]
@@ -847,75 +860,75 @@ apply_formats <- function(
   }
   
   # List formatted variables
-  if ( length(done) > 0 ){
+  if (length(done) > 0) {
     messages <- c(
       messages,
       sprintf(
         paste(
           'The following variables have been formatted and',
           'coerced to factors:\n  %s\n'),
-        paste(done, collapse=', ')
+        paste(done, collapse = ', ')
       )
     )
   }
   
-  if ( !quiet )
+  if (!quiet) {
     cat(
       sprintf(
         '\n%s',
-        paste(messages, collapse='\n')
+        paste(messages, collapse = '\n')
       )
     )
-  
+  }
   # Store information
   
   # Bring back oformats
   # Add original order variable in formats and nformats
   formats <- oformats %>%
     dplyr::mutate(
-      O_ORDER = ORDER,
-      ORDER = NA
+      O_ORDER = dplyr::all_of("ORDER"),
+      ORDER   = NA
     )
   nformats <- nformats %>%
-    dplyr::select( -ISRANGE ) %>%
-    dplyr::mutate( O_ORDER = NA )
+    dplyr::select(-dplyr::all_of("ISRANGE")) %>%
+    dplyr::mutate(O_ORDER = NA)
   
   # Add Missing formats from nformats into formats
   formats <- dplyr::bind_rows(
     formats,
-    nformats[!df_collapse(nformats[, 1:6]) %in% df_collapse(formats[, 1:6]),]
+    nformats[!df_collapse(nformats[, 1:6]) %in% df_collapse(formats[, 1:6]), ]
   )
   
   # Re-order formats before next step and reset ORDER
   formats <- formats %>%
-    dplyr::arrange( VARIABLE, O_ORDER ) %>%
-    dplyr::group_by( VARIABLE ) %>%
+    dplyr::arrange(dplyr::all_of(c("VARIABLE", "O_ORDER"))) %>%
+    dplyr::group_by(dplyr::all_of("VARIABLE")) %>%
     dplyr::mutate(
       ORDER = dplyr::row_number()
     ) %>%
     dplyr::ungroup() %>%
-    dplyr::select( -O_ORDER ) %>%
+    dplyr::select(-dplyr::all_of("O_ORDER")) %>%
     as.data.frame()
   
   # Add O_VARIABLE
   formats <- formats %>%
     dplyr::mutate(
-      O_VARIABLE = paste0('o_', VARIABLE)
+      O_VARIABLE = paste0('o_', dplyr::all_of("VARIABLE"))
     )
   
   # Update object
-  names(odata) <- paste0( 'o_', names(odata) )
-  xpdb$data$data[[.problem]] <- dplyr::bind_cols( data, odata )
+  names(odata) <- paste0('o_', names(odata))
+  xpdb$data$data[[.problem]] <- dplyr::bind_cols(data, odata)
   xpdb$formats <- formats
   xpdb$data$index[[.problem]] <- dplyr::bind_rows(
     xpdb$data$index[[.problem]],
     xpdb$data$index[[.problem]] %>% 
-      dplyr::filter( col %in% fvars) %>% 
-      mutate( col = paste0('o_', col) )
+      dplyr::filter(col %in% fvars) %>% 
+      mutate(col = paste0('o_', col))
   )
   var_types <- c()
-  for ( fvar in fvars ){
-    if (get_var_type(xpdb, .problem, fvar) == 'catcov'){
+  for (fvar in fvars) {
+    if (get_var_types(xpdb, .problem, fvar) == 'catcov') {
       var_types <- c(
         var_types,
         paste0(fvar, ' = \'catcov\'')

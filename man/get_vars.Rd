@@ -16,9 +16,9 @@ get_var_units(xpdb, ..., .problem = NULL)
 \arguments{
 \item{xpdb}{An \code{xpose_data} object.}
 
-\item{.problem}{The problem number to which the edits will be applied.}
+\item{...}{A vector of data variables}
 
-\item{variable}{A vector of data variables}
+\item{.problem}{The problem number to which the edits will be applied.}
 }
 \value{
 A character vector
@@ -29,12 +29,12 @@ with variables
 }
 \examples{
 # Get variable types
-get_var_types(xpdb_ex_pk, .problem = 1, c('ID', 'MED1')
+get_var_types(xpdb_ex_pk, .problem = 1, c('ID', 'MED1'))
 
 # Get variable labels
-get_var_labels(xpdb_ex_pk, .problem = 1, c('ID', 'MED1')
+get_var_labels(xpdb_ex_pk, .problem = 1, c('ID', 'MED1'))
 
 # Get variable units
-get_var_units(xpdb_ex_pk, .problem = 1, c('ID', 'MED1')
+get_var_units(xpdb_ex_pk, .problem = 1, c('ID', 'MED1'))
 
 }

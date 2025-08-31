@@ -9,9 +9,9 @@ get_var_labels_units(xpdb, ..., .problem = NULL)
 \arguments{
 \item{xpdb}{An xpose database object.}
 
-\item{.problem}{The $problem number to be used.}
+\item{...}{variable(s) for which labels and units are to be extracted.}
 
-\item{variable}{Variable(s) for which labels and units are to be extracted.}
+\item{.problem}{The $problem number to be used.}
 }
 \value{
 A character string.

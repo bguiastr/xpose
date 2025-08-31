@@ -5,22 +5,21 @@
 #' 
 #' @param xpdb An \code{xpose_data} object.
 #' @param .problem The problem number to which the edits will be applied.
-#' @param variable A vector of data variables
+#' @param ... A vector of data variables
 #'  
 #' @return A character vector
 #' @examples
 #' # Get variable types
-#' get_var_types(xpdb_ex_pk, .problem = 1, c('ID', 'MED1')
+#' get_var_types(xpdb_ex_pk, .problem = 1, c('ID', 'MED1'))
 #' 
 #' # Get variable labels
-#' get_var_labels(xpdb_ex_pk, .problem = 1, c('ID', 'MED1')
+#' get_var_labels(xpdb_ex_pk, .problem = 1, c('ID', 'MED1'))
 #' 
 #' # Get variable units
-#' get_var_units(xpdb_ex_pk, .problem = 1, c('ID', 'MED1')
+#' get_var_units(xpdb_ex_pk, .problem = 1, c('ID', 'MED1'))
 #' 
 #' @name get_vars
 #' @export
-#' 
 get_var_types <- function(xpdb, ..., .problem = NULL) {
   get_var_generic(
     xpdb = xpdb, .problem = .problem, what = 'type', ...
@@ -33,7 +32,7 @@ get_var_labels <- function(xpdb, ..., .problem = NULL) {
   tmp <- get_var_generic(
     xpdb = xpdb, .problem = .problem, what = 'label', ...
   )
-  if ( any(is.na(tmp)) ){
+  if (any(is.na(tmp))) {
     tmp[is.na(tmp)] <- names(tmp)[is.na(tmp)] 
   }
   tmp
@@ -66,28 +65,27 @@ get_var_generic <- function(xpdb, .problem = NULL, what = NULL, ...) {
     return(NULL)
   
   tmp <- xpdb$data$index[[.problem]] %>% 
-    dplyr::filter( col %in% variables ) %>% 
+    dplyr::filter(col %in% variables ) %>% 
     dplyr::left_join(
       data.frame(
         order_ = 1:length(variables),
-        col = variables
+        col    = variables
       ),
       by = 'col'
     ) %>% 
-    dplyr::arrange(order_)
+    dplyr::arrange(dplyr::all_of("order_"))
   
-  if ( what == 'type' ){
-    res <- tmp %>% dplyr::pull( type )
-  } else if ( what == 'label' ){
-    res <- tmp %>% dplyr::pull( label )
-  } else if ( what == 'units' ){
-    res <- tmp %>% dplyr::pull( units )
+  if (what == 'type') {
+    res <- tmp %>% dplyr::pull(dplyr::all_of("type"))
+  } else if (what == 'label') {
+    res <- tmp %>% dplyr::pull(dplyr::all_of("label"))
+  } else if (what == 'units') {
+    res <- tmp %>% dplyr::pull(dplyr::all_of("units"))
   } else {
     return(NULL)
   }
-  names(res) <- tmp %>% dplyr::pull( col )
-  if (length(res) == 0)
-    res <- NULL
+  names(res) <- tmp %>% dplyr::pull(dplyr::all_of("col"))
+  if (length(res) == 0) res <- NULL
   res
 }
 
@@ -99,7 +97,7 @@ get_var_generic <- function(xpdb, .problem = NULL, what = NULL, ...) {
 #' 
 #' @param xpdb An xpose database object.
 #' @param .problem The $problem number to be used.
-#' @param variable Variable(s) for which labels and units are to be extracted.
+#' @param ... variable(s) for which labels and units are to be extracted.
 #' 
 #' @return A character string.
 #' 
@@ -122,7 +120,7 @@ get_var_labels_units <- function(xpdb, ..., .problem = NULL){
   
   variables <- c(...)
   
-  if ( !is.null(.problem) ){
+  if (!is.null(.problem)) {
     tmp <- data.frame(
       label = get_var_labels( xpdb = xpdb, .problem = .problem, ... ),
       units = get_var_units( xpdb = xpdb, .problem = .problem, ... )
@@ -130,11 +128,11 @@ get_var_labels_units <- function(xpdb, ..., .problem = NULL){
     tmp <- tmp %>% 
       dplyr::mutate( col = row.names(tmp) )
   } else {
-    if ( is.null(xpdb$label_units) ){
+    if (is.null(xpdb$label_units)) {
       return(variables)
     }
     tmp <- xpdb$label_units %>% 
-      dplyr::filter( col %in% variables ) %>% 
+      dplyr::filter(col %in% variables) %>% 
       dplyr::left_join(
         data.frame(
           order_ = 1:length(variables),
@@ -142,27 +140,26 @@ get_var_labels_units <- function(xpdb, ..., .problem = NULL){
         ),
         by = 'col'
       ) %>% 
-      dplyr::mutate( label = ifelse(is.na(label), col, label) ) %>% 
-      dplyr::arrange(order_)
+      dplyr::mutate(label = ifelse(is.na(dplyr::all_of("label")), dplyr::all_of("col"), dplyr::all_of("label"))) %>% 
+      dplyr::arrange(dplyr::all_of("order_"))
   }
   
-  if ( nrow(tmp)==0 )
-    return(NULL)
+  if (nrow(tmp) == 0) return(NULL)
   
-  open_sep <- ifelse( isTRUE(xpdb$options$square_bracket), '[', '(')
-  close_sep <- ifelse( isTRUE(xpdb$options$square_bracket), ']', ')')
+  open_sep  <- ifelse(isTRUE(xpdb$options$square_bracket), '[', '(')
+  close_sep <- ifelse(isTRUE(xpdb$options$square_bracket), ']', ')')
   
   tmp <- tmp %>% 
     dplyr::mutate(
       label_units = ifelse(
-        is.na(units),
-        label,
-        paste0(label,' ', open_sep, units, close_sep)
+        is.na(dplyr::all_of("units")),
+        dplyr::all_of("label"),
+        paste0(dplyr::all_of("label"),' ', dplyr::all_of("open_sep"), dplyr::all_of("units"), dplyr::all_of("close_sep"))
       )
     )
   
-  res <- tmp %>% dplyr::pull( label_units )
-  names(res) <- tmp %>% dplyr::pull( col )
+  res <- tmp %>% dplyr::pull(dplyr::all_of("label_units"))
+  names(res) <- tmp %>% dplyr::pull(dplyr::all_of("col"))
   res
   
 }

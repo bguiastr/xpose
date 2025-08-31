@@ -7,10 +7,15 @@
 apply_formats(xpdb, .problem, formats, quiet)
 }
 \arguments{
+\item{xpdb}{An xpose database object.}
+
+\item{.problem}{The $problem number to be used. By default returns 
+the last estimation problem.}
+
 \item{formats}{A data.frame with an expected structure defined in the Details
 section}
 
-\item{.data}{A data.frame or tibble of data}
+\item{quiet}{Logical, if \code{FALSE} messages are printed to the console.}
 }
 \value{
 An updated data object with the same dimension as the \code{.data}
@@ -79,6 +84,6 @@ fmts <- data.frame(
   order = c(1L, 2L, 1L, 2L, 3L, 4L, 5L)
 )
 fmts
-xp2 <- apply_formats(xpdb, .problem = 1, fmts) 
+xp2 <- apply_formats(xpdb_ex_pk, .problem = 1, fmts) 
 
 }

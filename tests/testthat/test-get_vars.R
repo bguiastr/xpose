@@ -28,7 +28,7 @@ test_that('input is check properly', {
   
 })
 
-test_that('get_vars_type works properly', {
+test_that('get_var_types works properly', {
   expect_true(is.null(get_var_types(xpdb_ex_pk, 'HELLO')))
   expect_type(get_var_types(xpdb_ex_pk, 'ID'), 'character')
   expect_equal(

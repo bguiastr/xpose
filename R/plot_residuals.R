@@ -392,6 +392,7 @@ absval_res_vs_idv <- function(xpdb,
 #'
 #' @inheritParams dv_vs_pred
 #' @param res Type of residual to be used. Default is "CWRES".
+#' @param tad Time after dose variable.
 #' @inheritSection xplot_scatter Layers mapping
 #' @inheritSection xplot_scatter Template titles
 #' @seealso \code{\link{xplot_scatter}}
@@ -423,6 +424,10 @@ res_vs_tad <- function(xpdb,
   check_problem(.problem, .subprob = NULL, .method = NULL)
   
   # Change IDV variable type
+  if (!all(.problem %in% xpdb$data$problem)) {
+    stop('$prob no.', stringr::str_c(.problem[!.problem %in% xpdb$data$problem], collapse = ', '), 
+         ' not found in model output data.', call. = FALSE)
+  }
   vars <- xpdb$data[xpdb$data$problem == .problem, ]$index[[1]]$col
   if (length(tad) > 1) {
     tads <- c('TSPD', 'TSLD', 'TAD', 'TPD')
