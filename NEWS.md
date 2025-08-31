@@ -1,6 +1,8 @@
 # xpose 0.4.20
-* Compatbility fix with `ggplot` (>= 4.0.0)
-* Correct sensitivity of `irep()` to sort order (@jpryby #226)
+* Compatibility fix with `ggplot` (>= 4.0.0)
+* Correct sensitivity of `irep()` to sort order (@jpryby, #226)
+* Improve reliability of NM-TRAN/NMTRAN message detextion (rfaelens #200)
+
 
 # xpose 0.4.19
 * Fixed bug in condition number when Eigen values outputted on multiple records in .lst file (@billdenney & @marianklose, #128)

@@ -107,8 +107,8 @@ read_nm_model <- function(runno     = NULL,
   model$subroutine <- stringr::str_extract(tolower(model$subroutine), '[a-z]{1,3}')
   
   # Format lst part
-  if (any(stringr::str_detect(model$code, 'NM-TRAN MESSAGES'))) {
-    lst_rows <- which(stringr::str_detect(model$code, 'NM-TRAN MESSAGES')):nrow(model)
+  if (any(stringr::str_detect(model$code, 'NM-?TRAN MESSAGES'))) {
+    lst_rows <- which(stringr::str_detect(model$code, 'NM-?TRAN MESSAGES')):nrow(model)
     model[lst_rows,] <- model %>% 
       dplyr::slice(lst_rows) %>% 
       dplyr::mutate(problem = findInterval(seq_along(.$problem), 
