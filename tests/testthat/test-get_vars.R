@@ -3,8 +3,9 @@ xp1 <- set_var_labels(xp1, .problem = 1, ALAG1 = 'Lag time', CL = 'Clearance')
 xp1 <- set_var_units(xp1, .problem = 1, ALAG1 = 'h', CL = 'L/h')
 xp2 <- set_var_labels_units(
   xpdb_ex_pk,
+  .problem = 1,
   info = data.frame(
-    col = c('ALAG1', 'CL', 'V'),
+    col   = c('ALAG1', 'CL', 'V'),
     label = c('Lag time', 'Clearance', 'Volume'),
     units = c('h', NA, 'L')
   )
@@ -30,7 +31,7 @@ test_that('input is check properly', {
 
 test_that('get_var_types works properly', {
   expect_true(is.null(get_var_types(xpdb_ex_pk, 'HELLO')))
-  expect_type(get_var_types(xpdb_ex_pk, 'ID'), 'character')
+  expect_equal(unname(get_var_types(xpdb_ex_pk, 'ID')), 'id')
   expect_equal(
     unname(get_var_types(xp1, 'TIME', 'PRED', 'DOSE')),
     c('idv', 'pred', 'catcov')

@@ -23,13 +23,15 @@ sqaure brackets based upon 'xpose_square_bracket' option.
 }
 \examples{
 labels_units <- data.frame(
-  col = c('ALAG1', 'CL', 'V'),
+  col   = c('ALAG1', 'CL', 'V'),
   label = c('Lag time', 'Clearance', 'Volume'),
   units = c('h', 'L/h', 'L')
 )
 
-get_var_labels_units(xpdb, 'ALAG1')
-get_var_labels_units(xpdb, 'ALAG1', 'CL')
+xpdb_2 <- set_var_labels_units(xpdb_ex_pk, .problem = 1, info = labels_units)
+
+get_var_labels_units(xpdb_2, 'ALAG1')
+get_var_labels_units(xpdb_2, 'ALAG1', 'CL')
 
 }
 \keyword{internal}

@@ -19,8 +19,11 @@ Get the name of the variables used in a mapping argument, based
 upon the coding standard used in the `xpose` package
 }
 \examples{
+\dontrun{
+library(ggplot2)
 mapping <- aes(x = TIME, y = DV, point_color = MED1)
 get_aes(mapping, 'x')
-get_aes(mapping, point_colour)
+get_aes(mapping, 'point_colour') ## Beware "color" gets changed to "colour"
+}
 }
 \keyword{internal}

@@ -2,19 +2,29 @@
 % Please edit documentation in R/vars_set.R
 \name{set_vars}
 \alias{set_vars}
+\alias{set_var_generic}
 \alias{set_var_types}
 \alias{set_var_labels}
 \alias{set_var_units}
 \alias{set_var_labels_units}
 \title{Set variable type, label or units}
 \usage{
+set_var_generic(
+  xpdb,
+  .problem = NULL,
+  ...,
+  what = NULL,
+  auto_factor = TRUE,
+  quiet
+)
+
 set_var_types(xpdb, .problem = NULL, ..., auto_factor = TRUE, quiet)
 
 set_var_labels(xpdb, .problem = NULL, ..., quiet)
 
 set_var_units(xpdb, .problem = NULL, ..., quiet)
 
-set_var_labels_units(xpdb, .problem = NULL, info = NULL)
+set_var_labels_units(xpdb, .problem = NULL, info = NULL, quiet)
 }
 \arguments{
 \item{xpdb}{An \code{xpose_data} object.}
@@ -65,7 +75,8 @@ Function designed to change the type, label or unit associated with variables.
 
 \examples{
 # Change variable type
-xpdb_2 <- set_var_types(xpdb_ex_pk, .problem = 1, catcov = 'DOSE')
+xpdb_2 <- set_var_types(xpdb_ex_pk, catcov = "DOSE", contcov = c("ALAG1", "MED2"))
+list_vars(xpdb_2)
 
 # Change labels
 xpdb_2 <- set_var_labels(xpdb_2, .problem = 1, ALAG1 = 'Lag time', CL = 'Clearance', V = 'Volume')
@@ -73,6 +84,7 @@ xpdb_2 <- set_var_labels(xpdb_2, .problem = 1, ALAG1 = 'Lag time', CL = 'Clearan
 # Change units
 xpdb_2 <- set_var_units(xpdb_2, .problem = 1, ALAG1 = 'h', CL = 'L/h', V = 'L')
 
+# Define multiple label and units at once
 labels_units <- data.frame(
   col = c('ALAG1', 'CL', 'V'),
   label = c('Lag time', 'Clearance', 'Volume'),
@@ -85,3 +97,4 @@ xpdb_2 <- set_var_labels_units(xpdb_ex_pk, .problem = 1, info = labels_units)
 \seealso{
 \code{\link{list_vars}}
 }
+\keyword{internal}

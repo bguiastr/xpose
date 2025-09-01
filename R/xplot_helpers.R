@@ -470,6 +470,7 @@ add_facet_var <- function(facets, variable = 'variable') {
   }
 }
 
+
 #' Extract variable from mapping argument
 #' 
 #' @description Get the name of the variables used in a mapping argument, based
@@ -481,32 +482,26 @@ add_facet_var <- function(facets, variable = 'variable') {
 #' @return The name of a variable.
 #' 
 #' @examples 
+#' \dontrun{
 #' library(ggplot2)
 #' mapping <- aes(x = TIME, y = DV, point_color = MED1)
 #' get_aes(mapping, 'x')
-#' get_aes(mapping, point_colour)
+#' get_aes(mapping, 'point_colour') ## Beware "color" gets changed to "colour"
+#' }
 #' @keywords internal
-
 get_aes <- function(mapping, aes){
   
   aes <- substitute(aes)
   
-  if (is.null(mapping) | is.null(aes))
-    return(NULL)
+  if (is.null(mapping) | is.null(aes)) return(NULL)
   
-  res <- sub(
+  sub(
     '~', '',
     sub(
       '^~.data[[]+\"', '',
       sub(
-      '\"[]]+$', '',
-      paste( mapping[as.character(evalq(aes))] ) )
+        '\"[]]+$', '',
+        paste(mapping[as.character(evalq(aes))]))
     )
   )
-  
-  if ( res == "NULL" ){
-    return(NULL)
-  }
-  
-  res
 }

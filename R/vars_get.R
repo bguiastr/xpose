@@ -59,13 +59,12 @@ get_var_generic <- function(xpdb, .problem = NULL, what = NULL, ...) {
   
   variables <- c(...)
   
-  if (is.null(variables))
-    return(NULL)
-  if (is.null(what))
-    return(NULL)
+  if (is.null(variables) | is.null(what)) return(NULL)
   
   tmp <- xpdb$data$index[[.problem]] %>% 
-    dplyr::filter(col %in% variables ) %>% 
+    dplyr::filter(col %in% variables) %>% 
+    dplyr::select(-dplyr::all_of("table")) %>% 
+    dplyr::distinct() %>% 
     dplyr::left_join(
       data.frame(
         order_ = 1:length(variables),
@@ -73,18 +72,18 @@ get_var_generic <- function(xpdb, .problem = NULL, what = NULL, ...) {
       ),
       by = 'col'
     ) %>% 
-    dplyr::arrange(dplyr::all_of("order_"))
+    dplyr::arrange(!!rlang::sym("order_"))
   
   if (what == 'type') {
-    res <- tmp %>% dplyr::pull(dplyr::all_of("type"))
+    res <- dplyr::pull(tmp, "type")
   } else if (what == 'label') {
-    res <- tmp %>% dplyr::pull(dplyr::all_of("label"))
+    res <- dplyr::pull(tmp, "label")
   } else if (what == 'units') {
-    res <- tmp %>% dplyr::pull(dplyr::all_of("units"))
+    res <- dplyr::pull(tmp, "units")
   } else {
     return(NULL)
   }
-  names(res) <- tmp %>% dplyr::pull(dplyr::all_of("col"))
+  names(res) <- dplyr::pull(tmp, "col")
   if (length(res) == 0) res <- NULL
   res
 }
@@ -103,13 +102,15 @@ get_var_generic <- function(xpdb, .problem = NULL, what = NULL, ...) {
 #' 
 #' @examples
 #' labels_units <- data.frame(
-#'   col = c('ALAG1', 'CL', 'V'),
+#'   col   = c('ALAG1', 'CL', 'V'),
 #'   label = c('Lag time', 'Clearance', 'Volume'),
 #'   units = c('h', 'L/h', 'L')
 #' )
 #' 
-#' get_var_labels_units(xpdb, 'ALAG1')
-#' get_var_labels_units(xpdb, 'ALAG1', 'CL')
+#' xpdb_2 <- set_var_labels_units(xpdb_ex_pk, .problem = 1, info = labels_units)
+#' 
+#' get_var_labels_units(xpdb_2, 'ALAG1')
+#' get_var_labels_units(xpdb_2, 'ALAG1', 'CL')
 #' 
 #' @keywords internal
 #' @export
@@ -131,6 +132,7 @@ get_var_labels_units <- function(xpdb, ..., .problem = NULL){
     if (is.null(xpdb$label_units)) {
       return(variables)
     }
+    
     tmp <- xpdb$label_units %>% 
       dplyr::filter(col %in% variables) %>% 
       dplyr::left_join(
@@ -140,8 +142,8 @@ get_var_labels_units <- function(xpdb, ..., .problem = NULL){
         ),
         by = 'col'
       ) %>% 
-      dplyr::mutate(label = ifelse(is.na(dplyr::all_of("label")), dplyr::all_of("col"), dplyr::all_of("label"))) %>% 
-      dplyr::arrange(dplyr::all_of("order_"))
+      dplyr::mutate(label = ifelse(is.na(!!rlang::sym("label")), !!rlang::sym("col"), !!rlang::sym("label"))) %>% 
+      dplyr::arrange(!!rlang::sym("order_"))
   }
   
   if (nrow(tmp) == 0) return(NULL)
@@ -152,14 +154,16 @@ get_var_labels_units <- function(xpdb, ..., .problem = NULL){
   tmp <- tmp %>% 
     dplyr::mutate(
       label_units = ifelse(
-        is.na(dplyr::all_of("units")),
-        dplyr::all_of("label"),
-        paste0(dplyr::all_of("label"),' ', dplyr::all_of("open_sep"), dplyr::all_of("units"), dplyr::all_of("close_sep"))
+        is.na(!!rlang::sym("units")),
+        !!rlang::sym("label"),
+        paste0(!!rlang::sym("label"),' ', !!rlang::sym("open_sep"), !!rlang::sym("units"), !!rlang::sym("close_sep"))
       )
     )
   
-  res <- tmp %>% dplyr::pull(dplyr::all_of("label_units"))
-  names(res) <- tmp %>% dplyr::pull(dplyr::all_of("col"))
-  res
+  res <- rlang::set_names(
+    x  = dplyr::pull(tmp, "label_units"),
+    nm = dplyr::pull(tmp, "col")
+  )
   
+  return(res)
 }
