@@ -140,11 +140,8 @@ xplot_distrib <- function(xpdb,
   }
   
   # Add labels
-  xp <- xp + labs(title = title, subtitle = subtitle, caption = caption)
+  xp <- xp + labs(title = title, subtitle = subtitle, caption = caption, tag = tag)
   
-  if (utils::packageVersion('ggplot2') >= '3.0.0') {
-    xp <- xp + labs(tag = tag)
-  }
   
   # Add metadata to plots
   xp$xpose <- list(fun      = plot_name,

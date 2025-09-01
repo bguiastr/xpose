@@ -185,9 +185,6 @@ test_that('get_prm works properly', {
 # Tests for get_special ---------------------------------------------------
 test_that('get_special checks input properly', {
   
-  skip_if(condition = utils::packageVersion("dplyr") > "0.8.5" & utils::packageVersion("vpc") < "1.2.1", 
-          message   = "Incompatible package versions...")
-  
   xpdb_vpc <- xpdb_ex_pk %>% 
     vpc_data(quiet = TRUE) %>% 
     vpc_data(vpc_type = 'censored', opt = vpc_opt(lloq = 0.4), quiet = TRUE)
@@ -200,9 +197,6 @@ test_that('get_special checks input properly', {
 })
 
 test_that('get_data works properly', {
-  
-  skip_if(condition = utils::packageVersion("dplyr") > "0.8.5" & utils::packageVersion("vpc") < "1.2.1", 
-          message   = "Incompatible package versions...")
   
   xpdb_vpc <- xpdb_ex_pk %>% 
     vpc_data(quiet = TRUE) %>% 

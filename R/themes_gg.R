@@ -28,24 +28,6 @@
 #' @export
 theme_bw2 <- function(base_size = 11, base_family = '', legend_position = 'right') {
   
-  ## ggplot2 v3.4.0 compatibility fix
-  ## Fix to avoid triggering R CMD check errors
-  element_line <- function(linewidth = NULL, ...) {
-    if (utils::packageVersion("ggplot2") > "3.3.6") {
-      asNamespace("ggplot2")$element_line(linewidth = linewidth, ...)
-    } else {
-      asNamespace("ggplot2")$element_line(size = linewidth, ...)
-    }
-  }
-  
-  element_rect <- function(linewidth = NULL, ...) {
-    if (utils::packageVersion("ggplot2") > "3.3.6") {
-      asNamespace("ggplot2")$element_rect(linewidth = linewidth, ...)
-    } else {
-      asNamespace("ggplot2")$element_rect(size = linewidth, ...)
-    }
-  }
-  
   theme_bw(base_size = base_size, base_family = base_family) %+replace% 
     theme(plot.title = element_text(face = 'bold', size = rel(1.2), hjust = 0, 
                                     vjust = 1, margin = margin(b = base_size/2 * 1.2)),
@@ -63,16 +45,6 @@ theme_bw2 <- function(base_size = 11, base_family = '', legend_position = 'right
 #' @rdname gg_themes
 #' @export
 theme_readable <- function(base_size = 11, base_family = '', legend_position = 'right') {
-  
-  ## ggplot2 v3.4.0 compatibility fix
-  ## Fix to avoid triggering R CMD check errors
-  element_line <- function(linewidth = NULL, ...) {
-    if (utils::packageVersion("ggplot2") > "3.3.6") {
-      asNamespace("ggplot2")$element_line(linewidth = linewidth, ...)
-    } else {
-      asNamespace("ggplot2")$element_line(size = linewidth, ...)
-    }
-  }
   
   theme_gray(base_size = base_size, base_family = base_family) %+replace% 
     theme(plot.title = element_text(face = 'bold', size = rel(1.2), hjust = 0, 

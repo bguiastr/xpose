@@ -34,9 +34,6 @@ test_that('vpc_data properly check input', {
 
 test_that('vpc_data works properly with xpdb tables', {
   
-  skip_if(condition = utils::packageVersion("dplyr") > "0.8.5" & utils::packageVersion("vpc") < "1.2.1", 
-          message   = "Incompatible package versions...")
-  
   xpdb_vpc_test <- xpdb_ex_pk %>%
     vpc_data(opt = vpc_opt(n_bins = 3, lloq = 0.1), quiet = TRUE) %>%
     vpc_data(vpc_type = 'cens', opt = vpc_opt(n_bins = 3, lloq = 0.4), quiet = TRUE)
@@ -70,9 +67,6 @@ test_that('vpc plot properly check input', {
 })
 
 test_that('vpc plot are properly generated', {
-  
-  skip_if(condition = utils::packageVersion("dplyr") > "0.8.5" & utils::packageVersion("vpc") < "1.2.1", 
-          message   = "Incompatible package versions...")
   
   p_cont  <- vpc(ctrl_special, vpc_type = 'continuous', type = 'alrpt', quiet = FALSE)
   p_cont2 <- vpc(ctrl_special, vpc_type = 'continuous', facets = ~group)

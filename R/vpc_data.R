@@ -118,13 +118,6 @@ vpc_data <- function(xpdb,
                             sim_cols = sim_cols, ci = opt$ci, uloq = opt$uloq, lloq = opt$lloq, 
                             smooth = FALSE, vpcdb = TRUE, verbose = !quiet) 
   } else if (vpc_type == 'censored') {
-    
-    # TEMPORARY check compatibility of versions
-    if (utils::packageVersion("dplyr") > "0.8.5" & utils::packageVersion("vpc") < "1.2.1") {
-      stop(paste0("`dplyr` (v", utils::packageVersion("dplyr"),  
-                  ") and `vpc` (v", utils::packageVersion("vpc"), ") are not compatible with each other."), call. = FALSE)
-    }
-    
     vpc_dat <- vpc::vpc_cens(obs = obs_data, sim = sim_data, psn_folder = NULL, bins = opt$bins, 
                              n_bins = opt$n_bins, bin_mid = opt$bin_mid, obs_cols = obs_cols, 
                              sim_cols = sim_cols, stratify = stratify, ci = opt$ci, 

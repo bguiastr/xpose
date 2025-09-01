@@ -256,11 +256,7 @@ vpc <- function(xpdb,
   }
   
   # Add labels
-  xp <- xp + labs(title = title, subtitle = subtitle, caption = caption)
-  
-  if (utils::packageVersion('ggplot2') >= '3.0.0') {
-    xp <- xp + labs(tag = tag)
-  }
+  xp <- xp + labs(title = title, subtitle = subtitle, caption = caption, tag = tag)
   
   if ( isTRUE(xpdb$options$use_labelunit) ){
     

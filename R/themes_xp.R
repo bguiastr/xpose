@@ -116,17 +116,6 @@ theme_xp_default <- function() {
     area_linetype       = 1
   )
   
-  ## ggplot2 v3.4.0 compatibility fix
-  if (utils::packageVersion("ggplot2") < "3.4.0") {
-    names(tmp_theme)[names(tmp_theme) == "line_linewidth"]      <- "line_size"
-    names(tmp_theme)[names(tmp_theme) == "rug_linewidth"]       <- "rug_size"
-    names(tmp_theme)[names(tmp_theme) == "area_linewidth"]      <- "area_size"
-    names(tmp_theme)[names(tmp_theme) == "smooth_linewidth"]    <- "smooth_size"
-    names(tmp_theme)[names(tmp_theme) == "abline_linewidth"]    <- "abline_size"
-    names(tmp_theme)[names(tmp_theme) == "density_linewidth"]   <- "density_size"
-    names(tmp_theme)[names(tmp_theme) == "histogram_linewidth"] <- "histogram_size"
-  }
-  
   as.xpose.theme(tmp_theme)
 }
 
@@ -228,17 +217,6 @@ theme_xp_xpose4 <- function() {
     area_linewidth      = 0.5,
     area_linetype       = 1
   )
-  
-  ## ggplot2 v3.4.0 compatibility fix
-  if (utils::packageVersion("ggplot2") < "3.4.0") {
-    names(tmp_theme)[names(tmp_theme) == "line_linewidth"]      <- "line_size"
-    names(tmp_theme)[names(tmp_theme) == "rug_linewidth"]       <- "rug_size"
-    names(tmp_theme)[names(tmp_theme) == "area_linewidth"]      <- "area_size"
-    names(tmp_theme)[names(tmp_theme) == "smooth_linewidth"]    <- "smooth_size"
-    names(tmp_theme)[names(tmp_theme) == "abline_linewidth"]    <- "abline_size"
-    names(tmp_theme)[names(tmp_theme) == "density_linewidth"]   <- "density_size"
-    names(tmp_theme)[names(tmp_theme) == "histogram_linewidth"] <- "histogram_size"
-  }
   
   as.xpose.theme(tmp_theme)
 }

@@ -185,23 +185,19 @@ xplot_scatter <- function(xpdb,
   }
   
   # Add labels
-  xp <- xp + labs(title = title, subtitle = subtitle, caption = caption)
+  xp <- xp + labs(title = title, subtitle = subtitle, caption = caption, tag = tag)
   
-  if (utils::packageVersion('ggplot2') >= '3.0.0') {
-    xp <- xp + labs(tag = tag)
-  }
-  
-  if ( isTRUE(xpdb$options$use_labelunit) ){
+  if (isTRUE(xpdb$options$use_labelunit)) {
     
     xvar <- get_aes(mapping, 'x')
     yvar <- get_aes(mapping, 'y')
     
-    if ( !is.null(xvar) && xvar != '' ){
+    if (!is.null(xvar) && xvar != '') {
       xp  <- xp + xlab(
         get_var_labels_units( xpdb = xpdb, xvar )
       )
     }
-    if ( !is.null(yvar) && yvar != '' ){
+    if (!is.null(yvar) && yvar != '') {
       xp  <- xp + ylab(
         get_var_labels_units( xpdb = xpdb, yvar )
       )
