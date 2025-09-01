@@ -201,19 +201,9 @@ edit_xpose_data <- function(.fun, .fname, .data, ..., .problem, .source, .where)
     check_quo_vars(xpdb = xpdb, ..., .source = .source, .problem = .problem)
     
     xpdb[['special']] <- xpdb[['special']] %>%
-      dplyr::group_by_at(.vars = 'problem')
-    
-    ## TEMP handling
-    if (tidyr_new_interface()) {
-      xpdb[['special']] <- xpdb[['special']] %>% 
-        tidyr::nest(tmp = -dplyr::one_of('problem')) %>% 
-        dplyr::ungroup()
-    } else {
-      xpdb[['special']] <- xpdb[['special']] %>% 
-        tidyr::nest(.key = 'tmp') %>% 
-        dplyr::ungroup()
-    }
-    ## END TEMP
+      dplyr::group_by_at(.vars = 'problem') %>% 
+      tidyr::nest(tmp = -dplyr::one_of('problem')) %>% 
+      dplyr::ungroup()
     
     xpdb[['special']]$tmp <- purrr::map_if(.x = xpdb[['special']]$tmp, .p = xpdb[['special']]$problem %in% .problem,
                                            .f = function(.x, .fun, .where, ...) {
@@ -268,17 +258,8 @@ edit_xpose_data <- function(.fun, .fname, .data, ..., .problem, .source, .where)
 #' @export
 xpdb_index_update <- function(xpdb, .problem) {
   dat <- xpdb[['data']] %>% 
-    dplyr::group_by_at(.vars = 'problem')
-  
-  ## TEMP handling
-  if (tidyr_new_interface()) {
-    dat <- dat %>% tidyr::nest(tmp = -dplyr::one_of('problem'))
-  } else {
-    dat <- dat %>% tidyr::nest(.key = 'tmp')
-  }
-  ## END TEMP
-  
-  dat %>% 
+    dplyr::group_by_at(.vars = 'problem') %>% 
+    tidyr::nest(tmp = -dplyr::one_of('problem')) %>% 
     dplyr::ungroup() %>% 
     dplyr::mutate(tmp = purrr::map_if(.$tmp, 
                                       xpdb[['data']]$problem %in% .problem,
@@ -364,12 +345,14 @@ check_quo_vars <- function(xpdb, ..., .source, .problem) {
 irep <- function(x, quiet = FALSE) {
   if (missing(x)) stop('argument "x" is missing, with no default', call. = FALSE)
   if (is.factor(x)) x <- as.numeric(as.character(x))
+  
   lagcheck <- dplyr::lag(x, default = x[1]) != x
   dupcheck <- duplicated(x)
-  check <- dplyr::if_else(lagcheck & dupcheck, 1, 0)
-  ilen <- which(check==1)[1] - 1
-  if (length(ilen)==0 || is.na(ilen)) ilen <- length(x)
-  x <- rep(1:(length(x)/ilen), each=ilen)
+  check    <- dplyr::if_else(lagcheck & dupcheck, 1, 0)
+  ilen     <- which(check == 1)[1] - 1
+  
+  if (length(ilen) == 0 || is.na(ilen)) ilen <- length(x)
+  x <- rep(1:(length(x)/ilen), each = ilen)
   msg(c('irep: ', max(x), ' simulations found.'), quiet)
   x
 }

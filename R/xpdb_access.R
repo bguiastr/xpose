@@ -100,30 +100,12 @@ get_data <- function(xpdb,
            ' not found in model output data.', call. = FALSE) 
     }
     x <- full_index[full_index$table %in% table, ] %>% 
-      dplyr::group_by_at(.vars = c('problem', 'table'))
-    
-    ## TEMP handling
-    if (tidyr_new_interface()) {
-      x <- x %>% tidyr::nest(tmp = -dplyr::one_of('problem', 'table'))
-    } else {
-      x <- x %>% tidyr::nest(.key = 'tmp')
-    }
-    ## END TEMP
-    
-    x <- x %>% 
+      dplyr::group_by_at(.vars = c('problem', 'table')) %>% 
+      tidyr::nest(tmp = -dplyr::one_of('problem', 'table')) %>% 
       dplyr::ungroup() %>% 
       dplyr::mutate(cols = purrr::map(.$tmp, ~.$col)) %>% 
-      dplyr::group_by_at(.vars = 'table')
-    
-    ## TEMP handling
-    if (tidyr_new_interface()) {
-      x <- x %>% tidyr::nest(tmp = -dplyr::one_of('table'))
-    } else {
-      x <- x %>% tidyr::nest(.key = 'tmp')
-    }
-    ## END TEMP
-    
-    x <- x %>% 
+      dplyr::group_by_at(.vars = 'table') %>% 
+      tidyr::nest(tmp = -dplyr::one_of('table')) %>% 
       dplyr::ungroup() %>% 
       dplyr::mutate(out = purrr::map(.$tmp, function(y) {
         xpdb$data[xpdb$data$problem == y$problem, ]$data[[1]][, y$cols[[1]]]
@@ -501,7 +483,7 @@ grab_iter <- function(ext, iter) {
 #'
 #' @param prm_names Vector of parameter names as found in .ext 
 #'
-#' @return List of formulas decribing the transformation
+#' @return List of formulas describing the transformation
 #' @keywords internal
 #' @export
 get_prm_transformation_formulas <- function(prm_names) {

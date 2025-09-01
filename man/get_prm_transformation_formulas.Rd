@@ -10,7 +10,7 @@ get_prm_transformation_formulas(prm_names)
 \item{prm_names}{Vector of parameter names as found in .ext}
 }
 \value{
-List of formulas decribing the transformation
+List of formulas describing the transformation
 }
 \description{
 Generate default transformation formulas for parameters

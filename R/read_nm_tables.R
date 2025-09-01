@@ -144,17 +144,8 @@ read_nm_tables <- function(file          = NULL,
   # Index datasets
   tables <- tables %>% 
     dplyr::mutate(grouping = 1:n()) %>% 
-    dplyr::group_by_at(.vars = 'grouping')
-  
-  ## TEMP handling
-  if (tidyr_new_interface()) {
-    tables <- tables %>% tidyr::nest(tmp = -dplyr::one_of('grouping'))
-  } else {
-    tables <- tables %>% tidyr::nest(.key = 'tmp')
-  }
-  ## END TEMP
-  
-  tables <- tables %>%
+    dplyr::group_by_at(.vars = 'grouping') %>% 
+    tidyr::nest(tmp = -dplyr::one_of('grouping')) %>% 
     dplyr::ungroup() %>% 
     dplyr::mutate(index = purrr::map(.$tmp, index_table),
                   nrow =  purrr::map_dbl(.$tmp, ~nrow(.$data[[1]]))) %>% 
@@ -164,17 +155,8 @@ read_nm_tables <- function(file          = NULL,
   
   # Combine tables with same number of rows
   tables <- tables %>% 
-    dplyr::group_by_at(.vars = c('problem', 'simtab', 'firstonly'))
-  
-  ## TEMP handling
-  if (tidyr_new_interface()) {
-    tables <- tables %>% tidyr::nest(tmp = -dplyr::one_of('problem', 'simtab', 'firstonly'))
-  } else {
-    tables <- tables %>% tidyr::nest(.key = 'tmp')
-  }
-  ## END TEMP
-  
-  tables <- tables %>% 
+    dplyr::group_by_at(.vars = c('problem', 'simtab', 'firstonly')) %>% 
+    tidyr::nest(tmp = -dplyr::one_of('problem', 'simtab', 'firstonly')) %>% 
     dplyr::ungroup() %>% 
     dplyr::mutate(out = purrr::map(.$tmp, combine_tables)) %>% 
     tidyr::unnest(dplyr::one_of('out')) %>% 
@@ -186,17 +168,8 @@ read_nm_tables <- function(file          = NULL,
   if (rm_duplicates) {
     tables <- tables %>% 
       dplyr::mutate(grouping = 1:n()) %>% 
-      dplyr::group_by_at(.vars = 'grouping')
-    
-    ## TEMP handling
-    if (tidyr_new_interface()) {
-      tables <- tables %>% tidyr::nest(tmp = -dplyr::one_of('grouping'))
-    } else {
-      tables <- tables %>% tidyr::nest(.key = 'tmp')
-    }
-    ## END TEMP
-    
-    tables <- tables %>% 
+      dplyr::group_by_at(.vars = 'grouping') %>% 
+      tidyr::nest(tmp = -dplyr::one_of('grouping')) %>% 
       dplyr::ungroup() %>%
       dplyr::mutate(out = purrr::map(.$tmp, ~dplyr::select(.$data[[1]], 
                                                            dplyr::one_of(unique(unlist(.$index[[1]]$col)))))) %>% 
@@ -209,17 +182,8 @@ read_nm_tables <- function(file          = NULL,
   if (any(tables$firstonly)) {
     msg('Consolidating tables with `firstonly`', quiet)
     tables <- tables %>%
-      dplyr::group_by_at(.vars = c('problem', 'simtab'))
-    
-    ## TEMP handling
-    if (tidyr_new_interface()) {
-      tables <- tables %>% tidyr::nest(tmp = -dplyr::one_of('problem', 'simtab'))
-    } else {
-      tables <- tables %>% tidyr::nest(.key = 'tmp')
-    }
-    ## END TEMP
-    
-    tables <- tables %>% 
+      dplyr::group_by_at(.vars = c('problem', 'simtab')) %>% 
+      tidyr::nest(tmp = -dplyr::one_of('problem', 'simtab')) %>% 
       dplyr::ungroup() %>%
       dplyr::mutate(out = purrr::map(.$tmp, merge_firstonly, quiet)) %>% 
       tidyr::unnest(dplyr::one_of('out')) %>% 
@@ -231,17 +195,8 @@ read_nm_tables <- function(file          = NULL,
   # Convert catcov, id, occ, dvid to factor
   tables <- tables %>% 
     dplyr::mutate(grouping = .$problem) %>% 
-    dplyr::group_by_at(.vars = 'grouping')
-  
-  ## TEMP handling
-  if (tidyr_new_interface()) {
-    tables <- tables %>% tidyr::nest(tmp = -dplyr::one_of('grouping'))
-  } else {
-    tables <- tables %>% tidyr::nest(.key = 'tmp')
-  }
-  ## END TEMP
-  
-  tables <- tables %>% 
+    dplyr::group_by_at(.vars = 'grouping') %>% 
+    tidyr::nest(tmp = -dplyr::one_of('grouping')) %>% 
     dplyr::ungroup() %>%
     dplyr::mutate(tmp = purrr::map(.$tmp, function(x) {
       col_to_factor <- colnames(x$data[[1]]) %in% 
@@ -269,15 +224,9 @@ read_nm_tables <- function(file          = NULL,
 #' @keywords internal
 #' @export
 read_funs <- function(fun) {
-  if (utils::packageVersion("readr") > "1.4.0") {
   c(csv   = readr::read_csv,
     csv2  = readr::read_csv2,
     table = readr::read_table)[fun]
-  } else {
-    c(csv   = readr::read_csv,
-      csv2  = readr::read_csv2,
-      table = readr::read_table2)[fun]
-  }
 }
 
 

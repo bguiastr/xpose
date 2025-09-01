@@ -76,3 +76,4 @@ test_that_for_all(distribution_functions, 'have proper error check', {
                               mutate(ETA1 = 0, ETA2 = 0, ETA3 = 0) %>% 
                               eta_qq(drop_fixed = FALSE)))
 })
+
