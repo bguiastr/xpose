@@ -1,6 +1,5 @@
 # xpose 0.5.0
 * Cleanup and modernize code
-* Compatibility fix with `ggplot` (>= 4.0.0)
 * Correct sensitivity of `irep()` to sort order (@jpryby, #226)
 * Improve reliability of NM-TRAN/NMTRAN message detection (rfaelens, #200)
 * Additional features (sbihorel, #218)
@@ -9,6 +8,9 @@
   * new functions to set and get variables and units (including new label_units data slots to support label and unit use for simulated data)
   * automated detection and use of variable label and units in scatter plots and vpc plots
   * new function to apply SAS-like data formatting to convert numerical data into text-based factors
+
+# xpose 0.4.20
+* Compatibility fix with `ggplot` (>= 4.0.0)
 
 # xpose 0.4.19
 * Fixed bug in condition number when eigenvalues outputted on multiple records in .lst file (@billdenney & @marianklose, #128)
